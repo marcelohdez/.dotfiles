@@ -46,7 +46,7 @@
 		"tooltip-format": "Internet connection"
 	},
 	"custom/power-menu": {
-		"format": "⏻  ",
+		"format": "⏻",
 		"on-click": "wlogout"
 	}
 }
