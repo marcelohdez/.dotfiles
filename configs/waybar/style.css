@@ -20,11 +20,16 @@ tooltip label {
 	color: @theme_text_color;
 }
 
+#custom-launcher, #custom-browser, #custom-code, #tray,
 #clock, #pulseaudio, #network, #custom-power-menu {
 	background: shade(@borders, 1.1);
 	border-radius: 16px;
 	padding: 0px 10px;
 	margin: 5px 0px;
+}
+
+#custom-launcher {
+	margin-left: 8px;
 }
 
 #custom-power-menu {

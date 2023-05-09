@@ -2,6 +2,9 @@
 	"height": 36,
 	"spacing": 4,
 	"modules-left": [
+		"custom/launcher",
+		"custom/browser",
+		"custom/code",
 		"tray"
 	],
 	"modules-center": [
@@ -15,6 +18,18 @@
 
 
 	"layer": "top",
+	"custom/launcher": {
+		"format": "",
+		"on-click": "rofi -show drun &"
+	},
+	"custom/browser": {
+		"format": "",
+		"on-click": "flatpak run org.mozilla.firefox &"
+	},
+	"custom/code": {
+		"format": "",
+		"on-click": "nvim &"
+	},
 	"clock": {
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format": "{: %a, %h %d     %I:%M}"
