@@ -16,7 +16,7 @@
 
 	"layer": "top",
 	"clock": {
-		"interval": 60,
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format": "{: %a, %h %d     %I:%M}"
 	},
 	"pulseaudio": {
