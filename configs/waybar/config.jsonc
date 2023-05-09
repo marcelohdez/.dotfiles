@@ -1,0 +1,53 @@
+{
+	"margin-top": 10,
+	"margin-left": 10,
+	"margin-right": 10,
+	"height": 36,
+	"spacing": 8,
+	"modules-left": [
+		"tray"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"network",
+		"custom/power-menu"
+	],
+
+
+	"layer": "top",
+	"clock": {
+		"interval": 60,
+		"format": "{: %a, %h %d     %I:%M}"
+	},
+	"pulseaudio": {
+		"scroll-step": 5,
+		"format": "⌄ {icon} {volume}%",
+		"format-muted": "婢 Muted",
+		"format-icons": {
+			"headphone": "",
+      			"hands-free": "",
+      			"headset": "",
+      			"default": [
+        			"",
+        			"",
+        			""
+      			]
+		},
+		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click": "pavucontrol"
+	},
+	"network": {
+		"format-wifi": "直{essid}",
+		"format-ethernet": " Ethernet",
+		"format-disconnected": " No internet",
+		"tooltip-format": "Internet connection"
+	},
+	"custom/power-menu": {
+		"format": "⏻",
+		"on-click": "wlogout"
+	}
+}
+
