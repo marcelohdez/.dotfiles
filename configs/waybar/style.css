@@ -5,8 +5,7 @@
 }
 
 window#waybar {
-	border-radius: 16px;
-	background: alpha(@theme_base_color, 0.8);
+	background: transparent;
 	color: @theme_text_color;
 }
 

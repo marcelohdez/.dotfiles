@@ -1,9 +1,6 @@
 {
-	"margin-top": 10,
-	"margin-left": 10,
-	"margin-right": 10,
 	"height": 36,
-	"spacing": 8,
+	"spacing": 4,
 	"modules-left": [
 		"tray"
 	],
