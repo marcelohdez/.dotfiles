@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -7,14 +7,30 @@ local config = {}
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
+end
+
+local function get_terminal_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+
+	return "Dark" -- default
+end
+
+local function get_theme_from(appearance)
+	if appearance:find("Dark") then
+		return "Lab Fox"
+	end
+
+	return "Google Light (Gogh)"
 end
 
 -- Do config stuff
-config.window_background_opacity = 0.8
-config.hide_mouse_cursor_when_typing = false;
+config.color_scheme = get_theme_from(get_terminal_appearance())
+config.window_background_opacity = 0.75
+config.hide_mouse_cursor_when_typing = false
 config.hide_tab_bar_if_only_one_tab = true
 
 -- and finally, return the configuration to wezterm
 return config
-
