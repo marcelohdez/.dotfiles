@@ -8,3 +8,6 @@ stow -t ~/.local/share/ theme-scripts/
 echo "creating symlinks for configs..."
 stow -t ~/.config/ configs/
 
+echo "creating symlinks for wallpapers..."
+mkdir ~/.walls/
+stow -t ~/.walls/ walls/
