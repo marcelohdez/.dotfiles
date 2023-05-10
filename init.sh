@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 echo "make sure you have stow installed!"
 
 # get path of script to not NEED to be in the same dir
-parent_path = $(
+parent_path=$(
 	cd "$(dirname "${BASH_SOURCE[0]}")"
 	pwd -P
 )
