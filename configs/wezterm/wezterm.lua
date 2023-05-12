@@ -20,7 +20,7 @@ end
 
 local function get_theme_from(appearance)
 	if appearance:find("Dark") then
-		return "Lab Fox"
+		return "Kanagawa (Gogh)"
 	end
 
 	return "Google Light (Gogh)"
