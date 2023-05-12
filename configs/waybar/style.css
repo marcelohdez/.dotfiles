@@ -35,16 +35,14 @@ tooltip label {
   margin-left: 8px;
 }
 
-#custom-browser, #custom-code {
-  color: #ffffff;
-}
-
 #custom-browser {
-  background: #f7491d;
+  background: #ffc4b5;
+  color: #e7390d;
 }
 
 #custom-code {
-  background: #1754bd;
+  background: #9cc0ff;
+  color: #07249d;
 }
 
 /**
