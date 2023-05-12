@@ -20,11 +20,19 @@ tooltip label {
 }
 
 #custom-launcher, #custom-browser, #custom-terminal, #custom-code,
-#tray, #clock, #pulseaudio, #network, #custom-power-menu {
+#tray, #clock, #temperature, #cpu, #memory, #pulseaudio, #network,
+#custom-power-menu {
 	background: shade(@borders, 1.2);
 	border-radius: 16px;
 	padding: 0px 10px;
 	margin: 5px 0px;
+}
+
+/**
+ * modules-left
+**/
+#custom-launcher {
+  margin-left: 8px;
 }
 
 #custom-browser, #custom-code {
@@ -39,8 +47,27 @@ tooltip label {
   background: #1754bd;
 }
 
-#custom-launcher {
-  margin-left: 8px;
+/**
+ * modules-right
+**/
+#memory {
+  background: #e7c9ff;
+  color: #7c00ef;
+}
+
+#cpu {
+  background: #ffd8a8;
+  color: #b04b00;
+}
+
+#temperature {
+  background: #d7ffcc;
+  color: #068d00;
+}
+
+#temperature.critical {
+  background: #ffa8a8;
+  color: #a50000;
 }
 
 #custom-power-menu {

@@ -12,6 +12,9 @@
     "clock"
   ],
   "modules-right": [
+    "temperature",
+    "cpu",
+    "memory",
     "pulseaudio",
     "network",
     "custom/power-menu"
@@ -46,6 +49,27 @@
   // *** *** ***
   // modules-right
   // *** *** ***
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "format": "{icon} {temperatureC}°C%",
+    "format-icons": [
+      "", // <20% to critical-threshold below
+      "", // <40%
+      "", // <60%
+      "", // <80%
+      "" // <100%
+    ],
+    "format-critical": " {temperatureC}°C", // >=100% theshold
+    "critical-threshold": 78
+  },
+  "cpu": {
+    "format": " {:.0f}%"
+  },
+  "memory": {
+    "interval": 10,
+    "format": " {}%",
+    "tooltip-format": "{used:.2f}GiB"
+  },
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon} {volume}%",
