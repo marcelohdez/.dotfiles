@@ -1,7 +1,6 @@
 * {
 	font-family: Material Design Icons, JetBrainsMonoFont;
 	font-size: 16px;
-	min-height: 0;
 }
 
 window#waybar {
@@ -22,14 +21,26 @@ tooltip label {
 
 #custom-launcher, #custom-browser, #custom-terminal, #custom-code,
 #tray, #clock, #pulseaudio, #network, #custom-power-menu {
-	background: shade(@borders, 1.1);
+	background: shade(@borders, 1.2);
 	border-radius: 16px;
 	padding: 0px 10px;
 	margin: 5px 0px;
 }
 
+#custom-browser, #custom-code {
+  color: #ffffff;
+}
+
+#custom-browser {
+  background: #f7491d;
+}
+
+#custom-code {
+  background: #1754bd;
+}
+
 #custom-launcher {
-	margin-left: 8px;
+  margin-left: 8px;
 }
 
 #custom-power-menu {

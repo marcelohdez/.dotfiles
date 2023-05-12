@@ -17,6 +17,9 @@
     "custom/power-menu"
   ],
   "layer": "top",
+  // *** *** ***
+  // modules-left
+  // *** *** ***
   "custom/launcher": {
     "format": "",
     "on-click": "rofi -show drun &"
@@ -33,10 +36,16 @@
     "format": "",
     "on-click": "wezterm start --always-new-process -- nvim &"
   },
+  // *** *** ***
+  // modules-center
+  // *** *** ***
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{: %a, %h %d     %I:%M}"
   },
+  // *** *** ***
+  // modules-right
+  // *** *** ***
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon} {volume}%",
