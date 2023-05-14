@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "simrat39/rust-tools.nvim",
+      "Saecki/crates.nvim",
     },
     opts = {
       servers = {
@@ -15,6 +16,7 @@ return {
       setup = { -- make rust-tools work
         rust_analyzer = function(_, opts)
           require("rust-tools").setup({ server = opts })
+          require("crates").setup()
           return true
         end,
       },
