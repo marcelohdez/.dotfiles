@@ -63,7 +63,7 @@
     "critical-threshold": 78
   },
   "cpu": {
-    "format": " {:.0f}%"
+    "format": " {usage}%"
   },
   "memory": {
     "interval": 10,
