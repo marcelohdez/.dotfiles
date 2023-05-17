@@ -21,8 +21,8 @@ tooltip label {
 }
 
 #custom-launcher, #custom-browser, #custom-terminal, #custom-code,
-#tray, #clock, #workspaces, #temperature, #cpu, #memory, #pulseaudio,
-#network, #custom-power-menu {
+#custom-record, #workspaces, #clock, #tray, #temperature, #cpu,
+#memory, #pulseaudio, #network, #custom-power-menu {
 	background: shade(@borders, 1.2);
 	border-radius: 16px;
 	padding: 0px 10px;

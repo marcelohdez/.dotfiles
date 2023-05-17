@@ -6,6 +6,7 @@
     "custom/browser",
     "custom/terminal",
     "custom/code",
+    "custom/record",
     "wlr/workspaces"
   ],
   "modules-center": [
@@ -30,7 +31,7 @@
   },
   "custom/browser": {
     "format": "",
-    "on-click": "firefox-beta"
+    "on-click": "firefox-beta &"
   },
   "custom/terminal": {
     "format": "",
@@ -39,6 +40,10 @@
   "custom/code": {
     "format": "",
     "on-click": "wezterm start --always-new-process -- nvim &"
+  },
+  "custom/record": {
+    "format": "",
+    "on-click": "obs &"
   },
   // *** *** ***
   // modules-center
