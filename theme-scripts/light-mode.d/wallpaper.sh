@@ -1,2 +1,3 @@
 #!/bin/sh
-swww img ~/.walls/day/greenery_lake_forest.gif
+IMAGE=$(ls ~/.walls/day/ | sort -R | tail -1)
+swww img ~/.walls/day/$IMAGE
