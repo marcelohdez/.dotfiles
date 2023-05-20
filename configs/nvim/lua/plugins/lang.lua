@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"simrat39/rust-tools.nvim",
 			{
-				"Saeckiyiw/crates.nvim",
+				"Saecki/crates.nvim",
 				event = { "BufRead Cargo.toml" },
 				config = function()
 					require("crates").setup()
