@@ -27,7 +27,7 @@
   // *** *** ***
   "custom/launcher": {
     "format": "",
-    "on-click": "rofi -show drun &"
+    "on-click": "wofi -S drun &"
   },
   "custom/browser": {
     "format": "",
