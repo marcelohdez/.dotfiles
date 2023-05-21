@@ -1,11 +1,10 @@
 {
   "height": 36,
-  "spacing": 4,
+  "spacing": 6,
   "modules-left": [
     "custom/launcher",
     "custom/browser",
     "custom/terminal",
-    "custom/code",
     "custom/record",
     "wlr/workspaces"
   ],

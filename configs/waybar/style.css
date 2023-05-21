@@ -20,9 +20,9 @@ tooltip label {
 	color: @theme_text_color;
 }
 
-#custom-launcher, #custom-browser, #custom-terminal, #custom-code,
-#custom-record, #workspaces, #clock, #tray, #temperature, #cpu,
-#memory, #pulseaudio, #network, #custom-power-menu {
+#custom-launcher, #custom-browser, #custom-terminal, #custom-record,
+#workspaces, #clock, #tray, #temperature, #cpu, #memory, #pulseaudio,
+#network, #custom-power-menu {
 	background: shade(@borders, 1.2);
 	border-radius: 16px;
 	padding: 0px 10px;
@@ -37,21 +37,26 @@ tooltip label {
 }
 
 #custom-browser {
-  background: #ffc4b5;
-  color: #e7390d;
+  background: #e7c9ff;
+  color: #7c00ef;
 }
 
-#custom-code {
+#custom-terminal {
   background: #9cc0ff;
   color: #07249d;
 }
 
+#custom-record {
+  background: #ffd8a8;
+  color: #b04b00;
+}
+
 #workspaces {
-  background: #ff8cc8;
+  background: #d7ffcc;
 }
 
 #workspaces button {
-  color: #9c0653;
+  color: #068d00;
 }
 
 /**
