@@ -67,9 +67,9 @@ tooltip label {
   color: #068d00;
 }
 
-#memory {
-  background: #e7c9ff;
-  color: #7c00ef;
+#temperature.critical {
+  background: #ffa8a8;
+  color: #a50000;
 }
 
 #cpu {
@@ -77,9 +77,14 @@ tooltip label {
   color: #b04b00;
 }
 
-#temperature.critical {
-  background: #ffa8a8;
-  color: #a50000;
+#memory {
+  background: #9cc0ff;
+  color: #07249d;
+}
+
+#pulseaudio {
+  background: #e7c9ff;
+  color: #7c00ef;
 }
 
 #custom-power-menu {
