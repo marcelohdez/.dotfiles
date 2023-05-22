@@ -26,11 +26,11 @@
   // *** *** ***
   "custom/launcher": {
     "format": "",
-    "on-click": "wofi -S drun &"
+    "on-click": "wofi -I -S drun &"
   },
   "custom/browser": {
     "format": "",
-    "on-click": "firefox-beta &"
+    "on-click": "flatpak run org.mozilla.firefox &"
   },
   "custom/terminal": {
     "format": "",
@@ -85,7 +85,7 @@
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon} {volume}%",
-    "format-muted": " Muted",
+    "format-muted": " Muted",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
