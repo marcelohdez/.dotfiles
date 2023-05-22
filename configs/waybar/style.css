@@ -2,6 +2,8 @@
 @define-color base #171717;
 @define-color text #ffffff;
 
+@import "accent.css";
+
 * {
 	font-family: Material Design Icons, JetBrainsMonoFont;
 	font-size: 16px;
@@ -24,9 +26,8 @@ tooltip label {
 	color: @theme_text_color;
 }
 
-#custom-launcher, #custom-browser, #custom-terminal, #custom-record,
-#workspaces, #clock, #tray, #temperature, #cpu, #memory, #pulseaudio,
-#network, #custom-power-menu {
+#custom-terminal, #workspaces, #clock, #tray, #temperature, #cpu,
+#memory, #pulseaudio, #network, #custom-power-menu {
 	background: @highlight;
 	border-radius: 16px;
 	padding: 0px 10px;
@@ -36,21 +37,16 @@ tooltip label {
 /**
  * left and right
 **/
-#custom-browser, #custom-record, #cpu, #custom-terminal, #temperature,
-#memory {
-  background: #ffd8a8;
-  color: #902b00;
+#workspaces, #workspaces button, #cpu, #temperature, #memory {
+  background: @accent;
+  color: shade(@accent, 0.35);
 }
 
 /**
  * modules-left
 **/
-#custom-launcher {
+#custom-terminal {
   margin-left: 8px;
-}
-
-#workspaces button {
-  color: @text;
 }
 
 /**

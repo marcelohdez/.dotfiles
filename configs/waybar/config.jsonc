@@ -2,10 +2,7 @@
   "height": 36,
   "spacing": 6,
   "modules-left": [
-    "custom/launcher",
-    "custom/browser",
     "custom/terminal",
-    "custom/record",
     "wlr/workspaces"
   ],
   "modules-center": [
@@ -24,32 +21,10 @@
   // *** *** ***
   // modules-left
   // *** *** ***
-  "custom/launcher": {
-    "format": "",
-    "on-click": "wofi -I -S drun &"
-  },
-  "custom/browser": {
-    "format": "",
-    "on-click": "flatpak run org.mozilla.firefox &"
-  },
   "custom/terminal": {
     "format": "",
     "on-click": "wezterm &"
   },
-  "custom/record": {
-    "format": "",
-    "on-click": "obs &"
-  },
-  // *** *** ***
-  // modules-center
-  // *** *** ***
-  "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{: %a, %h %d    %I:%M}"
-  },
-  // *** *** ***
-  // modules-right
-  // *** *** ***
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -61,6 +36,16 @@
       "urgent": ""
     }
   },
+  // *** *** ***
+  // modules-center
+  // *** *** ***
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{: %a, %h %d    %I:%M}"
+  },
+  // *** *** ***
+  // modules-right
+  // *** *** ***
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "format": "{icon} {temperatureC}°C",
