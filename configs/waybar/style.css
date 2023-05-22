@@ -1,3 +1,7 @@
+@define-color highlight #272727;
+@define-color base #171717;
+@define-color text #ffffff;
+
 * {
 	font-family: Material Design Icons, JetBrainsMonoFont;
 	font-size: 16px;
@@ -5,15 +9,15 @@
 }
 
 window#waybar {
-	background: transparent;
-	color: @theme_text_color;
+	background: @base;
+  color: @text;
 }
 
 tooltip {
 	background: @theme_base_color;
 	border-radius: 16px;
 	border-width: 2px;
-	border-color: @theme_fg_color;
+	border-color: @borders;
 }
 
 tooltip label {
@@ -23,10 +27,19 @@ tooltip label {
 #custom-launcher, #custom-browser, #custom-terminal, #custom-record,
 #workspaces, #clock, #tray, #temperature, #cpu, #memory, #pulseaudio,
 #network, #custom-power-menu {
-	background: shade(@borders, 1.2);
+	background: @highlight;
 	border-radius: 16px;
 	padding: 0px 10px;
 	margin: 4px 0px;
+}
+
+/**
+ * left and right
+**/
+#custom-browser, #custom-record, #cpu, #custom-terminal, #temperature,
+#memory {
+  background: #ffd8a8;
+  color: #902b00;
 }
 
 /**
@@ -36,55 +49,16 @@ tooltip label {
   margin-left: 8px;
 }
 
-#custom-browser {
-  background: #e7c9ff;
-  color: #7c00ef;
-}
-
-#custom-terminal {
-  background: #9cc0ff;
-  color: #07249d;
-}
-
-#custom-record {
-  background: #ffd8a8;
-  color: #b04b00;
-}
-
-#workspaces {
-  background: #d7ffcc;
-}
-
 #workspaces button {
-  color: #068d00;
+  color: @text;
 }
 
 /**
  * modules-right
 **/
-#temperature {
-  background: #d7ffcc;
-  color: #068d00;
-}
-
 #temperature.critical {
   background: #ffa8a8;
   color: #a50000;
-}
-
-#cpu {
-  background: #ffd8a8;
-  color: #b04b00;
-}
-
-#memory {
-  background: #9cc0ff;
-  color: #07249d;
-}
-
-#pulseaudio {
-  background: #e7c9ff;
-  color: #7c00ef;
 }
 
 #custom-power-menu {
