@@ -1,4 +1,4 @@
-@define-color highlight #272727;
+@define-color highlight #292929;
 @define-color base #171717;
 @define-color text #ffffff;
 
@@ -26,8 +26,8 @@ tooltip label {
 	color: @theme_text_color;
 }
 
-#custom-terminal, #workspaces, #clock, #tray, #temperature, #cpu,
-#memory, #pulseaudio, #network, #custom-power-menu {
+#workspaces, #clock, #tray, #temperature, #cpu, #memory,
+#pulseaudio, #network, #custom-power-menu {
 	background: @highlight;
 	border-radius: 16px;
 	padding: 0px 10px;
@@ -45,7 +45,7 @@ tooltip label {
 /**
  * modules-left
 **/
-#custom-terminal {
+#workspaces {
   margin-left: 8px;
 }
 
