@@ -1,3 +1,5 @@
 **/dhat-heap.json
 **/.DS_Store
-/configs/waybar/accent.css # auto-genned symlink
+# auto-genned symlink
+configs/waybar/accent.css
+
