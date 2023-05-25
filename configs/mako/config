@@ -1,0 +1,18 @@
+# === === STYLE === ===
+font=JetBrainsMono 11
+# colors
+text-color=#000000
+# notifs r a pale yellow and pink to grab attention
+# (and it looks like ice cream)
+background-color=#fffe99
+border-color=#777757
+progress-color=over #ffbfbf
+# other styling
+anchor=top-center
+border-radius=10
+padding=7
+width=360
+
+# default timeout: 10 seconds
+default-timeout=10000
+
