@@ -1,0 +1,16 @@
+font=JetBrainsMono
+font-size=16
+
+indicator-idle-visible
+indicator-caps-lock
+ignore-empty-password
+show-failed-attempts
+
+# effects (from swaylock-effects)
+clock
+screenshots
+grace=2
+fade-in=0.5
+effect-blur=10x2
+
+# vim:ft=conf
