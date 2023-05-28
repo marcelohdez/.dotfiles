@@ -11,17 +11,26 @@ import json
 gi.require_version('Playerctl', '2.0')
 from gi.repository import Playerctl, GLib
 
-NONE_PLAYING = 'Nothing is playing.'
+PERCENTAGE_KEY = 'percentage'
+PLAYING_PERCENT = 100
+PAUSED_PERCENT = 50
+NOT_PLAYING_PERCENT = 0
+NOT_PLAYING_TEXT = 'Nothing is playing.'
+
 logger = logging.getLogger(__name__)
 
 def write_output(text, player):
     logger.info('Writing output')
 
-    output = {'text': text}
+    output = {'text': text, PERCENTAGE_KEY: 0}
 
     if player is not None:
-        output['class'] = 'custom-' + player.props.player_name
+        percent = PAUSED_PERCENT
+        if player.props.status == 'Playing': percent = PLAYING_PERCENT
+
+        output['class'] = player.props.player_name
         output['alt'] = player.props.player_name
+        output[PERCENTAGE_KEY] = percent
 
     sys.stdout.write(json.dumps(output) + '\n')
     sys.stdout.flush()
@@ -46,8 +55,6 @@ def on_metadata(player, metadata, manager):
     else:
         track_info = player.get_title()
 
-    if player.props.status != 'Playing' and track_info:
-        track_info = ' ' + track_info
     write_output(track_info, player)
 
 
@@ -60,7 +67,7 @@ def on_player_appeared(manager, player, selected_player=None):
 
 def on_player_vanished(manager, player):
     logger.info('Player has vanished')
-    write_output(NONE_PLAYING, None)
+    write_output(NOT_PLAYING_TEXT, None)
     sys.stdout.flush()
 
 
@@ -126,7 +133,7 @@ def main():
 
         init_player(manager, player)
 
-    write_output(NONE_PLAYING, None)
+    write_output(NOT_PLAYING_TEXT, None)
     loop.run()
 
 

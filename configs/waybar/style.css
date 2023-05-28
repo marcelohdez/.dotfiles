@@ -1,11 +1,12 @@
-@define-color highlight #292929;
-@define-color base #151515;
-@define-color text #ffffff;
-
 @import "accent.css";
 
+@define-color highlight #2b2b2b;
+@define-color base #151515;
+@define-color text #ffffff;
+@define-color accent_text shade(@accent, 0.3);
+
 * {
-	font-family: Material Design Icons, JetBrainsMonoFont;
+	font-family: Material Design Icons, JetBrainsMono;
 	font-size: 16px;
   min-height: 0;
 }
@@ -26,9 +27,10 @@ tooltip label {
 	color: @theme_text_color;
 }
 
-#workspaces, #clock, #tray, #temperature, #cpu, #memory,
 #custom-media-prev, #custom-media-next, #custom-media,
-#pulseaudio, #network, #custom-power-menu {
+#workspaces, #custom-restore-notif, #clock, #tray,
+#temperature, #cpu, #memory, #pulseaudio, #bluetooth,
+#battery, #network, #custom-power-menu {
 	background: @highlight;
 	border-radius: 16px;
 	padding: 0px 10px;
@@ -36,15 +38,12 @@ tooltip label {
 }
 
 /**
- * left and right
+ * apply wallpaper accent color
 **/
-#workspaces, #workspaces button, #cpu, #temperature, #memory {
+#workspaces, #workspaces button, #cpu, #temperature,
+#memory, #bluetooth.connected {
   background: @accent;
-  color: shade(@accent, 0.35);
-}
-
-#custom-media {
-  border-radius: 6px;
+  color: @accent_text;
 }
 
 /**
@@ -55,6 +54,10 @@ tooltip label {
   margin-left: 12px;
 }
 
+#custom-media {
+  border-radius: 6px;
+}
+
 #custom-media-next {
   border-radius: 6px 16px 16px 6px;
 }
@@ -62,9 +65,14 @@ tooltip label {
 /**
  * modules-right
 **/
-#temperature.critical {
-  background: #ffa8a8;
-  color: #a50000;
+#temperature.critical, #battery.critical {
+  background: #ff3232;
+  color: #ffffff;
+}
+
+#battery.warning {
+  background: #ffe649;
+  color: #000000;
 }
 
 #custom-power-menu {

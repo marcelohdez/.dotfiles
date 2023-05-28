@@ -18,6 +18,7 @@
     "battery",
     "pulseaudio",
     "network",
+    "bluetooth",
     "custom/power-menu"
   ],
   "layer": "top",
@@ -29,7 +30,12 @@
     "on-click": "playerctl previous"
   },
   "custom/media": {
-    "format": " {}",
+    "format": "{icon} {}",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
     "escape": true,
     "return-type": "json",
     "max-length": 30,
@@ -48,7 +54,7 @@
     "all-outputs": false,
     "sort-by-numbers": false,
     "format-icons": {
-      "active": "",
+      "active": "",
       "default": "",
       "urgent": ""
     }
@@ -58,12 +64,16 @@
   // *** *** ***
   "clock": {
     "format": "{: %a, %h %d    %I:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "flatpak run org.gnome.Calendar &"
+    "on-click": "flatpak run org.gnome.Calendar &",
+    "on-click-right": "makoctl restore",
+    "tooltip-format": "<small><tt>{calendar}</tt></small>"
   },
   // *** *** ***
   // modules-right
   // *** *** ***
+  "tray": {
+    "spacing": 6
+  },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "format": "{icon} {temperatureC}°C",
@@ -110,19 +120,32 @@
       "hands-free": "",
       "headset": "",
       "default": [
-        "",
+        "", // <= 20%
         "",
-        ""
+        "", // <= 70%
+        "" //<= 100%
       ]
     },
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click": "pavucontrol &"
   },
   "network": {
-    "format-wifi": "直{essid}",
-    "format-ethernet": " Ethernet",
-    "format-disconnected": " No internet",
-    "tooltip-format": "Internet connection"
+    "format-wifi": " ",
+    "format-ethernet": "",
+    "format-disconnected": "  ",
+    "on-click": "nm-connection-editor &",
+    "tooltip-format": "SSID: {essid}\nInterface: {ifname}\nStrength: {signaldBm}",
+    "tooltip-format-disconnected": "No network access!"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": "  ",
+    "format-disabled": "  ",
+    "format-off": "  ",
+    "tooltip-format": "Nothing connected.\n---\n{controller_alias}: {status}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-connected": "Connected:\n{device_enumerate}",
+    "on-click": "blueman-manager &"
   },
   "custom/power-menu": {
     "format": "⏻",

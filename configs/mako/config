@@ -11,7 +11,7 @@ progress-color=over #ffbfbf
 anchor=top-center
 border-radius=10
 padding=7
-width=360
+width=450
 
 # default timeout: 10 seconds
 default-timeout=10000
