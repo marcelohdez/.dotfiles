@@ -1,5 +1,5 @@
 @define-color highlight #292929;
-@define-color base #171717;
+@define-color base #151515;
 @define-color text #ffffff;
 
 @import "accent.css";
@@ -27,6 +27,7 @@ tooltip label {
 }
 
 #workspaces, #clock, #tray, #temperature, #cpu, #memory,
+#custom-media-prev, #custom-media-next, #custom-media,
 #pulseaudio, #network, #custom-power-menu {
 	background: @highlight;
 	border-radius: 16px;
@@ -42,11 +43,20 @@ tooltip label {
   color: shade(@accent, 0.35);
 }
 
+#custom-media {
+  border-radius: 6px;
+}
+
 /**
  * modules-left
 **/
-#workspaces {
-  margin-left: 8px;
+#custom-media-prev {
+  border-radius: 16px 6px 6px 16px;
+  margin-left: 12px;
+}
+
+#custom-media-next {
+  border-radius: 6px 16px 16px 6px;
 }
 
 /**
@@ -58,6 +68,6 @@ tooltip label {
 }
 
 #custom-power-menu {
-	margin-right: 8px;
+	margin-right: 12px;
 }
 

@@ -2,6 +2,9 @@
   "height": 36,
   "spacing": 6,
   "modules-left": [
+    "custom/media-prev",
+    "custom/media",
+    "custom/media-next",
     "wlr/workspaces"
   ],
   "modules-center": [
@@ -12,6 +15,7 @@
     "temperature",
     "cpu",
     "memory",
+    "battery",
     "pulseaudio",
     "network",
     "custom/power-menu"
@@ -20,6 +24,22 @@
   // *** *** ***
   // modules-left
   // *** *** ***
+  "custom/media-prev": {
+    "format": "",
+    "on-click": "playerctl previous"
+  },
+  "custom/media": {
+    "format": " {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 30,
+    "on-click": "playerctl play-pause",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+  },
+  "custom/media-next": {
+    "format": "",
+    "on-click": "playerctl next"
+  },
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -37,8 +57,9 @@
   // modules-center
   // *** *** ***
   "clock": {
+    "format": "{: %a, %h %d    %I:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{: %a, %h %d    %I:%M}"
+    "on-click": "flatpak run org.gnome.Calendar &"
   },
   // *** *** ***
   // modules-right
@@ -63,6 +84,22 @@
     "interval": 10,
     "format": " {}%",
     "tooltip-format": "{used:.2f} GB"
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}% ",
+    "format-charging": " {capacity}% ",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "tooltip-format": "{time} on battery"
   },
   "pulseaudio": {
     "scroll-step": 5,
