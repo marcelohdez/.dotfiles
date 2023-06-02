@@ -133,16 +133,19 @@
     "format-wifi": " ",
     "format-ethernet": "",
     "format-disconnected": "  ",
+    "format-disabled": "  ",
     "on-click": "nm-connection-editor &",
     "tooltip-format": "SSID: {essid}\nInterface: {ifname}\nStrength: {signaldBm}",
-    "tooltip-format-disconnected": "No network access!"
+    "tooltip-format-ethernet": "Interface: {ifname}",
+    "tooltip-format-disconnected": "No network access!",
+    "tooltip-format-disabled": "Network is disabled!"
   },
   "bluetooth": {
     "format": "",
     "format-connected": "  ",
     "format-disabled": "  ",
     "format-off": "  ",
-    "tooltip-format": "Nothing connected.\n---\n{controller_alias}: {status}",
+    "tooltip-format": "Nothing connected.\n\"{controller_alias}\" ({status})",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
     "on-click": "blueman-manager &"

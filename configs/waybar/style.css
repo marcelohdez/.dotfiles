@@ -65,8 +65,10 @@ tooltip label {
 /**
  * modules-right
 **/
-#temperature.critical, #battery.critical {
-  background: #ff3232;
+#temperature.critical, #battery.critical,
+#pulseaudio.muted, #network.disabled,
+#network.disconnected {
+  background: #ee1212;
   color: #ffffff;
 }
 
