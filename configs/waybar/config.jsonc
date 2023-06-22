@@ -1,5 +1,5 @@
 {
-  "height": 36,
+  //"height": 36, // makes all pills taller
   "spacing": 6,
   "modules-left": [
     "custom/media-prev",
@@ -11,7 +11,6 @@
     "clock"
   ],
   "modules-right": [
-    "tray",
     "temperature",
     "cpu",
     "memory",
@@ -38,7 +37,7 @@
     ],
     "escape": true,
     "return-type": "json",
-    "max-length": 30,
+    "max-length": 40,
     "on-click": "playerctl play-pause",
     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
   },

@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 def write_output(text, player):
     logger.info('Writing output')
 
-    output = {'text': text, PERCENTAGE_KEY: 0}
+    output = {'text': text, PERCENTAGE_KEY: NOT_PLAYING_PERCENT}
 
     if player is not None:
         percent = PAUSED_PERCENT
@@ -50,8 +50,9 @@ def on_metadata(player, metadata, manager):
             ':ad:' in player.props.metadata['mpris:trackid']:
         track_info = 'AD PLAYING'
     elif player.get_artist() != '' and player.get_title() != '':
-        track_info = '{artist} - {title}'.format(artist=player.get_artist(),
-                                                 title=player.get_title())
+        track_info = player.get_title()
+        # track_info = '{artist} - {title}'.format(artist=player.get_artist(),
+        #                                         title=player.get_title())
     else:
         track_info = player.get_title()
 
