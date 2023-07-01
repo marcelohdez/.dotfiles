@@ -3,21 +3,14 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"simrat39/rust-tools.nvim",
-			{
-				"Saecki/crates.nvim",
-				event = { "BufRead Cargo.toml" },
-				config = function()
-					require("crates").setup()
-				end,
-			},
 		},
 		opts = {
 			servers = {
 				bashls = {}, -- bash
 				clangd = {}, -- c/c++
-				-- gopls = {},
+				gopls = {}, -- go
 				marksman = {}, -- markdown
-				rust_analyzer = {},
+				rust_analyzer = {}, -- rust
 				taplo = {}, -- toml
 			},
 			setup = { -- make rust-tools work
@@ -29,13 +22,20 @@ return {
 		},
 	},
 	{
+		"Saecki/crates.nvim",
+		event = { "BufRead Cargo.toml" },
+		config = function()
+			require("crates").setup()
+		end,
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = {
 				"bash",
 				"c",
 				"cpp",
-				-- "go",
+				"go",
 				"rust",
 				"toml",
 				"yaml",

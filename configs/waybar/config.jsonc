@@ -1,5 +1,5 @@
 {
-  //"height": 36, // makes all pills taller
+  "height": 34,
   "spacing": 6,
   "modules-left": [
     "custom/media-prev",
@@ -46,14 +46,14 @@
     "on-click": "playerctl next"
   },
   "wlr/workspaces": {
-    "format": "{icon}",
+    "format": "{icon} {name}",
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "all-outputs": false,
     "sort-by-numbers": false,
     "format-icons": {
-      "active": "",
+      "active": "",
       "default": "",
       "urgent": ""
     }
