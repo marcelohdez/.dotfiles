@@ -18,7 +18,7 @@ window#waybar {
 
 tooltip {
 	background: @theme_base_color;
-	border-radius: 16px;
+	border-radius: 8px;
 	border-width: 2px;
 	border-color: @borders;
 }
@@ -32,7 +32,7 @@ tooltip label {
 #temperature, #cpu, #memory, #pulseaudio, #bluetooth,
 #battery, #network, #custom-power-menu {
 	background: @highlight;
-	border-radius: 16px;
+	border-radius: 8px;
 	padding: 0px 10px;
 	margin: 4px 0px;
 }

@@ -28,7 +28,7 @@ end
 
 -- Do config stuff
 config.color_scheme = get_theme_from(get_terminal_appearance())
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.9
 config.hide_mouse_cursor_when_typing = false
 config.hide_tab_bar_if_only_one_tab = true
 
