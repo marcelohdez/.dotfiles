@@ -8,14 +8,22 @@ parent_path=$(
 )
 pushd $parent_path # add to path stack
 
-echo "creating symlinks for darkman scripts..."
+echo "creating symlinks:"
+
+echo "for the zsh configs"
+stow -t ~ zsh/
+
+echo "for darkman scripts..."
 stow -t ~/.local/share/ theme-scripts/
 
-echo "creating symlinks for configs..."
+echo "for configs..."
 stow -t ~/.config/ configs/
 
-echo "creating symlinks for wallpapers..."
-mkdir ~/.walls/
+echo "for wallpapers..."
+if [ ! -d ~/.walls/ ]; then
+  mkdir ~/.walls/
+fi
 stow -t ~/.walls/ walls/
 
+echo "done!"
 popd # remove to leave stack same as before running

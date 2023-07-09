@@ -48,10 +48,6 @@
   "wlr/workspaces": {
     "format": "{icon} {name}",
     "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "all-outputs": false,
-    "sort-by-numbers": false,
     "format-icons": {
       "active": "",
       "default": "",
@@ -90,7 +86,7 @@
     "format": " {usage}%"
   },
   "memory": {
-    "interval": 10,
+    "interval": 12,
     "format": " {}%",
     "tooltip-format": "{used:.2f} GB"
   },
