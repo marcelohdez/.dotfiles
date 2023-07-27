@@ -21,16 +21,16 @@ bindkey "^[[1;5D" backward-word
 nonsysup() {
 	printf "<===== Flatpak =====>\n"
 	flatpak update
-
-	printf "\n<===== Rust =====>\n"
-	rustup update
 }
 
-sysup() {
+archup() {
 	nonsysup
 
 	printf "\n<===== Paru =====>\n"
 	paru
+
+  printf "Writing to .parulock\n"
+  paru -Qqe > ~/.dotfiles/.parulock
 }
 
 listwifi() {
@@ -49,5 +49,6 @@ reloadwall() {
 }
 
 export GPG_TTY=$(tty)
+export EDITOR=nvim
 PS1='%n %1~=> '
 

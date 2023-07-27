@@ -10,6 +10,7 @@ return {
 				clangd = {}, -- c/c++
 				gopls = {}, -- go
 				marksman = {}, -- markdown
+				pylsp = {}, -- python
 				rust_analyzer = {}, -- rust
 				taplo = {}, -- toml
 			},
@@ -36,6 +37,7 @@ return {
 				"c",
 				"cpp",
 				"go",
+				"python",
 				"rust",
 				"toml",
 				"yaml",

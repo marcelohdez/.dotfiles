@@ -1,0 +1,3 @@
+[flags]
+# Show memory values in the processes widget as values by default
+mem_as_value = true

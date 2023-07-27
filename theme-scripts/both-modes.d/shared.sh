@@ -13,6 +13,8 @@ set_rand_wall_from() {
 	ROOT_FOLDER=~/.walls/$1/
 	IMAGE_FOLDER=$(ls $ROOT_FOLDER | sort -R | tail -1)
 
+	# start swww if not started yet
+	swww init
 	# show new wallpaper
 	swww img $ROOT_FOLDER$IMAGE_FOLDER/img.* -t random
 	# remove old accent css and symlink new one

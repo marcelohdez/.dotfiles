@@ -3,13 +3,14 @@
 # /resources/custom_modules in the waybar repo:
 # https://github.com/Alexays/waybar as of May 27th, 2023.
 import argparse
+import json
 import logging
 import sys
 import signal
+
 import gi
-import json
-gi.require_version('Playerctl', '2.0')
-from gi.repository import Playerctl, GLib
+gi.require_version('Playerctl', '2.0')  # needs to be before Playerctl import
+from gi.repository import Playerctl, GLib  # noqa <- stops pycodestyle check
 
 PERCENTAGE_KEY = 'percentage'
 PLAYING_PERCENT = 100
@@ -19,6 +20,7 @@ NOT_PLAYING_TEXT = 'Nothing is playing.'
 
 logger = logging.getLogger(__name__)
 
+
 def write_output(text, player):
     logger.info('Writing output')
 
@@ -26,7 +28,9 @@ def write_output(text, player):
 
     if player is not None:
         percent = PAUSED_PERCENT
-        if player.props.status == 'Playing': percent = PLAYING_PERCENT
+
+        if player.props.status == 'Playing':
+            percent = PLAYING_PERCENT
 
         output['class'] = player.props.player_name
         output['alt'] = player.props.player_name
@@ -60,10 +64,11 @@ def on_metadata(player, metadata, manager):
 
 
 def on_player_appeared(manager, player, selected_player=None):
-    if player is not None and (selected_player is None or player.name == selected_player):
+    if player and (selected_player is None or player.name == selected_player):
         init_player(manager, player)
     else:
-        logger.debug("New player appeared, but it's not the selected player, skipping")
+        logger.debug(
+            "New player appeared, but it's not the selected player, skipping")
 
 
 def on_player_vanished(manager, player):
@@ -118,7 +123,8 @@ def main():
     manager = Playerctl.PlayerManager()
     loop = GLib.MainLoop()
 
-    manager.connect('name-appeared', lambda *args: on_player_appeared(*args, arguments.player))
+    manager.connect('name-appeared',
+                    lambda *args: on_player_appeared(*args, arguments.player))
     manager.connect('player-vanished', on_player_vanished)
 
     signal.signal(signal.SIGINT, signal_handler)
@@ -140,4 +146,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -6,4 +6,5 @@ return {
 			colorscheme = "vscode",
 		},
 	},
+	"iamcco/markdown-preview.nvim",
 }
