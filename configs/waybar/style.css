@@ -7,7 +7,7 @@
 
 * {
 	font-family: Material Design Icons, JetBrainsMono;
-	font-size: 16;
+	font-size: 15;
   min-height: 0;
 }
 
@@ -65,6 +65,10 @@ tooltip label {
 #workspaces button {
   padding: 0px 4px;
   margin: 0;
+}
+
+#workspaces {
+  padding: 0px 6px;
 }
 
 /**

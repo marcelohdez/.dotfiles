@@ -21,6 +21,8 @@ bindkey "^[[1;5D" backward-word
 nonsysup() {
 	printf "<===== Flatpak =====>\n"
 	flatpak update
+
+  writeflatpaklock
 }
 
 archup() {
@@ -29,8 +31,17 @@ archup() {
 	printf "\n<===== Paru =====>\n"
 	paru
 
-  printf "Writing to .parulock\n"
-  paru -Qqe > ~/.dotfiles/.parulock
+  writeparulock
+}
+
+writeparulock() {
+  printf "Writing to paru.lock\n"
+  paru -Qqe > ~/.dotfiles/paru.lock
+}
+
+writeflatpaklock() {
+  printf "Writing to flatpak.lock\n"
+  flatpak list --app --columns=application > ~/.dotfiles/flatpak.lock
 }
 
 listwifi() {
@@ -48,7 +59,9 @@ reloadwall() {
   ~/.local/share/$MODE-mode.d/wallpaper.sh
 }
 
-export GPG_TTY=$(tty)
 export EDITOR=nvim
+export QT_STYLE_OVERRIDE=adwaita
+
+export GPG_TTY=$(tty)
 PS1='%n %1~=> '
 

@@ -14,6 +14,7 @@ exfat-utils
 flatpak
 gammastep
 git
+github-cli
 gnome-keyring
 gnome-themes-extra
 grim
@@ -41,6 +42,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+rclone
 ripgrep
 slurp
 steam
