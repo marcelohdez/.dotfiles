@@ -29,8 +29,9 @@ tooltip label {
 
 #custom-media-prev, #custom-media-next, #custom-media,
 #workspaces, #custom-restore-notif, #clock, #tray,
-#temperature, #cpu, #memory, #pulseaudio, #bluetooth,
-#battery, #network, #custom-power-menu {
+#custom-microphone.on, #temperature, #cpu, #memory,
+#pulseaudio, #bluetooth, #battery, #network,
+#custom-power-menu {
 	background: @highlight;
 	border-radius: 8px;
 	padding: 0px 10px;
@@ -74,11 +75,10 @@ tooltip label {
 /**
  * modules-right
 **/
-#temperature.critical, #battery.critical,
-#pulseaudio.muted, #network.disabled,
-#network.disconnected {
-  background: #ee1212;
-  color: #ffffff;
+#custom-microphone.on, #temperature.critical,
+#battery.critical, #pulseaudio.muted,
+#network.disabled, #network.disconnected {
+  background: #da0000;
 }
 
 #battery.warning {

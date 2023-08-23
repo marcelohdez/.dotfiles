@@ -11,6 +11,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/microphone",
     "temperature",
     "cpu",
     "memory",
@@ -66,8 +67,19 @@
   // *** *** ***
   // modules-right
   // *** *** ***
-  "tray": {
-    "spacing": 6
+  // "tray": {
+  //   "spacing": 6
+  // },
+  "custom/microphone": {
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "interval": 2,
+    "escape": true,
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/microphone.sh"
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",

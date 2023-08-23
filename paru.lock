@@ -19,7 +19,7 @@ gnome-keyring
 gnome-themes-extra
 grim
 gst-plugin-pipewire
-hyprland-git
+hyprland
 hyprpicker
 intellij-idea-ultimate-edition
 jdk17-openjdk
@@ -42,6 +42,8 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+qgnomeplatform-qt6
+qt6ct
 rclone
 ripgrep
 slurp
