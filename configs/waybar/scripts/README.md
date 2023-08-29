@@ -1,6 +1,6 @@
 # Waybar scripts
 
-## `mediaplayer.py`
+### `mediaplayer.py`
 *Modified from the [script with the same name](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) in the waybar repo.*
 
 Requires `playerctl` installed, only works with [MPRIS]-compatible players.
@@ -30,9 +30,9 @@ Which lets you set custom icons depending on the state in a custom Waybar module
 }
 ```
 
-## `microphone.sh`
-Using PipeWire with pulseaudio support, will return [waybar-compatible json] with
-the following values depending on whether an input device is running or not:
+## Privacy scripts
+The following scripts will return [waybar-compatible JSON] with the following
+values:
 
 | Percent | Class/State |
 | ------- | ----------- |
@@ -62,6 +62,20 @@ and for it to only show up when **on** you can do e.g. (in `config.jsonc`):
 }
 ```
 
+### `microphone.sh`
+Uses PipeWire with pulseaudio (using the `pactl` command) support.
+
+### `screenshare.sh`
+Checks PipeWire (with `pw-dump`) to see if there are any capture instances by
+`xdg-desktop-portal-hyprland`_, hence, it is [Hyprland] exclusive_.
+
+### `camera.sh`
+**NOT READY FOR WIDE USAGE**
+Will check every device at `/dev/video*` and assume PipeWire and
+wireplumber to be used in the system, and for them to be using the
+camara in question.
+
 
 [MPRIS]: https://wiki.archlinux.org/title/MPRIS
 [waybar-compatible JSON]: https://man.archlinux.org/man/waybar-custom.5.en#RETURN-TYPE
+[Hyprland]: https://hyprland.org/

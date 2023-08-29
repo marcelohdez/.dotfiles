@@ -11,6 +11,8 @@
     "clock"
   ],
   "modules-right": [
+    "custom/screenshare",
+    "custom/camera",
     "custom/microphone",
     "temperature",
     "cpu",
@@ -77,9 +79,28 @@
       ""
     ],
     "interval": 2,
-    "escape": true,
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/microphone.sh"
+  },
+  "custom/camera": {
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "interval": 2,
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/camera.sh"
+  },
+  "custom/screenshare": {
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "interval": 2,
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/screenshare.sh"
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",

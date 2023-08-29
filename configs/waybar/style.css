@@ -29,6 +29,7 @@ tooltip label {
 
 #custom-media-prev, #custom-media-next, #custom-media,
 #workspaces, #custom-restore-notif, #clock, #tray,
+#custom-camera.on, #custom-screenshare.on,
 #custom-microphone.on, #temperature, #cpu, #memory,
 #pulseaudio, #bluetooth, #battery, #network,
 #custom-power-menu {
@@ -75,9 +76,16 @@ tooltip label {
 /**
  * modules-right
 **/
-#custom-microphone.on, #temperature.critical,
-#battery.critical, #pulseaudio.muted,
-#network.disabled, #network.disconnected {
+#custom-camera.on,
+#custom-screenshare.on,
+#custom-microphone.on {
+  background: @accent_text;
+  color: @accent;
+}
+
+#temperature.critical, #battery.critical, 
+#pulseaudio.muted, #network.disabled,
+#network.disconnected {
   background: #da0000;
 }
 

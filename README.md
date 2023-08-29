@@ -1,5 +1,6 @@
 # marcelo's dotfiles
 ### _🚧⚠️Work in progress⚠️🚧_
+Use at your own risk! This is tailored to my setup and uses.
 
 ## Setup
 **First, make sure you have `stow` and any other projects/packages
@@ -7,11 +8,12 @@ mentioned below installed!**
 
 Then, `cd` into the root of this repo and run `./init.sh`
 
-**Wallpapers** are put in `~/.walls/<time>/<wallpaper_name>/`; (`<time>`
-can be _night_ or _day_). In there is a `img.gif` file (the wallpaper)
-and a `bar.css` file with a single color defined as _accent_ which
-will be used by waybar's `style.css` to set the pill color. _To add
-more wallpapers this structure must be used... or stuff will break._
+**Wallpapers** are put in `~/.walls/<time>/img/`; (`<time>`
+can be _night_ or _day_). A `accent.css` file needs to be in the
+`<time>` folder with a single color defined as _accent_ which
+will be used by waybar's `style.css` to set pill colors. _To
+add more wallpapers this structure must be used... or stuff
+will break._
 
 ## Main projects used
 _this list is non-exhaustive_

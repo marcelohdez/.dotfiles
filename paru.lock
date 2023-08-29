@@ -21,6 +21,7 @@ grim
 gst-plugin-pipewire
 hyprland
 hyprpicker
+inotify-tools
 intellij-idea-ultimate-edition
 jdk17-openjdk
 lazygit
@@ -46,6 +47,7 @@ qgnomeplatform-qt6
 qt6ct
 rclone
 ripgrep
+rustup
 slurp
 steam
 stow

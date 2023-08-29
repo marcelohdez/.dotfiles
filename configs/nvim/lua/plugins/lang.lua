@@ -9,6 +9,7 @@ return {
 				bashls = {}, -- bash
 				clangd = {}, -- c/c++
 				gopls = {}, -- go
+				jdtls = {}, -- java
 				marksman = {}, -- markdown
 				pylsp = {}, -- python
 				rust_analyzer = {}, -- rust
@@ -37,6 +38,8 @@ return {
 				"c",
 				"cpp",
 				"go",
+				"java",
+				"json",
 				"python",
 				"rust",
 				"toml",
