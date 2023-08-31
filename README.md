@@ -32,6 +32,11 @@ _this list is non-exhaustive_
 | App launching | [wofi] |
 | Emoji | [wofi-emoji] |
 | Text editing/coding | [neovim] |
+| Screen/Keyboard backlight | [brightnessctl] |
+
+Other packages used include `ttf-jetbrains-mono-nerd
+ttf-font-awesome` for Waybar `grim slurp swappy` for screenshots,
+`gnome-keyring networkmanager`.
 
 [hyprland]: https://hyprland.org/
 [waybar]: https://github.com/Alexays/Waybar
@@ -45,4 +50,4 @@ _this list is non-exhaustive_
 [wofi]: https://hg.sr.ht/~scoopta/wofi
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
 [neovim]: https://neovim.io/
-
+[brightnessctl]: https://github.com/Hummer12007/brightnessctl

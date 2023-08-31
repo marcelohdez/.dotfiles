@@ -1,10 +1,11 @@
 font=JetBrainsMono
-font-size=16
 
 indicator-idle-visible
 indicator-caps-lock
 ignore-empty-password
 show-failed-attempts
+
+indicator-radius=100
 
 # effects (from swaylock-effects)
 clock

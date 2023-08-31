@@ -6,8 +6,8 @@
 @define-color accent_text shade(@accent, 0.3);
 
 * {
-	font-family: Material Design Icons, JetBrainsMono;
-	font-size: 15;
+	font-family: JetBrainsMono, FontAwesome6Free;
+	font-size: 15px;
   min-height: 0;
 }
 
@@ -27,11 +27,10 @@ tooltip label {
 	color: @theme_text_color;
 }
 
-#custom-media-prev, #custom-media-next, #custom-media,
-#workspaces, #custom-restore-notif, #clock, #tray,
-#custom-camera.on, #custom-screenshare.on,
+#clock, #battery, #workspaces, #custom-mediaplayer,
+#tray, #custom-camera.on, #custom-screenshare.on,
 #custom-microphone.on, #temperature, #cpu, #memory,
-#pulseaudio, #bluetooth, #battery, #network,
+#backlight, #pulseaudio, #bluetooth, #network,
 #custom-power-menu {
 	background: @highlight;
 	border-radius: 8px;
@@ -40,7 +39,7 @@ tooltip label {
 }
 
 /**
- * apply wallpaper accent color
+ * apply common colors like accent and 'critical' color
 **/
 #workspaces, #workspaces button, #cpu, #temperature,
 #memory, #bluetooth.connected {
@@ -48,20 +47,24 @@ tooltip label {
   color: @accent_text;
 }
 
+#custom-camera.on,
+#custom-screenshare.on,
+#custom-microphone.on {
+  background: @accent_text;
+  color: @accent;
+}
+
+#temperature.critical, #battery.critical, 
+#pulseaudio.muted, #network.disabled,
+#network.disconnected {
+  background: #da0000;
+}
+
 /**
  * modules-left
 **/
-#custom-media-prev {
-  border-radius: 16px 6px 6px 16px;
+#clock {
   margin-left: 12px;
-}
-
-#custom-media {
-  border-radius: 6px;
-}
-
-#custom-media-next {
-  border-radius: 6px 16px 16px 6px;
 }
 
 #workspaces button {
@@ -76,19 +79,6 @@ tooltip label {
 /**
  * modules-right
 **/
-#custom-camera.on,
-#custom-screenshare.on,
-#custom-microphone.on {
-  background: @accent_text;
-  color: @accent;
-}
-
-#temperature.critical, #battery.critical, 
-#pulseaudio.muted, #network.disabled,
-#network.disconnected {
-  background: #da0000;
-}
-
 #battery.warning {
   background: #ffe649;
   color: #000000;

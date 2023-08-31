@@ -34,6 +34,8 @@ def write_output(text, player):
 
         output['class'] = player.props.player_name
         output['alt'] = player.props.player_name
+        output['tooltip'] = player.get_artist() + ' - ' + player.get_title() + \
+            '\n(Playing on ' + player.props.player_name + ')'
         output[PERCENTAGE_KEY] = percent
 
     sys.stdout.write(json.dumps(output) + '\n')

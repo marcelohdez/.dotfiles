@@ -8,7 +8,7 @@ background-color=#fffe99
 border-color=#777757
 progress-color=over #ffbfbf
 # other styling
-anchor=top-center
+anchor=top-left
 border-radius=10
 padding=7
 width=450
