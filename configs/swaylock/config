@@ -7,11 +7,22 @@ show-failed-attempts
 
 indicator-radius=100
 
+text-color=FFFF00
+inside-color=FFFFFF00
+line-color=FFFFFF00
+ring-color=FFFFFF00
+separator-color=FFFFFF00
+key-hl-color=FFFF00
+
+timestr=%I:%M:%S
+datestr=%a %d
+
 # effects (from swaylock-effects)
 clock
 screenshots
 grace=2
 fade-in=0.5
 effect-blur=10x2
+effect-greyscale
 
 # vim:ft=conf

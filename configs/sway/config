@@ -1,0 +1,89 @@
+# Key vars
+set $mod Mod4
+set $specialMod $mod+Shift
+set $left h
+set $up j
+set $down k
+set $right l
+
+# Program vars
+set $files nautilus
+set $search wofi
+set $term wezterm
+set $web firefox
+
+# Long-running processes
+exec swayidle
+exec gammastep -l 26:-80
+exec swww init && systemctl restart --user darkman
+
+# Output
+output eDP-1 scale 1.5
+
+# Input
+input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
+  accel_profile "adaptive"
+  pointer_accel 0.6
+}
+
+# Window rules
+for_window [app_id="wezterm"] floating enable
+
+###  Keybinds
+# Window management
+bindsym $mod+X kill
+floating_modifier $mod normal
+bindsym $mod+V floating toggle
+bindsym $mod+W fullscreen
+
+# Launching
+bindsym $mod+B exec $files
+bindsym $mod+Space exec $search
+bindsym $mod+T exec $term
+bindsym $mod+F exec $web
+
+# Sway stuffs
+bindsym $specialMod+C reload
+bindsym $specialMod+Escape exec swaymsg exit
+
+# Functional keys
+bindsym XF86Search exec $search
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown+Ctrl exec brightnessctl --device='kbd_backlight' set 5%-
+bindsym XF86MonBrightnessUp+Ctrl exec brightnessctl --device='kbd_backlight' set 5%+
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Workspace management
+workspace_auto_back_and_forth yes
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+bindgesture swipe:3:left workspace prev
+bindgesture swipe:3:right workspace next
+
+bindsym $specialMod+1 move container to workspace 1
+bindsym $specialMod+2 move container to workspace 2
+bindsym $specialMod+3 move container to workspace 3
+bindsym $specialMod+4 move container to workspace 4
+bindsym $specialMod+5 move container to workspace 5
+bindsym $specialMod+6 move container to workspace 6
+bindsym $specialMod+7 move container to workspace 7
+bindsym $specialMod+8 move container to workspace 8
+bindsym $specialMod+9 move container to workspace 9

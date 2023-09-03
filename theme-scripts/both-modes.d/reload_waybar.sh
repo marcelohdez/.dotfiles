@@ -7,3 +7,4 @@ for pid in $(ps -A -O 'sid' | grep 'python3.*waybar' | head -n -1 | awk '{print 
 done
 # resummon from hyprland
 hyprctl dispatch exec waybar
+if [[ $? != 0 ]]; then swaymsg exec waybar; fi
