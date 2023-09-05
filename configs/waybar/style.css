@@ -6,7 +6,7 @@
 @define-color accent_text shade(@accent, 0.3);
 
 * {
-	font-family: JetBrainsMono, FontAwesome6Free;
+	font-family: JetBrainsMono;
 	font-size: 15px;
   min-height: 0;
 }
@@ -63,7 +63,7 @@ tooltip label {
 /**
  * modules-left
 **/
-#clock {
+#custom-power-menu {
   margin-left: 12px;
 }
 
@@ -84,7 +84,7 @@ tooltip label {
   color: #000000;
 }
 
-#custom-power-menu {
+#network {
 	margin-right: 12px;
 }
 

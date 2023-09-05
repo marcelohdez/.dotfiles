@@ -20,10 +20,10 @@ end
 
 local function get_theme_from(appearance)
 	if appearance:find("Dark") then
-		return "Vs Code Dark+ (Gogh)"
+		return "Catppuccin Mocha"
 	end
 
-	return "Vs Code Light+ (Gogh)"
+	return "Catppuccin Latte"
 end
 
 -- Do config stuff

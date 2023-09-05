@@ -1,9 +1,9 @@
 return {
-	"Mofiqul/vscode.nvim",
+	"catppuccin/nvim",
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "vscode",
+			colorscheme = "catppuccin-mocha",
 		},
 	},
 	"iamcco/markdown-preview.nvim",

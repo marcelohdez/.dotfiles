@@ -35,7 +35,9 @@ _this list is non-exhaustive_
 | Screen/Keyboard backlight | [brightnessctl] |
 
 Other packages used include `ttf-jetbrains-mono-nerd
-ttf-font-awesome` for Waybar `grim slurp swappy` for screenshots,
+ttf-font-awesome` for Waybar, `grim slurp swappy` for screenshots,
+`blueman-git` from the AUR to be able to hide the tray icon _(in View >
+Plugins > StatusNotifierItem)_, and
 `gnome-keyring networkmanager`.
 
 [hyprland]: https://hyprland.org/

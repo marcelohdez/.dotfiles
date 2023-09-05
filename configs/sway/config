@@ -6,12 +6,6 @@ set $up j
 set $down k
 set $right l
 
-# Program vars
-set $files nautilus
-set $search wofi
-set $term wezterm
-set $web firefox
-
 # Long-running processes
 exec swayidle
 exec gammastep -l 26:-80
@@ -27,7 +21,18 @@ input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
 }
 
 # Window rules
+#                tabbrdr border  text
+client.unfocused #ffffff #444444 #ffffff
+client.focused   #ffffff #a5a5a5 #ffffff
+default_border pixel 2
+
 for_window [app_id="wezterm"] floating enable
+
+# Program vars
+set $files nautilus
+set $search wofi
+set $term wezterm
+set $web flatpak run org.mozilla.firefox
 
 ###  Keybinds
 # Window management
@@ -41,6 +46,7 @@ bindsym $mod+B exec $files
 bindsym $mod+Space exec $search
 bindsym $mod+T exec $term
 bindsym $mod+F exec $web
+bindsym $mod+Y exec $HOME/.local/share/both-modes.d/reload_waybar.sh
 
 # Sway stuffs
 bindsym $specialMod+C reload

@@ -18,6 +18,10 @@ alias grep='grep --color=auto'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+## Welcome message!
+WELCOME="It's $(date '+%_I:%M %p')... stop procrastinating."
+cowsay -f skeleton $WELCOME | lolcat
+
 nonsysup() {
 	printf "<===== Flatpak =====>\n"
 	flatpak update

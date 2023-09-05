@@ -2,47 +2,35 @@
   "height": 34,
   "spacing": 6,
   "modules-left": [
-    "clock",
+    "custom/power-menu",
     "battery",
-    "wlr/workspaces"
+    "custom/mediaplayer",
+    "hyprland/workspaces"
   ],
   "modules-center": [
-    "custom/mediaplayer"
-  ],
-  "modules-right": [
     "custom/screenshare",
     "custom/camera",
     "custom/microphone",
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
     "temperature",
     "cpu",
     "memory",
     "backlight",
     "pulseaudio",
-    "network",
     "bluetooth",
-    "custom/power-menu"
+    "network"
   ],
   "layer": "top",
   // *** *** ***
   // modules-left
   // *** *** ***
-  "clock": {
-    "format": "{: %I:%M    %a, %h %d}",
-    "on-click-right": "makoctl restore",
-    "tooltip-format": "<big><tt>{calendar}</tt></big>"
+  "custom/power-menu": {
+    "format": "⏻",
+    "on-click": "wlogout"
   },
-  "wlr/workspaces": {
-    "format": "{icon} {name}",
-    "on-click": "activate",
-    "format-icons": {
-      "active": "",
-      "default": "",
-      "urgent": ""
-    }
-  },
-  // *** *** ***
-  // modules-center
-  // *** *** ***
   "custom/mediaplayer": {
     "format": "{icon} {}",
     "format-icons": [
@@ -54,21 +42,48 @@
     "return-type": "json",
     "max-length": 32,
     "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next",
     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
   },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "tooltip-format": "{time} left until discharged/filled"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon} {name}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "urgent": ""
+    }
+  },
   // *** *** ***
-  // modules-right
+  // modules-center
   // *** *** ***
-  // "tray": {
-  //   "spacing": 6
-  // },
   "custom/screenshare": {
     "format": "{icon}",
     "format-icons": [
       "",
       ""
     ],
-    "interval": 2,
+    "interval": 3,
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/screenshare.sh"
   },
@@ -78,7 +93,7 @@
       "",
       ""
     ],
-    "interval": 2,
+    "interval": 3,
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/camera.sh 2> /dev/null"
   },
@@ -88,10 +103,21 @@
       "",
       ""
     ],
-    "interval": 2,
+    "interval": 3,
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/microphone.sh"
   },
+  "clock": {
+    "format": "{: %I:%M    %a, %h %d}",
+    "on-click-right": "makoctl restore",
+    "tooltip-format": "<big><tt>{calendar}</tt></big>"
+  },
+  // *** *** ***
+  // modules-right
+  // *** *** ***
+  // "tray": {
+  //   "spacing": 6
+  // },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "format": "{icon} {temperatureC}°C",
@@ -112,25 +138,6 @@
     "interval": 12,
     "format": " {}%",
     "tooltip-format": "{used:.2f} GB"
-  },
-  "battery": {
-    "interval": 30,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-    "format": "{icon}{capacity}%",
-    "format-charging": " {capacity}%",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ],
-    "tooltip-format": "{time} left until discharged/filled"
   },
   "backlight": {
     "format": " {percent}%",
@@ -156,17 +163,6 @@
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click": "pavucontrol &"
   },
-  "network": {
-    "format-wifi": "",
-    "format-ethernet": "",
-    "format-disconnected": "  ",
-    "format-disabled": "  ",
-    "on-click": "hyprctl dispatch exec 'wezterm start --always-new-process -- nmtui'",
-    "tooltip-format": "SSID: {essid}\nInterface: {ifname}\nStrength: {signaldBm}",
-    "tooltip-format-ethernet": "Interface: {ifname}",
-    "tooltip-format-disconnected": "No network access!",
-    "tooltip-format-disabled": "Network is disabled!"
-  },
   "bluetooth": {
     "format": "",
     "format-connected": "  ",
@@ -177,8 +173,15 @@
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
     "on-click": "blueman-manager &"
   },
-  "custom/power-menu": {
-    "format": "⏻",
-    "on-click": "wlogout"
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "  ",
+    "format-disabled": "  ",
+    "on-click": "hyprctl dispatch exec 'wezterm start --always-new-process -- nmtui'",
+    "tooltip-format": "SSID: {essid}\nInterface: {ifname}\nStrength: {signaldBm}",
+    "tooltip-format-ethernet": "Interface: {ifname}",
+    "tooltip-format-disconnected": "No network access!",
+    "tooltip-format-disabled": "Network is disabled!"
   }
 }
