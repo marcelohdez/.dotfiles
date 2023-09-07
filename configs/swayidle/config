@@ -1,4 +1,4 @@
 timeout 300 'notify-send -t 30000 "Suspending in 30 seconds." "Close me to stop!"'
 timeout 330 'systemctl suspend'
 before-sleep 'swaylock -c 000000'
-
+after-resume $HOME/.config/swayidle/scripts/weather.sh

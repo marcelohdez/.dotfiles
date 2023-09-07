@@ -66,8 +66,8 @@ and for it to only show up when **on** you can do e.g. (in `config.jsonc`):
 Uses PipeWire with pulseaudio (using the `pactl` command) support.
 
 ### `screenshare.sh`
-Checks PipeWire (with `pw-dump`) to see if there are any capture instances by
-`xdg-desktop-portal-hyprland`_, hence, it is [Hyprland] exclusive_.
+These dotfiles use the `exec_before` and `exec_after` config keys in `xdg-desktop-portal-wlr`
+(and Hyprland's) to create a temporary file which this script will check for.
 
 ### `camera.sh`
 **NOT READY FOR WIDE USAGE**

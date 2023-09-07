@@ -31,6 +31,25 @@
     "format": "⏻",
     "on-click": "wlogout"
   },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon}{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "tooltip-format": "{time} left until discharged/filled"
+  },
   "custom/mediaplayer": {
     "format": "{icon} {}",
     "format-icons": [
@@ -45,25 +64,6 @@
     "on-click-middle": "playerctl previous",
     "on-click-right": "playerctl next",
     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
-  },
-  "battery": {
-    "interval": 30,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ],
-    "tooltip-format": "{time} left until discharged/filled"
   },
   "hyprland/workspaces": {
     "format": "{icon} {name}",
@@ -115,9 +115,9 @@
   // *** *** ***
   // modules-right
   // *** *** ***
-  // "tray": {
-  //   "spacing": 6
-  // },
+  "tray": {
+    "spacing": 6
+  },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "format": "{icon} {temperatureC}°C",

@@ -1,3 +1,2 @@
 #!/bin/sh
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+source $HOME/.local/share/both-modes.d/set_gtk_theme.sh Catppuccin-Latte-Standard-Green-light

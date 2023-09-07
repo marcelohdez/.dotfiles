@@ -7,12 +7,12 @@ show-failed-attempts
 
 indicator-radius=100
 
-text-color=FFFF00
-inside-color=FFFFFF00
+text-color=A6E3A1
+inside-color=000000AA
 line-color=FFFFFF00
-ring-color=FFFFFF00
+ring-color=000000AA
 separator-color=FFFFFF00
-key-hl-color=FFFF00
+key-hl-color=A6E3A1
 
 timestr=%I:%M:%S
 datestr=%a %d
@@ -20,8 +20,8 @@ datestr=%a %d
 # effects (from swaylock-effects)
 clock
 screenshots
-grace=2
-fade-in=0.5
+grace=1
+fade-in=0.3
 effect-blur=10x2
 effect-greyscale
 

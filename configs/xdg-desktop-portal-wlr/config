@@ -1,0 +1,4 @@
+[screencast]
+# when editing, ensure the filename in waybar/scripts/screenshare.sh matches!
+exec_before=touch /tmp/xdp_screenrec
+exec_after=rm /tmp/xdp_screenrec
