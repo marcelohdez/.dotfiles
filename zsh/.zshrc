@@ -64,7 +64,7 @@ reloadwall() {
 }
 
 export EDITOR=nvim
-export QT_STYLE_OVERRIDE=adwaita
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 export GPG_TTY=$(tty)
 PS1='%n %1~=> '

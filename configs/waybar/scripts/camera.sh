@@ -1,7 +1,6 @@
 #!/bin/sh
-set -eo pipefail
-
 CAMS=$(ls /dev/video*)
+if [[ $? != 0 ]]; then exit; fi
 CLASS="off"
 
 while read line; do
@@ -14,5 +13,4 @@ while read line; do
 done <<<$CAMS
 
 PERCENT=0 && [[ $CLASS == "on" ]] && PERCENT=100
-
 printf "{\"tooltip\":\"Camera is $CLASS\",\"percentage\":$PERCENT,\"class\":\"$CLASS\"}\n"

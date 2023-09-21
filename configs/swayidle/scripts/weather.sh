@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 5
+sleep 8
 FORECAST=$(curl 'wttr.in/?format=2')
 
 if [[ $? == 0 ]]; then

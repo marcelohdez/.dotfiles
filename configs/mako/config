@@ -4,15 +4,16 @@ font=JetBrainsMono 11
 text-color=#FFFFFF
 # notifs r a pale yellow and pink to grab attention
 # (and it looks like ice cream)
-background-color=#45475A
-border-color=#A6E3A1
-progress-color=over #ffbfbf
+background-color=#151515
+border-color=#5E5E5E
+progress-color=over #3B3B3B
 # other styling
 anchor=top-center
 border-radius=8
 padding=7
 width=450
 
+max-history=10
 # default timeout: 10 seconds
 default-timeout=10000
 

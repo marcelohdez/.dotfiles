@@ -16,7 +16,7 @@ PERCENTAGE_KEY = 'percentage'
 PLAYING_PERCENT = 100
 PAUSED_PERCENT = 50
 NOT_PLAYING_PERCENT = 0
-NOT_PLAYING_TEXT = 'Nothing is playing.'
+NOT_PLAYING_TEXT = 'No media'
 
 logger = logging.getLogger(__name__)
 
@@ -32,10 +32,11 @@ def write_output(text, player):
         if player.props.status == 'Playing':
             percent = PLAYING_PERCENT
 
-        output['class'] = player.props.player_name
+        output['class'] = player.props.status
         output['alt'] = player.props.player_name
-        output['tooltip'] = player.get_artist() + ' - ' + player.get_title() + \
-            '\n(Playing on ' + player.props.player_name + ')'
+        output['tooltip'] = \
+            f'<b>{player.get_artist()} - {player.get_title()}</b>' + \
+            f'\n<i>(Playing on {player.props.player_name})</i>'
         output[PERCENTAGE_KEY] = percent
 
     sys.stdout.write(json.dumps(output) + '\n')

@@ -16,6 +16,9 @@ stow -t ~ zsh/
 echo "for darkman scripts..."
 stow -t ~/.local/share/ theme-scripts/
 
+echo "for utility scripts..."
+stow -t ~/.local/share/ util-scripts/
+
 echo "for configs..."
 stow -t ~/.config/ configs/
 

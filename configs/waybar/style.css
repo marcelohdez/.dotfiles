@@ -1,52 +1,71 @@
 @import "accent.css";
 
-@define-color highlight #2b2b2b;
-@define-color base #151515;
-@define-color text #ffffff;
+@define-color highlight alpha(@borders, 0.6);
+@define-color base alpha(@theme_base_color, 0.85);
+@define-color text @theme_text_color;
 @define-color accent_text shade(@accent, 0.3);
 
 * {
-	font-family: JetBrainsMono;
-	font-size: 15px;
+  font-family: JetBrainsMono;
+  font-size: 15px;
   min-height: 0;
 }
 
 window#waybar {
-	background: @base;
+  background: @base;
   color: @text;
 }
 
 tooltip {
-	background: @theme_base_color;
-	border-radius: 8px;
-	border-width: 2px;
-	border-color: @borders;
+  background: @theme_base_color;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: @borders;
 }
 
 tooltip label {
-	color: @theme_text_color;
+  color: @theme_text_color;
 }
 
-#clock, #battery, #workspaces, #custom-mediaplayer,
-#tray, #custom-camera.on, #custom-screenshare.on,
-#custom-microphone.on, #temperature, #cpu, #memory,
-#backlight, #pulseaudio, #bluetooth, #network,
+#clock,
+#upower,
+#workspaces,
+#custom-mediaplayer,
+#tray,
+#custom-camera.on,
+#custom-screenshare.on,
+#custom-microphone.on,
+#temperature,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#bluetooth,
+#network,
 #custom-power-menu {
-	background: @highlight;
-	border-radius: 8px;
-	padding: 0px 10px;
-	margin: 4px 0px;
+  background: @highlight;
+  border-radius: 8px;
+  padding: 0px 10px;
+  margin: 4px 0px;
 }
 
 /**
  * apply common colors like accent and 'critical' color
 **/
-#workspaces, #workspaces button, #cpu, #temperature,
-#memory, #bluetooth.connected {
+#upower.charging,
+#workspaces,
+#workspaces button,
+#cpu,
+#temperature,
+#memory,
+#bluetooth.connected {
   background: @accent;
   color: @accent_text;
 }
 
+/**
+ * Inverted accent colors (light text, dark background) 
+ */
 #custom-camera.on,
 #custom-screenshare.on,
 #custom-microphone.on {
@@ -54,10 +73,16 @@ tooltip label {
   color: @accent;
 }
 
-#temperature.critical, #battery.critical, 
-#pulseaudio.muted, #network.disabled,
+/**
+ * Things that require attention, error color:
+ */
+#temperature.critical,
+#pulseaudio.muted,
+#upower.empty,
+#network.disabled,
 #network.disconnected {
-  background: #da0000;
+  background: #ea0000;
+  color: white;
 }
 
 /**
@@ -79,12 +104,6 @@ tooltip label {
 /**
  * modules-right
 **/
-#battery.warning {
-  background: #ffe649;
-  color: #000000;
-}
-
 #network {
-	margin-right: 12px;
+  margin-right: 12px;
 }
-
