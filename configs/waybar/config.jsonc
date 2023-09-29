@@ -1,12 +1,11 @@
 {
-  "height": 32,
+  "height": 30,
   "spacing": 6,
   "modules-left": [
     "custom/power-menu",
     "upower",
     "custom/mediaplayer",
-    "hyprland/workspaces"
-    // "sway/workspaces"
+    "sway/workspaces"
   ],
   "modules-center": [
     "custom/screenshare",
@@ -17,8 +16,8 @@
   "modules-right": [
     "tray",
     "temperature",
-    "cpu",
-    "memory",
+    // "cpu",
+    // "memory",
     "backlight",
     "pulseaudio",
     "bluetooth",
@@ -48,24 +47,6 @@
     "on-click-right": "playerctl next",
     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
   },
-  "hyprland/workspaces": {
-    "format": "{icon} {name}",
-    "on-click": "activate",
-    "format-icons": {
-      "active": "",
-      "default": "",
-      "urgent": ""
-    }
-  },
-  "sway/workspaces": {
-    "format": "{icon} {name}",
-    "on-click": "activate",
-    "format-icons": {
-      "focused": "",
-      "default": "",
-      "urgent": ""
-    }
-  },
   // *** *** ***
   // modules-center
   // *** *** ***
@@ -91,10 +72,17 @@
     "exec": "$HOME/.config/waybar/scripts/microphone.sh 2> /dev/null"
   },
   "clock": {
-    "format": "{: %I:%M    %a, %h %d}",
-    "on-click": "flatpak run org.gnome.Calendar",
-    "on-click-right": "makoctl restore",
-    "tooltip-format": "<big><tt>{calendar}</tt></big>"
+    "format": "{: %I:%M %p  %a %h %d}",
+    "on-click": "makoctl restore",
+    "on-click-right": "flatpak run org.gnome.Calendar",
+    "tooltip-format": "<big><tt>{calendar}</tt></big>",
+    "calendar": {
+      "format": {
+        "months": "<b>{}</b>",
+        "weekdays": "<i>{}</i>",
+        "today": "<b><i>{}</i></b>"
+      }
+    }
   },
   // *** *** ***
   // modules-right
@@ -104,7 +92,8 @@
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-    "format": "{icon} {temperatureC}°C",
+    "format": "{icon}",
+    "format-alt": "{icon} {temperatureC}°C",
     "format-icons": [
       "", // <20% to critical-threshold below
       "", // <40%
@@ -116,15 +105,21 @@
     "critical-threshold": 78
   },
   "cpu": {
-    "format": " {usage}%"
+    "format": "{icon}",
+    "format-alt": "{icon} {usage}%",
+    "format-icons": [""]
   },
   "memory": {
     "interval": 12,
-    "format": " {}%",
-    "tooltip-format": "{used:.2f} GB"
+    "format": "{icon}",
+    "format-alt": "{icon} {}%",
+    "format-icons": [""],
+    "tooltip-format": "{used:.2f} GB ({}%)"
   },
   "backlight": {
-    "format": " {percent}%",
+    "format": " {icon}",
+    "format-alt": " {percent}%",
+    "format-icons": [" ", "▏", "▍", "▌", "▊", "█"],
     "interval": 60,
     "on-scroll-up": "",
     "on-scroll-down": ""

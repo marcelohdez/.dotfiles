@@ -21,7 +21,6 @@ datestr=%a %d
 # effects (from swaylock-effects)
 clock
 screenshots
-grace=1
 fade-in=0.3
 effect-blur=10x2
 effect-greyscale

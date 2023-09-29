@@ -53,9 +53,7 @@ listwifi() {
 }
 
 whatwin() {
-  echo "Mouse over a window!"
-  sleep 2
-  hyprctl activewindow
+  swaymsg -t get_tree
 }
 
 reloadwall() {

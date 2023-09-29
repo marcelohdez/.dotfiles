@@ -6,7 +6,7 @@ text-color=#FFFFFF
 # (and it looks like ice cream)
 background-color=#151515
 border-color=#5E5E5E
-progress-color=over #3B3B3B
+progress-color=over #3E3E3E
 # other styling
 anchor=top-center
 border-radius=8

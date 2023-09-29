@@ -1,9 +1,8 @@
 #!/bin/sh
 killall waybar
-# kill all remaining waybar scripts
-for pid in $(ps -A -O 'sid' | grep 'python3.*waybar' | head -n -1 | awk '{print $1}'); do
-	echo $pid
-	kill -9 $pid
+# kill all remaining waybar scripts in ~/.config/waybar/scripts/*
+for pid in $(ps -e -O pid | grep waybar/scripts | head -n -1 | awk '{print $1}'); do
+	kill $pid
 done
 # resummon from hyprland or normally if not possible
 HYPRCTL_OUT=$(hyprctl dispatch exec waybar)
