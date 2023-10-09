@@ -5,7 +5,7 @@
 _Modified from the [script with the same name](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py)
 in the waybar repo._
 
-Requires `playerctl` installed, only works with [MPRIS]-compatible players.
+Requires `playerctl` **installed**, only works with [MPRIS]-compatible players.
 
 Returns [waybar-compatible json] with the values of:
 

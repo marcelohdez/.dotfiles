@@ -5,8 +5,8 @@ include /etc/sway/config.d/*
 set $mod Mod4
 set $specialMod $mod+Shift
 set $left H
-set $up J
-set $down K
+set $up K
+set $down J
 set $right L
 
 # Long-running processes
@@ -18,12 +18,23 @@ exec kdeconnect-indicator
 swaybg_command -
 
 # Output
+set $sideMonitor 'ViewSonic Corporation VA2055 Series UD2192060091'
+set $mainMon 'LG Electronics MP59G 0x00009FF3'
+output $leftMon scale 1.25
+output $mainMon pos 1536 0
 output eDP-1 scale 1.75
+output * adaptive_sync on
 
 # Input
 input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
-  accel_profile "adaptive"
   pointer_accel 0.6
+}
+
+input type:touchpad {
+  tap_button_map lrm
+  natural_scroll on
+  click_method clickfinger
+  drag enabled
 }
 
 gaps inner 8
@@ -35,6 +46,7 @@ set $files nautilus
 set $search wofi
 set $term foot
 set $web firefox
+set $webPriv firefox --private-window
 
 # window rules
 #                tabbrdr border  text
@@ -68,6 +80,11 @@ bindsym $mod+X kill
 floating_modifier $mod normal
 bindsym $mod+V floating toggle
 bindsym $mod+W fullscreen
+
+bindsym $specialMod+$left move left
+bindsym $specialMod+$up move up
+bindsym $specialMod+$down move down
+bindsym $specialMod+$right move right
 # Move focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -82,6 +99,7 @@ bindsym $mod+T exec $term
 bindsym $mod+F exec $web
 bindsym $mod+E exec $calculator
 bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_waybar.sh
+bindsym $specialMod+F exec $webPriv
 
 # Sway stuffs
 bindsym $specialMod+C reload
@@ -97,8 +115,9 @@ bindsym $specialMod+S exec grim -o $currentMonitor - | swappy -f -
 bindsym XF86Search exec $search
 
 set $volNotif ~/.local/share/fn-scripts/vol_notif.sh
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $volNotif
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $volNotif
+set $volChange ~/.local/share/fn-scripts/vol_change.sh
+bindsym XF86AudioRaiseVolume exec $volChange + 5 && $volNotif
+bindsym XF86AudioLowerVolume exec $volChange - 5 && $volNotif
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 set $barNotif ~/.local/share/fn-scripts/bar_notif.sh
@@ -133,18 +152,13 @@ bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left workspace next
 
 # ...with containers
-bindsym $specialMod+1 move container to workspace 1
-bindsym $specialMod+2 move container to workspace 2
-bindsym $specialMod+3 move container to workspace 3
-bindsym $specialMod+4 move container to workspace 4
-bindsym $specialMod+5 move container to workspace 5
-bindsym $specialMod+6 move container to workspace 6
-bindsym $specialMod+7 move container to workspace 7
-bindsym $specialMod+8 move container to workspace 8
-bindsym $specialMod+9 move container to workspace 9
-bindsym $specialMod+0 move container to workspace 10
-
-bindsym $specialMod+$right move container to workspace next
-bindsym $specialMod+$left move container to workspace prev
-bindsym $specialMod+$up workspace next
-bindsym $specialMod+$down workspace prev
+bindsym $specialMod+1 move container to workspace 1, workspace 1
+bindsym $specialMod+2 move container to workspace 2, workspace 2
+bindsym $specialMod+3 move container to workspace 3, workspace 3
+bindsym $specialMod+4 move container to workspace 4, workspace 4
+bindsym $specialMod+5 move container to workspace 5, workspace 5
+bindsym $specialMod+6 move container to workspace 6, workspace 6
+bindsym $specialMod+7 move container to workspace 7, workspace 7
+bindsym $specialMod+8 move container to workspace 8, workspace 8
+bindsym $specialMod+9 move container to workspace 9, workspace 9
+bindsym $specialMod+0 move container to workspace 10, workspace 10

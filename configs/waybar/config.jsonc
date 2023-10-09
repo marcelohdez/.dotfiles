@@ -1,29 +1,24 @@
 {
+  "layer": "top",
   "height": 30,
   "spacing": 6,
-  "modules-left": [
-    "custom/power-menu",
-    "upower",
-    "custom/mediaplayer",
-    "sway/workspaces"
-  ],
+  "modules-left": ["custom/power-menu", "upower", "clock", "sway/workspaces"],
   "modules-center": [
     "custom/screenshare",
     "custom/camera",
     "custom/microphone",
-    "clock"
+    "custom/mediaplayer"
   ],
   "modules-right": [
     "tray",
-    "temperature",
-    // "cpu",
-    // "memory",
+    // "temperature",
+    "cpu",
+    "memory",
     "backlight",
     "pulseaudio",
     "bluetooth",
     "network"
   ],
-  "layer": "top",
   // *** *** ***
   // modules-left
   // *** *** ***
@@ -72,7 +67,7 @@
     "exec": "$HOME/.config/waybar/scripts/microphone.sh 2> /dev/null"
   },
   "clock": {
-    "format": "{: %I:%M %p  %a %h %d}",
+    "format": "{:%I:%M %p  %a %h %d}",
     "on-click": "makoctl restore",
     "on-click-right": "flatpak run org.gnome.Calendar",
     "tooltip-format": "<big><tt>{calendar}</tt></big>",
@@ -91,7 +86,6 @@
     "spacing": 6
   },
   "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "format": "{icon}",
     "format-alt": "{icon} {temperatureC}°C",
     "format-icons": [
@@ -102,24 +96,29 @@
       "" // <100%
     ],
     "format-critical": " {temperatureC}°C", // >=100% theshold
-    "critical-threshold": 78
+    "critical-threshold": 80
   },
   "cpu": {
-    "format": "{icon}",
-    "format-alt": "{icon} {usage}%",
-    "format-icons": [""]
+    "format": "{icon} {usage}%",
+    "format-alt": "{icon} {avg_frequency} GHz",
+    "format-icons": [""],
+    "states": {
+      "critical": 80
+    }
   },
   "memory": {
     "interval": 12,
-    "format": "{icon}",
-    "format-alt": "{icon} {}%",
+    "format": "{icon} {}%",
+    "format-alt": "{icon} {used:.1f} GB",
     "format-icons": [""],
-    "tooltip-format": "{used:.2f} GB ({}%)"
+    "tooltip-format": "ram: {used}/{total} GB ({}%)\nswap: {swapUsed}/{swapTotal} GB ({swapPercentage}%)",
+    "states": {
+      "critical": 90
+    }
   },
   "backlight": {
-    "format": " {icon}",
-    "format-alt": " {percent}%",
-    "format-icons": [" ", "▏", "▍", "▌", "▊", "█"],
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
     "interval": 60,
     "on-scroll-up": "",
     "on-scroll-down": ""
@@ -131,7 +130,7 @@
     "format-icons": {
       "headphone": "",
       "hands-free": "",
-      "headset": "",
+      "headset": "",
       "default": [
         "", // <= 20%
         "",
@@ -140,7 +139,7 @@
       ]
     },
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click": "pavucontrol &"
+    "on-click": "~/.local/share/fn-scripts/toggle_process.sh pavucontrol &"
   },
   "bluetooth": {
     "format": "",
@@ -150,14 +149,14 @@
     "tooltip-format": "Nothing connected.\n\"{controller_alias}\" ({status})",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
-    "on-click": "blueman-manager &"
+    "on-click": "~/.local/share/fn-scripts/toggle_process.sh blueman-manager &"
   },
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
     "format-disconnected": "  ",
     "format-disabled": "  ",
-    "on-click": "hyprctl dispatch exec 'wezterm start --always-new-process -- nmtui'",
+    "on-click": "swaymsg exec foot nmtui",
     "tooltip-format": "<b>{essid}</b> ({signaldBm}dB)\n<i>Adapter: {ifname}</i>",
     "tooltip-format-ethernet": "Interface: {ifname}",
     "tooltip-format-disconnected": "No network access!",

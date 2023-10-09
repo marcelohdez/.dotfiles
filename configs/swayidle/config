@@ -1,5 +1,4 @@
-timeout 240 'notify-send -t 30000 "Suspending screens in 30 seconds!" "Due to inactivity."'
-timeout 270 'swaymsg output * dpms off' resume 'swaymsg output * dpms on'
+timeout 270 'notify-send -t 30000 "Suspending screens in 30 seconds!" "Due to inactivity."'
 timeout 300 'systemctl suspend'
 before-sleep 'swaylock'
 after-resume $HOME/.config/swayidle/scripts/weather.sh

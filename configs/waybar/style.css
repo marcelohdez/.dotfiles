@@ -1,7 +1,7 @@
 @import "accent.css";
 
-@define-color highlight #2a2a2a;
-@define-color base #141414;
+@define-color highlight #272727;
+@define-color base #090909;
 @define-color text #ffffff;
 @define-color accent_text shade(@accent, 0.3);
 
@@ -12,7 +12,7 @@
 }
 
 window#waybar {
-  background: @base;
+  background: alpha(@base, 0.6);
   color: @text;
 }
 
@@ -46,9 +46,10 @@ tooltip label {
 #custom-power-menu {
   background: @highlight;
   color: @text;
-  border-radius: 6px;
+  border-radius: 8px;
+  border: 1px solid alpha(@accent, 0.2);
   padding: 0px 8px;
-  margin: 4px 0px;
+  margin: 3px 0px;
 }
 
 /**
@@ -56,11 +57,17 @@ tooltip label {
 **/
 #upower.charging,
 #workspaces button.focused,
-#cpu,
-#memory,
 #bluetooth.connected {
   background: @accent;
   color: @accent_text;
+}
+
+/**
+ * apply only accented text
+**/
+#cpu,
+#memory {
+  color: @accent;
 }
 
 /**
@@ -78,6 +85,8 @@ tooltip label {
  */
 #workspaces button.urgent,
 #temperature.critical,
+#cpu.critical,
+#memory.critical,
 #pulseaudio.muted,
 #upower.empty,
 #network.disabled,
@@ -95,6 +104,7 @@ tooltip label {
 
 #workspaces button {
   margin: 0;
+  border: none;
 }
 
 #workspaces,

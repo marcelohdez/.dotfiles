@@ -48,12 +48,10 @@ writeflatpaklock() {
   flatpak list --app --columns=application > ~/.dotfiles/flatpak.lock
 }
 
-listwifi() {
-	nmcli device wifi list
-}
-
 whatwin() {
-  swaymsg -t get_tree
+  echo "Mouse over a window!"
+  sleep 2
+  swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused == true)'
 }
 
 reloadwall() {
@@ -62,8 +60,6 @@ reloadwall() {
 }
 
 export EDITOR=nvim
-export QT_QPA_PLATFORMTHEME=qt6ct
-
 export GPG_TTY=$(tty)
 PS1='%n %1~=> '
 
