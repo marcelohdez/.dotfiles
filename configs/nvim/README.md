@@ -1,4 +1,3 @@
-# 💤 LazyMama
+# Marcelo's LazyVim
 
-My rendition of LazyVim (have not changed much yet).
-
+Very close to stock this one.

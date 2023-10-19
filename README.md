@@ -28,9 +28,9 @@ _this list is non-exhaustive_
 
 | Usage                       | Project name       |
 | --------------------------- | ------------------ |
-| Window manager              | [hyprland]         |
+| Window manager              | [sway]             |
 | Bar                         | [waybar]           |
-| Terminal                    | [wezterm]          |
+| Terminal                    | [foot]             |
 | Wallpaper Daemon            | [swww]             |
 | Day/night theme switcher    | [darkman]          |
 | Night light (no blue light) | [gammastep]        |
@@ -42,15 +42,14 @@ _this list is non-exhaustive_
 | Text editing/coding         | [neovim]           |
 | Screen/Keyboard backlight   | [brightnessctl]    |
 
-Other packages used include `ttf-jetbrains-mono-nerd
-ttf-font-awesome` for Waybar, `grim slurp swappy` for screenshots,
-`blueman-git` from the AUR to be able to hide the tray icon _(in View >
-Plugins > StatusNotifierItem)_, and
-`gnome-keyring networkmanager`.
+Other packages used include `ttf-jetbrains-mono-nerd ttf-font-awesome`
+for Waybar, `grim slurp swappy` for screenshots, `blueman-git` from
+the AUR to be able to hide the tray icon _(in View > Plugins >
+StatusNotifierItem)_, and `gnome-keyring networkmanager`.
 
-[hyprland]: https://hyprland.org/
+[sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
-[wezterm]: https://wezfurlong.org/wezterm/
+[foot]: https://codeberg.org/dnkl/foot
 [swww]: https://github.com/Horus645/swww
 [darkman]: https://gitlab.com/whynothugo/darkman
 [gammastep]: https://gitlab.com/chinstrap/gammastep
