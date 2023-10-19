@@ -1,4 +1,12 @@
-timeout 270 'notify-send -t 30000 "Suspending screens in 30 seconds!" "Due to inactivity."'
-timeout 300 'systemctl suspend'
+timeout 15 "pgrep swaylock && systemctl suspend"
+
+timeout 105 "~/.config/swayidle/scripts/off_wall.sh && notify-send -t 15000 'Locking in 15 seconds' 'Due to inactivity.'"
+timeout 120 "~/.config/swayidle/scripts/off_wall.sh && swaylock"
+timeout 150 "~/.config/swayidle/scripts/off_wall.sh && systemctl suspend"
+
+timeout 510 "notify-send -t 30000 'Locking in 30 seconds' 'Due to inactivity.'"
+timeout 540 "swaylock"
+timeout 600 "systemctl suspend"
+
 before-sleep 'swaylock'
 after-resume $HOME/.config/swayidle/scripts/weather.sh

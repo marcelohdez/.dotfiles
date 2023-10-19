@@ -22,6 +22,7 @@ require("lazy").setup({
 		-- other stuffs
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
 		{ import = "lazyvim.plugins.extras.dap.core" },
+		{ import = "lazyvim.plugins.extras.util.dot" },
 		{ import = "plugins" },
 	},
 	defaults = {

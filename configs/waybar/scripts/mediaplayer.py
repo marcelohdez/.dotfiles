@@ -32,11 +32,13 @@ def write_output(text, player):
         if player.props.status == 'Playing':
             percent = PLAYING_PERCENT
 
+        tooltip = f'<b>  {player.get_title()}</b>' + \
+            f'\n {player.get_artist()}' + \
+            f'\n<sub><i>(Playing on {player.props.player_name})</i></sub>'
+
         output['class'] = player.props.status
         output['alt'] = player.props.player_name
-        output['tooltip'] = \
-            f'<b>{player.get_artist()} - {player.get_title()}</b>' + \
-            f'\n<i>(Playing on {player.props.player_name})</i>'
+        output['tooltip'] = tooltip.replace('&', '&amp;')
         output[PERCENTAGE_KEY] = percent
 
     sys.stdout.write(json.dumps(output) + '\n')

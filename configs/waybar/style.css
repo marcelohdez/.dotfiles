@@ -19,8 +19,7 @@ window#waybar {
 tooltip {
   background: @theme_base_color;
   border-radius: 8px;
-  border-width: 2px;
-  border-color: @borders;
+  border: 2px solid @borders;
 }
 
 tooltip label {

@@ -23,6 +23,5 @@ clock
 screenshots
 fade-in=0.3
 effect-blur=10x2
-effect-greyscale
 
 # vim:ft=conf

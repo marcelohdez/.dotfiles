@@ -11,6 +11,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+setopt auto_cd
+
+# allow uncapitalized letters to match capitals when no case-sensitive match found
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
@@ -61,5 +65,7 @@ reloadwall() {
 
 export EDITOR=nvim
 export GPG_TTY=$(tty)
-PS1='%n %1~=> '
+
+autoload -U colors && colors
+PS1="%{$fg[yellow]%}%1~%{$reset_color%} => "
 

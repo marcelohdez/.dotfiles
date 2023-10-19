@@ -20,7 +20,7 @@ swaybg_command -
 # Output
 set $sideMonitor 'ViewSonic Corporation VA2055 Series UD2192060091'
 set $mainMon 'LG Electronics MP59G 0x00009FF3'
-output $leftMon scale 1.25
+output $sideMonitor scale 1.25 pos 0 100
 output $mainMon pos 1536 0
 output eDP-1 scale 1.75
 output * adaptive_sync on
@@ -39,6 +39,7 @@ input type:touchpad {
 
 gaps inner 8
 gaps outer 1
+mouse_warping container
 
 # Program vars
 set $calculator flatpak run org.gnome.Calculator
@@ -79,6 +80,7 @@ for_window {
 bindsym $mod+X kill
 floating_modifier $mod normal
 bindsym $mod+V floating toggle
+bindsym $mod+M focus mode_toggle
 bindsym $mod+W fullscreen
 
 bindsym $specialMod+$left move left
@@ -150,6 +152,11 @@ bindsym $mod+0 workspace 10
 
 bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left workspace next
+
+bindsym --whole-window {
+  $mod+button4 workspace next
+  $mod+button5 workspace prev
+}
 
 # ...with containers
 bindsym $specialMod+1 move container to workspace 1, workspace 1
