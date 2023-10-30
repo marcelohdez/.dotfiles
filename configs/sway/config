@@ -10,6 +10,8 @@ set $down J
 set $right L
 
 # Long-running processes
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec stacki3
 exec swayidle -w
 exec gammastep
 exec swww init && systemctl restart --user darkman
@@ -37,12 +39,12 @@ input type:touchpad {
   drag enabled
 }
 
-gaps inner 8
-gaps outer 1
-mouse_warping container
+gaps inner 6
+smart_gaps on
+smart_borders on
 
 # Program vars
-set $calculator flatpak run org.gnome.Calculator
+set $calculator gnome-calculator
 set $files nautilus
 set $search wofi
 set $term foot
@@ -50,122 +52,13 @@ set $web firefox
 set $webPriv firefox --private-window
 
 # window rules
-#                tabbrdr border  text
-client.unfocused #ffffff #757585 #ffffff
-client.focused   #ffffff #a5a5a5 #ffffff #757585
+#                tabbrdr border  text    
+client.focused   #ffffff #a5a5a5 #ffffff #454545
+client.unfocused #ffffff #454545 #ffffff #454545
+floating_maximum_size 1200 x 800
+focus_follows_mouse always
 default_border pixel 2
 
-for_window {
-  [app_id=$term] floating enable
-  [app_id="org.gnome.Nautilus"] floating enable
-  [app_id="org.gnome.Calculator"] floating enable
-
-  # waybar modules
-  [app_id="blueman-manager"] floating enable, move position cursor, move down 30
-  [app_id="org.gnome.Calendar"] floating enable, move position cursor, move down 30
-  [app_id="pavucontrol"] floating enable, move position cursor, move down 30
-
-  # other stuffs
-  [title="About Mozilla Firefox"] floating enable
-  [title="Picture-in-Picture"] floating enable
-  # Prism Launcher editing window
-  [title="Console window for.*"] floating enable
-
-  # make any fullscreen apps inhibit idle
-  [app_id=".*"] inhibit_idle fullscreen
-}
-
-###  Keybinds
-# Window management
-bindsym $mod+X kill
-floating_modifier $mod normal
-bindsym $mod+V floating toggle
-bindsym $mod+M focus mode_toggle
-bindsym $mod+W fullscreen
-
-bindsym $specialMod+$left move left
-bindsym $specialMod+$up move up
-bindsym $specialMod+$down move down
-bindsym $specialMod+$right move right
-# Move focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# Launching
-bindsym $mod+B exec $files
-bindsym $mod+Space exec $search
-bindsym $mod+Period exec wofi-emoji
-bindsym $mod+T exec $term
-bindsym $mod+F exec $web
-bindsym $mod+E exec $calculator
-bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_waybar.sh
-bindsym $specialMod+F exec $webPriv
-
-# Sway stuffs
-bindsym $specialMod+C reload
-bindsym $specialMod+Escape exec swaymsg exit
-
-# Utility keybinds
-set $currentMonitor $(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')
-bindsym $mod+R exec hyprpicker
-bindsym $specialMod+A exec grim -g "$(slurp)" - | swappy -f -
-bindsym $specialMod+S exec grim -o $currentMonitor - | swappy -f -
-
-# Functional keys
-bindsym XF86Search exec $search
-
-set $volNotif ~/.local/share/fn-scripts/vol_notif.sh
-set $volChange ~/.local/share/fn-scripts/vol_change.sh
-bindsym XF86AudioRaiseVolume exec $volChange + 5 && $volNotif
-bindsym XF86AudioLowerVolume exec $volChange - 5 && $volNotif
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-set $barNotif ~/.local/share/fn-scripts/bar_notif.sh
-set $brightnessNotif $barNotif 'Display Brightness' $(brightnessctl g) $(brightnessctl m)
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && $brightnessNotif
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && $brightnessNotif
-bindsym XF86MonBrightnessDown+Ctrl exec brightnessctl set 1%- && $brightnessNotif
-bindsym XF86MonBrightnessUp+Ctrl exec brightnessctl set 1%+ && $brightnessNotif
-
-set $kbdLight -d 'kbd_backlight'
-set $kbdBrightnessNotif $barNotif 'Keyboard Brightness' $(brightnessctl $kbdLight g) $(brightnessctl $kbdLight m)
-bindsym XF86MonBrightnessDown+Alt exec brightnessctl $kbdLight set 5%- && $kbdBrightnessNotif
-bindsym XF86MonBrightnessUp+Alt exec brightnessctl $kbdLight set 5%+ && $kbdBrightnessNotif
-
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-## Workspace management ##
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-bindgesture swipe:3:right workspace prev
-bindgesture swipe:3:left workspace next
-
-bindsym --whole-window {
-  $mod+button4 workspace next
-  $mod+button5 workspace prev
-}
-
-# ...with containers
-bindsym $specialMod+1 move container to workspace 1, workspace 1
-bindsym $specialMod+2 move container to workspace 2, workspace 2
-bindsym $specialMod+3 move container to workspace 3, workspace 3
-bindsym $specialMod+4 move container to workspace 4, workspace 4
-bindsym $specialMod+5 move container to workspace 5, workspace 5
-bindsym $specialMod+6 move container to workspace 6, workspace 6
-bindsym $specialMod+7 move container to workspace 7, workspace 7
-bindsym $specialMod+8 move container to workspace 8, workspace 8
-bindsym $specialMod+9 move container to workspace 9, workspace 9
-bindsym $specialMod+0 move container to workspace 10, workspace 10
+set $confDir ~/.config/sway/
+include $confDir/keybinds.conf
+include $confDir/winrules.conf

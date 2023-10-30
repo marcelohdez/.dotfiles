@@ -1,2 +1,2 @@
 #!/bin/sh
-source $HOME/.local/share/both-modes.d/borders.sh efbf00
+source $HOME/.local/share/both-modes.d/borders.sh BF3842

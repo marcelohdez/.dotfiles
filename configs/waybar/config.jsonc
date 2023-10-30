@@ -69,7 +69,7 @@
   "clock": {
     "format": "{:%I:%M %p  %a %h %d}",
     "on-click": "makoctl restore",
-    "on-click-right": "flatpak run org.gnome.Calendar",
+    "on-click-right": "gnome-calendar",
     "tooltip-format": "<big><tt>{calendar}</tt></big>",
     "calendar": {
       "format": {

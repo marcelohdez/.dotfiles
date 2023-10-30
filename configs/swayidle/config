@@ -4,9 +4,9 @@ timeout 105 "~/.config/swayidle/scripts/off_wall.sh && notify-send -t 15000 'Loc
 timeout 120 "~/.config/swayidle/scripts/off_wall.sh && swaylock"
 timeout 150 "~/.config/swayidle/scripts/off_wall.sh && systemctl suspend"
 
-timeout 510 "notify-send -t 30000 'Locking in 30 seconds' 'Due to inactivity.'"
-timeout 540 "swaylock"
-timeout 600 "systemctl suspend"
+timeout 390 "notify-send -t 30000 'Locking in 30 seconds' 'Due to inactivity.'"
+timeout 420 "swaylock"
+timeout 480 "systemctl suspend"
 
 before-sleep 'swaylock'
 after-resume $HOME/.config/swayidle/scripts/weather.sh

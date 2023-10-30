@@ -23,8 +23,12 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 ## Welcome message!
-WELCOME="It's $(date '+%_I:%M %p')... stop procrastinating."
-cowsay -f skeleton $WELCOME | lolcat
+WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
+if [[ $(darkman get) == 'light' ]]; then
+  echo $WELCOME
+else
+  echo $WELCOME | lolcat
+fi
 
 nonsysup() {
 	printf "<===== Flatpak =====>\n"
@@ -64,8 +68,9 @@ reloadwall() {
 }
 
 export EDITOR=nvim
+export VISUAL=nvim
 export GPG_TTY=$(tty)
 
 autoload -U colors && colors
-PS1="%{$fg[yellow]%}%1~%{$reset_color%} => "
+PS1="%{$fg[red]%}%1~%{$reset_color%} => "
 
