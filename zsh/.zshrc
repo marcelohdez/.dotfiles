@@ -33,27 +33,13 @@ fi
 nonsysup() {
 	printf "<===== Flatpak =====>\n"
 	flatpak update
-
-  writeflatpaklock
 }
 
-archup() {
+fedoraup() {
 	nonsysup
 
-	printf "\n<===== Paru =====>\n"
-	paru
-
-  writeparulock
-}
-
-writeparulock() {
-  printf "Writing to paru.lock\n"
-  paru -Qqe > ~/.dotfiles/paru.lock
-}
-
-writeflatpaklock() {
-  printf "Writing to flatpak.lock\n"
-  flatpak list --app --columns=application > ~/.dotfiles/flatpak.lock
+	printf "\n<===== Dnf =====>\n"
+	sudo dnf update
 }
 
 whatwin() {

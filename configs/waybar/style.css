@@ -1,9 +1,9 @@
 @import "accent.css";
 
-@define-color highlight #272727;
-@define-color base #090909;
+@define-color modulebg #272727;
 @define-color text #ffffff;
-@define-color accent_text shade(@accent, 0.3);
+@define-color base #090909;
+@define-color accent_text shade(@accent, 0.25);
 
 * {
   font-family: JetBrainsMono;
@@ -12,7 +12,7 @@
 }
 
 window#waybar {
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.85);
   color: @text;
 }
 
@@ -43,10 +43,10 @@ tooltip label {
 #bluetooth,
 #network,
 #custom-power-menu {
-  background: @highlight;
+  background: alpha(@modulebg, 0.7);
   color: @text;
   border-radius: 8px;
-  border: 1px solid alpha(@accent, 0.2);
+  border: 1px solid alpha(@text, 0.2);
   padding: 0px 8px;
   margin: 4px 0px;
 }
@@ -92,6 +92,19 @@ tooltip label {
 #network.disconnected {
   background: #ea0000;
   color: white;
+}
+
+/** fix padding issues */
+#bluetooth.connected,
+#bluetooth.disabled,
+#bluetooth.off,
+#network.disabled,
+#network.disconnected {
+  padding-right: 12px;
+}
+
+#network.wifi {
+  padding-right: 16px;
 }
 
 /**

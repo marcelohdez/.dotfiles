@@ -143,9 +143,9 @@
   },
   "bluetooth": {
     "format": "",
-    "format-connected": "  ",
-    "format-disabled": "  ",
-    "format-off": "  ",
+    "format-connected": " ",
+    "format-disabled": " ",
+    "format-off": " ",
     "tooltip-format": "Nothing connected ({status})\nDevice name: \"{controller_alias}\"",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
@@ -155,8 +155,8 @@
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
-    "format-disconnected": "  ",
-    "format-disabled": "  ",
+    "format-disconnected": " ",
+    "format-disabled": " ",
     "on-click": "swaymsg exec foot nmtui",
     "tooltip-format": "<b>{essid}</b> <i>({signaldBm}dB)</i>",
     "tooltip-format-ethernet": "Interface: {ifname}",

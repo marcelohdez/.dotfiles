@@ -1,7 +1,5 @@
-# sets a random wallpaper from the given ~/.walls/* folder.
-# ex: using `set_rand_wall_from day` will use ~/.walls/day
 TARGET_CSS=~/.config/waybar/accent.css
-ROOT_FOLDER=~/.walls/$1/
+ROOT_FOLDER=~/.walls/$(darkman get)
 IMAGE=$(ls "$ROOT_FOLDER/img/" | sort -R | tail -1)
 
 # show new wallpaper
