@@ -11,11 +11,11 @@ set $right L
 
 # Long-running processes
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec stacki3
-exec swayidle -w
+exec autotiling
 exec gammastep
-exec swww init && systemctl restart --user darkman
 exec kdeconnect-indicator
+exec swayidle -w
+exec 'swww init; systemctl restart --user darkman'
 # stop swaybg from running
 swaybg_command -
 
@@ -52,9 +52,9 @@ set $web firefox
 set $webPriv firefox --private-window
 
 # window rules
-#                tabbrdr border  text    
-client.focused   #ffffff #a5a5a5 #ffffff #454545
-client.unfocused #ffffff #454545 #ffffff #454545
+#                tabbrdr border  text    split indicator
+client.focused   #ffffff #9f9f9f #ffffff #454545
+client.unfocused #ffffff #9f9f9f #ffffff #454545
 floating_maximum_size 1200 x 800
 focus_follows_mouse always
 default_border pixel 2

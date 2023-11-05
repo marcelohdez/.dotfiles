@@ -7,19 +7,25 @@ window {
 button {
   color: #ffffff;
   background-color: #1e1e1e;
-  border-color: #3f3f3f;
-  border-style: solid;
-  border-width: 2px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
 }
 
-button:focus,
+button {
+  margin: 4px;
+  border: none;
+}
+
 button:active,
 button:hover {
   background-color: @error_color;
   outline-style: none;
+}
+
+/** keyboard focus */
+button:focus {
+  border: 1px solid alpha(white, 0.3);
 }
 
 #lock {

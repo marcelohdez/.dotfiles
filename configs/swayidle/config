@@ -1,4 +1,4 @@
-timeout 15 "pgrep swaylock && systemctl suspend"
+timeout 20 "pgrep swaylock && systemctl suspend"
 
 timeout 105 "~/.config/swayidle/scripts/off_wall.sh && notify-send -t 15000 'Locking in 15 seconds' 'Due to inactivity.'"
 timeout 120 "~/.config/swayidle/scripts/off_wall.sh && swaylock"

@@ -1,12 +1,12 @@
 return {
-	"catppuccin/nvim",
+	"iamcco/markdown-preview.nvim",
+	"Mofiqul/vscode.nvim",
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "catppuccin-mocha",
+			colorscheme = "vscode",
 		},
 	},
-	"iamcco/markdown-preview.nvim",
 	{
 		"Dhanus3133/Leetbuddy.nvim",
 		config = function()

@@ -1,0 +1,18 @@
+[config]
+reload_apps = true
+set_wallpaper = true
+wallpaper_tool = 'Swww'
+swww_options = ["--transition-type", "grow", "--transition-pos", "0.12,0.96"]
+
+[config.reload_apps_list]
+waybar = false # handled by darkman
+# all others true by default
+
+[templates.gtk]
+input_path = "~/.config/gtk-4.0/template.css"
+output_path = "~/.config/gtk-4.0/gtk.css"
+
+[templates.waybar]
+input_path = "~/.config/gtk-4.0/template.css"
+output_path = "~/.config/waybar/colors.css"
+mode = "Dark"

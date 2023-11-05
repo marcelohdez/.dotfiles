@@ -1,6 +1,5 @@
 {
   "layer": "top",
-  "height": 30,
   "spacing": 6,
   "modules-left": ["custom/power-menu", "upower", "clock", "sway/workspaces"],
   "modules-center": [
@@ -150,13 +149,13 @@
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
     "on-click": "~/.config/waybar/scripts/toggle_process.sh blueman-manager &",
-    "on-click-right": "~/.config/waybar/scripts/toggle_bluetooth.sh"
+    "on-click-right": "rfkill toggle bluetooth"
   },
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
-    "format-disconnected": " ",
-    "format-disabled": " ",
+    "format-disconnected": "  ",
+    "format-disabled": "  ",
     "on-click": "swaymsg exec foot nmtui",
     "tooltip-format": "<b>{essid}</b> <i>({signaldBm}dB)</i>",
     "tooltip-format-ethernet": "Interface: {ifname}",

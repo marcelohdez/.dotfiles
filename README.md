@@ -6,21 +6,13 @@ Use at your own risk! This is tailored to my setup and uses.
 
 ## Setup
 
-**First, make sure you have `stow` and any other projects/packages
-mentioned below installed!**
+_First, make sure you have all projects mentioned below installed!_
 
-If `~/.config` and `~/.local/share/` have not been set up, the init
-scripts fail, they can be made by getting `xdg-utils` and running
-`xdg-user-dirs-update`.
+Then, `cd` into the root of this repo and run `./init.sh`. Finally,
+let darkman run at least once to put all theme files in place.
 
-Then, `cd` into the root of this repo and run `./init.sh`
-
-**Wallpapers** are put in `~/.walls/<variant>/img/`; (`<variant>`
-can be _light_ or _dark_). A `accent.css` file needs to be in the
-`<variant>` folder with a single color defined as _accent_ which
-will be used by waybar's `style.css` to set pill colors. _To
-add more wallpapers this structure must be used... or stuff
-will break._
+**Wallpapers** are put in `~/Wallpapers/<variant>/`; (`<variant>`
+can be _light_ or _dark_).
 
 ## Main projects used
 
@@ -33,6 +25,7 @@ _this list is non-exhaustive_
 | Terminal                    | [foot]             |
 | Wallpaper Daemon            | [swww]             |
 | Day/night theme switcher    | [darkman]          |
+| Color generator             | [matugen]          |
 | Night light (no blue light) | [gammastep]        |
 | Auto-suspending             | [swayidle]         |
 | Screen locking              | [swaylock-effects] |
@@ -42,16 +35,17 @@ _this list is non-exhaustive_
 | Text editing/coding         | [neovim]           |
 | Screen/Keyboard backlight   | [brightnessctl]    |
 
-Other packages used include `ttf-jetbrains-mono-nerd ttf-font-awesome`
-for Waybar, `grim slurp swappy` for screenshots, `blueman-git` from
-the AUR to be able to hide the tray icon _(in View > Plugins >
-StatusNotifierItem)_, and `gnome-keyring networkmanager`.
+Other packages used include font awesome, jetbrains mono, cascadia code,
+either of which should be patched with nerd icons. grim, slurp, and swappy
+for screenshot regions/editing. NetworkManager, gnome-themes-extra,
+gnome-keyring, polkit-gnome-authenticating-agent.
 
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
 [swww]: https://github.com/Horus645/swww
 [darkman]: https://gitlab.com/whynothugo/darkman
+[matugen]: https://github.com/inioX/matugen
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle
 [swaylock-effects]: https://github.com/mortie/swaylock-effects

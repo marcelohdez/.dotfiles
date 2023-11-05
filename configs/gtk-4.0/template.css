@@ -1,0 +1,11 @@
+@define-color theme_selected_bg_color @{secondary};
+@define-color theme_selected_fg_color @{on_secondary};
+
+/** some raw matugen colors */
+@define-color outline @{outline};
+@define-color outline_variant @{outline_variant};
+
+/** GTK defined colors */
+@define-color accent_bg_color @{primary};
+@define-color accent_color @{primary};
+@define-color accent_fg_color @{on_primary};

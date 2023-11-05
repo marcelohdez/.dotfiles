@@ -1,8 +1,8 @@
 **/dhat-heap.json
 **/.DS_Store
 # auto-genned symlinks
-configs/waybar/accent.css
-configs/foot/colors.ini
+**/colors.*
+configs/gtk-4.0/gtk.css
 
 configs/lazygit/state.yml
 

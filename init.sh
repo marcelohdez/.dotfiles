@@ -15,7 +15,7 @@ get_or_default() {
 
 CONFIG_DIR=$(get_or_default XDG_CONFIG_HOME ~/.config/)
 DATA_DIR=$(get_or_default XDG_DATA_HOME ~/.local/share/)
-WALLS_DIR=~/.walls/
+WALLS_DIR=~/Wallpapers/
 
 # get path of script to not NEED to be in the same dir
 parent_path=$(
@@ -38,7 +38,7 @@ mkdir -p $CONFIG_DIR
 stow -t $CONFIG_DIR configs/
 
 echo "for wallpapers..."
-mkdir $WALLS_DIR
+mkdir -p $WALLS_DIR
 stow -t $WALLS_DIR walls/
 
 echo "done!"

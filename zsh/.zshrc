@@ -50,13 +50,9 @@ whatwin() {
 
 reloadwall() {
   MODE=$(darkman get)
-  ~/.local/share/$MODE-mode.d/wallpaper.sh
+  ~/.local/share/$MODE-mode.d/theme-switch.sh
 }
 
-export EDITOR=nvim
-export VISUAL=nvim
-export GPG_TTY=$(tty)
-
 autoload -U colors && colors
-PS1="%{$fg[red]%}%1~%{$reset_color%} => "
+PS1="%{$fg[blue]%}%1~%{$reset_color%} => "
 
