@@ -27,7 +27,7 @@ pushd $parent_path &> /dev/null # add to path stack
 echo "creating symlinks:"
 
 echo "for .zsh*..."
-stow -t ~ zsh/
+stow -t ~ shell/
 
 echo "for scripts..."
 mkdir -p $DATA_DIR

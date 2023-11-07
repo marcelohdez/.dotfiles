@@ -20,10 +20,11 @@ window#waybar {
 
 tooltip {
   background: @theme_base_color;
-  border: 2px solid @borders;
+  border: 2px solid @accent_text;
 }
 
 tooltip label {
+  text-shadow: none;
   color: @theme_text_color;
 }
 
@@ -44,7 +45,7 @@ tooltip label {
 #bluetooth,
 #network,
 #custom-power-menu {
-  background: alpha(@modulebg, 0.7);
+  background: alpha(@modulebg, 0.8);
   color: @text;
   border-radius: 8px;
   border: 1px solid alpha(@text, 0.2);
