@@ -1,7 +1,5 @@
 @import "colors.css";
-
-@define-color accent @accent_color;
-@define-color accent_text @accent_fg_color;
+@import "accents.css";
 
 @define-color modulebg #2b2b2b;
 @define-color text #ffffff;
@@ -16,16 +14,6 @@
 window#waybar {
   background: alpha(@base, 0.85);
   color: @text;
-}
-
-tooltip {
-  background: @theme_base_color;
-  border: 2px solid @accent_text;
-}
-
-tooltip label {
-  text-shadow: none;
-  color: @theme_text_color;
 }
 
 #clock,
@@ -59,8 +47,8 @@ tooltip label {
 #upower.charging,
 #workspaces button.focused,
 #bluetooth.connected {
-  background: @accent;
-  color: @accent_text;
+  background: @accent_color;
+  color: @accent_fg_color;
 }
 
 /**
@@ -68,7 +56,7 @@ tooltip label {
 **/
 #cpu,
 #memory {
-  color: @accent;
+  color: @accent_color;
 }
 
 /**
@@ -77,8 +65,8 @@ tooltip label {
 #custom-camera.on,
 #custom-screenshare.on,
 #custom-microphone.on {
-  background: @accent_text;
-  color: @accent;
+  background: @accent_fg_color;
+  color: @accent_color;
 }
 
 /**
@@ -97,6 +85,7 @@ tooltip label {
 }
 
 /** fix padding issues */
+#custom-screenshare.on,
 #bluetooth.connected,
 #bluetooth.disabled,
 #bluetooth.off,
@@ -128,6 +117,10 @@ tooltip label {
 /**
  * modules-right
 **/
+#window {
+  font-size: 12px;
+}
+
 #network {
   margin-right: 12px;
 }

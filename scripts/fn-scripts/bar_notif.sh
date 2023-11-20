@@ -12,15 +12,10 @@ SUMMARY=$2
 CUR=$3
 MAX=$4
 
-TMP_FILE='/tmp/persistent_notif_id'
 PERCENT=$(($(($CUR * 100)) / $MAX))
-TIME_CMD='-t 3000'
-# set progress and print current id
-PROGRESS_CMD="-h int:value:$PERCENT -p"
+TIME='-t 3000'
+REUSE_ID=$(~/.local/share/fn-scripts/get_notif_id.sh)
 
-if test -f $TMP_FILE; then
-	LAST_ID=$(<$TMP_FILE)
-	echo $(notify-send $TIME_CMD "$TITLE" "$SUMMARY" $PROGRESS_CMD -r $LAST_ID) >$TMP_FILE
-else
-	echo $(notify-send $TIME_CMD "$TITLE" "$SUMMARY" $PROGRESS_CMD) >$TMP_FILE
-fi
+OPTS="$TIME -h int:value:$PERCENT $REUSE_ID"
+
+echo $(notify-send $TIME_CMD "$TITLE" "$SUMMARY" $OPTS) >/tmp/persistent_notif_id

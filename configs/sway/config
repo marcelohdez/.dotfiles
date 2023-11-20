@@ -28,15 +28,16 @@ output eDP-1 scale 1.75
 output * adaptive_sync on
 
 # Input
-input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
-  pointer_accel 0.6
-}
-
 input type:touchpad {
   tap_button_map lrm
   natural_scroll on
   click_method clickfinger
   drag enabled
+}
+
+input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
+  pointer_accel 0.6
+  scroll_factor 0.5
 }
 
 gaps inner 6
@@ -46,7 +47,7 @@ smart_borders on
 # Program vars
 set $calculator gnome-calculator
 set $files nautilus
-set $search wofi
+set $search fuzzel
 set $term foot
 set $web firefox
 set $webPriv firefox --private-window
@@ -57,7 +58,9 @@ client.focused   #ffffff #9f9f9f #ffffff #454545
 client.unfocused #ffffff #9f9f9f #ffffff #454545
 floating_maximum_size 1200 x 800
 focus_follows_mouse always
+
 default_border pixel 2
+#titlebar_padding 4 1
 
 set $confDir ~/.config/sway/
 include $confDir/keybinds.conf

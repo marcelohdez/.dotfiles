@@ -2,7 +2,8 @@
 **/.DS_Store
 # auto-genned symlinks
 **/colors.*
-configs/gtk-4.0/gtk.css
+**/accents.css
+**/fuzzel.ini
 
 configs/lazygit/state.yml
 

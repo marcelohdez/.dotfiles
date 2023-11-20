@@ -1,2 +1,2 @@
-@define-color accent @{primary};
-@define-color accent_text @{on_primary};
+@define-color accent_color @{primary.dark};
+@define-color accent_fg_color @{on_primary.dark};

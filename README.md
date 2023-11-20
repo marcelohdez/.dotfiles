@@ -18,27 +18,38 @@ can be _light_ or _dark_).
 
 _this list is non-exhaustive_
 
-| Usage                       | Project name       |
-| --------------------------- | ------------------ |
-| Window manager              | [sway]             |
-| Bar                         | [waybar]           |
-| Terminal                    | [foot]             |
-| Wallpaper Daemon            | [swww]             |
-| Day/night theme switcher    | [darkman]          |
-| Color generator             | [matugen]          |
-| Night light (no blue light) | [gammastep]        |
-| Auto-suspending             | [swayidle]         |
-| Screen locking              | [swaylock-effects] |
-| Notifications               | [mako]             |
-| App launching               | [wofi]             |
-| Emoji                       | [wofi-emoji]       |
-| Text editing/coding         | [neovim]           |
-| Screen/Keyboard backlight   | [brightnessctl]    |
+| Usage                       | Project name                                      |
+| --------------------------- | ------------------------------------------------- |
+| Window manager              | [sway]                                            |
+| Bar                         | [waybar]                                          |
+| Terminal                    | [foot]                                            |
+| Wallpaper Daemon            | [swww]                                            |
+| Day/night theme switcher    | [darkman]                                         |
+| Color generator             | [matugen]                                         |
+| Night light (no blue light) | [gammastep]                                       |
+| Auto-suspending             | [swayidle]                                        |
+| Screen locking              | [swaylock-effects]                                |
+| Notifications               | [mako]                                            |
+| App launching               | [fuzzel]                                          |
+| Emoji                       | [wofi-emoji] (replace wofi call with `fuzzel -d`) |
+| Text editing/coding         | [neovim]                                          |
+| Screen/Keyboard backlight   | [brightnessctl]                                   |
 
 Other packages used include font awesome, jetbrains mono, cascadia code,
 either of which should be patched with nerd icons. grim, slurp, and swappy
 for screenshot regions/editing. NetworkManager, gnome-themes-extra,
 gnome-keyring, polkit-gnome-authenticating-agent.
+
+Also `autotiling` and `matugen` are needed, for most distros they can be
+obtained like so:
+
+```bash
+pip install --user autotiling
+```
+
+```bash
+cargo install matugen
+```
 
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
@@ -50,7 +61,7 @@ gnome-keyring, polkit-gnome-authenticating-agent.
 [swayidle]: https://github.com/swaywm/swayidle
 [swaylock-effects]: https://github.com/mortie/swaylock-effects
 [mako]: https://github.com/emersion/mako
-[wofi]: https://hg.sr.ht/~scoopta/wofi
+[fuzzel]: https://codeberg.org/dnkl/fuzzel
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
 [neovim]: https://neovim.io/
 [brightnessctl]: https://github.com/Hummer12007/brightnessctl

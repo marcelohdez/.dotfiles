@@ -1,6 +1,6 @@
 #!/bin/sh
 get_hex() {
-	cat $HOME/.config/gtk-4.0/gtk.css | grep $1 | cut -d'#' -f2 | sed 's/.$//'
+	cat $HOME/.config/gtk-4.0/gtk.css | grep $1 -m 1 | cut -d'#' -f2 | sed 's/.$//'
 }
 
 # takes in client type then accent color then text color
