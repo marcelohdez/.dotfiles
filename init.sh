@@ -37,10 +37,6 @@ echo "for configs..."
 mkdir -p $CONFIG_DIR
 stow -t $CONFIG_DIR configs/
 
-echo "for theming stuffs..."
-mkdir -p $CONFIG_DIR/gtk-4.0
-mkdir -p $CONFIG_DIR/gtk-3.0
-
 echo "for wallpapers..."
 mkdir -p $WALLS_DIR
 stow -t $WALLS_DIR walls/

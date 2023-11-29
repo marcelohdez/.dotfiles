@@ -40,17 +40,6 @@ either of which should be patched with nerd icons. grim, slurp, and swappy
 for screenshot regions/editing. NetworkManager, gnome-themes-extra,
 gnome-keyring, polkit-gnome-authenticating-agent.
 
-Also `autotiling` and `matugen` are needed, for most distros they can be
-obtained like so:
-
-```bash
-pip install --user autotiling
-```
-
-```bash
-cargo install matugen
-```
-
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot

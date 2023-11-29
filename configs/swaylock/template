@@ -8,20 +8,22 @@ daemonize
 
 indicator-radius=100
 
-text-color=A6E3A1
-inside-color=000000AA
+text-color=@{primary}
+inside-color=@{surface}BB
+ring-color=@{surface}BB
+key-hl-color=@{primary}
+
+# invisible
 line-color=FFFFFF00
-ring-color=000000AA
 separator-color=FFFFFF00
-key-hl-color=A6E3A1
 
 timestr=%I:%M:%S
 datestr=%a %d
 
 # effects (from swaylock-effects)
 clock
-screenshots
 fade-in=0.3
+screenshots
 effect-blur=10x2
 
 # vim:ft=conf

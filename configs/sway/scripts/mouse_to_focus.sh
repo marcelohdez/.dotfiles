@@ -2,7 +2,7 @@
 TREE='swaymsg -t get_tree'
 
 # should give us '$1 $2 $3 $4' as 'x y width height' respectively
-RECT=$($TREE | jq '.. | select(.type?) | select(.focused == true).rect[]' | xargs)
+RECT=$($TREE | jq '.. | select(.type?) | select(.focused == true).rect[]')
 
 center_in_rect() {
 	MOUSE_X=$(($1 + $3 / 2))

@@ -1,9 +1,12 @@
 **/dhat-heap.json
 **/.DS_Store
-# auto-genned symlinks
-**/colors.*
-**/accents.css
-**/fuzzel.ini
+**/*lock.*
 
+# auto-genned theme stuffs
+**/colors.*
+configs/waybar/accents.css
+configs/fuzzel/fuzzel.ini
+configs/mako/config
+configs/swaylock/config
 configs/lazygit/state.yml
 

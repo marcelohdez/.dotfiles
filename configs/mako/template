@@ -1,12 +1,11 @@
 # === === STYLE === ===
 font=CascadiaMono 11
 # colors
-text-color=#FFFFFF
-# notifs r a pale yellow and pink to grab attention
-# (and it looks like ice cream)
-background-color=#151515
-border-color=#5E5E5E
-progress-color=over #3E3E3E
+text-color=@{text_color_primary}
+background-color=@{on_secondary}
+border-color=@{secondary}
+progress-color=over @{secondary_container}
+
 # other styling
 anchor=top-center
 border-radius=8
