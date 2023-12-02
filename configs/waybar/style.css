@@ -25,6 +25,7 @@ window#waybar {
 #custom-camera.on,
 #custom-screenshare.on,
 #custom-microphone.on,
+#custom-inhibit-check.yes,
 #temperature,
 #cpu,
 #memory,
@@ -64,7 +65,8 @@ window#waybar {
  */
 #custom-camera.on,
 #custom-screenshare.on,
-#custom-microphone.on {
+#custom-microphone.on,
+#custom-inhibit-check.yes {
   background: @accent_fg_color;
   color: @accent_color;
 }
@@ -92,6 +94,10 @@ window#waybar {
 #network.disabled,
 #network.disconnected {
   padding-right: 12px;
+}
+
+#custom-camera.on {
+  padding-right: 14px;
 }
 
 #network.wifi {

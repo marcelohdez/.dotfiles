@@ -1,14 +1,11 @@
-@define-color theme_selected_bg_color @{primary};
-@define-color theme_selected_fg_color @{on_primary};
-
 /** some raw matugen colors */
 @define-color outline @{outline};
 @define-color outline_variant @{outline_variant};
 
 /** GTK defined colors */
 @define-color accent_bg_color @{primary};
-@define-color accent_color @{primary};
 @define-color accent_fg_color @{on_primary};
+@define-color accent_color @{primary};
 
 /** other stuff */
 tooltip {

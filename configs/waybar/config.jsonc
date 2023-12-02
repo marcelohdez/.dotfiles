@@ -1,12 +1,14 @@
 {
   "layer": "top",
   "spacing": 6,
+  "height": 32,
   "modules-left": ["custom/power-menu", "upower", "clock", "sway/workspaces"],
   "modules-center": [
     "custom/screenshare",
     "custom/camera",
     "custom/microphone",
-    "custom/mediaplayer"
+    "custom/mediaplayer",
+    "custom/inhibit-check"
   ],
   "modules-right": [
     "tray",
@@ -30,16 +32,18 @@
     "format-alt": " {time} left",
     "icon-size": 15
   },
-  "custom/mediaplayer": {
-    "format": "{icon} {}",
-    "format-icons": ["", "", ""],
-    "escape": true,
-    "return-type": "json",
-    "max-length": 32,
-    "on-click": "playerctl play-pause",
-    "on-click-middle": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+  "clock": {
+    "format": "{:%I:%M %p  %a %h %d}",
+    "on-click": "makoctl restore",
+    "on-click-right": "gnome-calendar",
+    "tooltip-format": "<big><tt>{calendar}</tt></big>",
+    "calendar": {
+      "format": {
+        "months": "<b>{}</b>",
+        "weekdays": "<i>{}</i>",
+        "today": "<b><i>{}</i></b>"
+      }
+    }
   },
   // *** *** ***
   // modules-center
@@ -65,18 +69,22 @@
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/microphone.sh 2> /dev/null"
   },
-  "clock": {
-    "format": "{:%I:%M %p  %a %h %d}",
-    "on-click": "makoctl restore",
-    "on-click-right": "gnome-calendar",
-    "tooltip-format": "<big><tt>{calendar}</tt></big>",
-    "calendar": {
-      "format": {
-        "months": "<b>{}</b>",
-        "weekdays": "<i>{}</i>",
-        "today": "<b><i>{}</i></b>"
-      }
-    }
+  "custom/mediaplayer": {
+    "format": "{icon} {}",
+    "format-icons": ["", "", ""],
+    "escape": true,
+    "return-type": "json",
+    "max-length": 32,
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+  },
+  "custom/inhibit-check": {
+    "format": "{icon}",
+    "format-icons": ["", ""],
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/inhibit_check.sh 2> /dev/null"
   },
   // *** *** ***
   // modules-right

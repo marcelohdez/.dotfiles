@@ -4,7 +4,7 @@ if [[ $# == 0 ]]; then
 	exit
 fi
 
-PERCENT=$(source ~/.local/share/fn-scripts/get_vol_percent.sh)
+PERCENT=$(~/.local/share/fn-scripts/get_vol_percent.sh)
 CHANGE=$(if [[ $2 != '' ]]; then echo $1$2; else echo $1'5'; fi)
 NEW_PERCENT=$(($PERCENT + $CHANGE))
 

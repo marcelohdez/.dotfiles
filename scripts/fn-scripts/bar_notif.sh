@@ -18,4 +18,4 @@ REUSE_ID=$(~/.local/share/fn-scripts/get_notif_id.sh)
 
 OPTS="$TIME -h int:value:$PERCENT $REUSE_ID"
 
-echo $(notify-send $TIME_CMD "$TITLE" "$SUMMARY" $OPTS) >/tmp/persistent_notif_id
+echo $(notify-send $TIME_CMD "$TITLE" "$SUMMARY" $OPTS) >$REUSE_NOTIF_DIR

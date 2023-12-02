@@ -37,8 +37,8 @@ _this list is non-exhaustive_
 
 Other packages used include font awesome, jetbrains mono, cascadia code,
 either of which should be patched with nerd icons. grim, slurp, and swappy
-for screenshot regions/editing. NetworkManager, gnome-themes-extra,
-gnome-keyring, polkit-gnome-authenticating-agent.
+for screenshot regions/editing. NetworkManager, inotify-tools, autotiling,
+gnome-themes-extra, gnome-keyring, polkit-gnome-authenticating-agent.
 
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar

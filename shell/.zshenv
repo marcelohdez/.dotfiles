@@ -1,5 +1,6 @@
+source ~/.profile
+
 PATH="$PATH:$HOME/.cargo/bin"
-PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/gradle/bin"
 
 export QT_QPA_PLATFORMTHEME=qt6ct

@@ -1,8 +1,6 @@
 #!/bin/sh
-TMP_FILE='/tmp/persistent_notif_id'
-
-if test -f $TMP_FILE; then
-	LAST_ID=$(<$TMP_FILE)
+if test -f $REUSE_NOTIF_DIR; then
+	LAST_ID=$(<$REUSE_NOTIF_DIR)
 	echo -p -r $LAST_ID
 else
 	echo -p

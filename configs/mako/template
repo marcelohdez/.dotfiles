@@ -13,6 +13,7 @@ padding=7
 width=450
 
 max-history=10
+max-visible=2
 # default timeout: 10 seconds
 default-timeout=10000
 
