@@ -5,60 +5,65 @@
 import argparse
 import json
 import logging
-import sys
 import signal
+import sys
 
 import gi
-gi.require_version('Playerctl', '2.0')  # needs to be before Playerctl import
+
+gi.require_version("Playerctl", "2.0")  # needs to be before Playerctl import
 from gi.repository import Playerctl, GLib  # noqa <- stops pycodestyle check
 
-PERCENTAGE_KEY = 'percentage'
+PERCENTAGE_KEY = "percentage"
 PLAYING_PERCENT = 100
 PAUSED_PERCENT = 50
 NOT_PLAYING_PERCENT = 0
-NOT_PLAYING_TEXT = 'No media'
+NOT_PLAYING_TEXT = "No media"
 
 logger = logging.getLogger(__name__)
 
 
 def write_output(text, player):
-    logger.info('Writing output')
+    logger.info("Writing output")
 
-    output = {'text': text, PERCENTAGE_KEY: NOT_PLAYING_PERCENT}
+    output = {"text": text, PERCENTAGE_KEY: NOT_PLAYING_PERCENT}
 
     if player is not None:
         percent = PAUSED_PERCENT
 
-        if player.props.status == 'Playing':
+        if player.props.status == "Playing":
             percent = PLAYING_PERCENT
 
-        tooltip = f'<b>  {player.get_title()}</b>' + \
-            f'\n {player.get_artist()}' + \
-            f'\n<sub><i>(Playing on {player.props.player_name})</i></sub>'
+        tooltip = (
+            f"<b>\udb81\udf5a {player.get_title()}</b>"
+            + f"\n\udb80\udc04 {player.get_artist()}"
+            + f"\n<sub><i>(Playing on {player.props.player_name})</i></sub>"
+        )
 
-        output['class'] = player.props.status
-        output['alt'] = player.props.player_name
-        output['tooltip'] = tooltip.replace('&', '&amp;')
+        output["class"] = player.props.status
+        output["alt"] = player.props.player_name
+        output["tooltip"] = tooltip.replace("&", "&amp;")
         output[PERCENTAGE_KEY] = percent
 
-    sys.stdout.write(json.dumps(output) + '\n')
+    sys.stdout.write(json.dumps(output) + "\n")
     sys.stdout.flush()
 
 
 def on_play(player, status, manager):
-    logger.info('Received new playback status')
+    logger.info("Received new playback status")
     on_metadata(player, player.props.metadata, manager)
 
 
 def on_metadata(player, metadata, manager):
-    logger.info('Received new metadata')
-    track_info = ''
+    logger.info("Received new metadata")
+    track_info = ""
 
-    if player.props.player_name == 'spotify' and \
-            'mpris:trackid' in metadata.keys() and \
-            ':ad:' in player.props.metadata['mpris:trackid']:
-        track_info = 'AD PLAYING'
-    elif player.get_artist() != '' and player.get_title() != '':
+    if (
+        player.props.player_name == "spotify"
+        and "mpris:trackid" in metadata.keys()
+        and ":ad:" in player.props.metadata["mpris:trackid"]
+    ):
+        track_info = "AD PLAYING"
+    elif player.get_artist() != "" and player.get_title() != "":
         track_info = player.get_title()
         # track_info = '{artist} - {title}'.format(artist=player.get_artist(),
         #                                         title=player.get_title())
@@ -77,23 +82,23 @@ def on_player_appeared(manager, player, selected_player=None):
 
 
 def on_player_vanished(manager, player):
-    logger.info('Player has vanished')
+    logger.info("Player has vanished")
     write_output(NOT_PLAYING_TEXT, None)
     sys.stdout.flush()
 
 
 def init_player(manager, name):
-    logger.debug('Initialize player: {player}'.format(player=name.name))
+    logger.debug("Initialize player: {player}".format(player=name.name))
     player = Playerctl.Player.new_from_name(name)
-    player.connect('playback-status', on_play, manager)
-    player.connect('metadata', on_metadata, manager)
+    player.connect("playback-status", on_play, manager)
+    player.connect("metadata", on_metadata, manager)
     manager.manage_player(player)
     on_metadata(player, player.props.metadata, manager)
 
 
 def signal_handler(sig, frame):
-    logger.debug('Received signal to stop, exiting')
-    sys.stdout.write('\n')
+    logger.debug("Received signal to stop, exiting")
+    sys.stdout.write("\n")
     sys.stdout.flush()
     # loop.quit()
     sys.exit(0)
@@ -103,10 +108,10 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
 
     # Increase verbosity with every occurrence of -v
-    parser.add_argument('-v', '--verbose', action='count', default=0)
+    parser.add_argument("-v", "--verbose", action="count", default=0)
 
     # Define for which player we're listening
-    parser.add_argument('--player')
+    parser.add_argument("--player")
 
     return parser.parse_args()
 
@@ -115,22 +120,27 @@ def main():
     arguments = parse_arguments()
 
     # Initialize logging
-    logging.basicConfig(stream=sys.stderr, level=logging.DEBUG,
-                        format='%(name)s %(levelname)s %(message)s')
+    logging.basicConfig(
+        stream=sys.stderr,
+        level=logging.DEBUG,
+        format="%(name)s %(levelname)s %(message)s",
+    )
 
     # Logging is set by default to WARN and higher.
     # With every occurrence of -v it's lowered by one
     logger.setLevel(max((3 - arguments.verbose) * 10, 0))
 
     # Log the sent command line arguments
-    logger.debug('Arguments received {}'.format(vars(arguments)))
+    logger.debug("Arguments received {}".format(vars(arguments)))
 
     manager = Playerctl.PlayerManager()
     loop = GLib.MainLoop()
 
-    manager.connect('name-appeared',
-                    lambda *args: on_player_appeared(*args, arguments.player))
-    manager.connect('player-vanished', on_player_vanished)
+    manager.connect(
+        "name-appeared", lambda *args: on_player_appeared(
+            *args, arguments.player)
+    )
+    manager.connect("player-vanished", on_player_vanished)
 
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
@@ -138,9 +148,11 @@ def main():
 
     for player in manager.props.player_names:
         if arguments.player is not None and arguments.player != player.name:
-            logger.debug('{player} is not the filtered player, skipping it'
-                         .format(player=player.name)
-                         )
+            logger.debug(
+                "{player} is not the filtered player, skipping it".format(
+                    player=player.name
+                )
+            )
             continue
 
         init_player(manager, player)
@@ -149,5 +161,5 @@ def main():
     loop.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

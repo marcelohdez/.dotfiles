@@ -1,7 +1,6 @@
 #!/bin/sh
-if test -f $REUSE_NOTIF_DIR; then
-	LAST_ID=$(<$REUSE_NOTIF_DIR)
-	echo -p -r $LAST_ID
+if test -f "$REUSE_NOTIF_DIR"; then
+	echo -p -r "$(cat $REUSE_NOTIF_DIR)"
 else
 	echo -p
 fi

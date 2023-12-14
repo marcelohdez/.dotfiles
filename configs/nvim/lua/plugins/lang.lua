@@ -5,7 +5,9 @@ return {
 		opts = {
 			servers = {
 				bashls = {}, -- bash
-				marksman = {}, -- markdown
+				clangd = {
+					mason = false,
+				},
 			},
 		},
 	},

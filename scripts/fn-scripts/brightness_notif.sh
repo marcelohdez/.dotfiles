@@ -1,5 +1,5 @@
 #!/bin/bash
-VAL=$(($(($2 * 10)) / $3))
-icons=( 󱩎 󱩏 󱩐 󱩑 󱩒 󱩓 󱩔 󱩕 󱩖 󰛨)
+PERCENT=$(($(($2 * 100)) / $3))
+ICON='' && [ $PERCENT -lt 66 ] && ICON='󰛨' && [ $PERCENT -lt 10 ] && ICON=''
 
-~/.local/share/fn-scripts/bar_notif.sh "${icons[$VAL]} Brightness" "$1" $2 $3
+~/.local/share/fn-scripts/bar_notif.sh "$ICON Brightness" "$1" $2 $3

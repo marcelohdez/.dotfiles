@@ -86,24 +86,6 @@ window#waybar {
   color: white;
 }
 
-/** fix padding issues */
-#custom-screenshare.on,
-#bluetooth.connected,
-#bluetooth.disabled,
-#bluetooth.off,
-#network.disabled,
-#network.disconnected {
-  padding-right: 12px;
-}
-
-#custom-camera.on {
-  padding-right: 14px;
-}
-
-#network.wifi {
-  padding-right: 16px;
-}
-
 /**
  * modules-left
 **/

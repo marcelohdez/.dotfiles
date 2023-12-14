@@ -1,12 +1,4 @@
 return {
-	"iamcco/markdown-preview.nvim",
-	"Mofiqul/vscode.nvim",
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "vscode",
-		},
-	},
 	{
 		"Dhanus3133/Leetbuddy.nvim",
 		config = function()
@@ -22,6 +14,14 @@ return {
 		},
 	},
 
+	-- changes to lazyvim defaults
+	"ellisonleao/gruvbox.nvim",
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "gruvbox",
+		},
+	},
 	{
 		"rcarriga/nvim-notify",
 		opts = {
