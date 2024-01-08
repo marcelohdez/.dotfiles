@@ -12,6 +12,8 @@ border-radius=8
 padding=7
 width=450
 
+on-button-left=dismiss
+on-button-right=invoke-default-action
 max-history=10
 max-visible=2
 # default timeout: 10 seconds

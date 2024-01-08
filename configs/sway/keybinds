@@ -39,11 +39,12 @@ bindsym $specialMod+F exec $webPriv
 bindsym $specialMod+C reload
 bindsym $specialMod+Escape exec swaymsg exit
 
-# Utility keybinds
-set $currentMonitor $(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')
+# Screenshot/sharing keybinds
+set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
 bindsym $specialMod+R exec ~/.local/share/fn-scripts/picker.sh
-bindsym $specialMod+A exec grim -g "$(slurp)" - | swappy -f -
-bindsym $specialMod+S exec grim -o $currentMonitor - | swappy -f -
+bindsym $specialMod+A exec $screenshotScript
+bindsym $specialMod+W exec $screenshotScript window
+bindsym $specialMod+S exec $screenshotScript screen
 
 # Functional keys
 set $toggleInhibit ~/.local/share/fn-scripts/toggle_inihibit.sh
@@ -104,3 +105,5 @@ bindsym $specialMod+7 move container to workspace 7, workspace 7
 bindsym $specialMod+8 move container to workspace 8, workspace 8
 bindsym $specialMod+9 move container to workspace 9, workspace 9
 bindsym $specialMod+0 move container to workspace 10, workspace 10
+
+# vim:ft=swayconfig

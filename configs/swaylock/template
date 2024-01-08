@@ -7,6 +7,7 @@ show-failed-attempts
 daemonize
 
 indicator-radius=100
+indicator-thickness=15
 
 text-color=@{primary}
 inside-color=@{surface}BB

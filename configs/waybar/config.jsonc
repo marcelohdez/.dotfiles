@@ -82,7 +82,7 @@
   },
   "custom/inhibit-check": {
     "format": "{icon}",
-    "format-icons": ["", ""],
+    "format-icons": ["", "󰷛"],
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/inhibit_check.sh 2> /dev/null"
   },
@@ -133,7 +133,7 @@
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon} {volume}%",
-    "format-muted": " Muted",
+    "format-muted": "󰖁 Muted",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -150,9 +150,9 @@
   },
   "bluetooth": {
     "format": "",
-    "format-connected": "  ",
-    "format-disabled": " ",
-    "format-off": " ",
+    "format-connected": "󰂱",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲 ",
     "tooltip-format": "Nothing connected ({status})\nDevice name: \"{controller_alias}\"",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",
@@ -162,8 +162,8 @@
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
-    "format-disconnected": "   ",
-    "format-disabled": "   ",
+    "format-disconnected": "󰤫",
+    "format-disabled": "󰤮",
     "on-click": "swaymsg exec 'foot --title=wifi nmtui'",
     "tooltip-format": "<b>{essid}</b> <i>({signaldBm}dB)</i>",
     "tooltip-format-ethernet": "Interface: {ifname}",

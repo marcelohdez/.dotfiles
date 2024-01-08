@@ -1,13 +1,21 @@
 # Marcelo's Sway Config!
 include /etc/sway/config.d/*
 
-# Key vars
+# Key vars (shared with all config files)
 set $mod Mod4
 set $specialMod $mod+Shift
 set $left H
 set $up K
 set $down J
 set $right L
+
+# Program vars (shared with all config files)
+set $calculator gnome-calculator
+set $files nautilus
+set $search fuzzel
+set $term foot
+set $web firefox
+set $webPriv firefox --private-window
 
 # Long-running processes
 exec /usr/libexec/polkit-gnome-authentication-agent-1
@@ -45,14 +53,6 @@ gaps inner 6
 smart_gaps on
 smart_borders on
 
-# Program vars
-set $calculator gnome-calculator
-set $files nautilus
-set $search fuzzel
-set $term foot
-set $web firefox
-set $webPriv firefox --private-window
-
 # window rules
 #                tabbrdr border  text    split indicator
 client.focused   #ffffff #9f9f9f #ffffff #454545
@@ -64,5 +64,5 @@ default_border pixel 2
 #titlebar_padding 4 1
 
 set $confDir ~/.config/sway/
-include $confDir/keybinds.conf
-include $confDir/winrules.conf
+include $confDir/keybinds
+include $confDir/windowrules

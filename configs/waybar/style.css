@@ -6,7 +6,7 @@
 @define-color base #090909;
 
 * {
-  font-family: JetBrainsMono;
+  font-family: JetBrainsMono, SymbolsNerdFontMono, FontAwesome6Free;
   font-size: 15px;
   min-height: 0;
 }
@@ -74,12 +74,12 @@ window#waybar {
 /**
  * Things that require attention, error color:
  */
+#upower.empty,
 #workspaces button.urgent,
 #temperature.critical,
 #cpu.critical,
 #memory.critical,
-#pulseaudio.muted,
-#upower.empty,
+#bluetooth.off,
 #network.disabled,
 #network.disconnected {
   background: #ea0000;

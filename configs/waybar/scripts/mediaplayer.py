@@ -34,8 +34,8 @@ def write_output(text, player):
             percent = PLAYING_PERCENT
 
         tooltip = (
-            f"<b>\udb81\udf5a {player.get_title()}</b>"
-            + f"\n\udb80\udc04 {player.get_artist()}"
+            f"<b>󰝚 {player.get_title()}</b>"
+            + f"\n󰀄 {player.get_artist()}"
             + f"\n<sub><i>(Playing on {player.props.player_name})</i></sub>"
         )
 
@@ -77,8 +77,7 @@ def on_player_appeared(manager, player, selected_player=None):
     if player and (selected_player is None or player.name == selected_player):
         init_player(manager, player)
     else:
-        logger.debug(
-            "New player appeared, but it's not the selected player, skipping")
+        logger.debug("New player appeared, but it's not the selected player, skipping")
 
 
 def on_player_vanished(manager, player):
@@ -137,8 +136,7 @@ def main():
     loop = GLib.MainLoop()
 
     manager.connect(
-        "name-appeared", lambda *args: on_player_appeared(
-            *args, arguments.player)
+        "name-appeared", lambda *args: on_player_appeared(*args, arguments.player)
     )
     manager.connect("player-vanished", on_player_vanished)
 

@@ -4,7 +4,6 @@ ICON=" "
 COLOR=$(hyprpicker -a)
 
 if [[ $COLOR == '' ]]; then
-	notify-send "$ICON Color picker cancelled!"
 	exit 1
 fi
 
