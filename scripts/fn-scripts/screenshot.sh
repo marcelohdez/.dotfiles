@@ -1,4 +1,6 @@
 #!/bin/sh
+SCREENSHOT_DIR="/run/user/$UID/screenshot_$RANDOM"
+
 case "$1" in
 'screen')
 	MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused).name')
@@ -13,7 +15,7 @@ case "$1" in
 	echo Assuming area selection, for \`screen\` or \`window\` screenshots use:
 	echo "$0" '[screen | window]'
 
-	if ! GEOM=$(slurp); then
+	if ! GEOM=$(slurp); then # exit on selection cancel
 		exit 1
 	fi
 
@@ -25,7 +27,7 @@ wl-paste >"$SCREENSHOT_DIR"
 TITLE='󱉧 Screenshot copied to clipboard'
 DESC='Right-click to edit or save'
 ACTION='default'
-T=10000
+T=15000
 
 RES=$(notify-send "$TITLE" "$DESC" -A "$ACTION=Use Swappy" -t $T -i "$SCREENSHOT_DIR")
 

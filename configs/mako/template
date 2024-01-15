@@ -1,10 +1,10 @@
 # === === STYLE === ===
-font=CascadiaMono 11
+font=CascadiaMono, SymbolsNerdFont 11
 # colors
-text-color=@{text_color_primary}
-background-color=@{on_secondary}
-border-color=@{secondary}
-progress-color=over @{secondary_container}
+text-color={{colors.text_color_primary.default.hex}}
+background-color={{colors.on_secondary.default.hex}}
+border-color={{colors.secondary.default.hex}}
+progress-color=over {{colors.secondary_container.default.hex}}
 
 # other styling
 anchor=top-center

@@ -1,4 +1,8 @@
 ###  Keybinds
+# Sway stuffs
+bindsym $specialMod+C reload
+bindsym $specialMod+Escape exec swaymsg exit
+
 # Window management
 bindsym $mod+X kill
 floating_modifier $mod normal
@@ -12,7 +16,7 @@ bindsym $specialMod+$down move down
 bindsym $specialMod+$right move right
 # Move focus around (moves mouse to center of focused window)
 # I decided to make a script rather than setting `focus_follows_mouse always` so
-# that utilities like blueman and pavucontrol don't annoyingly teleport mouse
+# that waybar stuff like blueman and pavucontrol don't annoyingly teleport mouse
 set $mouseToFocus ~/.config/sway/scripts/mouse_to_focus.sh
 bindsym $mod+$left focus left, exec $mouseToFocus
 bindsym $mod+$down focus down, exec $mouseToFocus
@@ -31,13 +35,10 @@ bindsym $mod+Period exec $search-emoji
 bindsym $mod+T exec $term
 bindsym $specialMod+T exec "$term --title=float"
 bindsym $mod+F exec $web
+bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_waybar.sh
-bindsym $specialMod+F exec $webPriv
-
-# Sway stuffs
-bindsym $specialMod+C reload
-bindsym $specialMod+Escape exec swaymsg exit
+bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh

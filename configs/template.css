@@ -1,16 +1,16 @@
 /** some raw matugen colors */
-@define-color outline @{outline};
-@define-color outline_variant @{outline_variant};
+@define-color outline {{colors.outline.default.hex}};
+@define-color outline_variant {{colors.outline_variant.default.hex}};
 
 /** GTK defined colors */
-@define-color accent_bg_color @{primary};
-@define-color accent_fg_color @{on_primary};
-@define-color accent_color @{primary};
+@define-color accent_bg_color {{colors.primary.default.hex}};
+@define-color accent_fg_color {{colors.on_primary.default.hex}};
+@define-color accent_color {{colors.primary.default.hex}};
 
 /** other stuff */
 tooltip {
   background: @theme_base_color;
-  border: 2px solid @{primary};
+  border: 2px solid {{colors.primary.default.hex}};
 }
 
 tooltip label {

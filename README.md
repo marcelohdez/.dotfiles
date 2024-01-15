@@ -18,22 +18,23 @@ can be _light_ or _dark_).
 
 _this list is non-exhaustive_
 
-| Usage                       | Project name                                    |
-| --------------------------- | ----------------------------------------------- |
-| Window manager              | [sway]                                          |
-| Bar                         | [waybar]                                        |
-| Terminal                    | [foot]                                          |
-| Wallpaper Daemon            | [swww]                                          |
-| Day/night theme switcher    | [darkman]                                       |
-| Color generator             | [matugen]                                       |
-| Night light (no blue light) | [gammastep]                                     |
-| Auto-suspending             | [swayidle]                                      |
-| Screen locking              | [swaylock-effects]                              |
-| Notifications               | [mako]                                          |
-| App launching               | [fuzzel]                                        |
-| Emoji                       | [wofi-emoji] (replace wofi cmds -> `fuzzel -d`) |
-| Text editing/coding         | [neovim]                                        |
-| Screen/Keyboard backlight   | [brightnessctl]                                 |
+| Usage                       | Project name                             |
+| --------------------------- | ---------------------------------------- |
+| Window manager              | [sway]                                   |
+| Bar                         | [waybar]                                 |
+| Terminal                    | [foot]                                   |
+| Wallpaper Daemon            | [swww]                                   |
+| Day/night theme switcher    | [darkman]                                |
+| Color generator             | [matugen]                                |
+| Night light (no blue light) | [gammastep]                              |
+| Auto-suspending             | [swayidle]                               |
+| Screen locking              | [swaylock-effects]                       |
+| Notifications               | [mako]                                   |
+| App launching (+dmenu)      | [fuzzel]                                 |
+| Emoji                       | [wofi-emoji] (using `fuzzel -d` instead) |
+| Text editing/coding         | [neovim]                                 |
+| Screen/Keyboard backlight   | [brightnessctl]                          |
+| File manager                | [thunar]                                 |
 
 Other packages used include font awesome, jetbrains mono, cascadia code, and
 Nerd Fonts (Symbols Only), either of which should be patched with nerd icons.
@@ -55,3 +56,4 @@ polkit-gnome-authenticating-agent.
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
 [neovim]: https://neovim.io/
 [brightnessctl]: https://github.com/Hummer12007/brightnessctl
+[thunar]: https://gitlab.xfce.org/xfce/thunar

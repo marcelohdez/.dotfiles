@@ -4,5 +4,5 @@ REUSABLES_DIR="/run/user/$UID"
 
 export PATH
 export REUSE_NOTIF_DIR="$REUSABLES_DIR/persistent_notif_id"
-export SCREENSHOT_DIR="$REUSABLES_DIR/screenshot"
+export CLIPBOARD_DIR="$REUSABLES_DIR/clipboardhistory"
 export INHIBIT_DIR="$REUSABLES_DIR/inhibit_sleep"

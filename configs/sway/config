@@ -11,7 +11,7 @@ set $right L
 
 # Program vars (shared with all config files)
 set $calculator gnome-calculator
-set $files nautilus
+set $files thunar
 set $search fuzzel
 set $term foot
 set $web firefox
@@ -24,7 +24,7 @@ exec gammastep
 exec kdeconnect-indicator
 exec swayidle -w
 exec 'swww init; systemctl restart --user darkman'
-# create inhibit_sleep file for waybar module to find
+exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 # stop swaybg from running
 swaybg_command -
 
