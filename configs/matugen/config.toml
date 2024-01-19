@@ -20,10 +20,6 @@ output_path = "~/.config/mako/config"
 input_path = "~/.config/swaylock/template"
 output_path = "~/.config/swaylock/config"
 
-[templates.waybar_gtk] # keeps current mode's tooltips namely
-input_path = "~/.config/template.css"
-output_path = "~/.config/waybar/colors.css"
 [templates.waybar_accents]
 input_path = "~/.config/waybar/template.css"
-output_path = "~/.config/waybar/accents.css"
-mode = "Dark"                                # bar is always dark
+output_path = "~/.config/waybar/colors.css"

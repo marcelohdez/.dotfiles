@@ -1,22 +1,49 @@
 # marcelo's dotfiles
 
-### _🚧⚠️Work in progress⚠️🚧_
-
-Use at your own risk! This is tailored to my setup and uses.
+Wayland shill... using Fedora + Sway
 
 ## Setup
 
-_First, make sure you have all projects mentioned below installed!_
+### _🚧⚠️ Warning ⚠️🚧_
 
-Then, `cd` into the root of this repo and run `./init.sh`. Finally,
-let darkman run at least once to put all theme files in place.
+Use at your own risk! This is tailored to my setup and uses. I use **Fedora**.
 
-**Wallpapers** are put in `~/Wallpapers/<variant>/`; (`<variant>`
-can be _light_ or _dark_).
+---
 
-## Main projects used
+First, clone this repo into its _permanent_ directory (otherwise symlinks will
+break) and `cd` into it.
 
-_this list is non-exhaustive_
+Then install the packages needed (at least, those available in the Fedora
+repos):
+
+```bash
+sudo dnf install $(<packages.txt)
+```
+
+`pip` is one of the packages installed above, so you can install `autotiling`
+through it (for automatic dwindle layout in Sway):
+
+```bash
+pip install autotiling
+```
+
+Then, [matugen], [hyprpicker], the [NerdFont] (symbols only),
+[swaylock-effects], and [swww] must be installed manually (swaylock-effects'
+copr is broken for me at the time of writing, inverting the screenshots and
+other quirks).
+
+Finally, run `./init.sh`. Assuming a clean install this should place config
+files and scripts where they go (this will **not** override existing configs).
+
+- **Tip**: You can install `xdg-user-dirs` to run `xdg-user-dirs-update`,
+  creating the Downloads, Pictures, etc. folders for you and setting their
+  `$XDG_*` environment variables.
+- **Tip**: I noticed missing font problems in Firefox upon a Fedora Minimal
+  install, and it seems that installing these additonal packages fixed it?
+  `adobe-source-sans-pro-fonts gnu-free-sans-fonts google-noto-sans*`
+- **Tip**: Wallpapers are put in `~/Wallpapers/<light|dark>`
+
+## Credits
 
 | Usage                       | Project name                             |
 | --------------------------- | ---------------------------------------- |
@@ -36,12 +63,8 @@ _this list is non-exhaustive_
 | Screen/Keyboard backlight   | [brightnessctl]                          |
 | File manager                | [thunar]                                 |
 
-Other packages used include font awesome, jetbrains mono, cascadia code, and
-Nerd Fonts (Symbols Only), either of which should be patched with nerd icons.
-grim, slurp, and swappy for screenshot regions/editing. NetworkManager,
-inotify-tools, autotiling, gnome-themes-extra, gnome-keyring,
-polkit-gnome-authenticating-agent.
-
+[hyprpicker]: https://github.com/hyprwm/hyprpicker
+[NerdFont]: https://www.nerdfonts.com/font-downloads
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
