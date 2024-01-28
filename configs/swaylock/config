@@ -1,0 +1,46 @@
+font=JetBrainsMono
+
+indicator-idle-visible
+indicator-caps-lock
+ignore-empty-password
+show-failed-attempts
+daemonize
+
+indicator-radius=100
+indicator-thickness=15
+
+timestr=%I:%M:%S
+datestr=%a %d
+
+# effects (from swaylock-effects)
+clock
+screenshots
+effect-blur=10x2
+fade-in=0.5
+
+## COLORS
+text-color=#ffffff
+inside-color=#1b1b1b
+ring-color=#2b2b2b
+key-hl-color=#006ddb
+
+# verifying
+text-ver-color=#abdbff
+ring-ver-color=#abdbff
+inside-ver-color=#19293f
+
+# clearing
+text-clear-color=#e2e4cd
+ring-clear-color=#c6c8b2
+inside-clear-color=#454837
+
+# error
+text-wrong-color=#ffb4ab
+ring-wrong-color=#ffb4ab
+inside-wrong-color=#93000a
+
+# invisible
+line-color=FFFFFF00
+separator-color=FFFFFF00
+
+# vim:ft=conf

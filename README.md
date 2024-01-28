@@ -1,47 +1,61 @@
 # marcelo's dotfiles
 
-Wayland shill... using Fedora + Sway
+Sway shill
 
 ## Setup
 
 ### _🚧⚠️ Warning ⚠️🚧_
 
-Use at your own risk! This is tailored to my setup and uses. I use **Fedora**.
+Use at your own risk! This is tailored to my setup and uses on **Fedora**.
 
 ---
 
-First, clone this repo into its _permanent_ directory (otherwise symlinks will
-break) and `cd` into it.
-
-Then install the packages needed (at least, those available in the Fedora
-repos):
+First, clone this repo into its _permanent_ directory (otherwise stuff will
+break) and `cd` into it; then you can install the packages needed (at least,
+those available in the Fedora repos):
 
 ```bash
-sudo dnf install $(<packages.txt)
+sudo dnf install $(cat packages.txt)
 ```
 
-`pip` is one of the packages installed above, so you can install `autotiling`
-through it (for automatic dwindle layout in Sway):
+You should now be able to switch to `zsh` and install `autotiling`:
 
 ```bash
+chsh -s $(which zsh)
 pip install autotiling
 ```
 
-Then, [matugen], [hyprpicker], the [NerdFont] (symbols only),
-[swaylock-effects], and [swww] must be installed manually (swaylock-effects'
-copr is broken for me at the time of writing, inverting the screenshots and
-other quirks).
+Firefox is used throughout this repo. You _can_ just install it regularly but
+for the sandboxing and quicker updates I prefer the official Flatpak; then
+creating a `firefox` script in e.g. `.local/bin/` containing:
+
+```bash
+#!/bin/sh
+flatpak run org.mozilla.firefox -- $@
+```
+
+Then, [hyprpicker], [NerdFont] (symbols only), [swaylock-effects], and [swww]
+must be installed manually.
 
 Finally, run `./init.sh`. Assuming a clean install this should place config
 files and scripts where they go (this will **not** override existing configs).
 
-- **Tip**: You can install `xdg-user-dirs` to run `xdg-user-dirs-update`,
-  creating the Downloads, Pictures, etc. folders for you and setting their
-  `$XDG_*` environment variables.
-- **Tip**: I noticed missing font problems in Firefox upon a Fedora Minimal
-  install, and it seems that installing these additonal packages fixed it?
-  `adobe-source-sans-pro-fonts gnu-free-sans-fonts google-noto-sans*`
-- **Tip**: Wallpapers are put in `~/Wallpapers/<light|dark>`
+## Tips
+
+- You can install `xdg-user-dirs` and run `xdg-user-dirs-update`, creating
+  the Downloads, Pictures, etc. folders for you.
+- I noticed missing font problems in Firefox after a Fedora Minimal
+  install, installing these additonal packages helped:
+  `adobe-source-sans-pro-fonts gnu-free-sans-fonts google-noto-sans*
+unifont-fonts`
+- You can symlink `foot` as `xdg-terminal-exec` so that glib apps (e.g.
+  Thunar) open foot when needing a terminal:
+
+  ```bash
+  sudo ln -s /bin/foot /bin/xdg-terminal-exec
+  ```
+
+- Wallpapers are put in `~/Wallpapers/<light|dark>`
 
 ## Credits
 
@@ -52,7 +66,6 @@ files and scripts where they go (this will **not** override existing configs).
 | Terminal                    | [foot]                                   |
 | Wallpaper Daemon            | [swww]                                   |
 | Day/night theme switcher    | [darkman]                                |
-| Color generator             | [matugen]                                |
 | Night light (no blue light) | [gammastep]                              |
 | Auto-suspending             | [swayidle]                               |
 | Screen locking              | [swaylock-effects]                       |
@@ -70,7 +83,6 @@ files and scripts where they go (this will **not** override existing configs).
 [foot]: https://codeberg.org/dnkl/foot
 [swww]: https://github.com/Horus645/swww
 [darkman]: https://gitlab.com/whynothugo/darkman
-[matugen]: https://github.com/inioX/matugen
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle
 [swaylock-effects]: https://github.com/mortie/swaylock-effects

@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "spacing": 2,
-  "modules-left": ["custom/power-menu", "upower", "clock", "sway/workspaces"],
+  "modules-left": ["custom/power-menu", "clock", "sway/workspaces"],
   "modules-center": [
     "custom/screenshare",
     "custom/camera",
@@ -11,9 +11,8 @@
   ],
   "modules-right": [
     "tray",
-    "cpu",
-    "memory",
     "pulseaudio",
+    "upower",
     "bluetooth",
     "network"
   ],
@@ -23,11 +22,6 @@
   "custom/power-menu": {
     "format": "⏻",
     "on-click": "wlogout"
-  },
-  "upower": {
-    "format": " {percentage}",
-    "format-alt": " {time} left",
-    "icon-size": 15
   },
   "clock": {
     "format": "{:%I:%M %p %a %h %d}",
@@ -71,7 +65,7 @@
     "format-icons": ["", "", ""],
     "escape": true,
     "return-type": "json",
-    "max-length": 32,
+    "max-length": 40,
     "on-click": "playerctl play-pause",
     "on-click-middle": "playerctl previous",
     "on-click-right": "playerctl next",
@@ -106,6 +100,11 @@
     "states": {
       "critical": 90
     }
+  },
+  "upower": {
+    "format": " {percentage}",
+    "format-alt": " {time} left",
+    "icon-size": 15
   },
   "pulseaudio": {
     "scroll-step": 5,

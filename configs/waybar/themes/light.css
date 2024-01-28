@@ -1,0 +1,2 @@
+@define-color base shade(@borders, 1.2);
+@define-color modulebg shade(@theme_base_color, 0.8);

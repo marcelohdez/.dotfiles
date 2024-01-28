@@ -1,6 +1,5 @@
 #!/bin/sh
-. $HOME/.local/share/both-modes.d/rand_wall.sh
-. $HOME/.local/share/both-modes.d/reload_waybar.sh
-. $HOME/.local/share/both-modes.d/borders.sh
+. ~/.local/share/both-modes.d/rand_wall.sh
+. ~/.local/share/both-modes.d/borders.sh 2b2b2b afafafee
 
-. $HOME/.local/share/both-modes.d/set_gtk_theme.sh Adwaita
+. ~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita

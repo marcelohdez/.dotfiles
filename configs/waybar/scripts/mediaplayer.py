@@ -13,7 +13,6 @@ import gi
 gi.require_version("Playerctl", "2.0")  # needs to be before Playerctl import
 from gi.repository import Playerctl, GLib  # noqa <- stops pycodestyle check
 
-PERCENTAGE_KEY = "percentage"
 PLAYING_PERCENT = 100
 PAUSED_PERCENT = 50
 NOT_PLAYING_PERCENT = 0
@@ -23,11 +22,15 @@ logger = logging.getLogger(__name__)
 
 
 def write_output(text, player):
+    PERCENTAGE_KEY = "percentage"
+
     logger.info("Writing output")
 
-    output = {"text": text, PERCENTAGE_KEY: NOT_PLAYING_PERCENT}
+    if text is None:
+        return
 
-    if player is not None:
+    output = {"text": text, PERCENTAGE_KEY: NOT_PLAYING_PERCENT}  # just title
+    if player is not None:  # add other data
         percent = PAUSED_PERCENT
 
         if player.props.status == "Playing":
@@ -156,7 +159,11 @@ def main():
         init_player(manager, player)
 
     write_output(NOT_PLAYING_TEXT, None)
-    loop.run()
+    try:
+        loop.run()
+    except Exception as e:
+        logger.debug("Oops! An exception ocurred:", type(e))
+        logger.debug(e)
 
 
 if __name__ == "__main__":

@@ -2,11 +2,10 @@
 **/.DS_Store
 **/*lock.*
 
-# auto-genned theme stuffs
+# auto-genned stuffs
 **/colors.*
-configs/waybar/accents.css
-configs/fuzzel/fuzzel.ini
-configs/mako/config
-configs/swaylock/config
 configs/lazygit/state.yml
 
+# any stuff created in here:
+configs/xfce4/*/
+configs/gtk-3.0/bookmarks

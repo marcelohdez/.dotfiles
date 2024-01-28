@@ -1,6 +1,8 @@
 @import "colors.css";
 
 @define-color text @theme_text_color;
+@define-color accent_color #006ddb;
+@define-color highlight shade(@theme_base_color, 1.8);
 
 * {
   font-family: JetBrainsMono, SymbolsNerdFontMono, FontAwesome6Free;
@@ -38,32 +40,31 @@ window#waybar {
 }
 
 /**
- * apply common colors like accent and 'critical' color
+ * apply lighter background for *selected* things
 **/
-#upower.charging,
-#workspaces button.focused,
-#bluetooth.connected {
-  background: @accent_color;
-  color: @accent_fg_color;
+#workspaces button.focused {
+  background: @highlight;
+  color: @text;
 }
 
 /**
- * apply only accented text
+ * apply lighter text
 **/
 #cpu,
-#memory {
-  color: @accent_color;
+#memory,
+#workspaces button {
+  color: alpha(@text, 0.8);
 }
 
 /**
- * Inverted accent colors (light text, dark background) 
+ * Accent color background
  */
 #custom-camera.on,
 #custom-screenshare.on,
 #custom-microphone.on,
 #custom-inhibit-check.yes {
-  background: @accent_fg_color;
-  color: @accent_color;
+  background: @accent_color;
+  color: #ffffff;
 }
 
 /**
@@ -84,9 +85,11 @@ window#waybar {
 /**
  * Things with background
  */
+#upower.charging,
 #workspaces,
-#tray {
-  background: alpha(@modulebg, 0.75);
+#tray,
+#bluetooth.connected {
+  background: @modulebg;
 }
 
 /**

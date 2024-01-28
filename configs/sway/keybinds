@@ -87,11 +87,12 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+set $nextWorkspace ~/.local/share/fn-scripts/next-workspace.sh
+bindgesture swipe:3:left exec $nextWorkspace
 bindgesture swipe:3:right workspace prev
-bindgesture swipe:3:left workspace next
 
 bindsym --whole-window {
-  $mod+button4 workspace next
+  $mod+button4 exec $nextWorkspace
   $mod+button5 workspace prev
 }
 

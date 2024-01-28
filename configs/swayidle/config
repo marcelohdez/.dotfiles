@@ -7,4 +7,3 @@ timeout 420 "swaylock --grace 30"
 timeout 480 "systemctl suspend"
 
 before-sleep 'swaylock'
-after-resume $HOME/.config/swayidle/scripts/weather.sh

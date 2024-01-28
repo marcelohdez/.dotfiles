@@ -1,0 +1,9 @@
+tooltip {
+  background: @theme_base_color;
+  border: 2px solid #6b8dab;
+}
+
+tooltip label {
+  text-shadow: none;
+  color: @theme_text_color;
+}

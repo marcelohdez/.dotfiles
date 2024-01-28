@@ -32,13 +32,24 @@ else # Default, but also pipe through lolcat when in dark mode
   echo $WELCOME | lolcat
 fi
 
-fedoraup() {
+# non-system apps
+nonsysup() {
 	echo "<===== Flatpak =====>"
 	flatpak update
+}
+
+fedoraup() {
+  nonsysup
 
   echo
 	echo "<======= Dnf =======>"
 	sudo dnf update
+}
+
+pdfopen() {
+  swaymsg move scratchpad
+  zathura $@
+  swaymsg scratchpad show
 }
 
 whatwin() {
