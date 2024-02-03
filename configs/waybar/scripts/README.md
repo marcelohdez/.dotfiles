@@ -1,5 +1,7 @@
 # Waybar scripts
 
+## Miscellanous
+
 ### `mediaplayer.py`
 
 _Modified from the [script with the same name](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py)
@@ -19,7 +21,7 @@ You may notice that while the original script would set the `class` value to
 the player name, I made it instead return the player status, which lets you
 style your module accordingly:
 
-```
+```css
 #custom-media {
   background-color: black;
 }
@@ -88,22 +90,26 @@ and for it to only show up when **on** you can do e.g. (in `config.jsonc`):
 }
 ```
 
+### `camera.sh`
+
+Will check every device at `/dev/video*` and assume PipeWire and wireplumber
+to be used in the system, and for them to be using the camera in question.
+
+## Deprecated
+
+While still in use, these scripts will be removed when a release containing
+[waybar #2612] is published.
+
 ### `microphone.sh`
 
 Uses PipeWire with pulseaudio (`pactl`) support.
 
 ### `screenshare.sh`
 
-These dotfiles use the `exec_before` and `exec_after` config keys in `xdg-desktop-portal-wlr`
-(and Hyprland's) to create a temporary file which this script will check for.
-
-### `camera.sh`
-
-**NOT READY FOR WIDE USAGE**
-Will check every device at `/dev/video*` and assume PipeWire and
-wireplumber to be used in the system, and for them to be using the
-camera in question.
+These dotfiles use the `exec_before` and `exec_after` config keys in
+`xdg-desktop-portal-wlr` (and Hyprland's) to create a temporary file which
+this script will check for.
 
 [MPRIS]: https://wiki.archlinux.org/title/MPRIS
 [waybar-compatible JSON]: https://man.archlinux.org/man/waybar-custom.5.en#RETURN-TYPE
-[Hyprland]: https://hyprland.org/
+[waybar #2612]: (https://github.com/Alexays/Waybar/pull/2612)

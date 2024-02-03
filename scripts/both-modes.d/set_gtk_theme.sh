@@ -1,5 +1,8 @@
 #!/bin/sh
-THEME=$1
+if [ $# != 2 ]; then
+	echo "Usage: $0 THEME <light|dark>"
+	exit
+fi
 
-gsettings set org.gnome.desktop.interface color-scheme "prefer-$(darkman get)"
-gsettings set org.gnome.desktop.interface gtk-theme "$THEME"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-$2"
+gsettings set org.gnome.desktop.interface gtk-theme "$1"

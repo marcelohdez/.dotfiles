@@ -34,4 +34,6 @@ unzip
 waybar
 wlogout
 wtype
+zathura
+zathura-pdf-mupdf
 zsh

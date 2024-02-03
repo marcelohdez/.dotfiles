@@ -9,15 +9,6 @@ daemonize
 indicator-radius=100
 indicator-thickness=15
 
-timestr=%I:%M:%S
-datestr=%a %d
-
-# effects (from swaylock-effects)
-clock
-screenshots
-effect-blur=10x2
-fade-in=0.5
-
 ## COLORS
 text-color=#ffffff
 inside-color=#1b1b1b
@@ -42,5 +33,14 @@ inside-wrong-color=#93000a
 # invisible
 line-color=FFFFFF00
 separator-color=FFFFFF00
+
+## EFFECTS (from swaylock-effects)
+timestr=%I:%M:%S
+datestr=%a %d
+
+clock
+screenshots
+effect-blur=10x2
+fade-in=0.5
 
 # vim:ft=conf

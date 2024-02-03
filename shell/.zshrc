@@ -11,6 +11,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
 setopt auto_cd
 
 # allow uncapitalized letters to match capitals when no case-sensitive match found
@@ -26,7 +33,7 @@ bindkey "^[[1;5D" backward-word
 
 ## Welcome message!
 WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
-if [[ $(darkman get) == 'light' ]]; then
+if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == "'prefers-light'" ]]; then
   echo $WELCOME
 else # Default, but also pipe through lolcat when in dark mode
   echo $WELCOME | lolcat
@@ -40,7 +47,6 @@ nonsysup() {
 
 fedoraup() {
   nonsysup
-
   echo
 	echo "<======= Dnf =======>"
 	sudo dnf update
@@ -59,8 +65,28 @@ whatwin() {
 }
 
 reloadwall() {
-  MODE=$(darkman get)
-  ~/.local/share/$MODE-mode.d/theme-switch.sh
+	if ! MODE=$(pgrep darkman >&/dev/null && darkman get); then
+		if [ $# != 1 ]; then
+			echo "Usage: $0 <light|dark>"
+			return
+		fi
+
+		MODE=$1
+	fi
+
+	"$XDG_DATA_HOME"/"$MODE"-mode.d/theme-switch.sh &
+}
+
+theme() {
+	if [ $# != 1 ]; then
+		echo "Usage: $0 <light|dark>"
+		return
+	fi
+	pgrep darkman && darkman set "$1" && return # if darkman is running, use it
+
+	for f in "$XDG_DATA_HOME"/"$1"-mode.d/*.sh; do # otherwise, we do it ourselves:
+		. "$f" &
+	done
 }
 
 autoload -U colors && colors

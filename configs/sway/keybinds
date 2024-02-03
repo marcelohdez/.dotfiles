@@ -68,8 +68,8 @@ bindsym XF86MonBrightnessUp+Ctrl exec brightnessctl set 1%+ && $brightnessNotif
 
 set $kbdLight -d 'kbd_backlight'
 set $kbdBrightnessNotif $barNotif Keyboard $(brightnessctl $kbdLight g) $(brightnessctl $kbdLight m)
-bindsym XF86MonBrightnessDown+Alt exec brightnessctl $kbdLight set 10%- && $kbdBrightnessNotif
-bindsym XF86MonBrightnessUp+Alt exec brightnessctl $kbdLight set 10%+ && $kbdBrightnessNotif
+bindsym XF86MonBrightnessDown+Shift exec brightnessctl $kbdLight set 10%- && $kbdBrightnessNotif
+bindsym XF86MonBrightnessUp+Shift exec brightnessctl $kbdLight set 10%+ && $kbdBrightnessNotif
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -87,9 +87,11 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-set $nextWorkspace ~/.local/share/fn-scripts/next-workspace.sh
+set $nextWorkspace ~/.config/sway/scripts/next_workspace.sh
 bindgesture swipe:3:left exec $nextWorkspace
 bindgesture swipe:3:right workspace prev
+# loop over even on last workspace with 4 fingers:
+bindgesture swipe:4:left workspace next
 
 bindsym --whole-window {
   $mod+button4 exec $nextWorkspace

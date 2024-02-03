@@ -1,4 +1,9 @@
-MODE=$(darkman get)
+if [ $# != 1 ]; then
+	echo "Usage: $0 <light|dark>"
+	exit
+fi
+
+MODE=$1
 ROOT_FOLDER=~/Wallpapers/$MODE
 IMAGE=$(ls "$ROOT_FOLDER" | sort -R | tail -1)
 

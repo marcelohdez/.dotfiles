@@ -37,6 +37,10 @@ flatpak run org.mozilla.firefox -- $@
 Then, [hyprpicker], [NerdFont] (symbols only), [swaylock-effects], and [swww]
 must be installed manually.
 
+For theme files to be put in place, the `theme <light|dark>` command must be
+run at least once, these dots also support [`darkman`] through the systemd
+service.
+
 Finally, run `./init.sh`. Assuming a clean install this should place config
 files and scripts where they go (this will **not** override existing configs).
 
