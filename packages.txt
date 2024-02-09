@@ -13,6 +13,7 @@ gnome-themes-extra
 go
 grim
 ImageMagick
+inotify-tools
 jetbrains-mono-fonts-all
 kdeconnectd
 lolcat
@@ -29,6 +30,7 @@ stow
 swappy
 sway
 swayidle
+swaylock
 thunar
 unzip
 waybar

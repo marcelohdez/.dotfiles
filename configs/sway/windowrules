@@ -5,14 +5,13 @@ for_window {
   # waybar modules
   [app_id="^blueman"] floating enable, move position cursor, move down 28
   [app_id="^pavucontrol$"] floating enable, move position cursor, move down 28
-  [app_id="foot" title="wifi"] floating enable, move position cursor, move down 28;
+  [app_id="foot" title="wifi"] floating enable, move position cursor, move down 28
 
   # other stuffs
   [app_id="gnome-calendar"] floating enable
   [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
   [app_id="firefox" title="^Picture.*in.*Picture$"] floating enable
   [class="steam" title="^((?!Steam).)*$"] floating enable
-  [app_id="thunar"] floating enable, resize 800 600
   [app_id="^xdg-desktop-portal-gtk$"] floating enable
   [app_id="^swappy$"] border none
 

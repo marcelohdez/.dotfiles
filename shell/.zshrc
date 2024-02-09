@@ -33,7 +33,7 @@ bindkey "^[[1;5D" backward-word
 
 ## Welcome message!
 WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
-if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == "'prefers-light'" ]]; then
+if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == "'prefer-light'" ]]; then
   echo $WELCOME
 else # Default, but also pipe through lolcat when in dark mode
   echo $WELCOME | lolcat
@@ -52,10 +52,14 @@ fedoraup() {
 	sudo dnf update
 }
 
-pdfopen() {
+swallow() {
   swaymsg move scratchpad
-  zathura $@
+  $@
   swaymsg scratchpad show
+}
+
+open() {
+  swallow xdg-open $@
 }
 
 whatwin() {
@@ -74,7 +78,7 @@ reloadwall() {
 		MODE=$1
 	fi
 
-	"$XDG_DATA_HOME"/"$MODE"-mode.d/theme-switch.sh &
+	"$XDG_DATA_HOME"/"$MODE"-mode.d/theme-switch.sh
 }
 
 theme() {
@@ -85,7 +89,7 @@ theme() {
 	pgrep darkman && darkman set "$1" && return # if darkman is running, use it
 
 	for f in "$XDG_DATA_HOME"/"$1"-mode.d/*.sh; do # otherwise, we do it ourselves:
-		. "$f" &
+		. "$f"
 	done
 }
 

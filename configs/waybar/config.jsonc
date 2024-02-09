@@ -2,15 +2,13 @@
   "layer": "top",
   "spacing": 2,
   "modules-left": ["custom/power-menu", "clock", "sway/workspaces"],
-  "modules-center": [
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "tray",
     "custom/screenshare",
     "custom/camera",
     "custom/microphone",
-    "custom/mediaplayer",
-    "custom/inhibit-check"
-  ],
-  "modules-right": [
-    "tray",
+    "idle_inhibitor",
     "upower",
     "pulseaudio",
     "bluetooth",
@@ -47,7 +45,7 @@
   },
   "custom/camera": {
     "format": "{icon}",
-    "format-icons": ["", ""],
+    "format-icons": ["", "󰄀"],
     "interval": 3,
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/camera.sh 2> /dev/null"
@@ -59,22 +57,14 @@
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/microphone.sh 2> /dev/null"
   },
-  "custom/mediaplayer": {
-    "format": "{icon} {}",
-    "format-icons": ["", "", ""],
-    "escape": true,
-    "return-type": "json",
-    "max-length": 40,
+  "mpris": {
+    "format-paused": " {title}",
+    "format-playing": " {title}",
+    "tooltip-format": "󰝚 {title}\n󰀄 {artist}\n(Playing on {player})",
     "on-click": "playerctl play-pause",
     "on-click-middle": "playerctl previous",
     "on-click-right": "playerctl next",
-    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
-  },
-  "custom/inhibit-check": {
-    "format": "{icon}",
-    "format-icons": ["", "󰷛"],
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/scripts/inhibit_check.sh 2> /dev/null"
+    "max-length": 40
   },
   // *** *** ***
   // modules-right
@@ -82,23 +72,14 @@
   "tray": {
     "spacing": 6
   },
-  "cpu": {
-    "format": "{icon} {usage}%",
-    "format-alt": "{icon} {avg_frequency} GHz",
-    "format-icons": [""],
-    "states": {
-      "critical": 80
-    }
-  },
-  "memory": {
-    "interval": 12,
-    "format": "{icon} {}%",
-    "format-alt": "{icon} {used:.1f} GB",
-    "format-icons": [""],
-    "tooltip-format": "ram: {used}/{total} GB ({}%)\nswap: {swapUsed}/{swapTotal} GB ({swapPercentage}%)",
-    "states": {
-      "critical": 90
-    }
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰷛",
+      "deactivated": "󰒲"
+    },
+    "tooltip-format-activated": "System cannot sleep",
+    "tooltip-format-deactivated": "System can sleep"
   },
   "upower": {
     "format": " {percentage}",
@@ -146,3 +127,5 @@
     "tooltip-format-disabled": "Network is disabled!"
   }
 }
+
+// vim:ft=jsonc

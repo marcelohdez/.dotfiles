@@ -19,14 +19,12 @@ window#waybar {
 #upower,
 #workspaces,
 #workspaces button,
-#custom-mediaplayer,
 #custom-camera.on,
 #custom-screenshare.on,
 #custom-microphone.on,
-#custom-inhibit-check.yes,
+#mpris,
 #tray,
-#cpu,
-#memory,
+#idle_inhibitor,
 #backlight,
 #pulseaudio,
 #bluetooth,
@@ -49,8 +47,6 @@ window#waybar {
 /**
  * apply lighter text
 **/
-#cpu,
-#memory,
 #workspaces button {
   color: alpha(@text, 0.8);
 }
@@ -59,9 +55,8 @@ window#waybar {
  * Accent color background
  */
 #custom-camera.on,
-#custom-screenshare.on,
 #custom-microphone.on,
-#custom-inhibit-check.yes {
+#idle_inhibitor.activated {
   background: @accent_color;
   color: #ffffff;
 }
@@ -69,11 +64,9 @@ window#waybar {
 /**
  * Things that require attention, error color:
  */
-#upower.empty,
 #workspaces button.urgent,
-#temperature.critical,
-#cpu.critical,
-#memory.critical,
+#custom-screenshare.on,
+#upower.empty,
 #bluetooth.off,
 #network.disabled,
 #network.disconnected {

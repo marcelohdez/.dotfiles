@@ -1,11 +1,11 @@
 #!/bin/sh
-if [[ $# == 0 ]]; then
-	echo "Usage: $0 <plus symbol or minus symbol> [percent]"
+if [ $# != 2 ]; then
+	echo "Usage: $0 <+|-> <PERCENT>"
 	exit
 fi
 
 PERCENT=$(~/.local/share/fn-scripts/get_vol_percent.sh)
-CHANGE=$(if [[ $2 != '' ]]; then echo "$1$2"; else echo $1'5'; fi)
+CHANGE="$1$2"
 NEW_PERCENT=$((PERCENT + CHANGE))
 
 if [ $NEW_PERCENT -gt 100 ]; then

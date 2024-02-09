@@ -19,13 +19,15 @@ set $webPriv firefox --private-window
 
 # Long-running processes
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec autotiling
 exec gammastep
 exec kdeconnect-indicator
 exec swayidle -w
 exec waybar
-exec 'swww init; pgrep darkman && systemctl --user restart darkman'
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
+# set up correct theme
+set $setupTheme ~/.local/share/fn-scripts/theme-setup.sh
+set $startDarkman systemctl --user restart darkman
+exec 'swww init; pgrep darkman && $startDarkman || $setupTheme'
 # stop swaybg from running
 swaybg_command -
 
@@ -46,7 +48,7 @@ input type:touchpad {
 }
 
 input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
-  pointer_accel 0.6
+  pointer_accel 0.5
   scroll_factor 0.5
 }
 

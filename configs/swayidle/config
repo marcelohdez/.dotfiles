@@ -1,9 +1,11 @@
 timeout 30 "pgrep swaylock && systemctl suspend"
 
-timeout 120 "~/.config/swayidle/scripts/off_wall.sh && swaylock --grace 15"
+timeout 120 "~/.config/swayidle/scripts/off_wall.sh && notify-send -t 15000 'Suspending in 15 seconds' 'Due to inactivity'"
+timeout 135 "~/.config/swayidle/scripts/off_wall.sh && swaylock"
 timeout 150 "~/.config/swayidle/scripts/off_wall.sh && systemctl suspend"
 
-timeout 420 "swaylock --grace 30"
+timeout 420 "notify-send -t 30000 'Suspending in 30 seconds' 'Due to inactivity'"
+timeout 450 "swaylock"
 timeout 480 "systemctl suspend"
 
 before-sleep 'playerctl pause -i kdeconnect; swaylock'

@@ -18,11 +18,10 @@ those available in the Fedora repos):
 sudo dnf install $(cat packages.txt)
 ```
 
-You should now be able to switch to `zsh` and install `autotiling`:
+You should now be able to switch to `zsh`:
 
 ```bash
 chsh -s $(which zsh)
-pip install autotiling
 ```
 
 Firefox is used throughout this repo. You _can_ just install it regularly but
@@ -34,15 +33,17 @@ creating a `firefox` script in e.g. `.local/bin/` containing:
 flatpak run org.mozilla.firefox -- $@
 ```
 
-Then, [hyprpicker], [NerdFont] (symbols only), [swaylock-effects], and [swww]
-must be installed manually.
+Then, [hyprpicker], [NerdFont] (symbols only), and [swww] must be installed
+manually.
 
-For theme files to be put in place, the `theme <light|dark>` command must be
-run at least once, these dots also support [`darkman`] through the systemd
-service.
+Run `./init.sh`. Assuming a clean install this should place config files and
+scripts where they go. You should log out and log back in to be in `zsh`.
 
-Finally, run `./init.sh`. Assuming a clean install this should place config
-files and scripts where they go (this will **not** override existing configs).
+Now, finally, `theme <light|dark>` must be run at least once for the config
+files to be put in place. Otherwise, [darkman] must be enabled through its
+systemd service (e.g. `systemctl enable --user darkman`).
+
+You may now run `sway` or setup a login screen like [greetd] with [tuigreet].
 
 ## Tips
 
@@ -53,35 +54,37 @@ files and scripts where they go (this will **not** override existing configs).
   `adobe-source-sans-pro-fonts gnu-free-sans-fonts google-noto-sans*
 unifont-fonts`
 - You can symlink `foot` as `xdg-terminal-exec` so that glib apps (e.g.
-  Thunar) open foot when needing a terminal:
+  Thunar) open it when needing a terminal:
 
   ```bash
   sudo ln -s /bin/foot /bin/xdg-terminal-exec
   ```
 
-- Wallpapers are put in `~/Wallpapers/<light|dark>`
+- Wallpapers are put in `~/Wallpapers/<light|dark>/`
 
 ## Credits
 
-| Usage                       | Project name                             |
-| --------------------------- | ---------------------------------------- |
-| Window manager              | [sway]                                   |
-| Bar                         | [waybar]                                 |
-| Terminal                    | [foot]                                   |
-| Wallpaper Daemon            | [swww]                                   |
-| Day/night theme switcher    | [darkman]                                |
-| Night light (no blue light) | [gammastep]                              |
-| Auto-suspending             | [swayidle]                               |
-| Screen locking              | [swaylock-effects]                       |
-| Notifications               | [mako]                                   |
-| App launching (+dmenu)      | [fuzzel]                                 |
-| Emoji                       | [wofi-emoji] (using `fuzzel -d` instead) |
-| Text editing/coding         | [neovim]                                 |
-| Screen/Keyboard backlight   | [brightnessctl]                          |
-| File manager                | [thunar]                                 |
+| Usage                     | Project name                           |
+| ------------------------- | -------------------------------------- |
+| Window manager            | [sway]                                 |
+| Status bar                | [waybar]                               |
+| Terminal                  | [foot]                                 |
+| Wallpaper Daemon          | [swww]                                 |
+| Auto dark mode (optional) | [darkman]                              |
+| Night light               | [gammastep]                            |
+| Auto-suspending           | [swayidle]                             |
+| Screen locker             | [swaylock]                             |
+| Notifications             | [mako]                                 |
+| App launching             | [fuzzel]                               |
+| Emoji                     | [wofi-emoji] (use `fuzzel -d` instead) |
+| Text editing/coding       | [neovim]                               |
+| Screen/Keyboard backlight | [brightnessctl]                        |
+| File manager              | [thunar]                               |
 
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
 [NerdFont]: https://www.nerdfonts.com/font-downloads
+[greetd]: https://wiki.archlinux.org/title/Greetd
+[tuigreet]: https://github.com/apognu/tuigreet
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
@@ -89,7 +92,7 @@ unifont-fonts`
 [darkman]: https://gitlab.com/whynothugo/darkman
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle
-[swaylock-effects]: https://github.com/mortie/swaylock-effects
+[swaylock]: https://github.com/swaywm/swaylock
 [mako]: https://github.com/emersion/mako
 [fuzzel]: https://codeberg.org/dnkl/fuzzel
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji

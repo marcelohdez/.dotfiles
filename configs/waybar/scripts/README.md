@@ -1,59 +1,5 @@
 # Waybar scripts
 
-## Miscellanous
-
-### `mediaplayer.py`
-
-_Modified from the [script with the same name](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py)
-in the waybar repo._
-
-Requires `playerctl` **installed**, only works with [MPRIS]-compatible players.
-
-Returns [waybar-compatible json] with the values of:
-
-| Percent | Class     | Text        |
-| ------- | --------- | ----------- |
-| 0       | None      | `No media`  |
-| 50      | `Paused`  | _song name_ |
-| 100     | `Playing` | _song name_ |
-
-You may notice that while the original script would set the `class` value to
-the player name, I made it instead return the player status, which lets you
-style your module accordingly:
-
-```css
-#custom-media {
-  background-color: black;
-}
-
-#custom-media.Paused {
-  background-color: red;
-}
-
-#custom-media.Playing {
-  background-color: blue;
-}
-```
-
-The percent values let you set custom icons depending on the player status in
-your module like so:
-
-```json
-"custom/media": {
-    "format": "{icon} {}",
-    "format-icons": [
-      "NOTHING",
-      "PAUSED",
-      "PLAYING"
-    ],
-    "escape": true,
-    "return-type": "json",
-    "max-length": 32,
-    "on-click": "playerctl play-pause",
-    "exec": "$PATH_TO_SCRIPT 2> /dev/null"
-}
-```
-
 ## Privacy scripts
 
 The following scripts will return [waybar-compatible JSON] with the following
@@ -85,7 +31,7 @@ and for it to only show up when **on** you can do e.g. (in `config.jsonc`):
     "ON"
   ],
   "return-type": "json",
-  "interval": 2
+  "interval": 3
   "exec": "$PATH_TO_SCRIPT"
 }
 ```
@@ -110,6 +56,5 @@ These dotfiles use the `exec_before` and `exec_after` config keys in
 `xdg-desktop-portal-wlr` (and Hyprland's) to create a temporary file which
 this script will check for.
 
-[MPRIS]: https://wiki.archlinux.org/title/MPRIS
 [waybar-compatible JSON]: https://man.archlinux.org/man/waybar-custom.5.en#RETURN-TYPE
 [waybar #2612]: (https://github.com/Alexays/Waybar/pull/2612)

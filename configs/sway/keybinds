@@ -3,17 +3,20 @@
 bindsym $specialMod+C reload
 bindsym $specialMod+Escape exec swaymsg exit
 
-# Window management
+## Window management ##
 bindsym $mod+X kill
 floating_modifier $mod normal
 bindsym $mod+V floating toggle
 bindsym $mod+M focus mode_toggle
 bindsym $mod+W fullscreen
+bindsym $mod+I splith
+bindsym $mod+U splitv
 
 bindsym $specialMod+$left move left
 bindsym $specialMod+$up move up
 bindsym $specialMod+$down move down
 bindsym $specialMod+$right move right
+
 # Move focus around (moves mouse to center of focused window)
 # I decided to make a script rather than setting `focus_follows_mouse always` so
 # that waybar stuff like blueman and pavucontrol don't annoyingly teleport mouse
@@ -22,13 +25,14 @@ bindsym $mod+$left focus left, exec $mouseToFocus
 bindsym $mod+$down focus down, exec $mouseToFocus
 bindsym $mod+$up focus up, exec $mouseToFocus
 bindsym $mod+$right focus right, exec $mouseToFocus
-# Resize windows
+
+# Resizing
 bindsym $mod+BracketLeft resize shrink width 10 px or 10 ppt
 bindsym $mod+BracketRight resize grow width 10 px or 10 ppt
 bindsym $specialMod+BracketLeft resize shrink height 10 px or 10 ppt
 bindsym $specialMod+BracketRight resize grow height 10 px or 10 ppt
 
-# Launching
+## Launching Programs ##
 bindsym $mod+B exec $files
 bindsym $mod+Space exec $search
 bindsym $mod+Period exec $search-emoji
@@ -47,11 +51,10 @@ bindsym $specialMod+A exec $screenshotScript
 bindsym $specialMod+W exec $screenshotScript window
 bindsym $specialMod+S exec $screenshotScript screen
 
-# Functional keys
-set $toggleInhibit ~/.local/share/fn-scripts/toggle_inihibit.sh
-bindsym XF86LaunchA exec $toggleInhibit
+## Functional keys ##
 bindsym XF86Search exec $search
 
+# Volume
 set $volNotif ~/.local/share/fn-scripts/vol_notif.sh
 set $volMuteNotif ~/.local/share/fn-scripts/vol_mute_notif.sh
 set $volChange ~/.local/share/fn-scripts/vol_change.sh
@@ -59,6 +62,7 @@ bindsym XF86AudioRaiseVolume exec $volChange + 5 && $volNotif
 bindsym XF86AudioLowerVolume exec $volChange - 5 && $volNotif
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volMuteNotif
 
+# Brightness
 set $barNotif ~/.local/share/fn-scripts/brightness_notif.sh
 set $brightnessNotif $barNotif Display $(brightnessctl g) $(brightnessctl m)
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && $brightnessNotif
@@ -71,6 +75,7 @@ set $kbdBrightnessNotif $barNotif Keyboard $(brightnessctl $kbdLight g) $(bright
 bindsym XF86MonBrightnessDown+Shift exec brightnessctl $kbdLight set 10%- && $kbdBrightnessNotif
 bindsym XF86MonBrightnessUp+Shift exec brightnessctl $kbdLight set 10%+ && $kbdBrightnessNotif
 
+# Media control
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
