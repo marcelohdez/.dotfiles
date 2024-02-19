@@ -47,7 +47,6 @@ nonsysup() {
 
 fedoraup() {
   nonsysup
-  echo
 	echo "<======= Dnf =======>"
 	sudo dnf update
 }

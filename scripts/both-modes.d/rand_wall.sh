@@ -15,4 +15,4 @@ BLURRED_FOLDER="$XDG_RUNTIME_DIR/swaylock"
 rm -rf "$BLURRED_FOLDER"
 mkdir -p "$BLURRED_FOLDER"
 # the [0] tells image magick to only do first frame if animated:
-convert "$ROOT_FOLDER/$IMAGE""[0]" -blur 0x8 "$BLURRED_FOLDER/img.png"
+convert "$ROOT_FOLDER/$IMAGE""[0]" -blur 0x16 "$BLURRED_FOLDER/img.png"

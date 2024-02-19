@@ -10,6 +10,7 @@ fuzzel
 gammastep
 gnome-calculator
 gnome-themes-extra
+gnome-keyring
 go
 grim
 ImageMagick

@@ -55,17 +55,10 @@ input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
 gaps inner 6
 smart_gaps on
 smart_borders on
-
-# window rules
-#                         tabbrdr border  text    split
-client.focused            #ffffff #8f8f8f #ffffff #8f8f8f
-client.focused_inactive   #ffffff #2b2b2b #ffffff #2b2b2b
-client.unfocused          #ffffff #2b2b2b #ffffff #2b2b2b
+default_border pixel 2
 floating_maximum_size 1400 x 850
 focus_on_window_activation focus
 focus_follows_mouse always
-
-default_border pixel 2
 #titlebar_padding 4 1
 
 set $confDir ~/.config/sway/

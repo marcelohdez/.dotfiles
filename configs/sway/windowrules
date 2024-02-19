@@ -10,7 +10,7 @@ for_window {
   # other stuffs
   [app_id="gnome-calendar"] floating enable
   [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
-  [app_id="firefox" title="^Picture.*in.*Picture$"] floating enable
+  [app_id="firefox" title="^Picture.*in.*Picture$"] floating enable, sticky enable
   [class="steam" title="^((?!Steam).)*$"] floating enable
   [app_id="^xdg-desktop-portal-gtk$"] floating enable
   [app_id="^swappy$"] border none
