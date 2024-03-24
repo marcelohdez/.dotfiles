@@ -20,8 +20,7 @@ window#waybar {
 #workspaces,
 #workspaces button,
 #custom-camera.on,
-#custom-screenshare.on,
-#custom-microphone.on,
+#privacy,
 #mpris,
 #tray,
 #idle_inhibitor,
@@ -54,18 +53,24 @@ window#waybar {
 /**
  * Accent color background
  */
-#custom-camera.on,
-#custom-microphone.on,
 #idle_inhibitor.activated {
   background: @accent_color;
-  color: #ffffff;
+  color: white;
+}
+
+/**
+ * Middle-importance color
+ */
+#custom-camera.on {
+  background: #ea6600;
+  color: white;
 }
 
 /**
  * Things that require attention, error color:
  */
 #workspaces button.urgent,
-#custom-screenshare.on,
+#privacy,
 #upower.empty,
 #bluetooth.off,
 #network.disabled,

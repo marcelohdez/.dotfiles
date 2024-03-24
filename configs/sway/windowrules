@@ -8,11 +8,14 @@ for_window {
   [app_id="foot" title="wifi"] floating enable, move position cursor, move down 28
 
   # other stuffs
-  [app_id="gnome-calendar"] floating enable
-  [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
-  [app_id="firefox" title="^Picture.*in.*Picture$"] floating enable, sticky enable
-  [class="steam" title="^((?!Steam).)*$"] floating enable
+  [app_id="file-roller"] floating enable
+  [app_id="firefox"] {
+    [title="^About Mozilla Firefox$"] floating enable
+    [title="^Picture.*in.*Picture$"] floating enable, sticky enable
+  }
+  [class="steam" title="^(?!Steam$).*"] floating enable
   [app_id="^xdg-desktop-portal-gtk$"] floating enable
+  [app_id="thunar" title="File Operation"] floating enable
   [app_id="^swappy$"] border none
 
   # Prism Launcher

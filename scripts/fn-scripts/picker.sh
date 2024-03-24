@@ -3,7 +3,7 @@ TMP_DIR="/run/user/$UID/pickedcolor.jpg"
 ICON=" "
 COLOR=$(hyprpicker -a)
 
-if [[ $COLOR == '' ]]; then
+if [ "$COLOR" = '' ]; then
 	exit 1
 fi
 

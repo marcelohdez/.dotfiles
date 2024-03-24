@@ -11,5 +11,5 @@ NEW_PERCENT=$((PERCENT + CHANGE))
 if [ $NEW_PERCENT -gt 100 ]; then
 	pactl set-sink-volume @DEFAULT_SINK@ 1.0
 else
-	pactl set-sink-volume @DEFAULT_SINK@ $CHANGE'%'
+	pactl set-sink-volume @DEFAULT_SINK@ "$CHANGE"'%'
 fi

@@ -1,4 +1,5 @@
 adw-gtk3-theme
+bat
 blueman
 brightnessctl
 cascadia-fonts-all

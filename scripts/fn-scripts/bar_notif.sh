@@ -1,9 +1,6 @@
 #!/bin/sh
-# To use this script, pass in first the 'summary' of the notification,
-# then the current value (a number) and the max value (a number as well).
-if [[ $# != 4 ]]; then
+if [ $# != 4 ]; then
 	echo Usage: "$0" TITLE SUMMARY CURRENT MAX
-	echo "params given: '$*'"
 	exit
 fi
 

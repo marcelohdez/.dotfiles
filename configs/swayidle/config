@@ -1,9 +1,9 @@
 timeout 30 'pgrep swaylock && systemctl suspend'
 
-timeout 105 '~/.config/swayidle/scripts/off_wall.sh && dim && swaylock'
+timeout 105 '~/.config/swayidle/scripts/off_wall.sh && dim -a 0.6 && swaylock'
 timeout 150 '~/.config/swayidle/scripts/off_wall.sh && systemctl suspend'
 
-timeout 435 'dim && swaylock'
+timeout 435 'dim -a 0.6 && swaylock'
 timeout 480 'systemctl suspend'
 
 before-sleep 'playerctl pause -i kdeconnect; swaylock'

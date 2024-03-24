@@ -5,9 +5,8 @@
   "modules-center": ["mpris"],
   "modules-right": [
     "tray",
-    "custom/screenshare",
     "custom/camera",
-    "custom/microphone",
+    "privacy",
     "idle_inhibitor",
     "upower",
     "pulseaudio",
@@ -36,13 +35,6 @@
   // *** *** ***
   // modules-center
   // *** *** ***
-  "custom/screenshare": {
-    "format": "{icon}",
-    "format-icons": ["", ""],
-    "interval": 3,
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/scripts/screenshare.sh 2> /dev/null"
-  },
   "custom/camera": {
     "format": "{icon}",
     "format-icons": ["", "󰄀"],
@@ -50,12 +42,16 @@
     "return-type": "json",
     "exec": "$HOME/.config/waybar/scripts/camera.sh 2> /dev/null"
   },
-  "custom/microphone": {
-    "format": "{icon}",
-    "format-icons": ["", ""],
-    "interval": 3,
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/scripts/microphone.sh 2> /dev/null"
+  "privacy": {
+    "icon-size": 15,
+    "modules": [
+      {
+        "type": "screenshare"
+      },
+      {
+        "type": "audio-in"
+      }
+    ]
   },
   "mpris": {
     "format-paused": " {title}",

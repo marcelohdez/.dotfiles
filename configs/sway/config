@@ -36,7 +36,7 @@ set $sideMonitor 'ViewSonic Corporation VA2055 Series UD2192060091'
 set $mainMon 'LG Electronics MP59G 0x00009FF3'
 output $sideMonitor scale 1.25 pos 0 100
 output $mainMon pos 1536 0
-output eDP-1 scale 1.72
+output eDP-1 scale 1.725
 output * adaptive_sync on
 
 # Input
@@ -44,7 +44,8 @@ input type:touchpad {
   tap_button_map lrm
   natural_scroll on
   click_method clickfinger
-  drag enabled
+  drag disabled
+  tap enabled
 }
 
 input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {
@@ -59,7 +60,7 @@ default_border pixel 2
 floating_maximum_size 1400 x 850
 focus_on_window_activation focus
 focus_follows_mouse always
-#titlebar_padding 4 1
+titlebar_padding 4 2
 
 set $confDir ~/.config/sway/
 include $confDir/keybinds

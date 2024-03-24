@@ -9,5 +9,5 @@ if ! MODE=$(gsettings get "$KEY" "$VAL" | cut -d- -f 2 | cut -d\' -f 1); then
 fi
 
 for f in "$XDG_DATA_HOME"/"$MODE"-mode.d/*; do
-	. "$f" &
+	"$f" &
 done

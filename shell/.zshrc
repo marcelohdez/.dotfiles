@@ -23,13 +23,12 @@ setopt auto_cd
 # allow uncapitalized letters to match capitals when no case-sensitive match found
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias wf-recorder='wf-recorder -f Videos/$(date +%F-%T).mp4'
-
 # use ctrl + arrow keys to move across words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 ## Welcome message!
 WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
@@ -39,14 +38,9 @@ else # Default, but also pipe through lolcat when in dark mode
   echo $WELCOME | lolcat
 fi
 
-# non-system apps
-nonsysup() {
+fullup() {
 	echo "<===== Flatpak =====>"
 	flatpak update
-}
-
-fedoraup() {
-  nonsysup
 	echo "<======= Dnf =======>"
 	sudo dnf update
 }
@@ -59,6 +53,14 @@ swallow() {
 
 open() {
   swallow xdg-open $@
+}
+
+battery() {
+  upower -i "/org/freedesktop/UPower/devices/"$@
+}
+
+watchbattery() {
+  watch "upower -i "/org/freedesktop/UPower/devices/$1" | grep energy"
 }
 
 whatwin() {

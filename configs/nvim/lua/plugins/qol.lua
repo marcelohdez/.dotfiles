@@ -8,11 +8,6 @@ return {
 			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
-
-			-- optional
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-			"rcarriga/nvim-notify",
 		},
 		keys = {
 			{ "<leader>po", "<cmd>Leet lang<cr>", desc = "Change language" },
@@ -25,6 +20,14 @@ return {
 			{ "<leader>pR", "<cmd>Leet yank<cr>", desc = "Reset problem" },
 		},
 	},
+	{
+		"folke/which-key.nvim",
+		opts = {
+			defaults = {
+				["<leader>p"] = { name = "+LeetCode" },
+			},
+		},
+	},
 
 	-- changes to lazyvim defaults
 	"ellisonleao/gruvbox.nvim",
@@ -35,6 +38,14 @@ return {
 		},
 	},
 	{
+		"nvim-neo-tree/neo-tree.nvim",
+		opts = {
+			filesystem = {
+				hijack_netrw_behavior = "open_current",
+			},
+		},
+	},
+	{
 		"rcarriga/nvim-notify",
 		opts = {
 			level = 3,
@@ -42,11 +53,32 @@ return {
 		},
 	},
 	{
-		"folke/which-key.nvim",
+		"nvimdev/dashboard-nvim",
 		opts = {
-			defaults = {
-				["<leader>p"] = { name = "+LeetCode" },
+			config = {
+				header = vim.split(string.rep("\n", 8) .. [[
+ ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓
+ ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░
+▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██ 
+▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒
+░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░
+░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░
+   ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░
+         ░    ░  ░    ░ ░        ░   ░         ░
+                                ░
+          ]] .. "\n\n", "\n"),
 			},
 		},
+	},
+
+	-- disable stuffs
+	{
+		"folke/noice.nvim",
+		enabled = false,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		enabled = false,
 	},
 }

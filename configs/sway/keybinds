@@ -11,6 +11,8 @@ bindsym $mod+M focus mode_toggle
 bindsym $mod+W fullscreen
 bindsym $mod+I splith
 bindsym $mod+U splitv
+bindsym $mod+Q layout toggle split tabbed
+bindsym $specialMod+Q focus parent
 
 bindsym $specialMod+$left move left
 bindsym $specialMod+$up move up
