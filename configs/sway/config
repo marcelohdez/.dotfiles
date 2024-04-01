@@ -27,17 +27,31 @@ exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 # set up correct theme
 set $setupTheme ~/.local/share/fn-scripts/theme-setup.sh
 set $startDarkman systemctl --user restart darkman
-exec 'swww init; pgrep darkman && $startDarkman || $setupTheme'
+exec 'swww-daemon; pgrep darkman && $startDarkman || $setupTheme'
+
 # stop swaybg from running
 swaybg_command -
 
 # Output
-set $sideMonitor 'ViewSonic Corporation VA2055 Series UD2192060091'
-set $mainMon 'LG Electronics MP59G 0x00009FF3'
-output $sideMonitor scale 1.25 pos 0 100
-output $mainMon pos 1536 0
+set $sideMon 'ViewSonic Corporation VA2055 Series UD2192060091'
+set $mainMon 'LG Electronics MP59G 0x00039DF3'
+set $fw13 'BOE 0x0BCA Unkown'
+output $sideMon res --custom 1600x900 pos 0 100
+output $mainMon pos 1600 0
+output $fw13 scale 1.5
 output eDP-1 scale 1.725
 output * adaptive_sync on
+
+workspace 1   output $sideMon
+workspace 2   output $mainMon
+workspace 3   output $mainMon
+workspace 4   output $mainMon
+workspace 5   output $mainMon
+workspace 6   output $mainMon
+workspace 7   output $mainMon
+workspace 8   output $mainMon
+workspace 9   output $mainMon
+workspace 10  output $mainMon
 
 # Input
 input type:touchpad {
@@ -61,6 +75,8 @@ floating_maximum_size 1400 x 850
 focus_on_window_activation focus
 focus_follows_mouse always
 titlebar_padding 4 2
+
+primary_selection disabled
 
 set $confDir ~/.config/sway/
 include $confDir/keybinds

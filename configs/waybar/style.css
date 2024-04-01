@@ -20,7 +20,7 @@ window#waybar {
 #workspaces,
 #workspaces button,
 #custom-camera.on,
-#privacy,
+#privacy-item,
 #mpris,
 #tray,
 #idle_inhibitor,
@@ -70,7 +70,7 @@ window#waybar {
  * Things that require attention, error color:
  */
 #workspaces button.urgent,
-#privacy,
+#privacy-item,
 #upower.empty,
 #bluetooth.off,
 #network.disabled,

@@ -38,6 +38,20 @@ return {
 		},
 	},
 	{
+		"folke/noice.nvim",
+		opts = {
+			cmdline = {
+				enabled = false,
+			},
+			messages = {
+				enabled = false,
+			},
+			popupmenu = {
+				enabled = false,
+			},
+		},
+	},
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		opts = {
 			filesystem = {
@@ -74,7 +88,7 @@ return {
 
 	-- disable stuffs
 	{
-		"folke/noice.nvim",
+		"folke/persistence.nvim",
 		enabled = false,
 	},
 	{

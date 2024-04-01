@@ -1,20 +1,21 @@
 #!/bin/bash
 if [ $# = 0 ]; then
-	printf 'Missing arguments! Arguments passed in should be a dmenu command\n\n'
-	echo E.g for use with \'fuzzel\':
-	printf "\t%s fuzzel -d\n" "$0"
-
+	echo Missing arguments! Arguments passed in should be dmenu-compatible, e.g:
+	echo "$0" fuzzel -d
 	exit 1
 fi
 
-files=($(ls -t "$CLIPBOARD_DIR"/*))
-if [ ${#files[@]} = 0 ]; then exit 1; fi # exit if no clipboard history
+files=("$CLIPBOARD_DIR"/*)
+ARR_SIZE=${#files[@]}
+if [ "$ARR_SIZE" = 0 ]; then exit 1; fi # exit if no clipboard history
 
-for ((i = 0; i < ${#files[@]}; i++)); do # populate map
-	options+=("$i. $(head -1 "${files[i]}")")
+# populate options in reverse, so newest file content is first:
+for ((i = $((ARR_SIZE - 1)); i >= 0; i--)); do
+	INDEX=$((ARR_SIZE - i))
+	options+=("$INDEX. $(head -1 "${files[i]}")")
 done
 
-echo "${options[@]}"
 if SELECTION="$(printf "%s\n" "${options[@]}" | "$@")"; then
-	wtype "$(cat "${files[$(echo "$SELECTION" | cut -d. -f 1)]}")"
+	INDEX=$(echo "$SELECTION" | cut -d. -f 1)
+	wtype "$(cat "${files[$((ARR_SIZE - INDEX))]}")"
 fi

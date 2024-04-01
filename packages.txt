@@ -15,7 +15,6 @@ gnome-keyring
 go
 grim
 ImageMagick
-inotify-tools
 jetbrains-mono-fonts-all
 kdeconnectd
 lolcat

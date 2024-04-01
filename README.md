@@ -39,6 +39,9 @@ installed manually.
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
 
+Assuming you do not have a login manager, many environment variables will not
+be available, so `source .profile` so the next step works.
+
 Now, finally, `theme <light|dark>` must be run at least once for the config
 files to be put in place. Otherwise, [darkman] must be enabled through its
 systemd service (e.g. `systemctl enable --user darkman`).
@@ -89,7 +92,7 @@ unifont-fonts`
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
-[swww]: https://github.com/Horus645/swww
+[swww]: https://github.com/LGFae/swww
 [darkman]: https://gitlab.com/whynothugo/darkman
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle

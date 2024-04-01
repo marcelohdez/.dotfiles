@@ -29,6 +29,7 @@ bindkey "^[[1;5D" backward-word
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias clearhistory="rm -rf $CLIPBOARD_DIR"
 
 ## Welcome message!
 WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
@@ -45,14 +46,16 @@ fullup() {
 	sudo dnf update
 }
 
-swallow() {
-  swaymsg move scratchpad
-  $@
-  swaymsg scratchpad show
+open() {
+  for dir in "$@"; do
+    OPEN=$(realpath $@)
+    swaymsg exec "xdg-open '$dir'"
+  done
 }
 
-open() {
-  swallow xdg-open $@
+openonce() {
+  open $@
+  exit
 }
 
 battery() {

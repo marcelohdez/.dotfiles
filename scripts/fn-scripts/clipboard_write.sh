@@ -9,7 +9,7 @@ fi
 mkdir -p "$CLIPBOARD_DIR"
 echo "$TEXT" >"$CLIPBOARD_DIR/$(date +%F-%T).txt"
 
-while [ "$(ls -t "$CLIPBOARD_DIR" | wc -l)" -gt $MAX ]; do
-	LAST=$(ls -t "$CLIPBOARD_DIR" | tail -1)
-	rm "$CLIPBOARD_DIR/$LAST"
+while [ "$(find "$CLIPBOARD_DIR"/* | sort -r | wc -l)" -gt $MAX ]; do
+	LAST=$(find "$CLIPBOARD_DIR"/* | sort -r | tail -1)
+	rm "$LAST"
 done
