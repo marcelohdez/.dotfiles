@@ -1,5 +1,6 @@
 adw-gtk3-theme
 bat
+bc
 blueman
 brightnessctl
 cascadia-fonts-all
@@ -19,11 +20,13 @@ jetbrains-mono-fonts-all
 kdeconnectd
 lolcat
 mako
+nemo
 neovim
 NetworkManager-tui
 nodejs
 pavucontrol
 polkit-gnome
+power-profiles-daemon
 pulseaudio-utils
 ripgrep
 slurp
@@ -32,7 +35,6 @@ swappy
 sway
 swayidle
 swaylock
-thunar
 unzip
 waybar
 wlogout

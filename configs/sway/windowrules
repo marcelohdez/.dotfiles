@@ -16,7 +16,6 @@ for_window {
   }
   [class="steam" title="^(?!Steam$).*"] floating enable
   [app_id="^xdg-desktop-portal-gtk$"] floating enable
-  [app_id="thunar" title="File Operation"] floating enable
   [app_id="^swappy$"] border none
 
   # Prism Launcher

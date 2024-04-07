@@ -15,20 +15,20 @@ window#waybar {
   color: @text;
 }
 
+#custom-power-menu,
 #clock,
-#upower,
+#custom-dnd,
 #workspaces,
 #workspaces button,
-#custom-camera.on,
-#privacy-item,
 #mpris,
 #tray,
+#custom-camera.on,
+#privacy-item,
 #idle_inhibitor,
-#backlight,
+#upower,
 #pulseaudio,
 #bluetooth,
-#network,
-#custom-power-menu {
+#network {
   color: @text;
   border-radius: 8px;
   padding: 0px 8px;
@@ -75,7 +75,7 @@ window#waybar {
 #bluetooth.off,
 #network.disabled,
 #network.disconnected {
-  background: #ea0000;
+  background: #da0000;
   color: white;
 }
 
@@ -94,6 +94,11 @@ window#waybar {
 **/
 #custom-power-menu {
   margin-left: 12px;
+}
+
+#custom-dnd.on {
+  background: #9e33ee;
+  color: white;
 }
 
 #workspaces button {

@@ -1,18 +1,19 @@
 #!/bin/sh
-if [ $# != 4 ]; then
-	echo Usage: "$0" TITLE SUMMARY CURRENT MAX
+if [ $# != 3 ]; then
+	echo Usage: "$0" TITLE SUMMARY PERCENT
 	exit
 fi
 
 TITLE=$1
 SUMMARY=$2
-CUR=$3
-MAX=$4
+PERCENT=$3
 
-PERCENT=$(((CUR * 100) / MAX))
-TIME='-t 3000'
-REUSE_ID=$(~/.local/share/fn-scripts/get_notif_id.sh)
+REUSE_NOTIF_DIR="/run/user/$(id -u)/persistent_notif_id"
+REUSE_ID=$(cat "$REUSE_NOTIF_DIR")
 
-OPTS="$TIME -h int:value:$PERCENT -p $REUSE_ID"
-
-notify-send $TIME_CMD "$TITLE" "$SUMMARY" $OPTS >"$REUSE_NOTIF_DIR"
+notify-send "$TITLE" "$SUMMARY" \
+	-t 3000 \
+	-h "int:value:$PERCENT" \
+	-p \
+	${REUSE_ID:+-r "$REUSE_ID"} \
+	>"$REUSE_NOTIF_DIR"

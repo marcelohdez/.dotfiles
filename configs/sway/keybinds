@@ -43,8 +43,11 @@ bindsym $specialMod+T exec "$term --title=float"
 bindsym $mod+F exec $web
 bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
+
 bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_waybar.sh
 bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
+bindsym $mod+N exec "makoctl dismiss -a"
+bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
@@ -57,25 +60,19 @@ bindsym $specialMod+S exec $screenshotScript screen
 bindsym XF86Search exec $search
 
 # Volume
-set $volNotif ~/.local/share/fn-scripts/vol_notif.sh
-set $volMuteNotif ~/.local/share/fn-scripts/vol_mute_notif.sh
 set $volChange ~/.local/share/fn-scripts/vol_change.sh
-bindsym XF86AudioRaiseVolume exec $volChange + 5 && $volNotif
-bindsym XF86AudioLowerVolume exec $volChange - 5 && $volNotif
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volMuteNotif
+bindsym XF86AudioRaiseVolume exec $volChange 5
+bindsym XF86AudioLowerVolume exec $volChange -5
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volChange 0
 
 # Brightness
-set $barNotif ~/.local/share/fn-scripts/brightness_notif.sh
-set $brightnessNotif $barNotif Display $(brightnessctl g) $(brightnessctl m)
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && $brightnessNotif
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && $brightnessNotif
-bindsym XF86MonBrightnessDown+Ctrl exec brightnessctl set 1%- && $brightnessNotif
-bindsym XF86MonBrightnessUp+Ctrl exec brightnessctl set 1%+ && $brightnessNotif
+set $brightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Display
+bindsym XF86MonBrightnessDown exec $brightnessNotif -
+bindsym XF86MonBrightnessUp exec $brightnessNotif +
 
-set $kbdLight -d 'kbd_backlight'
-set $kbdBrightnessNotif $barNotif Keyboard $(brightnessctl $kbdLight g) $(brightnessctl $kbdLight m)
-bindsym XF86MonBrightnessDown+Shift exec brightnessctl $kbdLight set 10%- && $kbdBrightnessNotif
-bindsym XF86MonBrightnessUp+Shift exec brightnessctl $kbdLight set 10%+ && $kbdBrightnessNotif
+set $kbdBrightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Keyboard
+bindsym XF86MonBrightnessDown+Shift exec $kbdBrightnessNotif - 'kbd_backlight'
+bindsym XF86MonBrightnessUp+Shift exec $kbdBrightnessNotif + 'kbd_backlight'
 
 # Media control
 bindsym XF86AudioPlay exec playerctl play-pause

@@ -59,11 +59,11 @@ openonce() {
 }
 
 battery() {
-  upower -i "/org/freedesktop/UPower/devices/"$@
+  upower -i "/org/freedesktop/UPower/devices/battery_$1"
 }
 
 watchbattery() {
-  watch "upower -i "/org/freedesktop/UPower/devices/$1" | grep energy"
+  watch "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
 }
 
 whatwin() {

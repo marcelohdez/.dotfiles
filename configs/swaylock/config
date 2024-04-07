@@ -2,7 +2,6 @@ font=JetBrainsMono
 
 indicator-idle-visible
 indicator-caps-lock
-ignore-empty-password
 show-failed-attempts
 daemonize
 

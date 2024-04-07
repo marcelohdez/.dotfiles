@@ -30,7 +30,7 @@ creating a `firefox` script in e.g. `.local/bin/` containing:
 
 ```bash
 #!/bin/sh
-flatpak run org.mozilla.firefox -- $@
+flatpak run org.mozilla.firefox -- "$@"
 ```
 
 Then, [dim], [hyprpicker], [NerdFont] (symbols only), and [swww] must be
@@ -38,9 +38,6 @@ installed manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
-
-Assuming you do not have a login manager, many environment variables will not
-be available, so `source .profile` so the next step works.
 
 Now, finally, `theme <light|dark>` must be run at least once for the config
 files to be put in place. Otherwise, [darkman] must be enabled through its
@@ -83,7 +80,7 @@ unifont-fonts`
 | Emoji                     | [wofi-emoji] (use `fuzzel -d` instead) |
 | Text editing/coding       | [neovim]                               |
 | Screen/Keyboard backlight | [brightnessctl]                        |
-| File manager              | [thunar]                               |
+| File manager              | [nemo]                                 |
 
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
 [NerdFont]: https://www.nerdfonts.com/font-downloads
@@ -103,4 +100,4 @@ unifont-fonts`
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
 [neovim]: https://neovim.io/
 [brightnessctl]: https://github.com/Hummer12007/brightnessctl
-[thunar]: https://gitlab.xfce.org/xfce/thunar
+[nemo]: https://github.com/linuxmint/nemo

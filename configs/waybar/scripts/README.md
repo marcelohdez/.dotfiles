@@ -4,7 +4,7 @@
 
 Will check every device at `/dev/video*` and assume PipeWire and wireplumber
 to be used in the system, and for them to be using the camera in question.
-Will return [waybar-compatible JSON](https://man.archlinux.org/man/waybar-custom.5.en#RETURN-TYPE)
+Will return [waybar-compatible JSON](https://github.com/Alexays/Waybar/wiki/Module:-Custom#return-type)
 with the following values:
 
 | Percent | Class/State |

@@ -11,7 +11,7 @@ set $right L
 
 # Program vars (shared with all config files)
 set $calculator gnome-calculator
-set $files thunar
+set $files nemo
 set $search fuzzel
 set $term foot
 set $web firefox
@@ -24,10 +24,11 @@ exec kdeconnect-indicator
 exec swayidle -w
 exec waybar
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
+exec swww-daemon
 # set up correct theme
-set $setupTheme ~/.local/share/fn-scripts/theme-setup.sh
+set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
 set $startDarkman systemctl --user restart darkman
-exec 'swww-daemon; pgrep darkman && $startDarkman || $setupTheme'
+exec 'pgrep darkman && $startDarkman || $setupTheme'
 
 # stop swaybg from running
 swaybg_command -
@@ -35,11 +36,11 @@ swaybg_command -
 # Output
 set $sideMon 'ViewSonic Corporation VA2055 Series UD2192060091'
 set $mainMon 'LG Electronics MP59G 0x00039DF3'
-set $fw13 'BOE 0x0BCA Unkown'
+set $fw13 'BOE 0x0BCA Unknown'
 output $sideMon res --custom 1600x900 pos 0 100
 output $mainMon pos 1600 0
+output eDP-1 scale 1.7
 output $fw13 scale 1.5
-output eDP-1 scale 1.725
 output * adaptive_sync on
 
 workspace 1   output $sideMon
@@ -60,6 +61,11 @@ input type:touchpad {
   click_method clickfinger
   drag disabled
   tap enabled
+}
+
+input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
+  pointer_accel 0.5
+  scroll_factor 0.8
 }
 
 input "1452:641:Apple_Internal_Keyboard_/_Trackpad" {

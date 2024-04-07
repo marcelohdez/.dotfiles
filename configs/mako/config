@@ -1,4 +1,6 @@
 font=CascadiaMono, SymbolsNerdFont 10.5
+# show over fullscreen windows on sway:
+layer=overlay
 
 # colors
 text-color=#ffffff
@@ -9,7 +11,7 @@ progress-color=over #444444
 # other styling
 anchor=top-left
 border-radius=8
-width=400
+width=380
 
 on-button-left=dismiss
 on-button-right=invoke-default-action
@@ -19,16 +21,15 @@ max-visible=2
 default-timeout=10000
 
 [urgency=critical]
-background-color=#aa0000
-border-color=#ffffff
-progress-color=over #444444aa
+background-color=#aa3333
+border-color=#ff9999
+progress-color=over #00000055
+default-timeout=30000
 
 [mode=dnd]
 invisible=1
 
 [app-name=notify-send]
 invisible=0
-# show over fullscreen windows on sway:
-layer=overlay
 # for screenshot notifs
 on-button-middle=invoke-action delete

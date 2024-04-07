@@ -1,7 +1,13 @@
 {
   "layer": "top",
   "spacing": 2,
-  "modules-left": ["custom/power-menu", "clock", "sway/workspaces"],
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/power-menu",
+    "clock",
+    "custom/dnd",
+    "sway/workspaces"
+  ],
   "modules-center": ["mpris"],
   "modules-right": [
     "tray",
@@ -32,6 +38,12 @@
       }
     }
   },
+  "custom/dnd": {
+    "exec": "~/.local/share/fn-scripts/dnd-mode.sh get",
+    "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
+    "signal": 1,
+    "interval": "once"
+  },
   // *** *** ***
   // modules-center
   // *** *** ***
@@ -40,7 +52,7 @@
     "format-icons": ["", "󰄀"],
     "interval": 3,
     "return-type": "json",
-    "exec": "$HOME/.config/waybar/scripts/camera.sh 2> /dev/null"
+    "exec": "~/.config/waybar/scripts/camera.sh 2> /dev/null"
   },
   "privacy": {
     "icon-size": 15,

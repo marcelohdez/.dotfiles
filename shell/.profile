@@ -3,9 +3,8 @@ PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 export PATH
 
-REUSABLES_DIR="/run/user/$UID"
-export REUSE_NOTIF_DIR="$REUSABLES_DIR/persistent_notif_id"
-export CLIPBOARD_DIR="$REUSABLES_DIR/clipboardhistory"
+CLIPBOARD_DIR="/run/user/$(id -u)/clipboardhistory"
+export CLIPBOARD_DIR
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export XDG_CONFIG_HOME="$HOME/.config"
