@@ -4,18 +4,9 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				bashls = {}, -- bash
 				clangd = {
 					mason = false,
 				},
-			},
-		},
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"bash",
 			},
 		},
 	},

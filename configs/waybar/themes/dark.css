@@ -1,2 +1,2 @@
 @define-color base @borders;
-@define-color modulebg shade(@theme_base_color, 1.05);
+@define-color modulebg #464646;

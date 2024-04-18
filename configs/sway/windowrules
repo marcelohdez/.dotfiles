@@ -1,28 +1,29 @@
 for_window {
-  [app_id="[Cc]alculator"] floating enable
-  [app_id="foot" title="float"] floating enable
-
   # waybar modules
   [app_id="^blueman"] floating enable, move position cursor, move down 28
   [app_id="^pavucontrol$"] floating enable, move position cursor, move down 28
   [app_id="foot" title="wifi"] floating enable, move position cursor, move down 28
 
-  # other stuffs
-  [app_id="file-roller"] floating enable
+  # floating thingies
+  [app_id="[Cc]alculator"] floating enable
+  [app_id="foot" title="float"] floating enable
+  [app_id="FileRoller"] floating enable
   [app_id="firefox"] {
     [title="Library"] floating enable
     [title="^Picture.*in.*Picture$"] floating enable, sticky enable
     [title="^About Mozilla Firefox$"] floating enable
   }
+  [app_id="PrismLauncher" title="^Console window for.*"] floating enable
   [class="steam" title="^(?!Steam$).*"] floating enable
   [app_id="^xdg-desktop-portal-gtk$"] floating enable
   [app_id="^swappy$"] border none
 
-  # Prism Launcher
-  [app_id="PrismLauncher" title="^Console window for.*"] floating enable
-
   # make any fullscreen apps inhibit idle
   [app_id=".*"] inhibit_idle fullscreen
+}
+
+assign {
+  [app_id="vesktop"] output $sideMon
 }
 
 # vim:ft=swayconfig

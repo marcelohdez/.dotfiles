@@ -10,6 +10,16 @@
   min-height: 0;
 }
 
+tooltip {
+  background: @theme_base_color;
+  border: 2px solid #6f6f6f;
+}
+
+tooltip label {
+  text-shadow: none;
+  color: @theme_text_color;
+}
+
 window#waybar {
   background: alpha(@base, 0.9);
   color: @text;
@@ -86,7 +96,7 @@ window#waybar {
 #workspaces,
 #tray,
 #bluetooth.connected {
-  background: @modulebg;
+  background: alpha(@modulebg, 0.4);
 }
 
 /**

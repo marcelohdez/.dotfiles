@@ -24,14 +24,10 @@ exec kdeconnect-indicator
 exec swayidle -w
 exec waybar
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
-exec swww-daemon
 # set up correct theme
 set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
 set $startDarkman systemctl --user restart darkman
 exec 'pgrep darkman && $startDarkman || $setupTheme'
-
-# stop swaybg from running
-swaybg_command -
 
 # Output
 set $sideMon 'ViewSonic Corporation VA2055 Series UD2192060091'

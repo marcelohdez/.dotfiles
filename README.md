@@ -33,8 +33,8 @@ creating a `firefox` script in e.g. `.local/bin/` containing:
 flatpak run org.mozilla.firefox -- "$@"
 ```
 
-Then, [dim], [hyprpicker], [NerdFont] (symbols only), and [swww] must be
-installed manually.
+Then, [dim], [NerdFont] (symbols only), and [hyprpicker] must be installed
+manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -69,7 +69,6 @@ unifont-fonts`
 | Window manager            | [sway]                                 |
 | Status bar                | [waybar]                               |
 | Terminal                  | [foot]                                 |
-| Wallpaper Daemon          | [swww]                                 |
 | Auto dark mode (optional) | [darkman]                              |
 | Night light               | [gammastep]                            |
 | Auto-suspending           | [swayidle]                             |
@@ -89,7 +88,6 @@ unifont-fonts`
 [sway]: https://swaywm.org/
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
-[swww]: https://github.com/LGFae/swww
 [darkman]: https://gitlab.com/whynothugo/darkman
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle

@@ -28,7 +28,8 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+alias grep=rg
+alias cat=bat
 alias clearhistory="rm -rf $CLIPBOARD_DIR"
 
 ## Welcome message!
@@ -63,6 +64,7 @@ battery() {
 }
 
 watchbattery() {
+  swaymsg sticky enable
   watch "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
 }
 
@@ -73,16 +75,21 @@ whatwin() {
 }
 
 reloadwall() {
-	if ! MODE=$(pgrep darkman >&/dev/null && darkman get); then
-		if [ $# != 1 ]; then
+  if [ $# = 0 ]; then
+    if ! MODE=$(pgrep darkman &>/dev/null && darkman get); then
 			echo "Usage: $0 <light|dark>"
-			return
-		fi
+      return 1
+    fi
+  else
+    if [ "$1" != 'light' ] && [ "$1" != 'dark' ]; then
+			echo "Usage: $0 <light|dark>"
+      return 1
+    fi
 
 		MODE=$1
-	fi
+  fi
 
-	"$XDG_DATA_HOME"/"$MODE"-mode.d/theme-switch.sh
+  "$XDG_DATA_HOME/both-modes.d/rand_wall.sh" "$MODE"
 }
 
 theme() {
@@ -90,9 +97,13 @@ theme() {
 		echo "Usage: $0 <light|dark>"
 		return
 	fi
-	pgrep darkman && darkman set "$1" && return # if darkman is running, use it
 
-	for f in "$XDG_DATA_HOME"/"$1"-mode.d/*.sh; do # otherwise, we do it ourselves:
+  if pgrep darkman &>/dev/null; then
+    CURRENT=$(darkman get)
+    if [ "$CURRENT" != "$1" ]; then darkman set "$1"; fi
+  fi
+
+	for f in "$XDG_DATA_HOME"/"$1"-mode.d/*.sh; do
 		. "$f"
 	done
 }
