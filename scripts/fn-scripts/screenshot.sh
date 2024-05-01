@@ -48,9 +48,10 @@ RES=$(
 case "$RES" in
 "$ACTION_SWAPPY")
 	swappy -f "$SCREENSHOT_DIR"
+	rm "$SCREENSHOT_DIR"
 	;;
 "$ACTION_DELETE")
-	notify-send ' Screenshot deleted' -i "$SCREENSHOT_DIR"
 	rm "$SCREENSHOT_DIR"
+	notify-send ' Screenshot deleted' -i "$SCREENSHOT_DIR"
 	;;
 esac

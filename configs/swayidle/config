@@ -1,7 +1,7 @@
 timeout 30 'pgrep swaylock && systemctl suspend'
 
-timeout 105 '~/.config/swayidle/scripts/off_wall.sh && dim -a 0.6 && swaylock'
-timeout 150 '~/.config/swayidle/scripts/off_wall.sh && systemctl suspend'
+timeout 105 '~/.local/share/fn-scripts/off_wall.sh && dim -a 0.6 && swaylock'
+timeout 150 '~/.local/share/fn-scripts/off_wall.sh && systemctl suspend'
 
 timeout 435 'dim -a 0.6 && swaylock'
 timeout 480 'systemctl suspend'

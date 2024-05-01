@@ -2,10 +2,9 @@
 **/.DS_Store
 **/*lock.*
 
-# auto-genned stuffs
+# auto-genned symlinks
 **/colors.*
-configs/lazygit/state.yml
 
-# any stuff created in here:
-configs/xfce4/*/
-configs/gtk-3.0/bookmarks
+# state files
+configs/lazygit/state.yml
+configs/nvim/*.json

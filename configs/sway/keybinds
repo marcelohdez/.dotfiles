@@ -1,6 +1,6 @@
 ###  Keybinds
 # Sway stuffs
-bindsym $specialMod+C reload
+bindsym $specialMod+C reload, exec ~/.local/share/fn-scripts/theme_setup.sh
 bindsym $specialMod+Escape exec swaymsg exit
 
 ## Window management ##
@@ -44,7 +44,7 @@ bindsym $mod+F exec $web
 bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 
-bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_waybar.sh
+bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_bar.sh
 bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
 bindsym $mod+N exec "makoctl dismiss -a"
 bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle

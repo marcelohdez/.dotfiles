@@ -110,4 +110,3 @@ theme() {
 
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%1~%{$reset_color%} => "
-

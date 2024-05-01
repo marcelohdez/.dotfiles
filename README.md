@@ -70,7 +70,7 @@ unifont-fonts`
 | Status bar                | [waybar]                               |
 | Terminal                  | [foot]                                 |
 | Auto dark mode (optional) | [darkman]                              |
-| Night light               | [gammastep]                            |
+| Night light               | [wlsunset]                             |
 | Auto-suspending           | [swayidle]                             |
 | Screen dimmer             | [dim]                                  |
 | Screen locker             | [swaylock]                             |
@@ -89,7 +89,7 @@ unifont-fonts`
 [waybar]: https://github.com/Alexays/Waybar
 [foot]: https://codeberg.org/dnkl/foot
 [darkman]: https://gitlab.com/whynothugo/darkman
-[gammastep]: https://gitlab.com/chinstrap/gammastep
+[wlsunset]: https://git.sr.ht/~kennylevinsen/wlsunset
 [swayidle]: https://github.com/swaywm/swayidle
 [dim]: https://github.com/marcelohdez/dim
 [swaylock]: https://github.com/swaywm/swaylock

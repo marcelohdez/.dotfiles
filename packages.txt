@@ -9,7 +9,6 @@ darkman
 fontawesome-fonts-all
 foot
 fuzzel
-gammastep
 gnome-calculator
 gnome-themes-extra
 gnome-keyring
@@ -19,6 +18,7 @@ ImageMagick
 jetbrains-mono-fonts-all
 kdeconnectd
 lolcat
+lsof
 mako
 nemo
 neovim
@@ -38,6 +38,7 @@ swaylock
 unzip
 waybar
 wlogout
+wlsunset
 wtype
 zathura
 zathura-pdf-mupdf

@@ -7,3 +7,4 @@
 ~/.local/share/both-modes.d/borders.sh light
 
 ~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita light
+makoctl mode -a light && makoctl reload

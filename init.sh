@@ -42,8 +42,13 @@ mkdir -p $WALLS_DIR
 stow -t $WALLS_DIR walls/
 
 echo
-echo Would you like to '(re)install' the udev rules? This requires the use of
-echo sudo and a reboot to apply.
+echo setting default apps:
+
+echo for nemo...
+gsettings set org.cinnamon.desktop.default-applications.terminal exec foot
+
+echo
+echo Would you like to '(re)install' the udev rules? This requires using sudo.
 
 read -rp "(y/n): " choice
 if [ "$choice" == 'y' ]; then

@@ -15,7 +15,7 @@ get_current() {
 percent=$(($(($(get_current) * 100)) / MAX))
 
 CHANGE=3 && [ "$percent" -ge 15 ] && CHANGE=5 && [ "$percent" -ge 60 ] && CHANGE=10
-brightnessctl ${DEVICE:+-d "$DEVICE"} s "$CHANGE"%"$2"
+brightnessctl ${DEVICE:+-d "$DEVICE"} s "$CHANGE"%"$2" -q
 
 # get new current value
 percent=$(($(($(get_current) * 100)) / MAX))

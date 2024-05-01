@@ -4,10 +4,11 @@ if [ $# != 1 ]; then
 	exit 1
 fi
 
+MODE=dnd
 class='off'
 icon='󰂜'
 
-if [ "$(makoctl mode)" = 'dnd' ]; then
+if [ "$(makoctl mode | grep -c -m 1 "$MODE")" != '0' ]; then
 	class='on'
 	icon='󰪑'
 fi
@@ -17,10 +18,10 @@ if [ "$1" = 'toggle' ]; then
 
 	case "$class" in
 	'off')
-		makoctl mode -s dnd
+		makoctl mode -a "$MODE"
 		;;
 	'on')
-		makoctl mode -s default
+		makoctl mode -r "$MODE"
 		;;
 	esac
 

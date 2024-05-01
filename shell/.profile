@@ -1,6 +1,6 @@
 # things sway should know as a session from greetd
-PATH="$PATH:$HOME/.local/bin"
-PATH="$PATH:$HOME/.cargo/bin"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 export PATH
 
 CLIPBOARD_DIR="/run/user/$(id -u)/clipboardhistory"
