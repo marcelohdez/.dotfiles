@@ -27,7 +27,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-alias ls='ls --color=auto'
+alias ls='ls -l --color=auto'
 alias grep=rg
 alias cat=bat
 alias clearhistory="rm -rf $CLIPBOARD_DIR"
@@ -65,7 +65,7 @@ battery() {
 
 watchbattery() {
   swaymsg sticky enable
-  watch "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
+  watch -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
 }
 
 whatwin() {

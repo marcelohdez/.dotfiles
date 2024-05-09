@@ -21,6 +21,15 @@ return {
 		},
 	},
 	{
+		"IogaMaster/neocord",
+		event = "VeryLazy",
+		opts = {
+			workspace_text = "Probably creating bugs",
+		},
+	},
+
+	-- set up keybinds
+	{
 		"folke/which-key.nvim",
 		opts = {
 			defaults = {

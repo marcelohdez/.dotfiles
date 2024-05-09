@@ -16,6 +16,7 @@ go
 grim
 ImageMagick
 jetbrains-mono-fonts-all
+kanshi
 kdeconnectd
 lolcat
 lsof
@@ -28,6 +29,7 @@ pavucontrol
 polkit-gnome
 power-profiles-daemon
 pulseaudio-utils
+ranger
 ripgrep
 slurp
 stow
@@ -35,6 +37,7 @@ swappy
 sway
 swayidle
 swaylock
+sway-contrib
 unzip
 waybar
 wlogout

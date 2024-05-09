@@ -79,7 +79,7 @@ unifont-fonts`
 | Emoji                     | [wofi-emoji] (use `fuzzel -d` instead) |
 | Text editing/coding       | [neovim]                               |
 | Screen/Keyboard backlight | [brightnessctl]                        |
-| File manager              | [nemo]                                 |
+| File manager              | [ranger] or [nemo]                     |
 
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
 [NerdFont]: https://www.nerdfonts.com/font-downloads
@@ -96,6 +96,7 @@ unifont-fonts`
 [mako]: https://github.com/emersion/mako
 [fuzzel]: https://codeberg.org/dnkl/fuzzel
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
-[neovim]: https://neovim.io/
+[neovim]: https://ranger.fm/
 [brightnessctl]: https://github.com/Hummer12007/brightnessctl
+[ranger]: https://github.com/linuxmint/nemo
 [nemo]: https://github.com/linuxmint/nemo

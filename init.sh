@@ -42,12 +42,18 @@ mkdir -p $WALLS_DIR
 stow -t $WALLS_DIR walls/
 
 echo
-echo setting default apps:
+echo ===========
+echo setting gsettings defaults:
 
 echo for nemo...
 gsettings set org.cinnamon.desktop.default-applications.terminal exec foot
 
+echo icon and cursor themes...
+gsettings set org.gnome.desktop.interface cursor-theme Adwaita
+gsettings set org.gnome.desktop.interface icon-theme Adwaita
+
 echo
+echo ===========
 echo Would you like to '(re)install' the udev rules? This requires using sudo.
 
 read -rp "(y/n): " choice

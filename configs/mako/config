@@ -6,7 +6,7 @@ layer=overlay
 text-color=#ffffff
 background-color=#1b1b1b
 border-color=#5f5f5f
-progress-color=over #006ddb55
+progress-color=over #7f7f7f5f
 
 # other styling
 anchor=top-left

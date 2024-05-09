@@ -100,7 +100,7 @@
     "format-muted": "󰖁 Muted",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
+      "hands-free": "󰥰",
       "headset": "",
       "default": [
         "", // <= 20%
@@ -109,6 +109,7 @@
         "" //<= 100%
       ]
     },
+    "ignored-sinks": ["Easy Effects Sink"],
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click": "~/.config/waybar/scripts/toggle_process.sh pavucontrol &"
   },

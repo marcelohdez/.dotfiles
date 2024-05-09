@@ -11,7 +11,7 @@ set $right L
 
 # Program vars (shared with all config files)
 set $calculator gnome-calculator
-set $files nemo
+set $files foot ranger
 set $search fuzzel
 set $term foot
 set $web firefox
@@ -19,7 +19,9 @@ set $webPriv firefox --private-window
 
 # Long-running processes
 exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec '/usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.92'
 exec 'wlsunset -s 21:00 -S 8:00'
+exec kanshi
 exec kdeconnect-indicator
 exec 'swayidle -w'
 exec waybar
@@ -31,16 +33,15 @@ set $startDarkman systemctl --user restart darkman
 exec 'pgrep darkman && $startDarkman || $setupTheme'
 
 # Output
-set $sideMon 'ViewSonic Corporation VA2055 Series UD2192060091'
-set $mainMon 'LG Electronics MP59G 0x00039DF3'
+set $sideMon 'LG Electronics MP59G 0x00039DF3'
+set $mainMon 'Dell Inc. AW2724DM 7TLZHV3'
 set $fw13 'BOE 0x0BCA Unknown'
-output $sideMon res --custom 1600x900 pos 0 100
-output $mainMon pos 1600 0
-output eDP-1 scale 1.7
+# positioning handled by kanshi
+output $mainMon mode 2560x1440@180Hz
 output $fw13 scale 1.5
 output * adaptive_sync on
 
-workspace 1   output $sideMon
+workspace 1   output $sideMon eDP-1
 workspace 2   output $mainMon
 workspace 3   output $mainMon
 workspace 4   output $mainMon
@@ -52,6 +53,7 @@ workspace 9   output $mainMon
 workspace 10  output $mainMon
 
 # Input
+seat seat0 hide_cursor 5000
 input type:touchpad {
   tap_button_map lrm
   natural_scroll on
