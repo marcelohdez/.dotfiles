@@ -1,6 +1,6 @@
 ###  Keybinds
 # Sway stuffs
-bindsym $specialMod+C reload, exec ~/.local/share/fn-scripts/theme_setup.sh
+bindsym $specialMod+C reload, exec ~/.local/share/fn-scripts/theme_setup.sh, exec kanshictl reload
 bindsym $specialMod+Escape exec swaymsg exit
 
 ## Window management ##
@@ -93,13 +93,16 @@ bindsym $mod+0 workspace 10
 
 set $nextWorkspace ~/.config/sway/scripts/next_workspace.sh
 bindgesture swipe:3:left exec $nextWorkspace
-bindgesture swipe:3:right workspace prev
-# loop over even on last workspace with 4 fingers:
+bindgesture swipe:3:right workspace prev_on_output
+# regular next with 4 fingers
 bindgesture swipe:4:left workspace next
 
 bindsym --whole-window {
   $mod+button4 exec $nextWorkspace
-  $mod+button5 workspace prev
+  $mod+button5 workspace prev_on_output
+
+  $mod+button8 focus output right
+  $mod+button9 focus output left
 }
 
 # ...with containers

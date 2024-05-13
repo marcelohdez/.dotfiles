@@ -27,7 +27,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-alias ls='ls -l --color=auto'
+alias ls='ls -lh --color=auto'
 alias grep=rg
 alias cat=bat
 alias clearhistory="rm -rf $CLIPBOARD_DIR"

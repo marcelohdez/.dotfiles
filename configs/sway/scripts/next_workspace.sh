@@ -1,10 +1,12 @@
 #!/bin/bash
-JQ_CMD='last | .focused, .num, .representation'
+OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
-read -r -d '' ON_LAST LAST REP <<<"$(swaymsg -t get_workspaces | jq -r "$JQ_CMD")"
+JQ_CMD="last(.[] | select(.output == \"$OUTPUT\")) | .focused, .num, .representation, (.floating_nodes | length)"
+read -r -d '' FOCUSED NUM REP NUM_FLOAT <<<"$(swaymsg -t get_workspaces | jq -r "$JQ_CMD")"
 
-if [ "$ON_LAST" = 'true' ] && [ "$REP" != 'null' ]; then
-	swaymsg workspace $((LAST + 1))
+# if it is either 'null' or 'V[]' or 'H[]' skip... (will miss single-letter app ids)
+if [ "$FOCUSED" = 'true' ] && [[ ${#REP} -gt 4 || "$NUM_FLOAT" -gt 0 ]]; then
+	swaymsg workspace $((NUM + 1))
 else
-	swaymsg workspace next
+	swaymsg workspace next_on_output
 fi

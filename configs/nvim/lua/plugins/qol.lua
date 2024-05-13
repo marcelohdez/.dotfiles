@@ -25,6 +25,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			workspace_text = "Probably creating bugs",
+			show_time = false,
 		},
 	},
 

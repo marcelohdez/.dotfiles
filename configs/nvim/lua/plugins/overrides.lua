@@ -29,9 +29,12 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		opts = {
+			level = 3,
 			render = "wrapped-compact",
 		},
 	},
+
+	-- disable stuffs
 	{
 		"folke/noice.nvim",
 		opts = {
@@ -46,8 +49,6 @@ return {
 			},
 		},
 	},
-
-	-- disable stuffs
 	{
 		"folke/persistence.nvim",
 		enabled = false,

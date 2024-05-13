@@ -6,7 +6,8 @@
     "custom/power-menu",
     "clock",
     "custom/dnd",
-    "sway/workspaces"
+    "sway/workspaces",
+    "custom/new-workspace"
   ],
   "modules-center": ["mpris"],
   "modules-right": [
@@ -43,6 +44,10 @@
     "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
     "signal": 1,
     "interval": "once"
+  },
+  "custom/new-workspace": {
+    "format": "+",
+    "on-click": "~/.config/sway/scripts/new_workspace.sh"
   },
   // *** *** ***
   // modules-center

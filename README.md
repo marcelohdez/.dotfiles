@@ -53,6 +53,10 @@ You may now run `sway` or setup a login screen like [greetd] with [tuigreet].
   install, installing these additonal packages helped:
   `adobe-source-sans-pro-fonts gnu-free-sans-fonts google-noto-sans*
 unifont-fonts`
+- To make printing life easier, you may install `cups` and
+  `system-config-printer` to graphically manage them. Additional drivers are
+  available such as `gutenprint-cups` for e.g. Canon printers, see
+  [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
 - You can symlink `foot` as `xdg-terminal-exec` so that glib apps (e.g.
   Thunar) open it when needing a terminal:
 

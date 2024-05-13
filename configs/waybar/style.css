@@ -30,6 +30,7 @@ window#waybar {
 #custom-dnd,
 #workspaces,
 #workspaces button,
+#custom-new-workspace,
 #mpris,
 #tray,
 #custom-camera.on,
@@ -121,6 +122,13 @@ window#waybar {
   padding: 0;
 }
 
+#custom-new-workspace {
+  color: alpha(white, 0);
+}
+
+#custom-new-workspace:hover {
+  color: @text;
+}
 /**
  * modules-right
 **/

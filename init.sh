@@ -56,7 +56,7 @@ echo
 echo ===========
 echo Would you like to '(re)install' the udev rules? This requires using sudo.
 
-read -rp "(y/n): " choice
+read -rp "(y/N): " choice
 if [ "$choice" == 'y' ]; then
 	RULES=(udev-rules/*.rules)
 	SCRIPTS=(udev-rules/*.sh)
