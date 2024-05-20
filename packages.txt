@@ -4,7 +4,6 @@ bc
 blueman
 brightnessctl
 cascadia-fonts-all
-cowsay
 darkman
 fontawesome-fonts-all
 foot

@@ -7,4 +7,4 @@
 ~/.local/share/both-modes.d/borders.sh dark
 
 ~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita-dark dark
-makoctl mode -r light && makoctl reload
+makoctl mode -r light 1>/dev/null && makoctl reload

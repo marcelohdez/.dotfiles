@@ -1,17 +1,12 @@
 return {
-	-- changes to lazyvim defaults
+	-- Add to lazyvim defaults
 	"ellisonleao/gruvbox.nvim",
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "gruvbox",
-		},
-	},
+	{ "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
 	{
 		"nvimdev/dashboard-nvim",
 		opts = {
 			config = {
-				header = vim.split(string.rep("\n", 8) .. [[
+				header = vim.split(string.rep("\n", 10) .. [[
  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓
  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
 ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░
@@ -49,12 +44,6 @@ return {
 			},
 		},
 	},
-	{
-		"folke/persistence.nvim",
-		enabled = false,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		enabled = false,
-	},
+	{ "folke/persistence.nvim", enabled = false },
+	{ "nvim-lualine/lualine.nvim", enabled = false },
 }

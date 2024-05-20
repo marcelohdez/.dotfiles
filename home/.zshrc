@@ -27,18 +27,18 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+## Welcome message
+if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'" ]; then
+  cat ~/.welcome
+else
+  lolcat ~/.welcome
+fi
+
+#### Aliases
 alias ls='ls -lh --color=auto'
 alias grep=rg
 alias cat=bat
-alias clearhistory="rm -rf $CLIPBOARD_DIR"
-
-## Welcome message!
-WELCOME=$(cowsay -f skeleton "It's $(date '+%_I:%M %p')... stop procrastinating.")
-if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == "'prefer-light'" ]]; then
-  echo $WELCOME
-else # Default, but also pipe through lolcat when in dark mode
-  echo $WELCOME | lolcat
-fi
+alias dup="$TERMINAL &"
 
 fullup() {
 	echo "<===== Flatpak =====>"
@@ -52,11 +52,6 @@ open() {
     OPEN=$(realpath $@)
     swaymsg exec "xdg-open '$dir'"
   done
-}
-
-openonce() {
-  open $@
-  exit
 }
 
 battery() {

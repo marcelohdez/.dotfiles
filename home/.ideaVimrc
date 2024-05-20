@@ -1,0 +1,7 @@
+let mapleader = " "
+
+nmap H <Action>(PreviousTab)
+nmap K <Action>(ShowHoverInfo)
+nmap L <Action>(NextTab)
+
+nmap <leader>bd <Action>(CloseEditor)

@@ -26,12 +26,12 @@ pushd "$parent_path" &>/dev/null || exit # add to path stack or exit if failed
 
 echo creating symlinks:
 
-echo for .zsh*...
-stow -t ~ shell/
+echo for .*rc .zsh* .profile...
+stow -t ~ home/
 
-echo for scripts...
+echo for shared stuffs...
 mkdir -p "$DATA_DIR"
-stow -t "$DATA_DIR" scripts/
+stow -t "$DATA_DIR" localshare/
 
 echo for configs...
 mkdir -p "$CONFIG_DIR"

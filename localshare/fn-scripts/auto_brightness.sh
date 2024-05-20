@@ -1,0 +1,38 @@
+#!/bin/sh
+# max my sensor can go up to (putting phone flash up to it)
+MAX=3355
+# max brightness can go up to
+MAX_BR=$(brightnessctl m)
+# minimum of 3% cause sensor reports 0 even in dimly lit areas
+MIN_BR=$((MAX_BR / 33))
+# re-calculation threshold when brightness is changed manually
+THRESHOLD=$((MAX_BR / 10))
+# start with double max to always update
+last_amount=$((MAX_BR * 2))
+
+while true; do
+	if ! illuminance=$(cat /sys/bus/iio/devices/iio:device0/in_illuminance_raw); then
+		exit 1
+	fi
+
+	# minimum of 3% cause sensor reports 0 even in dimly lit areas
+	amount=$MIN_BR
+	# https://easings.net/#easeOutCirc
+	if [ "$illuminance" -gt 1 ]; then
+		amount=$(echo "scale=3; sqrt(1-(($illuminance / $MAX - 1)^2)) * $MAX_BR" | bc | cut -d. -f1)
+	fi
+
+	threshold=0
+	if cat /tmp/brightnesslock; then
+		threshold=$THRESHOLD
+	fi
+
+	change=$((amount - last_amount))
+	if [ "${change#-}" -gt "$threshold" ]; then
+		last_amount=$amount
+		rm /tmp/brightnesslock
+		brightnessctl set "$amount" -q
+	fi
+
+	sleep 5
+done

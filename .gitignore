@@ -7,4 +7,3 @@
 
 # state files
 configs/lazygit/state.yml
-configs/nvim/*.json
