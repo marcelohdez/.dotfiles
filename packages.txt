@@ -3,7 +3,7 @@ bat
 bc
 blueman
 brightnessctl
-cascadia-fonts-all
+cascadia-mono-fonts
 darkman
 fontawesome-fonts-all
 foot

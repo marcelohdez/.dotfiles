@@ -1,7 +1,14 @@
 let mapleader = " "
 
+set clipboard+=unnamedplus
+set hlsearch
+set incsearch
+
 nmap H <Action>(PreviousTab)
 nmap K <Action>(ShowHoverInfo)
 nmap L <Action>(NextTab)
 
 nmap <leader>bd <Action>(CloseEditor)
+nmap <leader>cr <Action>(RenameElement)
+
+nnoremap <Esc> :nohlsearch<CR>

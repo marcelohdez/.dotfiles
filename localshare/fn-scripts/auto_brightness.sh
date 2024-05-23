@@ -3,7 +3,7 @@
 MAX=3355
 # max brightness can go up to
 MAX_BR=$(brightnessctl m)
-# minimum of 3% cause sensor reports 0 even in dimly lit areas
+# minimum cause sensor reports 0 even in dimly lit areas
 MIN_BR=$((MAX_BR / 33))
 # re-calculation threshold when brightness is changed manually
 THRESHOLD=$((MAX_BR / 10))
@@ -11,16 +11,13 @@ THRESHOLD=$((MAX_BR / 10))
 last_amount=$((MAX_BR * 2))
 
 while true; do
-	if ! illuminance=$(cat /sys/bus/iio/devices/iio:device0/in_illuminance_raw); then
+	if ! illum=$(cat /sys/bus/iio/devices/iio:device0/in_illuminance_raw); then
 		exit 1
 	fi
 
-	# minimum of 3% cause sensor reports 0 even in dimly lit areas
-	amount=$MIN_BR
 	# https://easings.net/#easeOutCirc
-	if [ "$illuminance" -gt 1 ]; then
-		amount=$(echo "scale=3; sqrt(1-(($illuminance / $MAX - 1)^2)) * $MAX_BR" | bc | cut -d. -f1)
-	fi
+	amount=$(echo "scale=3; sqrt(1-(($illum / $MAX - 1)^2)) * $MAX_BR" | bc | cut -d. -f1)
+	if [ "$amount" -lt $MIN_BR ]; then amount=$MIN_BR; fi
 
 	threshold=0
 	if cat /tmp/brightnesslock; then

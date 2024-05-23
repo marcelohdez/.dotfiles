@@ -1,7 +1,8 @@
 return {
 	-- Add to lazyvim defaults
-	"ellisonleao/gruvbox.nvim",
-	{ "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
+	-- "ellisonleao/gruvbox.nvim",
+	"rose-pine/neovim",
+	{ "LazyVim/LazyVim", opts = { colorscheme = "default" } },
 	{
 		"nvimdev/dashboard-nvim",
 		opts = {
@@ -45,5 +46,6 @@ return {
 		},
 	},
 	{ "folke/persistence.nvim", enabled = false },
+	{ "folke/which-key.nvim", enabled = false }, -- never works when u want it 😡
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 }

@@ -1,4 +1,4 @@
-font=CascadiaMono, SymbolsNerdFont 10.5
+font=SymbolsNerdFontMono, CascadiaMono 10.5
 # show over fullscreen windows on sway:
 layer=overlay
 
@@ -9,9 +9,9 @@ border-color=#5f5f5f
 progress-color=over #7f7f7f5f
 
 # other styling
-anchor=top-left
+anchor=top-right
 border-radius=8
-width=380
+width=400
 
 on-button-left=dismiss
 on-button-right=invoke-default-action
@@ -32,7 +32,7 @@ text-color=#ffffff
 background-color=#aa3333
 border-color=#ff9999
 progress-color=over #00000055
-default-timeout=20000
+default-timeout=30000
 
 [mode=dnd]
 invisible=1

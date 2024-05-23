@@ -34,12 +34,12 @@ else
   lolcat ~/.welcome
 fi
 
-#### Aliases
+## Aliases
 alias ls='ls -lh --color=auto'
-alias grep=rg
 alias cat=bat
 alias dup="$TERMINAL &"
 
+## Funcs
 fullup() {
 	echo "<===== Flatpak =====>"
 	flatpak update
@@ -58,9 +58,15 @@ battery() {
   upower -i "/org/freedesktop/UPower/devices/battery_$1"
 }
 
-watchbattery() {
+
+watchstk() {
   swaymsg sticky enable
-  watch -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
+  watch "$@"
+  swaymsg sticky disable
+}
+
+watchbattery() {
+  watchstk -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
 }
 
 whatwin() {
@@ -103,5 +109,20 @@ theme() {
 	done
 }
 
+## Copied from https://codeberg.org/dnkl/foot/wiki#spawning-new-terminal-instances-in-the-current-working-directory
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+autoload -U add-zsh-hook
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+# Set PS1
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%1~%{$reset_color%} => "

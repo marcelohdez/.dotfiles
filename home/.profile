@@ -1,10 +1,11 @@
 # things sway should know as a session from greetd
+PATH="/opt/gradle/bin:$PATH:"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 export PATH
 
-CLIPBOARD_DIR="/run/user/$(id -u)/clipboardhistory"
-export CLIPBOARD_DIR
+export _JAVA_AWT_WM_NONREPARENTING=1
+export CLIPBOARD_DIR="/tmp/clipboardhistory"
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export XDG_CONFIG_HOME="$HOME/.config"

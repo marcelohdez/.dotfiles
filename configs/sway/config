@@ -19,15 +19,15 @@ set $webPriv firefox --private-window
 
 # Long-running processes
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec '/usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.92'
+exec /usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.92
 exec ~/.local/share/fn-scripts/auto_brightness.sh
-exec 'wlsunset -s 21:00 -S 8:00'
+exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec kanshi
 exec kdeconnect-indicator
-exec 'swayidle -w'
+exec swayidle -w
 exec waybar
-exec 'wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh'
-exec '~/.local/share/fn-scripts/battery_watch.sh BAT1 -e'
+exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
+exec wlsunset -s 21:00 -S 8:00 -t 4200
 # set up correct theme
 set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
 set $startDarkman systemctl --user restart darkman
@@ -65,7 +65,7 @@ input type:touchpad {
 
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
   pointer_accel 0.2
-  scroll_factor 0.6
+  scroll_factor 0.5
 }
 
 gaps inner 6

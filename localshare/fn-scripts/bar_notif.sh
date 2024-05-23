@@ -8,7 +8,7 @@ TITLE=$1
 SUMMARY=$2
 PERCENT=$3
 
-REUSE_NOTIF_DIR="/run/user/$(id -u)/persistent_notif_id"
+REUSE_NOTIF_DIR="/tmp/persistent_notif_id"
 REUSE_ID=$(cat "$REUSE_NOTIF_DIR")
 
 notify-send "$TITLE" "$SUMMARY" \

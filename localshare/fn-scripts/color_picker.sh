@@ -1,5 +1,5 @@
 #!/bin/sh
-TMP_DIR="/run/user/$(id -u)/pickedcolor.jpg"
+TMP_DIR="/tmp/pickedcolor.jpg"
 ICON=" "
 COLOR=$(hyprpicker -a)
 

@@ -51,8 +51,8 @@ bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
-bindsym $specialMod+R exec ~/.local/share/fn-scripts/picker.sh
-bindsym $specialMod+A exec $screenshotScript
+bindsym $specialMod+R exec ~/.local/share/fn-scripts/color_picker.sh
+bindsym $specialMod+A exec $screenshotScript area
 bindsym $specialMod+W exec $screenshotScript window
 bindsym $specialMod+S exec $screenshotScript screen
 
