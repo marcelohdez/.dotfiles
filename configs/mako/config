@@ -9,7 +9,7 @@ border-color=#5f5f5f
 progress-color=over #7f7f7f5f
 
 # other styling
-anchor=top-right
+anchor=top-left
 border-radius=8
 width=400
 

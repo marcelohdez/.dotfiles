@@ -1,8 +1,13 @@
 return {
 	-- Add to lazyvim defaults
-	-- "ellisonleao/gruvbox.nvim",
-	"rose-pine/neovim",
 	{ "LazyVim/LazyVim", opts = { colorscheme = "default" } },
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			level = 3,
+			render = "wrapped-compact",
+		},
+	},
 	{
 		"nvimdev/dashboard-nvim",
 		opts = {
@@ -22,13 +27,6 @@ return {
 			},
 		},
 	},
-	{
-		"rcarriga/nvim-notify",
-		opts = {
-			level = 3,
-			render = "wrapped-compact",
-		},
-	},
 
 	-- disable stuffs
 	{
@@ -46,6 +44,6 @@ return {
 		},
 	},
 	{ "folke/persistence.nvim", enabled = false },
-	{ "folke/which-key.nvim", enabled = false }, -- never works when u want it 😡
+	{ "catppuccin/nvim", enabled = false },
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 }
