@@ -27,22 +27,16 @@ while true; do
 
 	if [ "$CHARGE" -le "$LEVEL_LOW" ]; then
 		if [ "$CHARGE" -le "$LEVEL_CRITICAL" ] && ! [ -f "$LOCK_CRITICAL" ]; then
-			response=$(notify-send 'Critical battery level' \
-				"Battery at $CHARGE%, this device will turn off soon.\nRich-click to enable power-saver" \
-				-A 'default=Enable power-saver mode' \
-				-u critical)
+			notify-send -u critical 'Critical battery level' \
+				"Battery at $CHARGE%, this device will turn off soon.\nRich-click to enable power-saver"
 
 			touch "$LOCK_CRITICAL"
 		elif ! [ -f "$LOCK_LOW" ]; then
-			response=$(notify-send 'Low battery level' \
-				"Battery at $CHARGE%, charge this device soon.\nRight-click to enable power-saver" \
-				-A 'default=Enable power-saver mode' \
-				-t 30000)
+			notify-send -t 30000 'Low battery level' \
+				"Battery at $CHARGE%, charge this device soon.\nRight-click to enable power-saver"
 
 			touch "$LOCK_LOW"
 		fi
-
-		if [ "$response" = 'default' ]; then powerprofilesctl set power-saver; fi
 	else
 		rm "$LOCK_CRITICAL" "$LOCK_LOW"
 	fi

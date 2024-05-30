@@ -1,2 +1,2 @@
-# Default to balanced when on battery
-SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/local/bin/ppd-wrapper.sh set balanced"
+# Default to power-saver when on battery
+SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/local/bin/ppd-wrapper.sh set power-saver"

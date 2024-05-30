@@ -11,6 +11,7 @@
   ],
   "modules-center": ["mpris"],
   "modules-right": [
+    "power-profiles-daemon",
     "tray",
     "custom/camera",
     "privacy",
@@ -82,6 +83,16 @@
   // *** *** ***
   // modules-right
   // *** *** ***
+  "power-profiles-daemon": {
+    "format": " {icon}",
+    "tooltip-format": "In {profile} mode",
+    "format-icons": {
+      "default": "?",
+      "power-saver": "󰌪",
+      "balanced": "",
+      "performance": "󱋙"
+    }
+  },
   "tray": {
     "spacing": 6
   },
@@ -102,7 +113,7 @@
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon} {volume}%",
-    "format-muted": "󰖁 Muted",
+    "format-muted": "󰖁",
     "format-icons": {
       "headphone": "",
       "hands-free": "󰥰",
@@ -122,7 +133,7 @@
     "format": "",
     "format-connected": "󰂱",
     "format-disabled": "󰂲",
-    "format-off": "󰂲 ",
+    "format-off": "󰂲",
     "tooltip-format": "Nothing connected ({status})\nDevice name: \"{controller_alias}\"",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-connected": "Connected:\n{device_enumerate}",

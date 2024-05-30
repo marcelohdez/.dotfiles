@@ -32,6 +32,7 @@ window#waybar {
 #workspaces button,
 #custom-new-workspace,
 #mpris,
+#power-profiles-daemon,
 #tray,
 #custom-camera.on,
 #privacy-item,
@@ -57,7 +58,10 @@ window#waybar {
 /**
  * apply lighter text
 **/
-#workspaces button {
+#workspaces button,
+#pulseaudio.muted,
+#bluetooth.disabled,
+#network.disabled {
   color: alpha(@text, 0.8);
 }
 
@@ -66,6 +70,14 @@ window#waybar {
  */
 #idle_inhibitor.activated {
   background: @accent_color;
+  color: white;
+}
+
+/**
+ * Green background
+**/
+#power-profiles-daemon.power-saver {
+  background: #239044;
   color: white;
 }
 
@@ -81,10 +93,10 @@ window#waybar {
  * Things that require attention, error color:
  */
 #workspaces button.urgent,
+#power-profiles-daemon.performance,
 #privacy-item,
 #upower.empty,
 #bluetooth.off,
-#network.disabled,
 #network.disconnected {
   background: #da0000;
   color: white;
@@ -132,6 +144,10 @@ window#waybar {
 /**
  * modules-right
 **/
+#power-profiles-daemon {
+  padding-left: 4px;
+}
+
 #network {
   margin-right: 12px;
 }
