@@ -26,6 +26,7 @@
   // *** *** ***
   "custom/power-menu": {
     "format": "⏻",
+    "tooltip-format": "Power menu",
     "on-click": "wlogout"
   },
   "clock": {
@@ -41,6 +42,7 @@
     }
   },
   "custom/dnd": {
+    "tooltip-format": "Toggle do not disturb",
     "exec": "~/.local/share/fn-scripts/dnd-mode.sh get",
     "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
     "signal": 1,
@@ -48,6 +50,7 @@
   },
   "custom/new-workspace": {
     "format": "+",
+    "tooltip-format": "Add new workspace",
     "on-click": "~/.config/sway/scripts/new_workspace.sh"
   },
   // *** *** ***
@@ -55,7 +58,7 @@
   // *** *** ***
   "custom/camera": {
     "format": "{icon}",
-    "format-icons": ["", "󰄀"],
+    "format-icons": ["", ""],
     "interval": 3,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/camera.sh 2> /dev/null"
@@ -145,7 +148,7 @@
     "format-ethernet": "",
     "format-disconnected": "󰤫",
     "format-disabled": "󰤮",
-    "on-click": "swaymsg exec 'foot --title=wifi nmtui'",
+    "on-click": "swaymsg exec 'foot --title=wifi ~/.config/waybar/scripts/nmtui.sh'",
     "tooltip-format": "<b>{essid}</b> <i>({signaldBm}dB)</i>",
     "tooltip-format-ethernet": "Interface: {ifname}",
     "tooltip-format-disconnected": "No network access!",

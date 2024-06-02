@@ -21,7 +21,7 @@ tooltip label {
 }
 
 window#waybar {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.92);
   color: @text;
 }
 

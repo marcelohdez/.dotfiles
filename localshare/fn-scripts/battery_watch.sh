@@ -28,12 +28,12 @@ while true; do
 	if [ "$CHARGE" -le "$LEVEL_LOW" ]; then
 		if [ "$CHARGE" -le "$LEVEL_CRITICAL" ] && ! [ -f "$LOCK_CRITICAL" ]; then
 			notify-send -u critical 'Critical battery level' \
-				"Battery at $CHARGE%, this device will turn off soon.\nRich-click to enable power-saver"
+				"Battery at $CHARGE%, this device will turn off soon."
 
 			touch "$LOCK_CRITICAL"
 		elif ! [ -f "$LOCK_LOW" ]; then
 			notify-send -t 30000 'Low battery level' \
-				"Battery at $CHARGE%, charge this device soon.\nRight-click to enable power-saver"
+				"Battery at $CHARGE%, charge this device soon."
 
 			touch "$LOCK_LOW"
 		fi

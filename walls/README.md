@@ -8,10 +8,8 @@ removed, let me know.
 
 ### Light
 
-- **Forgotten Gate**: [alphacoders](https://wall.alphacoders.com/big.php?i=1114362)
-- **House at Sea**: [alphacoders](https://wall.alphacoders.com/big.php?i=966314)
+- **Boat on Water**: [Renato Pozzi](https://unsplash.com/photos/wide-angle-photo-of-boat-on-body-of-water-G4oGYy_ZcsQ)
 
 ### Dark
 
-- **Purple Galaxy**: [twitter](https://twitter.com/mr_pixelor/status/1170011202644316161?lang=cs)
-- **Waterfall Village**: [Mark Ferrari](https://www.markferrari.com/image-archives)
+- **Earth from Outer Space**: [NASA](https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8)

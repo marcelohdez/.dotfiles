@@ -9,7 +9,7 @@ indicator-radius=100
 indicator-thickness=15
 
 color=#090909
-image=$XDG_RUNTIME_DIR/swaylock/img.png
+image=/tmp/lockscreen.png
 
 ## COLORS
 text-color=#ffffff
