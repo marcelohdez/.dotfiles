@@ -1,7 +1,7 @@
 for_window {
   # waybar modules
-  [app_id="^blueman"] floating enable, move position cursor, move down 28
-  [app_id="^pavucontrol$"] floating enable, move position cursor, move down 28
+  [app_id="blueman"] floating enable, move position cursor, move down 28
+  [app_id="pavucontrol"] floating enable, move position cursor, move down 28
   [app_id="foot" title="wifi"] floating enable, move position cursor, move down 28
 
   # floating thingies

@@ -1,2 +1,0 @@
-# Balanced when connected to wall
-SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/local/bin/ppd-wrapper.sh set balanced"

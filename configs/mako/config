@@ -1,4 +1,4 @@
-font=SymbolsNerdFontMono, CascadiaMono 10.5
+font=SymbolsNerdFontMono, JetBrainsMono 10
 # show over fullscreen windows on sway:
 layer=overlay
 

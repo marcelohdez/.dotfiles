@@ -7,6 +7,8 @@ MAX_BR=$(brightnessctl m)
 MIN_BR=$((MAX_BR / 33))
 # re-calculation threshold when brightness is changed manually
 THRESHOLD=$((MAX_BR / 10))
+# delay between checks
+DELAY=4
 # start with double max to always update
 last_amount=$((MAX_BR * 2))
 
@@ -20,16 +22,16 @@ while true; do
 	if [ "$amount" -lt $MIN_BR ]; then amount=$MIN_BR; fi
 
 	threshold=0
-	if cat /tmp/brightnesslock; then
+	if cat /tmp/brightnesslock 2>/dev/null; then
 		threshold=$THRESHOLD
 	fi
 
 	change=$((amount - last_amount))
 	if [ "${change#-}" -gt "$threshold" ]; then
 		last_amount=$amount
-		rm /tmp/brightnesslock
-		brightnessctl set "$amount" -q
+		rm /tmp/brightnesslock 2>/dev/null
+		brightnessctl set "$last_amount" -q
 	fi
 
-	sleep 5
+	sleep "$DELAY"
 done

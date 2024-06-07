@@ -1,3 +1,6 @@
 set selection-clipboard clipboard
+set selection-notification false
+set scroll-step 50
+set scroll-hstep 50
 
 include colors.rc

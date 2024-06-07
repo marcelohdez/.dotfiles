@@ -53,26 +53,5 @@ gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 gsettings set org.gnome.desktop.interface icon-theme Adwaita
 
 echo
-echo ===========
-echo Would you like to '(re)install' the udev rules? This requires using sudo.
-
-read -rp "(y/N): " choice
-if [ "$choice" == 'y' ]; then
-	RULES=(udev-rules/*.rules)
-	SCRIPTS=(udev-rules/*.sh)
-
-	echo
-	echo Deleting same-named rules/scripts...
-	for rule in "${RULES[@]##*/}"; do sudo rm /etc/udev/rules.d/"$rule"; done
-	for script in "${SCRIPTS[@]##*/}"; do sudo rm /usr/local/bin/"$script"; done
-
-	echo Copying new ones over...
-	sudo cp udev-rules/*.rules /etc/udev/rules.d/
-	sudo cp udev-rules/*.sh /usr/local/bin/
-else
-	echo Skipping udev rules
-fi
-
-echo
 echo "done!"
 popd &>/dev/null || exit # remove to leave stack same as before running

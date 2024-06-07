@@ -58,15 +58,10 @@ battery() {
   upower -i "/org/freedesktop/UPower/devices/battery_$1"
 }
 
-
-watchstk() {
-  swaymsg sticky enable
-  watch "$@"
-  swaymsg sticky disable
-}
-
 watchbattery() {
-  watchstk -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
+  swaymsg sticky enable
+  watch -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
+  swaymsg sticky disable
 }
 
 whatwin() {
@@ -100,12 +95,12 @@ theme() {
 	fi
 
   if pgrep darkman &>/dev/null; then
-    CURRENT=$(darkman get)
-    if [ "$CURRENT" != "$1" ]; then darkman set "$1"; fi
+    darkman set "$1"
+    return
   fi
 
-	for f in "$XDG_DATA_HOME"/"$1"-mode.d/*.sh; do
-		. "$f"
+  for f in $(find ~/.local/share/"$1"-mode.d/ -name \*.sh); do
+		"$f"
 	done
 }
 
