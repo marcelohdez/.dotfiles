@@ -118,6 +118,7 @@ function chpwd-osc7-pwd() {
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
+eval "$(zoxide init zsh)"
 # Set PS1
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%1~%{$reset_color%} => "

@@ -5,9 +5,7 @@ MAX=15
 mkdir -p "$CLIPBOARD_DIR"
 OUTPUT="$CLIPBOARD_DIR/$(date +%F-%T)"
 
-if wl-paste -l | grep -m1 image; then
-	wl-paste -t image >"$OUTPUT.image"
-elif wl-paste -l | grep -m1 text; then
+if wl-paste -l | grep -m1 text; then
 	wl-paste -t text >"$OUTPUT.txt"
 else
 	# unsupported type

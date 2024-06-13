@@ -10,16 +10,16 @@ if [ $# = 0 ]; then
 	exit 1
 fi
 
-if ! CHARGE=$(cat /sys/class/power_supply/"$1"/capacity); then
-	exit 1
-fi
-
 LOCK_LOW='/tmp/lowbatlock'
 LOCK_CRITICAL='/tmp/criticalbatlock'
 ACTION='default=Enable power-saver mode'
 
 while true; do
 	if [ "$(powerprofilesctl get)" != 'power-saver' ]; then tip='\nRight-click to enable power-saver mode'; fi
+
+	if ! CHARGE=$(cat /sys/class/power_supply/"$1"/capacity); then
+		exit 1
+	fi
 
 	# remove lockfiles if connected to the wall
 	if ! ~/.local/share/fn-scripts/off_wall.sh; then

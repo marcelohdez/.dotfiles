@@ -7,6 +7,7 @@ fi
 DESC=$1
 DEVICE=$3
 MAX=$(brightnessctl m ${DEVICE:+-d "$DEVICE"})
+ICON='󰛨'
 
 get_current() {
 	brightnessctl g ${DEVICE:+-d "$DEVICE"}
@@ -14,12 +15,22 @@ get_current() {
 
 percent=$(($(($(get_current) * 100)) / MAX))
 
+if [ "$(swaymsg -t get_outputs | jq -r '.[] | select(.name == "eDP-1") | .dpms')" = 'false' ]; then
+	swaymsg output eDP-1 dpms on
+	~/.local/share/fn-scripts/bar_notif.sh "$ICON Brightness" "$DESC" "$percent"
+	exit
+fi
+
+if [ "$percent" = 0 ]; then
+	if [ "$2" = '-' ]; then
+		swaymsg output eDP-1 dpms off
+	fi
+fi
+
 CHANGE=3 && [ "$percent" -ge 15 ] && CHANGE=5 && [ "$percent" -ge 60 ] && CHANGE=10
 brightnessctl ${DEVICE:+-d "$DEVICE"} s "$CHANGE"%"$2" -q
 touch /tmp/brightnesslock
 
-# get new current value
+# show current value
 percent=$(($(($(get_current) * 100)) / MAX))
-ICON='' && [ $percent -lt 66 ] && ICON='󰛨' && [ $percent -lt 10 ] && ICON=''
-
 ~/.local/share/fn-scripts/bar_notif.sh "$ICON Brightness" "$DESC" "$percent"

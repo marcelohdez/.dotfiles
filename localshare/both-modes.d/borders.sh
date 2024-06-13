@@ -6,20 +6,18 @@ if [ $# != 1 ]; then
 fi
 
 # defaults (dark mode)
-TABBRDR=333333
-BORDER=222222
-BORDERI=363f3f # border unfocused
-TEXT=bfbfbf
+tabbrdr=333333
+border=2f2f2f
+text=bfbfbf
 
 # light mode
 if [ "$1" = 'light' ]; then
-	TABBRDR=9f9f9f
-	BORDER=efefef
-	BORDERI=b6bfbf # border unfocused
-	TEXT=4f4f4f
+	tabbrdr=9f9f9f
+	border=d7d7d7
+	text=4f4f4f
 fi
 
 # border > background > text > split
 swaymsg "client.focused           #4C7899 #285577 #ffffff #285577"
-swaymsg "client.focused_inactive  #$TABBRDR #$BORDERI #$TEXT #$BORDERI"
-swaymsg "client.unfocused         #$TABBRDR #$BORDER #$TEXT #$BORDER"
+swaymsg "client.focused_inactive  #$tabbrdr #$border #$text #$border"
+swaymsg "client.unfocused         #$tabbrdr #$border #$text #$border"

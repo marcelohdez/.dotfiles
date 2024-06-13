@@ -1,7 +1,6 @@
 {
   "layer": "top",
   "spacing": 2,
-  "reload_style_on_change": true,
   "modules-left": [
     "custom/power-menu",
     "clock",

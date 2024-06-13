@@ -31,19 +31,20 @@ wl-copy <"$OUT_DIR"
 
 TITLE='󱉧 Screenshot saved and copied'
 DESC=$(printf 'Right-click to edit\nMiddle-click to delete\n')
-ACTION_SWAPPY='default'
+ACTION_EDIT='default'
 ACTION_DELETE='delete'
 T=15000 # notif duration in ms
 
 RES=$(
 	notify-send "$TITLE" "$DESC" -t $T -i "$OUT_DIR" \
-		-A "$ACTION_SWAPPY=Use Swappy" \
+		-A "$ACTION_EDIT=Edit" \
 		-A "$ACTION_DELETE=Delete"
 )
 
 case "$RES" in
-"$ACTION_SWAPPY")
-	swappy -f "$OUT_DIR"
+"$ACTION_EDIT")
+	mkdir -p "$HOME/Pictures/Satty/"
+	satty -f "$OUT_DIR" --output-filename="$HOME/Pictures/Satty/%Y-%m-%d_H.%M.%S.png" --fullscreen
 	rm "$OUT_DIR"
 	;;
 "$ACTION_DELETE")

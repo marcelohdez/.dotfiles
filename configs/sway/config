@@ -21,7 +21,6 @@ set $webPriv firefox --private-window
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec /usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.92
 
-exec ~/.local/share/fn-scripts/auto_brightness.sh
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 
@@ -29,7 +28,7 @@ exec kanshi
 exec kdeconnect-indicator
 exec swayidle -w
 exec waybar
-exec wlsunset -s 21:00 -S 8:00 -t 4200
+exec gammastep
 
 # set up correct theme
 set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
@@ -57,6 +56,7 @@ workspace 9   output $sideMon
 workspace 10  output $sideMon
 
 # Input
+seat seat0 xcursor_theme breeze_cursors
 seat seat0 hide_cursor 5000
 input type:touchpad {
   tap_button_map lrm
@@ -73,7 +73,6 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 
 smart_borders on
 default_border pixel 2
-floating_maximum_size 1440 x 900
 focus_follows_mouse always
 titlebar_padding 4 2
 

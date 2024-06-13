@@ -49,8 +49,15 @@ echo for nemo...
 gsettings set org.cinnamon.desktop.default-applications.terminal exec foot
 
 echo icon and cursor themes...
-gsettings set org.gnome.desktop.interface cursor-theme Adwaita
+gsettings set org.gnome.desktop.interface cursor-theme breeze_cursors
 gsettings set org.gnome.desktop.interface icon-theme Adwaita
+
+echo
+echo ===========
+echo setting up ags config:
+
+ags --init && cd "$CONFIG_DIR"/ags/ && npm i
+cd "$parent_path" || exit 1
 
 echo
 echo "done!"

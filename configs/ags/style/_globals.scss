@@ -1,0 +1,29 @@
+.txt-sm {
+  font-size: 0.8em;
+}
+
+.txt-base {
+  font-size: 1em;
+}
+
+.txt-lg {
+  font-size: 1.25em;
+}
+
+.txt-xl {
+  font-size: 1.5em;
+}
+
+.txt-2xl {
+  font-size: 1.75em;
+}
+
+.txt-monospace {
+  font-family: JetBrainsMono;
+}
+
+@mixin button {
+}
+
+@mixin label {
+}

@@ -12,24 +12,11 @@ if [ "$ARR_SIZE" = 0 ]; then exit 1; fi # exit if no clipboard history
 # populate options in reverse, so newest file content is first:
 for ((i = $((ARR_SIZE - 1)); i >= 0; i--)); do
 	INDEX=$((ARR_SIZE - i))
-
-	if [[ "${files[i]}" = *.image ]]; then
-		content="(image)"
-	else
-		content="$(head -1 "${files[i]}")"
-	fi
-
-	options+=("$INDEX. $content")
+	options+=("$INDEX. $(head -1 "${files[i]}")")
 done
 
 if SELECTION="$(printf "%s\n" "${options[@]}" | "$@")"; then
 	INDEX=$(echo "$SELECTION" | cut -d. -f 1)
 	FILE="${files[$((ARR_SIZE - INDEX))]}"
-
-	if [[ "$FILE" = *.image ]]; then
-		wl-copy <"$FILE"
-		notify-send '󱉧 Copied image' 'From history' -i "$FILE"
-	else
-		wtype "$(cat "$FILE")"
-	fi
+	wtype "$(cat "$FILE")"
 fi

@@ -1,5 +1,5 @@
-@import "colors.css";
-
+@define-color base #1b1b1b;
+@define-color modulebg #464646;
 @define-color text @theme_text_color;
 @define-color accent_color #006ddb;
 @define-color highlight shade(@theme_base_color, 1.8);
@@ -21,7 +21,7 @@ tooltip label {
 }
 
 window#waybar {
-  background: alpha(@base, 0.92);
+  background: alpha(@base, 0.95);
   color: @text;
 }
 

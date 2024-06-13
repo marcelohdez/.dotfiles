@@ -1,0 +1,9 @@
+* {
+  all: unset;
+}
+
+// general
+@import "./style/globals";
+
+// widgets
+@import "./style/bar";

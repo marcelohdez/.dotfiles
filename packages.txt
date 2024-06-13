@@ -2,17 +2,19 @@ adw-gtk3-theme
 bat
 bc
 blueman
+breeze-cursor-themes
 brightnessctl
 darkman
 fontawesome-fonts-all
 foot
 fuzzel
+gammastep
+gnome-bluetooth-libs
 gnome-calculator
 gnome-themes-extra
 gnome-keyring
 go
 grim
-iio-sensor-proxy
 ImageMagick
 jetbrains-mono-fonts-all
 kanshi
@@ -24,6 +26,7 @@ nemo
 neovim
 NetworkManager-tui
 nodejs
+nodejs-npm
 pavucontrol
 polkit-gnome
 power-profiles-daemon
@@ -32,7 +35,6 @@ ranger
 ripgrep
 slurp
 stow
-swappy
 sway
 swayidle
 swaylock
@@ -40,8 +42,8 @@ sway-contrib
 unzip
 waybar
 wlogout
-wlsunset
 wtype
 zathura
 zathura-pdf-mupdf
+zoxide
 zsh

@@ -1,0 +1,11 @@
+{
+  "name": "marcelo-ags-dotfiles",
+  "description": "Marcelo's 'Aylur's GTK Shell' dotfiles",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelohdez/.dotfiles.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.3"
+  }
+}
