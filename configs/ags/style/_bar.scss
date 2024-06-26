@@ -1,25 +1,60 @@
 .bar {
-  background: black;
+  @include txt-lg;
+  background: transparentize($bg100-color, 0.05);
+  font-family: JetBrainsMono;
 }
 
-// @mixin widget {
-//
-// }
-//
-// button,
-// label {
-//   border-radius: 8px;
-//   padding: 0 8px;
-//   margin: 0;
-// }
-//
-// button {
-//   border: none;
-//   box-shadow: none;
-//   background: transparent;
-// }
-//
-// .systemtray {
-//   background: alpha(@borders, 0.4);
-//   border-bottom: 2px solid #0066bb;
-// }
+.section {
+  margin: 0px 6px;
+  padding: 3px 0px;
+}
+
+.workspaces button,
+.module {
+  @include rounded-lg;
+  padding: 0px 8px;
+  margin: 0px 2px;
+}
+
+/** Workspaces */
+.workspaces button {
+  &.active {
+    background: $bg500-color;
+  }
+
+  padding: 0px 12px;
+  margin: 0;
+}
+
+/** Modules with background */
+.workspaces,
+.tray,
+.battery-charging {
+  background: transparentize($module-color, 0.6);
+}
+
+/** Accent-colored background */
+.idleinhibitor-true {
+  background: #006ddb;
+}
+
+/** Fixing margins */
+.powermenu {
+  padding-right: 0;
+}
+
+.tray button {
+  margin: 0px 2px;
+}
+
+.mediaplayer label,
+.battery label,
+.volume:not(.muted) label {
+  margin-left: 8px;
+}
+
+/** Things with lighter text */
+.idleinhibitor-false,
+.volume.muted {
+  color: transparentize($text-color, 0.4);
+}

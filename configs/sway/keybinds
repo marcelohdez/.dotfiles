@@ -61,18 +61,18 @@ bindsym XF86Search exec $search
 
 # Volume
 set $volChange ~/.local/share/fn-scripts/vol_change.sh
-bindsym XF86AudioRaiseVolume exec $volChange 5
-bindsym XF86AudioLowerVolume exec $volChange -5
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volChange 0
+bindsym --locked XF86AudioRaiseVolume exec $volChange 5
+bindsym --locked XF86AudioLowerVolume exec $volChange -5
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volChange 0
 
 # Brightness
 set $brightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Display
-bindsym XF86MonBrightnessDown exec $brightnessNotif -
-bindsym XF86MonBrightnessUp exec $brightnessNotif +
+bindsym --locked XF86MonBrightnessDown exec $brightnessNotif -
+bindsym --locked XF86MonBrightnessUp exec $brightnessNotif +
 
 set $kbdBrightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Keyboard
-bindsym XF86MonBrightnessDown+Shift exec $kbdBrightnessNotif - 'kbd_backlight'
-bindsym XF86MonBrightnessUp+Shift exec $kbdBrightnessNotif + 'kbd_backlight'
+bindsym --locked XF86MonBrightnessDown+Shift exec $kbdBrightnessNotif - 'kbd_backlight'
+bindsym --locked XF86MonBrightnessUp+Shift exec $kbdBrightnessNotif + 'kbd_backlight'
 
 # Media control
 bindsym XF86AudioPlay exec playerctl play-pause

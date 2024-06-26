@@ -1,0 +1,25 @@
+/** Rounding amounts */
+@mixin rounded-sm {
+  border-radius: 0.4rem;
+}
+
+@mixin rounded-md {
+  border-radius: 0.5rem;
+}
+
+@mixin rounded-lg {
+  border-radius: 0.6rem;
+}
+
+/** Text sizes and styles */
+@mixin txt-base {
+  font-size: 1rem;
+}
+
+@mixin txt-lg {
+  font-size: 1.15rem;
+}
+
+@mixin txt-monospace {
+  font-family: JetBrainsMono;
+}

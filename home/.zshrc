@@ -26,6 +26,8 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # use ctrl + arrow keys to move across words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+# use ctrl + backspace to delete a word
+bindkey "^H" backward-kill-word
 
 ## Welcome message
 if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'" ]; then

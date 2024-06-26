@@ -21,6 +21,7 @@ kanshi
 kdeconnectd
 lolcat
 lsof
+luarocks
 mako
 nemo
 neovim
@@ -40,8 +41,6 @@ swayidle
 swaylock
 sway-contrib
 unzip
-waybar
-wlogout
 wtype
 zathura
 zathura-pdf-mupdf

@@ -27,7 +27,8 @@ exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 exec kanshi
 exec kdeconnect-indicator
 exec swayidle -w
-exec waybar
+exec ags
+exec matcha -d
 exec gammastep
 
 # set up correct theme
@@ -55,6 +56,10 @@ workspace 8   output $mainMon
 workspace 9   output $sideMon
 workspace 10  output $sideMon
 
+# Handle lidswitch
+bindswitch --locked lid:on exec ~/.config/sway/scripts/lid_toggle.sh on
+bindswitch --locked lid:off exec ~/.config/sway/scripts/lid_toggle.sh off
+
 # Input
 seat seat0 xcursor_theme breeze_cursors
 seat seat0 hide_cursor 5000
@@ -73,7 +78,7 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 
 smart_borders on
 default_border pixel 2
-focus_follows_mouse always
+focus_follows_mouse yes
 titlebar_padding 4 2
 
 primary_selection disabled

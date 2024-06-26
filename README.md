@@ -34,7 +34,8 @@ flatpak run org.mozilla.firefox -- "$@"
 ```
 
 Then, [dim], [NerdFont] (symbols only), [ags] + [bun]/[sass] (probably through
-`npm i -g sass bun`), [satty], and [hyprpicker] must be installed manually.
+`npm i -g sass bun`), [matcha], [satty], and [hyprpicker] must be installed
+manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -57,6 +58,13 @@ unifont-fonts`
   `system-config-printer` to graphically manage them. Additional drivers are
   available such as `gutenprint-cups` for e.g. Canon printers, see
   [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
+- For cursor theme to apply to all apps even in Flatpak, copy it from `/usr` to
+  `~/.icons/default` and allow all flatpaks to see that as `:ro` e.g.:
+
+  ```bash
+  cp -r /usr/share/icons/breeze_cursors ~/.icons/default
+  ```
+
 - You can symlink `foot` as `xdg-terminal-exec` so that glib apps (e.g.
   Thunar) open it when needing a terminal:
 
@@ -71,8 +79,7 @@ unifont-fonts`
 | Usage                     | Project name                           |
 | ------------------------- | -------------------------------------- |
 | Window manager            | [sway]                                 |
-| Status bar                | [waybar]                               |
-| Shell (WIP)               | [ags]                                  |
+| Shell                     | [ags]                                  |
 | Screenshot Markup         | [satty]                                |
 | Terminal                  | [foot]                                 |
 | Auto dark mode (optional) | [darkman]                              |
@@ -92,10 +99,10 @@ unifont-fonts`
 [greetd]: https://wiki.archlinux.org/title/Greetd
 [tuigreet]: https://github.com/apognu/tuigreet
 [sway]: https://swaywm.org/
-[waybar]: https://github.com/Alexays/Waybar
 [ags]: https://github.com/Aylur/ags
 [bun]: https://bun.sh/
 [sass]: https://sass-lang.com/
+[matcha]: https://codeberg.org/QuincePie/matcha
 [satty]: https://github.com/gabm/satty
 [foot]: https://codeberg.org/dnkl/foot
 [darkman]: https://gitlab.com/whynothugo/darkman

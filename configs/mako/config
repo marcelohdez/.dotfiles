@@ -10,7 +10,7 @@ progress-color=over #7f7f7f5f
 
 # other styling
 anchor=top-left
-border-radius=8
+border-radius=10
 width=400
 
 on-button-left=dismiss

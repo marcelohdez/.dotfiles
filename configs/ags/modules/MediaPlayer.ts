@@ -1,22 +1,45 @@
+import { CLASS_NAME_MODULE } from "consts";
+import { MprisPlayer } from "types/service/mpris";
+
 const mpris = await Service.import("mpris");
 
 function MediaPlayer() {
+  let player: MprisPlayer | undefined = undefined;
+
   const label = Utils.watch("", mpris, "player-changed", () => {
-    if (mpris.players[0]) {
-      const { track_title } = mpris.players[0];
-      return `${track_title}`;
-    } else {
-      return "";
-    }
+    return `${player ? player.track_title : ""}`;
+  });
+
+  const icon = Utils.watch("", mpris, "player-changed", () => {
+    if (!player) return "";
+
+    return player.play_back_status == "Playing"
+      ? "media-playback-pause"
+      : "media-playback-start";
+  });
+
+  const tooltipText = Utils.watch("", mpris, "player-changed", () => {
+    if (!player) return "";
+
+    return `${player.track_title}\n${player.track_artists}\n(Playing on ${player.name})`;
   });
 
   return Widget.Button({
-    class_name: "mediaplayer",
-    on_primary_click: () => mpris.getPlayer("")?.playPause(),
-    on_secondary_click: () => mpris.getPlayer("")?.next(),
-    on_middle_click: () => mpris.getPlayer("")?.previous(),
-    child: Widget.Label({ label }),
+    tooltipMarkup: tooltipText,
+    classNames: [CLASS_NAME_MODULE, "mediaplayer"],
+    on_primary_click: () => (player ? player.playPause() : {}),
+    on_secondary_click: () => (player ? player.next() : {}),
+    on_middle_click: () => (player ? player.previous() : {}),
+    child: Widget.Box({
+      children: [Widget.Icon({ icon }), Widget.Label({ label })],
+    }),
+    setup: (self) =>
+      self.hook(mpris, () => {
+        const list = mpris.players;
+        player = list.find((p) => p == player);
+        if (!player && list.length > 0) player = list[0];
+      }),
   });
 }
 
-export default MediaPlayer();
+export default MediaPlayer;

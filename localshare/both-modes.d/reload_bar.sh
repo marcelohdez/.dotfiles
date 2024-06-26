@@ -1,3 +1,3 @@
 #!/bin/sh
-killall waybar
-swaymsg exec waybar 1>/dev/null
+killall ags
+swaymsg exec ags

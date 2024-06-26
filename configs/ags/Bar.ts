@@ -1,36 +1,47 @@
+import { CLASS_NAME_SECTION } from "consts";
 import Battery from "modules/Battery";
 import Bluetooth from "modules/Bluetooth";
 import Clock from "modules/Clock";
+import IdleInhibitor from "modules/IdleInhibitor";
 import MediaPlayer from "modules/MediaPlayer";
 import Network from "modules/Network";
-import Notifications from "modules/Notifications";
+import PowerMenu from "modules/PowerMenu";
 import SystemTray from "modules/SystemTray";
 import Volume from "modules/Volume";
+import Workspaces from "modules/Workspaces";
 
 function StartModules() {
   return Widget.Box({
-    spacing: 8,
-    children: [Clock, Notifications],
+    className: CLASS_NAME_SECTION,
+    children: [PowerMenu(), Clock(), Workspaces()],
   });
 }
 
 function CenterModules() {
   return Widget.Box({
-    spacing: 8,
-    children: [MediaPlayer],
+    className: CLASS_NAME_SECTION,
+    children: [MediaPlayer()],
   });
 }
 
 function EndModules() {
   return Widget.Box({
+    className: CLASS_NAME_SECTION,
     hpack: "end",
-    spacing: 8,
-    children: [SystemTray, Battery, Volume, Bluetooth, Network],
+    children: [
+      IdleInhibitor(),
+      SystemTray(),
+      Battery(),
+      Volume(),
+      Bluetooth(),
+      Network(),
+    ],
   });
 }
 
 function Bar(monitor = 0) {
   return Widget.Window({
+    className: "bar",
     monitor,
     name: `bar${monitor}`,
     exclusivity: "exclusive",

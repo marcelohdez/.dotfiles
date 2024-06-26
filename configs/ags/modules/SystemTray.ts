@@ -1,3 +1,5 @@
+import { CLASS_NAME_MODULE } from "consts";
+
 const systemtray = await Service.import("systemtray");
 
 function SystemTray() {
@@ -13,9 +15,9 @@ function SystemTray() {
   );
 
   return Widget.Box({
-    className: "systemtray",
+    classNames: [CLASS_NAME_MODULE, "tray"],
     children: items,
   });
 }
 
-export default SystemTray();
+export default SystemTray;

@@ -6,3 +6,6 @@
 
 # state files
 configs/lazygit/state.yml
+
+configs/easyeffects/*
+!configs/easyeffects/output/marcysfwpreset.json
