@@ -18,8 +18,6 @@ on-button-right=invoke-default-action
 on-button-middle=exec makoctl menu -n "$id" fuzzel -d -p "Actions >"
 max-history=10
 max-visible=2
-# default timeout: 10 seconds
-default-timeout=10000
 
 [mode=light]
 text-color=#000000
@@ -32,7 +30,6 @@ text-color=#ffffff
 background-color=#aa3333
 border-color=#ff9999
 progress-color=over #00000055
-default-timeout=30000
 
 [mode=dnd]
 invisible=1

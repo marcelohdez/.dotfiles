@@ -9,11 +9,12 @@ import PowerMenu from "modules/PowerMenu";
 import SystemTray from "modules/SystemTray";
 import Volume from "modules/Volume";
 import Workspaces from "modules/Workspaces";
+import Gdk from "types/@girs/gdk-3.0/gdk-3.0";
 
-function StartModules() {
+function StartModules(monitor = 0) {
   return Widget.Box({
     className: CLASS_NAME_SECTION,
-    children: [PowerMenu(), Clock(), Workspaces()],
+    children: [PowerMenu(), Clock(), Workspaces(monitor)],
   });
 }
 
@@ -29,8 +30,8 @@ function EndModules() {
     className: CLASS_NAME_SECTION,
     hpack: "end",
     children: [
-      IdleInhibitor(),
       SystemTray(),
+      IdleInhibitor(),
       Battery(),
       Volume(),
       Bluetooth(),
@@ -47,7 +48,7 @@ function Bar(monitor = 0) {
     exclusivity: "exclusive",
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
-      start_widget: StartModules(),
+      start_widget: StartModules(monitor),
       center_widget: CenterModules(),
       end_widget: EndModules(),
     }),

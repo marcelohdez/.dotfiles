@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_CONTAINER, CLASS_NAME_MODULE } from "consts";
 
 const systemtray = await Service.import("systemtray");
 
@@ -15,7 +15,7 @@ function SystemTray() {
   );
 
   return Widget.Box({
-    classNames: [CLASS_NAME_MODULE, "tray"],
+    classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "tray"],
     children: items,
   });
 }

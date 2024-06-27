@@ -19,7 +19,7 @@ set $webPriv firefox --private-window
 
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec /usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.92
+exec /usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.93
 
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
@@ -36,29 +36,13 @@ set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
 set $startDarkman systemctl --user restart darkman
 exec 'pgrep darkman && $startDarkman || $setupTheme'
 
-# Output
-set $sideMon 'LG Electronics MP59G 0x00039DF3'
-set $mainMon 'Dell Inc. AW2724DM 7TLZHV3'
-set $fw13 'BOE 0x0BCA Unknown'
-# positioning handled by kanshi
-output $mainMon mode 2560x1440@180Hz
-output $fw13 scale 1.5
-output * adaptive_sync on
-
-workspace 1   output eDP-1 $mainMon
-workspace 2   output eDP-1 $mainMon
-workspace 3   output $mainMon
-workspace 4   output $mainMon
-workspace 5   output $mainMon
-workspace 6   output $mainMon
-workspace 7   output $mainMon
-workspace 8   output $mainMon
-workspace 9   output $sideMon
-workspace 10  output $sideMon
-
 # Handle lidswitch
 bindswitch --locked lid:on exec ~/.config/sway/scripts/lid_toggle.sh on
 bindswitch --locked lid:off exec ~/.config/sway/scripts/lid_toggle.sh off
+
+# Output
+# positioning handled by kanshi
+output * adaptive_sync on
 
 # Input
 seat seat0 xcursor_theme breeze_cursors
@@ -83,6 +67,6 @@ titlebar_padding 4 2
 
 primary_selection disabled
 
-set $confDir ~/.config/sway/
-include $confDir/keybinds
-include $confDir/windowrules
+include keybinds
+include windowrules
+include '$(uname -n)'

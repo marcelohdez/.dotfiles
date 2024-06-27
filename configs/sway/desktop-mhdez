@@ -1,0 +1,17 @@
+set $sideMon 'LG Electronics MP59G 0x00039DF3'
+set $mainMon 'Dell Inc. AW2724DM 7TLZHV3'
+output $mainMon mode 2560x1440@180Hz
+
+workspace 1   output $mainMon
+workspace 2   output $mainMon
+workspace 3   output $mainMon
+workspace 4   output $mainMon
+workspace 5   output $mainMon
+workspace 6   output $mainMon
+workspace 7   output $mainMon
+workspace 8   output $mainMon
+
+workspace 9   output $sideMon
+workspace 10  output $sideMon
+
+# vim:ft=swayconfig

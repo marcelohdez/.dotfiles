@@ -29,6 +29,7 @@ NetworkManager-tui
 nodejs
 nodejs-npm
 pavucontrol
+playerctl
 polkit-gnome
 power-profiles-daemon
 pulseaudio-utils

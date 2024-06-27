@@ -38,7 +38,7 @@ while true; do
 			touch "$LOCK_CRITICAL"
 		elif ! [ -f "$LOCK_LOW" ]; then
 			res=$(
-				notify-send -t 30000 "Battery at $CHARGE%" "Charge this device soon.$tip" \
+				notify-send "Battery at $CHARGE%" "Charge this device soon.$tip" \
 					-A "$ACTION"
 			)
 

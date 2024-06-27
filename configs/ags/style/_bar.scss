@@ -1,34 +1,44 @@
 .bar {
   @include txt-lg;
+  @include txt-monospace;
   background: transparentize($bg100-color, 0.05);
-  font-family: JetBrainsMono;
 }
 
 .section {
   margin: 0px 6px;
-  padding: 3px 0px;
 }
 
-.workspaces button,
-.module {
+.module,
+.module button {
+  &:hover {
+    background: transparentize($bg500-color, 0.5);
+  }
+
   @include rounded-lg;
-  padding: 0px 8px;
-  margin: 0px 2px;
+  padding: 2px 8px;
+  margin: 3px 2px;
 }
 
-/** Workspaces */
+/** Buttons in containers */
 .workspaces button {
   &.active {
-    background: $bg500-color;
+    background: $bg400-color;
+  }
+  &.urgent {
+    background: #ca2620;
   }
 
   padding: 0px 12px;
   margin: 0;
 }
 
+.tray button {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /** Modules with background */
 .workspaces,
-.tray,
 .battery-charging {
   background: transparentize($module-color, 0.6);
 }
@@ -38,13 +48,13 @@
   background: #006ddb;
 }
 
-/** Fixing margins */
+/** Fixing margins/sizing */
 .powermenu {
-  padding-right: 0;
+  @include txt-base;
 }
 
-.tray button {
-  margin: 0px 2px;
+.container {
+  padding: 0;
 }
 
 .mediaplayer label,

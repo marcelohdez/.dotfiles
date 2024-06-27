@@ -33,10 +33,10 @@ TITLE='󱉧 Screenshot saved and copied'
 DESC=$(printf 'Right-click to edit\nMiddle-click to delete\n')
 ACTION_EDIT='default'
 ACTION_DELETE='delete'
-T=15000 # notif duration in ms
 
 RES=$(
-	notify-send "$TITLE" "$DESC" -t $T -i "$OUT_DIR" \
+	notify-send "$TITLE" "$DESC" \
+		-i "$OUT_DIR" \
 		-A "$ACTION_EDIT=Edit" \
 		-A "$ACTION_DELETE=Delete"
 )
@@ -44,7 +44,12 @@ RES=$(
 case "$RES" in
 "$ACTION_EDIT")
 	mkdir -p "$HOME/Pictures/Satty/"
-	satty -f "$OUT_DIR" --output-filename="$HOME/Pictures/Satty/%Y-%m-%d_H.%M.%S.png" --fullscreen
+
+	satty -f "$OUT_DIR" \
+		--output-filename="$HOME/Pictures/Satty/%Y-%m-%d_H.%M.%S.png" \
+		--copy-command wl-copy \
+		--fullscreen
+
 	rm "$OUT_DIR"
 	;;
 "$ACTION_DELETE")

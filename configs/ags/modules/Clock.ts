@@ -17,7 +17,7 @@ function Clock() {
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "clock"],
     onClicked: () => Utils.execAsync("makoctl restore"),
-    label: date.bind(),
+    child: Widget.Label({ label: date.bind() }),
   });
 }
 

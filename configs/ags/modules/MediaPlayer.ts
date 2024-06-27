@@ -37,7 +37,8 @@ function MediaPlayer() {
       self.hook(mpris, () => {
         const list = mpris.players;
         player = list.find((p) => p == player);
-        if (!player && list.length > 0) player = list[0];
+        if (!player && list.length > 0 && list[0].name != "playerctld")
+          player = list[0];
       }),
   });
 }

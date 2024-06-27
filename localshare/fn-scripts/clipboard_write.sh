@@ -1,6 +1,6 @@
 #!/bin/sh
 # This script is meant to be run as 'wl-paste -w <script>'
-MAX=15
+MAX=12
 
 mkdir -p "$CLIPBOARD_DIR"
 OUTPUT="$CLIPBOARD_DIR/$(date +%F-%T)"
