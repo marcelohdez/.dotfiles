@@ -9,5 +9,5 @@ function perMonitor(widget: (monitor: number) => Gtk.Window) {
 }
 
 App.config({
-  windows: perMonitor(Bar),
+  windows: () => [...perMonitor(Bar)],
 });

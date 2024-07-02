@@ -1,6 +1,6 @@
 /** Rounding amounts */
 @mixin rounded-sm {
-  border-radius: 0.4rem;
+  border-radius: 0.25rem;
 }
 
 @mixin rounded-md {
@@ -8,7 +8,7 @@
 }
 
 @mixin rounded-lg {
-  border-radius: 0.6rem;
+  border-radius: 0.75rem;
 }
 
 /** Text sizes and styles */
@@ -22,4 +22,10 @@
 
 @mixin txt-monospace {
   font-family: JetBrainsMono;
+}
+
+/** other mixins */
+@mixin popup {
+  background: $bg150-color;
+  border: 1px solid $bg300-color;
 }

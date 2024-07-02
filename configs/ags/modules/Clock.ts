@@ -13,12 +13,36 @@ const date = Variable("", {
   ],
 });
 
-function Clock() {
+const MODE_NAME = "dnd";
+const dndMode = Variable(false);
+
+export const update_dnd = (output?: string) => {
+  if (!output) output = Utils.exec("makoctl mode");
+
+  dndMode.setValue(output?.match(MODE_NAME) != null);
+};
+
+const Clock = () => {
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "clock"],
-    onClicked: () => Utils.execAsync("makoctl restore"),
-    child: Widget.Label({ label: date.bind() }),
+    onPrimaryClick: () => Utils.execAsync("makoctl restore"),
+    onSecondaryClick: () =>
+      Utils.execAsync(`makoctl mode -t ${MODE_NAME}`).then(update_dnd),
+    child: Widget.Box({
+      children: [
+        Widget.Label({ label: date.bind() }),
+        Widget.Icon({
+          className: dndMode
+            .bind()
+            .as((active) => (active ? "dnd-active" : "dnd")),
+          visible: dndMode.bind(),
+          icon: "weather-clear-night-symbolic",
+          setup: () => update_dnd(),
+        }),
+      ],
+    }),
   });
-}
+};
 
+Object.assign(globalThis, { update_dnd });
 export default Clock;

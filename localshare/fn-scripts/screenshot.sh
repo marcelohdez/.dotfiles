@@ -53,6 +53,6 @@ case "$RES" in
 	rm "$OUT_DIR"
 	;;
 "$ACTION_DELETE")
-	rm "$OUT_DIR" && notify-send ' Screenshot deleted' -i "$OUT_DIR"
+	rm "$OUT_DIR" && notify-send ' Screenshot deleted' -i "$OUT_DIR" -t 3000
 	;;
 esac

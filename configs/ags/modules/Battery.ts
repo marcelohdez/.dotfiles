@@ -6,10 +6,8 @@ const ppd = await Service.import("powerprofiles");
 /**
  * Battery module with power-profiles switch support on secondary-click
  */
-function Battery() {
-  const icon = battery.bind("icon_name");
-
-  return Widget.Button({
+const Battery = () =>
+  Widget.Button({
     onSecondaryClickRelease: () => {
       let new_profile = "balanced";
       if (ppd.active_profile != "power-saver") {
@@ -31,7 +29,7 @@ function Battery() {
     child: Widget.Box({
       children: [
         Widget.Icon({
-          icon,
+          icon: battery.bind("icon_name"),
         }),
         Widget.Label({
           label: battery.bind("percent").as((p) => `${p}%`),
@@ -39,6 +37,5 @@ function Battery() {
       ],
     }),
   });
-}
 
 export default Battery;

@@ -34,7 +34,7 @@ flatpak run org.mozilla.firefox -- "$@"
 ```
 
 Then, [dim], [NerdFont] (symbols only), [ags] + [bun]/[sass] (probably through
-`npm i -g sass bun`), [matcha], [satty], and [hyprpicker] must be installed
+`npm i -g sass bun`), [satty], and [hyprpicker] must be installed
 manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
@@ -58,8 +58,9 @@ unifont-fonts`
   `system-config-printer` to graphically manage them. Additional drivers are
   available such as `gutenprint-cups` for e.g. Canon printers, see
   [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
-- For cursor theme to apply to all apps even in Flatpak, copy it from `/usr` to
-  `~/.icons/default` and allow all flatpaks to see that as `:ro` e.g.:
+- For cursor theme to apply to all apps even in Flatpak, copy it from
+  `/usr/share` to `~/.icons/default` and allow all flatpaks to see that as `:ro`
+  e.g.:
 
   ```bash
   cp -r /usr/share/icons/breeze_cursors ~/.icons/default
@@ -102,7 +103,6 @@ unifont-fonts`
 [ags]: https://github.com/Aylur/ags
 [bun]: https://bun.sh/
 [sass]: https://sass-lang.com/
-[matcha]: https://codeberg.org/QuincePie/matcha
 [satty]: https://github.com/gabm/satty
 [foot]: https://codeberg.org/dnkl/foot
 [darkman]: https://gitlab.com/whynothugo/darkman

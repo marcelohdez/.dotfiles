@@ -1,24 +1,45 @@
 import { CLASS_NAME_CONTAINER, CLASS_NAME_MODULE } from "consts";
 import sway from "services/sway";
 
-const switchTo = (ws) => sway.msg(`workspace ${ws}`);
+const switchTo = (ws: number) => sway.msg(`workspace ${ws}`);
+const MAX_WS = 10;
 
-const Workspaces = (monitor = 0) =>
-  Widget.Box({
+const NewWorkspace = () =>
+  Widget.Button({
+    label: "+",
+    visible: sway.bind("workspaces").as((list) => {
+      if (list.length > MAX_WS) return false;
+
+      const active = list.find(
+        (ws, _i) => ws["id"] === sway.active.workspace["id"],
+      )!;
+
+      const nodes: object[] = active["nodes"];
+      const floating: object[] = active["floating_nodes"];
+      return nodes.length + floating.length > 0;
+    }),
+    onClicked: () =>
+      Utils.execAsync("bash -c ~/.config/sway/scripts/new_workspace.sh"),
+  });
+
+const Workspaces = (monitor = 0) => {
+  const btnList = Array.from({ length: MAX_WS }, (_, i) => i + 1).map((i) =>
+    Widget.Button({
+      attribute: i,
+      label: `${i}`,
+      onClicked: () => switchTo(i),
+    }),
+  );
+
+  return Widget.Box({
     classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "workspaces"],
     tooltipText: "Workspaces",
-    children: Array.from({ length: 10 }, (_, i) => i + 1).map((i) =>
-      Widget.Button({
-        attribute: i,
-        label: `${i}`,
-        onClicked: () => switchTo(i),
-      }),
-    ),
+    children: [...btnList, NewWorkspace()],
     setup: (self) =>
       self.hook(sway, () => {
         const currentOutput: string = sway.monitors[monitor + 1]["name"];
 
-        self.children.forEach((btn) => {
+        btnList.forEach((btn) => {
           const ws = sway.workspaces.find(
             (ws, _i) => ws["num"] === btn.attribute,
           );
@@ -32,5 +53,6 @@ const Workspaces = (monitor = 0) =>
         });
       }),
   });
+};
 
 export default Workspaces;

@@ -28,7 +28,6 @@ exec kanshi
 exec kdeconnect-indicator
 exec swayidle -w
 exec ags
-exec matcha -d
 exec gammastep
 
 # set up correct theme
@@ -41,8 +40,8 @@ bindswitch --locked lid:on exec ~/.config/sway/scripts/lid_toggle.sh on
 bindswitch --locked lid:off exec ~/.config/sway/scripts/lid_toggle.sh off
 
 # Output
-# positioning handled by kanshi
-output * adaptive_sync on
+# breaks amdgpus on kernels >=6.8 atm
+# output * adaptive_sync on
 
 # Input
 seat seat0 xcursor_theme breeze_cursors

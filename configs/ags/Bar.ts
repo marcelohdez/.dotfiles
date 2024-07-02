@@ -2,46 +2,41 @@ import { CLASS_NAME_SECTION } from "consts";
 import Battery from "modules/Battery";
 import Bluetooth from "modules/Bluetooth";
 import Clock from "modules/Clock";
-import IdleInhibitor from "modules/IdleInhibitor";
-import MediaPlayer from "modules/MediaPlayer";
+import Mpris from "modules/Mpris";
 import Network from "modules/Network";
 import PowerMenu from "modules/PowerMenu";
 import SystemTray from "modules/SystemTray";
 import Volume from "modules/Volume";
 import Workspaces from "modules/Workspaces";
-import Gdk from "types/@girs/gdk-3.0/gdk-3.0";
 
-function StartModules(monitor = 0) {
-  return Widget.Box({
+const StartModules = (monitor = 0) =>
+  Widget.Box({
     className: CLASS_NAME_SECTION,
     children: [PowerMenu(), Clock(), Workspaces(monitor)],
   });
-}
 
-function CenterModules() {
-  return Widget.Box({
+const CenterModules = () =>
+  Widget.Box({
     className: CLASS_NAME_SECTION,
-    children: [MediaPlayer()],
+    children: [],
   });
-}
 
-function EndModules() {
-  return Widget.Box({
+const EndModules = () =>
+  Widget.Box({
     className: CLASS_NAME_SECTION,
     hpack: "end",
     children: [
       SystemTray(),
-      IdleInhibitor(),
+      Mpris(),
       Battery(),
       Volume(),
       Bluetooth(),
       Network(),
     ],
   });
-}
 
-function Bar(monitor = 0) {
-  return Widget.Window({
+const Bar = (monitor = 0) =>
+  Widget.Window({
     className: "bar",
     monitor,
     name: `bar${monitor}`,
@@ -53,6 +48,5 @@ function Bar(monitor = 0) {
       end_widget: EndModules(),
     }),
   });
-}
 
 export default Bar;

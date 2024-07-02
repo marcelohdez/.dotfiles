@@ -1,70 +1,73 @@
 .bar {
   @include txt-lg;
   @include txt-monospace;
-  background: transparentize($bg100-color, 0.05);
-}
+  background: transparentize($bg100-color, 0.07);
 
-.section {
-  margin: 0px 6px;
-}
-
-.module,
-.module button {
-  &:hover {
-    background: transparentize($bg500-color, 0.5);
+  .section {
+    margin: 0px 6px;
   }
 
-  @include rounded-lg;
-  padding: 2px 8px;
-  margin: 3px 2px;
-}
+  .module,
+  .module button {
+    &:hover {
+      background: transparentize($bg500-color, 0.5);
+    }
 
-/** Buttons in containers */
-.workspaces button {
-  &.active {
-    background: $bg400-color;
-  }
-  &.urgent {
-    background: #ca2620;
+    @include rounded-lg;
+    padding: 2px 8px;
+    margin: 3px 2px;
   }
 
-  padding: 0px 12px;
-  margin: 0;
-}
+  .clock .dnd-active {
+    @include rounded-md;
+    background: #9f59e8;
+    padding: 2px 4px;
+    margin-left: 8px;
+  }
 
-.tray button {
-  margin-top: 0;
-  margin-bottom: 0;
-}
+  /** Buttons in containers */
+  .workspaces button {
+    &.active {
+      background: $bg400-color;
+    }
+    &.urgent {
+      background: #ca2620;
+    }
 
-/** Modules with background */
-.workspaces,
-.battery-charging {
-  background: transparentize($module-color, 0.6);
-}
+    padding: 0px 12px;
+    margin: 0;
+  }
 
-/** Accent-colored background */
-.idleinhibitor-true {
-  background: #006ddb;
-}
+  .tray button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-/** Fixing margins/sizing */
-.powermenu {
-  @include txt-base;
-}
+  /** Modules with background */
+  .workspaces,
+  .battery-charging {
+    background: transparentize($module-color, 0.6);
+  }
 
-.container {
-  padding: 0;
-}
+  /** Fixing margins/sizing */
+  .powermenu {
+    @include txt-base;
+  }
 
-.mediaplayer label,
-.battery label,
-.volume:not(.muted) label {
-  margin-left: 8px;
-}
+  .container {
+    padding: 0;
+  }
 
-/** Things with lighter text */
-.idleinhibitor-false,
-.volume.muted {
-  color: transparentize($text-color, 0.4);
+  .mediaplayer label,
+  .battery label,
+  .volume:not(.muted) label {
+    margin-left: 8px;
+  }
+
+  /** Things with lighter text */
+  .volume.muted,
+  .bluetooth .off,
+  .network .none {
+    color: transparentize($text-color, 0.4);
+  }
 }

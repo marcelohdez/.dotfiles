@@ -7,5 +7,6 @@
 # state files
 configs/lazygit/state.yml
 
+configs/ags/README.md
 configs/easyeffects/*
 !configs/easyeffects/output/marcysfwpreset.json

@@ -2,7 +2,7 @@ import { CLASS_NAME_CONTAINER, CLASS_NAME_MODULE } from "consts";
 
 const systemtray = await Service.import("systemtray");
 
-function SystemTray() {
+const SystemTray = () => {
   const items = systemtray.bind("items").as((items) =>
     items.map((item) =>
       Widget.Button({
@@ -18,6 +18,6 @@ function SystemTray() {
     classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "tray"],
     children: items,
   });
-}
+};
 
 export default SystemTray;

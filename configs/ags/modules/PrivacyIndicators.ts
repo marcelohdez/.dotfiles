@@ -1,3 +1,3 @@
-function PrivacyIndicators() {}
+const PrivacyIndicators = () => {};
 
 export default PrivacyIndicators;

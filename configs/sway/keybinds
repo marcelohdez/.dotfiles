@@ -44,10 +44,10 @@ bindsym $mod+F exec $web
 bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 
-bindsym $mod+Y exec ~/.local/share/both-modes.d/reload_bar.sh
+bindsym $mod+Y exec 'ags -q; ags'
 bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
-bindsym $mod+N exec "makoctl dismiss -a"
-bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle
+bindsym $mod+N exec 'makoctl dismiss -a'
+bindsym $specialMod+N exec "makoctl mode -t dnd && ags -r 'update_dnd()'"
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh

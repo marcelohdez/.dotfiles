@@ -1,5 +1,6 @@
 profile laptop {
   output eDP-1 enable
+  exec ~/.config/sway/scripts/lid_toggle.sh disc
 }
 
 profile desktop {
@@ -8,7 +9,7 @@ profile desktop {
 }
 
 profile laptopLab {
-  output 'Dell Inc. DELL P2418HT 488CG71UCMQL' position 0,0
-  output eDP-1 position 200,1080
+  output 'Dell Inc. DELL P2418HT 488CG71UCMQL' position 1050,0
+  output eDP-1 position 0,1080
   exec ~/.config/sway/scripts/lab_monitors.sh
 }

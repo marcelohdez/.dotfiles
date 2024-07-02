@@ -8,5 +8,5 @@ if [ "$COLOR" = '' ]; then
 fi
 
 convert -size 32x32 "canvas:$COLOR" "$TMP_DIR"
-notify-send "$ICON Copied" "$COLOR" -i "$TMP_DIR"
+notify-send "$ICON Copied" "$COLOR" -i "$TMP_DIR" -t 10000
 rm "$TMP_DIR"

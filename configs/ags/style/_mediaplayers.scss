@@ -1,0 +1,65 @@
+.mediaplayers {
+  @include popup;
+
+  .list {
+    padding: 10px;
+  }
+
+  .card {
+    @include rounded-lg;
+    background: $bg300-color;
+    padding: 8px;
+
+    &:hover {
+      background: $bg400-color;
+    }
+
+    min-width: 30rem;
+  }
+
+  .img {
+    @include rounded-md;
+    min-width: 6.5rem;
+    min-height: 6.5rem;
+    margin-right: 12px;
+
+    background-color: transparentize($bg200-color, 0.5);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .title {
+    @include txt-lg;
+    font-weight: bold;
+    margin: 2px 0;
+  }
+
+  .playing-on {
+    @include rounded-lg;
+    background: transparentize($bg200-color, 0.4);
+    font-style: italic;
+    padding: 2px 8px;
+  }
+
+  .prev,
+  .play-pause,
+  .next {
+    @include rounded-md;
+    padding: 12px;
+    margin: 0 2px;
+
+    &:hover {
+      background: $bg400-color;
+    }
+  }
+
+  .position,
+  .length,
+  .playing-on {
+    color: transparentize($text-color, 0.4);
+  }
+
+  .length {
+    margin: 0px 4px;
+  }
+}

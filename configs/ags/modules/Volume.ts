@@ -2,7 +2,9 @@ import { CLASS_NAME_MODULE } from "consts";
 
 const audio = await Service.import("audio");
 
-function getIcon() {
+const CMD = "pavucontrol";
+
+const getIcon = () => {
   const icons = {
     101: "overamplified",
     67: "high",
@@ -16,9 +18,9 @@ function getIcon() {
     : [101, 67, 34, 1, 0].find((t) => t <= audio.speaker.volume * 100)!;
 
   return `audio-volume-${icons[idx]}-symbolic`;
-}
+};
 
-function Volume() {
+const Volume = () => {
   const label = Widget.Label();
   const icon = Widget.Icon({
     icon: getIcon(),
@@ -27,7 +29,8 @@ function Volume() {
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "volume"],
     tooltipText: audio.bind("speaker").as((speaker) => speaker.description!),
-    onClicked: () => Utils.execAsync("pavucontrol"),
+    onClicked: () =>
+      Utils.execAsync(`pkill ${CMD}`).catch(() => Utils.execAsync(CMD)),
     onSecondaryClick: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
     setup: (self) =>
       self.hook(audio.speaker, () => {
@@ -40,6 +43,6 @@ function Volume() {
       children: [icon, label],
     }),
   });
-}
+};
 
 export default Volume;
