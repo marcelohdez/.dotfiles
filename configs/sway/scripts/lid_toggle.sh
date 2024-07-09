@@ -2,34 +2,24 @@
 STATE_FILE=/tmp/lid_state
 OUTPUTNUM=$(swaymsg -t get_outputs | jq -r length)
 
-try_sleep() {
-	swaylock
-	systemctl suspend
-}
+state="$1"
+if [ "$state" = '' ]; then
+  state=$(cat /tmp/lid_state)
+fi
 
-# closed
-case "$1" in
+case "$state" in
 'on') # closed
-	if [ "$OUTPUTNUM" -gt 1 ]; then
-		swaymsg output eDP-1 disable
-	else
-		try_sleep
-	fi
+  if [ "$OUTPUTNUM" -gt 1 ]; then
+    swaymsg output eDP-1 disable
+  else
+    systemctl suspend
+  fi
 
-	echo on >"$STATE_FILE"
-	;;
+  echo "$state" >"$STATE_FILE"
+  ;;
 'off') # open
-	swaymsg output eDP-1 enable
+  swaymsg output eDP-1 enable
 
-	echo off >"$STATE_FILE"
-	;;
-'disc') # disconnected from monitor while closed
-	if ! STATE=$(cat /tmp/lid_state); then
-		exit
-	fi
-
-	if [ "$STATE" = 'on' ]; then
-		try_sleep
-	fi
-	;;
+  echo "$state" >"$STATE_FILE"
+  ;;
 esac

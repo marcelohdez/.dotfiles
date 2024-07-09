@@ -1,4 +1,4 @@
-.mediaplayers {
+.medialist {
   @include popup;
 
   .list {
@@ -8,10 +8,12 @@
   .card {
     @include rounded-lg;
     background: $bg300-color;
-    padding: 8px;
+    border: 2px solid $bg300-color;
+    padding: 6px;
 
-    &:hover {
-      background: $bg400-color;
+    &:focus {
+      background: transparentize($bg400-color, 0.2);
+      border-color: $accent-color;
     }
 
     min-width: 30rem;
@@ -50,6 +52,9 @@
 
     &:hover {
       background: $bg400-color;
+    }
+    &:active {
+      background: $bg300-color;
     }
   }
 

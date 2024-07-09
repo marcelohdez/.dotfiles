@@ -2,7 +2,17 @@ import { CLASS_NAME_MODULE } from "consts";
 
 const audio = await Service.import("audio");
 
-const CMD = "pavucontrol";
+const BIN = "pavucontrol";
+
+const changeVolume = (amount: number) => {
+  let speaker = audio.speaker;
+
+  if (speaker.volume + amount < 1) {
+    speaker.volume += amount;
+  } else {
+    speaker.volume = 1;
+  }
+};
 
 const getIcon = () => {
   const icons = {
@@ -30,8 +40,12 @@ const Volume = () => {
     classNames: [CLASS_NAME_MODULE, "volume"],
     tooltipText: audio.bind("speaker").as((speaker) => speaker.description!),
     onClicked: () =>
-      Utils.execAsync(`pkill ${CMD}`).catch(() => Utils.execAsync(CMD)),
+      Utils.execAsync(`pkill ${BIN}`).catch(() =>
+        Utils.execAsync(`${BIN} -t 3`),
+      ),
     onSecondaryClick: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
+    onScrollUp: () => changeVolume(0.05),
+    onScrollDown: () => changeVolume(-0.05),
     setup: (self) =>
       self.hook(audio.speaker, () => {
         icon.icon = getIcon();

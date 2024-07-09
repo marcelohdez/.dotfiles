@@ -16,7 +16,7 @@ async function setupCss() {
   const css = `${out}/style.css`;
 
   try {
-    await Utils.execAsync(`sass ${scss} ${css}`);
+    await Utils.execAsync(`npx sass ${scss} ${css}`);
   } catch (error) {
     console.error(error);
   }
@@ -30,6 +30,7 @@ Utils.monitorFile(`${App.configDir}/style`, setupCss);
 const entry = `${App.configDir}/main.ts`;
 try {
   await Utils.execAsync([
+    "npx",
     "bun",
     "build",
     entry,

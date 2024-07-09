@@ -22,7 +22,7 @@ const NewWorkspace = () =>
       Utils.execAsync("bash -c ~/.config/sway/scripts/new_workspace.sh"),
   });
 
-const Workspaces = (monitor = 0) => {
+const Workspaces = (monitor: number) => {
   const btnList = Array.from({ length: MAX_WS }, (_, i) => i + 1).map((i) =>
     Widget.Button({
       attribute: i,

@@ -1,6 +1,6 @@
 return {
 	-- Add to lazyvim defaults
-	{ "LazyVim/LazyVim", opts = { colorscheme = "default" } },
+	{ "LazyVim/LazyVim", opts = { colorscheme = "lunaperche" } },
 	{
 		"rcarriga/nvim-notify",
 		opts = {

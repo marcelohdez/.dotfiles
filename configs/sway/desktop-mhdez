@@ -14,4 +14,7 @@ workspace 8   output $mainMon
 workspace 9   output $sideMon
 workspace 10  output $sideMon
 
+smart_gaps on
+gaps inner 6
+
 # vim:ft=swayconfig

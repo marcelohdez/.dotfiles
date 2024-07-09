@@ -33,9 +33,8 @@ creating a `firefox` script in e.g. `.local/bin/` containing:
 flatpak run org.mozilla.firefox -- "$@"
 ```
 
-Then, [dim], [NerdFont] (symbols only), [ags] + [bun]/[sass] (probably through
-`npm i -g sass bun`), [satty], and [hyprpicker] must be installed
-manually.
+Then, [dim], [NerdFont] (symbols only), [ags], [satty], and [hyprpicker] must
+be installed manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -101,8 +100,6 @@ unifont-fonts`
 [tuigreet]: https://github.com/apognu/tuigreet
 [sway]: https://swaywm.org/
 [ags]: https://github.com/Aylur/ags
-[bun]: https://bun.sh/
-[sass]: https://sass-lang.com/
 [satty]: https://github.com/gabm/satty
 [foot]: https://codeberg.org/dnkl/foot
 [darkman]: https://gitlab.com/whynothugo/darkman

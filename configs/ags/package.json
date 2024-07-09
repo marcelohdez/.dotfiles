@@ -7,5 +7,9 @@
   },
   "devDependencies": {
     "typescript": "^5.3"
+  },
+  "dependencies": {
+    "bun": "^1.1.0",
+    "sass": "^1.77"
   }
 }

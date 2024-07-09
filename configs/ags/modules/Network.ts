@@ -1,7 +1,6 @@
 import { CLASS_NAME_MODULE } from "consts";
 
 const network = await Service.import("network");
-console.log("penis: " + network.connectivity);
 
 const WifiIndicator = () =>
   Widget.Icon({

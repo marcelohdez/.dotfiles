@@ -1,6 +1,6 @@
 profile laptop {
-  output eDP-1 enable
-  exec ~/.config/sway/scripts/lid_toggle.sh disc
+  output eDP-1 enable position 0,0
+  exec ~/.config/sway/scripts/lid_toggle.sh
 }
 
 profile desktop {

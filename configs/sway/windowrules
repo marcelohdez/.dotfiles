@@ -1,8 +1,9 @@
+set $barHeight 33
 for_window {
   # waybar modules
-  [app_id="blueman"] floating enable, move position cursor, move down 32
-  [app_id="pavucontrol"] floating enable, move position cursor, move down 32
-  [app_id="foot" title="wifi"] floating enable, move position cursor, move down 32
+  [app_id="blueman"] floating enable, move position cursor, move down $barHeight
+  [app_id="pavucontrol"] floating enable, move position cursor, move down $barHeight
+  [app_id="foot" title="wifi"] floating enable, move position cursor, move down $barHeight
 
   # floating thingies
   [app_id="[Cc]alculator"] floating enable

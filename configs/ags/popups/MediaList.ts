@@ -1,7 +1,9 @@
+import { DirectionType } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { EllipsizeMode } from "types/@girs/pango-1.0/pango-1.0.cjs";
 import { MprisPlayer } from "types/service/mpris";
 
 const mpris = await Service.import("mpris");
+export const MEDIALIST_NAME = "medialist";
 
 const lenToStr = (len: number) => {
   const min = Math.floor(len / 60);
@@ -110,7 +112,15 @@ const PlayerCard = (player: MprisPlayer) => {
   });
 
   return Widget.Box(
-    { className: "card" },
+    {
+      className: "card",
+      canFocus: true,
+      setup: (self) => {
+        self.keybind("h", () => prev.activate());
+        self.keybind("l", () => next.activate());
+        self.keybind("space", () => playPause.activate());
+      },
+    },
     img,
     Widget.Box(
       { className: "contents", vertical: true, hexpand: true },
@@ -127,18 +137,37 @@ const PlayerCard = (player: MprisPlayer) => {
   );
 };
 
-const MediaPlayers = () => {
+const MediaList = () => {
   return Widget.Window({
-    name: "mediaplayers",
-    className: "mediaplayers",
+    name: MEDIALIST_NAME,
+    className: MEDIALIST_NAME,
     anchor: ["top", "right"],
+    keymode: "exclusive",
+    layer: "overlay",
     child: Widget.Box({
       className: "list",
       spacing: 10,
       vertical: true,
-      children: mpris.bind("players").as((p) => p.map(PlayerCard)),
+      children: mpris.bind("players").as((p) =>
+        p
+          .sort((a, b) => {
+            function get_score(player: MprisPlayer) {
+              let score = player.name === "kdeconnect" ? 1 : 0;
+              score -= player.play_back_status === "Playing" ? 2 : 0;
+              return score;
+            }
+
+            return get_score(a) - get_score(b);
+          })
+          .map(PlayerCard),
+      ),
     }),
+    setup: (self) => {
+      self.keybind("j", () => self.child_focus(DirectionType.DOWN));
+      self.keybind("k", () => self.child_focus(DirectionType.UP));
+      self.keybind("Escape", () => App.removeWindow(self.name!));
+    },
   });
 };
 
-export default MediaPlayers;
+export default MediaList;
