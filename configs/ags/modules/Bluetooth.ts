@@ -7,12 +7,13 @@ const CMD = "blueman-manager";
 const Bluetooth = () =>
   Widget.Button({
     classNames: [CLASS_NAME_MODULE, "bluetooth"],
-    tooltipText: bluetooth.bind("connected_devices").as((devices) => {
-      if (devices.length > 0)
-        return "Connected:" + devices.map((d) => `\n${d.name}`).join();
-
-      return "Online";
-    }),
+    tooltipText: Utils.merge(
+      [bluetooth.bind("state"), bluetooth.bind("connected_devices")],
+      (state, devices) =>
+        devices.length > 0
+          ? "Connected:" + devices.map((d) => `\n${d.name}`).join()
+          : state,
+    ),
     onClicked: () =>
       Utils.execAsync(`pkill ${CMD}`).catch(() => Utils.execAsync(CMD)),
     child: Widget.Icon({

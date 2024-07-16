@@ -1,17 +1,16 @@
 import Bar from "./Bar";
 import Gdk from "gi://Gdk?version=3.0";
-import Gtk from "gi://Gtk?version=3.0";
 import { idle } from "resource:///com/github/Aylur/ags/utils.js";
 
-// setup config
-function perMonitor(widget: (monitor: number) => Gtk.Window) {
+const setupWindows = () => {
   const length = Gdk.Display.get_default()?.get_n_monitors() || 1;
-  return Array.from({ length }, (_, i) => i).map(widget);
-}
 
-App.config({
-  windows: () => perMonitor(Bar),
-});
+  for (let m = 0; m < length; m++) {
+    App.addWindow(Bar(m));
+  }
+};
+
+setupWindows();
 
 idle(async () => {
   const display = Gdk.Display.get_default();

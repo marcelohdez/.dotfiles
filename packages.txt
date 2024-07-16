@@ -20,7 +20,6 @@ jetbrains-mono-fonts-all
 kanshi
 kdeconnectd
 lolcat
-lsof
 luarocks
 mako
 nemo
@@ -31,7 +30,6 @@ nodejs-npm
 pavucontrol
 playerctl
 polkit-gnome
-power-profiles-daemon
 pulseaudio-utils
 ranger
 ripgrep
@@ -40,7 +38,8 @@ stow
 sway
 swayidle
 swaylock
-sway-contrib
+tuned
+tuned-ppd
 unzip
 wtype
 zathura

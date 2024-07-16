@@ -1,5 +1,6 @@
 .medialist {
   @include popup;
+  color: $text-color;
 
   .list {
     padding: 10px;
@@ -8,12 +9,12 @@
   .card {
     @include rounded-lg;
     background: $bg300-color;
-    border: 2px solid $bg300-color;
-    padding: 6px;
+    padding: 8px;
+    box-shadow: 0px 0px 2px transparentize($shadow-color, 0.4);
 
     &:focus {
       background: transparentize($bg400-color, 0.2);
-      border-color: $accent-color;
+      box-shadow: 0px 0px 4px $shadow-color;
     }
 
     min-width: 30rem;

@@ -15,12 +15,6 @@ const StartModules = (monitor = 0) =>
     children: [PowerMenu(), Clock(), Workspaces(monitor)],
   });
 
-const CenterModules = () =>
-  Widget.Box({
-    className: CLASS_NAME_SECTION,
-    children: [],
-  });
-
 const EndModules = () =>
   Widget.Box({
     className: CLASS_NAME_SECTION,
@@ -41,10 +35,9 @@ const Bar = (monitor = 0) =>
     monitor,
     name: `bar${monitor}`,
     exclusivity: "exclusive",
-    anchor: ["top", "left", "right"],
+    anchor: ["bottom", "left", "right"],
     child: Widget.CenterBox({
       start_widget: StartModules(monitor),
-      center_widget: CenterModules(),
       end_widget: EndModules(),
     }),
   });

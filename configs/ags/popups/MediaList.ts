@@ -141,7 +141,7 @@ const MediaList = () => {
   return Widget.Window({
     name: MEDIALIST_NAME,
     className: MEDIALIST_NAME,
-    anchor: ["top", "right"],
+    anchor: ["bottom", "right"],
     keymode: "exclusive",
     layer: "overlay",
     child: Widget.Box({

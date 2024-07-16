@@ -1,11 +1,17 @@
 .bar {
+  /** hard-coded bar colors */
+  $text-color: #ffffff;
+
+  $bg50-color: #131313;
+  $bg400-color: #4b4b4b;
+  $bg500-color: #4f4f4f;
+
+  $module-color: #464646;
+
   @include txt-lg;
   @include txt-monospace;
-  background: transparentize($bg100-color, 0.07);
-
-  .section {
-    margin: 0px 6px;
-  }
+  background: $bg50-color;
+  color: $text-color;
 
   .module,
   .module button {
@@ -13,13 +19,11 @@
       background: transparentize($bg500-color, 0.5);
     }
 
-    @include rounded-lg;
-    padding: 3px 8px;
-    margin: 3px 2px;
+    padding: 4px 10px;
   }
 
   .clock .dnd-active {
-    @include rounded-md;
+    @include rounded-sm;
     background: #9f59e8;
     padding: 2px 4px;
     margin-left: 8px;
@@ -50,10 +54,6 @@
   }
 
   /** Fixing margins/sizing */
-  .powermenu {
-    @include txt-base;
-  }
-
   .container {
     padding: 0;
   }

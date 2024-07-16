@@ -25,7 +25,7 @@ const PowerMenu = () => {
 
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "powermenu"],
-    child: Widget.Icon({ icon: "system-shutdown" }),
+    child: Widget.Icon({ icon: "system-log-out-symbolic" }),
     tooltipText: "Power menu",
     onPrimaryClick: (self, event) =>
       menu.popup_at_widget(self, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH, event),

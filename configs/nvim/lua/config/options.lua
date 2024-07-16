@@ -11,3 +11,6 @@ opt.showmode = true
 
 -- limit mouse usage to normal/visual modes
 opt.mouse = "nv"
+
+-- add back tildes for buffer end
+opt.fillchars = { eob = "~" }

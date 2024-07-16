@@ -33,8 +33,8 @@ return {
 	{
 		"folke/which-key.nvim",
 		opts = {
-			defaults = {
-				["<leader>p"] = { name = "+LeetCode" },
+			spec = {
+				{ "<leader>p", group = "LeetCode" },
 			},
 		},
 	},

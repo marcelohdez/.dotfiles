@@ -19,7 +19,6 @@ set $webPriv firefox --private-window
 
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec /usr/libexec/sway-contrib/inactive-windows-transparency.py -o 0.93
 
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh

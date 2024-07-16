@@ -13,4 +13,6 @@ workspace 8   output DP-1 DP-2 DP-3 DP-4
 workspace 9   output DP-1 DP-2 DP-3 DP-4
 workspace 10  output DP-1 DP-2 DP-3 DP-4
 
+assign [app_id="vesktop"] output eDP-1
+
 # vim:ft=swayconfig

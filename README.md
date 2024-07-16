@@ -39,10 +39,6 @@ be installed manually.
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
 
-Now, finally, `theme <light|dark>` must be run at least once for the config
-files to be put in place. Otherwise, [darkman] must be enabled through its
-systemd service (e.g. `systemctl enable --user darkman`).
-
 You may now run `sway` or setup a login screen like [greetd] with [tuigreet].
 
 ## Tips

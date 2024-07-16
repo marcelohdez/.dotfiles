@@ -3,11 +3,14 @@ import { CLASS_NAME_MODULE } from "consts";
 const battery = await Service.import("battery");
 const ppd = await Service.import("powerprofiles");
 
+const showWattage = Variable(false);
+
 /**
  * Battery module with power-profiles switch support on secondary-click
  */
 const Battery = () =>
   Widget.Button({
+    onPrimaryClickRelease: () => showWattage.setValue(!showWattage.getValue()),
     onSecondaryClickRelease: () => {
       let new_profile = "balanced";
       if (ppd.active_profile != "power-saver") {
@@ -32,7 +35,15 @@ const Battery = () =>
           icon: battery.bind("icon_name"),
         }),
         Widget.Label({
-          label: battery.bind("percent").as((p) => `${p}%`),
+          label: Utils.merge(
+            [
+              showWattage.bind(),
+              battery.bind("percent"),
+              battery.bind("energy_rate"),
+            ],
+            (show, percent, rate) =>
+              show ? `${rate.toFixed(2)}W` : `${percent}%`,
+          ),
         }),
       ],
     }),

@@ -9,6 +9,9 @@ nmap K <Action>(ShowHoverInfo)
 nmap L <Action>(NextTab)
 
 nmap <leader>bd <Action>(CloseEditor)
+nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader>cr <Action>(RenameElement)
+nmap <leader>cg <Action>(Generate)
+nmap <leader>fe <Action>(ActivateProjectToolWindow)
 
 nnoremap <Esc> :nohlsearch<CR>

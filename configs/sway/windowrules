@@ -1,9 +1,10 @@
-set $barHeight 33
+set $barHeight 29
+
 for_window {
-  # waybar modules
-  [app_id="blueman"] floating enable, move position cursor, move down $barHeight
-  [app_id="pavucontrol"] floating enable, move position cursor, move down $barHeight
-  [app_id="foot" title="wifi"] floating enable, move position cursor, move down $barHeight
+  # stuff connected to bar
+  [app_id="blueman"] floating enable, move position cursor, move up $barHeight
+  [app_id="pavucontrol"] floating enable, move position cursor, move up $barHeight
+  [app_id="foot" title="wifi"] floating enable, move position cursor, move up $barHeight
 
   # floating thingies
   [app_id="[Cc]alculator"] floating enable
@@ -20,10 +21,6 @@ for_window {
 
   # make any fullscreen apps inhibit idle
   [app_id=".*"] inhibit_idle fullscreen
-}
-
-assign {
-  [app_id="vesktop"] output $sideMon
 }
 
 # vim:ft=swayconfig
