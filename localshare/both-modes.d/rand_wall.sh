@@ -10,7 +10,10 @@ if [ "$1" != 'light' ] && [ "$1" != 'dark' ]; then
 fi
 
 MODE=$1
-IMAGE=$(find ~/Wallpapers/"$MODE"/* | shuf -n1)
+if ! IMAGE=$(find ~/Wallpapers/"$MODE"/* | shuf -n1); then
+  notify-send 'No Wallpapers Found' "Could not find any wallpapers for $MODE"
+  exit 1
+fi
 
 # show new wallpaper
 swaymsg output '*' bg "$IMAGE" fill &

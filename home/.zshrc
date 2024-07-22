@@ -61,9 +61,7 @@ battery() {
 }
 
 watchbattery() {
-  swaymsg sticky enable
   watch -n 5 "upower -i \"/org/freedesktop/UPower/devices/battery_$1\" | grep energy"
-  swaymsg sticky disable
 }
 
 whatwin() {
@@ -119,6 +117,7 @@ function chpwd-osc7-pwd() {
 }
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+## End copy
 
 eval "$(zoxide init zsh)"
 # Set PS1

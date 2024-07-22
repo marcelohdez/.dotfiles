@@ -11,7 +11,7 @@ progress-color=over #7f7f7f5f
 # other styling
 margin=10
 outer-margin=10,0
-anchor=bottom-left
+anchor=bottom-right
 width=380
 
 on-button-left=dismiss

@@ -59,7 +59,6 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 }
 
 smart_borders on
-default_border pixel 2
 focus_follows_mouse yes
 titlebar_padding 4 2
 

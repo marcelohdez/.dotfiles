@@ -37,9 +37,8 @@ echo for configs...
 mkdir -p "$CONFIG_DIR"
 stow -t "$CONFIG_DIR" configs/
 
-echo for wallpapers...
-mkdir -p $WALLS_DIR
-stow -t $WALLS_DIR walls/
+echo for wallpapers '(empty)'...
+mkdir -p $WALLS_DIR/{light,dark}
 
 echo
 echo ===========
@@ -54,19 +53,18 @@ gsettings set org.gnome.desktop.interface icon-theme Adwaita
 
 echo
 echo ===========
+echo setting up ags config:
+
+ags --init && cd "$CONFIG_DIR"/ags/ && npm i
+cd "$parent_path" || exit 1
+
+echo ===========
 read -rp "Enable systemd services? (y/N): " choice
 
 if [ "$choice" = 'y' ]; then
   systemctl enable --now tuned tuned-ppd
   systemctl enable --now --user darkman
 fi
-
-echo
-echo ===========
-echo setting up ags config:
-
-ags --init && cd "$CONFIG_DIR"/ags/ && npm i
-cd "$parent_path" || exit 1
 
 echo
 echo "done!"

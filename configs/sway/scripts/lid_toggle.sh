@@ -1,6 +1,6 @@
 #!/bin/sh
 STATE_FILE=/tmp/lid_state
-OUTPUTNUM=$(swaymsg -t get_outputs | jq -r length)
+num=$(swaymsg -t get_outputs | jq -r length)
 
 state="$1"
 if [ "$state" = '' ]; then
@@ -9,7 +9,7 @@ fi
 
 case "$state" in
 'on') # closed
-  if [ "$OUTPUTNUM" -gt 1 ]; then
+  if [ "$num" -gt 1 ]; then
     swaymsg output eDP-1 disable
   else
     systemctl suspend

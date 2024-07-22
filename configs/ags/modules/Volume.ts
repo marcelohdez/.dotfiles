@@ -4,14 +4,12 @@ const audio = await Service.import("audio");
 
 const BIN = "pavucontrol";
 
-const changeVolume = (amount: number) => {
-  let speaker = audio.speaker;
+const changeVolume = (amount: number) =>
+  Utils.exec(["sh", "-c", `~/.local/share/fn-scripts/vol_change.sh ${amount}`]);
 
-  if (speaker.volume + amount < 1) {
-    speaker.volume += amount;
-  } else {
-    speaker.volume = 1;
-  }
+const toggleMute = () => {
+  audio.speaker.is_muted = !audio.speaker.is_muted;
+  changeVolume(0);
 };
 
 const getIcon = () => {
@@ -31,30 +29,31 @@ const getIcon = () => {
 };
 
 const Volume = () => {
-  const label = Widget.Label();
   const icon = Widget.Icon({
     icon: getIcon(),
   });
 
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "volume"],
-    tooltipText: audio.bind("speaker").as((speaker) => speaker.description!),
     onClicked: () =>
       Utils.execAsync(`pkill ${BIN}`).catch(() =>
         Utils.execAsync(`${BIN} -t 3`),
       ),
-    onSecondaryClick: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
-    onScrollUp: () => changeVolume(0.05),
-    onScrollDown: () => changeVolume(-0.05),
+    onSecondaryClick: () => toggleMute(),
+    onScrollUp: () => changeVolume(5),
+    onScrollDown: () => changeVolume(-5),
     setup: (self) =>
       self.hook(audio.speaker, () => {
+        const speaker = audio.speaker;
+
         icon.icon = getIcon();
-        const value = Math.round(audio.speaker.volume * 100) || 0;
-        label.label = audio.speaker.is_muted ? "" : `${value}%`;
-        self.toggleClassName("muted", audio.speaker.is_muted || false);
+        self.toggleClassName("muted", speaker.is_muted || false);
+
+        const value = speaker.volume * 100;
+        self.tooltip_text = `${speaker.description}\n${value.toFixed(0)}%`;
       }),
     child: Widget.Box({
-      children: [icon, label],
+      child: icon,
     }),
   });
 };

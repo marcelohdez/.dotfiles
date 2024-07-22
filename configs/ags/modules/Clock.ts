@@ -30,7 +30,6 @@ const Clock = () => {
       Utils.execAsync(`makoctl mode -t ${MODE_NAME}`).then(update_dnd),
     child: Widget.Box({
       children: [
-        Widget.Label({ label: date.bind() }),
         Widget.Icon({
           className: dndMode
             .bind()
@@ -39,6 +38,7 @@ const Clock = () => {
           icon: "weather-clear-night-symbolic",
           setup: () => update_dnd(),
         }),
+        Widget.Label({ label: date.bind() }),
       ],
     }),
   });

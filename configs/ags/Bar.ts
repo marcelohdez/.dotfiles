@@ -4,7 +4,7 @@ import Bluetooth from "modules/Bluetooth";
 import Clock from "modules/Clock";
 import Mpris from "modules/Mpris";
 import Network from "modules/Network";
-import PowerMenu from "modules/PowerMenu";
+import PowerButton from "modules/PowerButton";
 import SystemTray from "modules/SystemTray";
 import Volume from "modules/Volume";
 import Workspaces from "modules/Workspaces";
@@ -12,7 +12,7 @@ import Workspaces from "modules/Workspaces";
 const StartModules = (monitor = 0) =>
   Widget.Box({
     className: CLASS_NAME_SECTION,
-    children: [PowerMenu(), Clock(), Workspaces(monitor)],
+    children: [PowerButton(), Workspaces(monitor)],
   });
 
 const EndModules = () =>
@@ -26,6 +26,7 @@ const EndModules = () =>
       Volume(),
       Bluetooth(),
       Network(),
+      Clock(),
     ],
   });
 

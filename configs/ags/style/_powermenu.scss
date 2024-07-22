@@ -1,0 +1,25 @@
+.powermenu {
+  @include popup;
+
+  .list {
+    margin: 10px;
+
+    button {
+      @include txt-lg;
+      background: $bg150-color;
+      padding: 12px;
+
+      &:hover {
+        background: $bg200-color;
+      }
+
+      &.poweroff {
+        background: #ba2200;
+
+        &:hover {
+          background: #da0000;
+        }
+      }
+    }
+  }
+}
