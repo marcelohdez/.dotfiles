@@ -1,10 +1,10 @@
-import { CLASS_NAME_CONTAINER, CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_CONTAINER, CLASS_NAME_MODULE } from "util/consts";
 import sway from "services/sway";
 
 const switchTo = (ws: number) => sway.msg(`workspace ${ws}`);
 const MAX_WS = 10;
 
-const NewWorkspace = () =>
+export const NewWorkspace = () =>
   Widget.Button({
     label: "+",
     visible: sway.bind("workspaces").as((list) => {
@@ -19,10 +19,10 @@ const NewWorkspace = () =>
       return nodes.length + floating.length > 0;
     }),
     onClicked: () =>
-      Utils.execAsync("bash -c ~/.config/sway/scripts/new_workspace.sh"),
+      Utils.execAsync("sh -c ~/.config/sway/scripts/new_workspace.sh"),
   });
 
-const Workspaces = (monitor: number) => {
+export const Workspaces = (monitor: number) => {
   const btnList = Array.from({ length: MAX_WS }, (_, i) => i + 1).map((i) =>
     Widget.Button({
       attribute: i,
@@ -37,6 +37,8 @@ const Workspaces = (monitor: number) => {
     children: [...btnList, NewWorkspace()],
     setup: (self) =>
       self.hook(sway, () => {
+        if (sway.monitors.length <= monitor + 1) return;
+
         const currentOutput: string = sway.monitors[monitor + 1]["name"];
 
         btnList.forEach((btn) => {
@@ -45,14 +47,13 @@ const Workspaces = (monitor: number) => {
           );
 
           btn.visible = ws != undefined && ws["output"] === currentOutput;
+          btn.toggleClassName("urgent", ws != undefined && ws["urgent"]);
+
           btn.toggleClassName(
             "active",
             ws != undefined && sway.active.workspace["id"] === ws["id"],
           );
-          btn.toggleClassName("urgent", ws != undefined && ws["urgent"]);
         });
       }),
   });
 };
-
-export default Workspaces;

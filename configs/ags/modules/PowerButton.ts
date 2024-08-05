@@ -1,5 +1,5 @@
-import { CLASS_NAME_MODULE } from "consts";
-import PowerMenu, { POWERMENU_NAME } from "popups/PowerMenu";
+import { CLASS_NAME_MODULE } from "util/consts";
+import { PowerMenu, POWERMENU_NAME } from "popups/PowerMenu";
 
 const togglePowerMenu = () => {
   if (App.getWindow(POWERMENU_NAME)) {
@@ -9,13 +9,11 @@ const togglePowerMenu = () => {
   }
 };
 
-const PowerButton = () => {
+export const PowerButton = () => {
   return Widget.Button({
-    classNames: [CLASS_NAME_MODULE, "powermenu"],
+    classNames: [CLASS_NAME_MODULE, "powerbutton"],
     child: Widget.Icon({ icon: "system-log-out-symbolic" }),
     tooltipText: "Power menu",
     onPrimaryClick: () => togglePowerMenu(),
   });
 };
-
-export default PowerButton;

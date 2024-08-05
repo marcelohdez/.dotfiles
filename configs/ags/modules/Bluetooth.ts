@@ -1,10 +1,10 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_MODULE } from "util/consts";
 
 const bluetooth = await Service.import("bluetooth");
 
 const CMD = "blueman-manager";
 
-const Bluetooth = () =>
+export const Bluetooth = () =>
   Widget.Button({
     classNames: [CLASS_NAME_MODULE, "bluetooth"],
     tooltipText: Utils.merge(
@@ -23,5 +23,3 @@ const Bluetooth = () =>
       className: bluetooth.bind("state"),
     }),
   });
-
-export default Bluetooth;

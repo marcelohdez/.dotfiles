@@ -48,8 +48,7 @@
   }
 
   /** Modules with background */
-  .workspaces,
-  .battery-charging {
+  .workspaces {
     background: transparentize($module-color, 0.6);
   }
 

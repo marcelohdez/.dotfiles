@@ -1,6 +1,7 @@
 import { DirectionType } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { EllipsizeMode } from "types/@girs/pango-1.0/pango-1.0.cjs";
 import { MprisPlayer } from "types/service/mpris";
+import { MyUtils } from "util/utils";
 
 const mpris = await Service.import("mpris");
 export const MEDIALIST_NAME = "medialist";
@@ -137,7 +138,7 @@ const PlayerCard = (player: MprisPlayer) => {
   );
 };
 
-const MediaList = () => {
+export const MediaList = () => {
   return Widget.Window({
     name: MEDIALIST_NAME,
     className: MEDIALIST_NAME,
@@ -148,19 +149,7 @@ const MediaList = () => {
       className: "list",
       spacing: 10,
       vertical: true,
-      children: mpris.bind("players").as((p) =>
-        p
-          .sort((a, b) => {
-            function get_score(player: MprisPlayer) {
-              let score = player.name === "kdeconnect" ? 1 : 0;
-              score -= player.play_back_status === "Playing" ? 2 : 0;
-              return score;
-            }
-
-            return get_score(a) - get_score(b);
-          })
-          .map(PlayerCard),
-      ),
+      children: MyUtils.sortedPlayers().as((list) => list.map(PlayerCard)),
     }),
     setup: (self) => {
       self.keybind("j", () => self.child_focus(DirectionType.DOWN));
@@ -169,5 +158,3 @@ const MediaList = () => {
     },
   });
 };
-
-export default MediaList;

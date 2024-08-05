@@ -1,13 +1,15 @@
-import { CLASS_NAME_SECTION } from "consts";
-import Battery from "modules/Battery";
-import Bluetooth from "modules/Bluetooth";
-import Clock from "modules/Clock";
-import Mpris from "modules/Mpris";
-import Network from "modules/Network";
-import PowerButton from "modules/PowerButton";
-import SystemTray from "modules/SystemTray";
-import Volume from "modules/Volume";
-import Workspaces from "modules/Workspaces";
+import { CLASS_NAME_SECTION } from "util/consts";
+import { Battery } from "modules/Battery";
+import { Bluetooth } from "modules/Bluetooth";
+import { Clock } from "modules/Clock";
+import { Mpris } from "modules/Mpris";
+import { Network } from "modules/Network";
+import { PowerButton } from "modules/PowerButton";
+import { SystemTray } from "modules/SystemTray";
+import { Volume } from "modules/Volume";
+import { Workspaces } from "modules/Workspaces";
+
+export const getBarName = (monitor = 0) => `bar${monitor}`;
 
 const StartModules = (monitor = 0) =>
   Widget.Box({
@@ -30,11 +32,11 @@ const EndModules = () =>
     ],
   });
 
-const Bar = (monitor = 0) =>
+export const Bar = (monitor = 0) =>
   Widget.Window({
     className: "bar",
     monitor,
-    name: `bar${monitor}`,
+    name: getBarName(monitor),
     exclusivity: "exclusive",
     anchor: ["bottom", "left", "right"],
     child: Widget.CenterBox({
@@ -42,5 +44,3 @@ const Bar = (monitor = 0) =>
       end_widget: EndModules(),
     }),
   });
-
-export default Bar;

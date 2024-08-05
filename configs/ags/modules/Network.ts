@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_MODULE } from "util/consts";
 
 const network = await Service.import("network");
 
@@ -12,7 +12,7 @@ const WiredIndicator = () =>
     icon: network.wired.bind("icon_name"),
   });
 
-const Network = () =>
+export const Network = () =>
   Widget.Button({
     classNames: [CLASS_NAME_MODULE, "network"],
     onClicked: () =>
@@ -28,5 +28,3 @@ const Network = () =>
         self.tooltip_text = ssid ? `${ssid}` : `Unknown`;
       }),
   });
-
-export default Network;

@@ -18,15 +18,15 @@ bindsym $specialMod+$up move up
 bindsym $specialMod+$down move down
 bindsym $specialMod+$right move right
 
-# Move focus around (moves mouse to center of focused window)
-# I decided to make a script rather than setting `focus_follows_mouse always` so
-# that waybar stuff like blueman and pavucontrol don't annoyingly teleport mouse
-set $mouseToFocus ~/.config/sway/scripts/mouse_to_focus.sh
-bindsym $mod+M focus mode_toggle, exec $mouseToFocus
-bindsym $mod+$left focus left, exec $mouseToFocus
-bindsym $mod+$down focus down, exec $mouseToFocus
-bindsym $mod+$up focus up, exec $mouseToFocus
-bindsym $mod+$right focus right, exec $mouseToFocus
+# move focus around
+set $mouseToContainer mouse_warping container
+set $mouseToOutput mouse_warping output
+
+bindsym $mod+M      $mouseToContainer, focus mode_toggle, $mouseToOutput
+bindsym $mod+$left  $mouseToContainer, focus left,        $mouseToOutput
+bindsym $mod+$down  $mouseToContainer, focus down,        $mouseToOutput
+bindsym $mod+$up    $mouseToContainer, focus up,          $mouseToOutput
+bindsym $mod+$right $mouseToContainer, focus right,       $mouseToOutput
 
 # Resizing
 bindsym $mod+BracketLeft resize shrink width 10 px or 10 ppt

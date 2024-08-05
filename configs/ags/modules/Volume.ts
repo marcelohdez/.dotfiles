@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_MODULE } from "util/consts";
 
 const audio = await Service.import("audio");
 
@@ -28,7 +28,7 @@ const getIcon = () => {
   return `audio-volume-${icons[idx]}-symbolic`;
 };
 
-const Volume = () => {
+export const Volume = () => {
   const icon = Widget.Icon({
     icon: getIcon(),
   });
@@ -57,5 +57,3 @@ const Volume = () => {
     }),
   });
 };
-
-export default Volume;

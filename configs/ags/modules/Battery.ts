@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_MODULE } from "util/consts";
 
 const battery = await Service.import("battery");
 const ppd = await Service.import("powerprofiles");
@@ -8,7 +8,7 @@ const showWattage = Variable(false);
 /**
  * Battery module with power-profiles switch support on secondary-click
  */
-const Battery = () =>
+export const Battery = () =>
   Widget.Button({
     onPrimaryClickRelease: () => showWattage.setValue(!showWattage.getValue()),
     onSecondaryClickRelease: () => {
@@ -48,5 +48,3 @@ const Battery = () =>
       ],
     }),
   });
-
-export default Battery;

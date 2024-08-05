@@ -28,6 +28,7 @@ exec kdeconnect-indicator
 exec swayidle -w
 exec ags
 exec gammastep
+exec trash-empty 7
 
 # set up correct theme
 set $setupTheme ~/.local/share/fn-scripts/theme_setup.sh
@@ -67,3 +68,5 @@ primary_selection disabled
 include keybinds
 include windowrules
 include '$(uname -n)'
+
+include donotpush

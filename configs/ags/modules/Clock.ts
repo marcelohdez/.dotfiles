@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "consts";
+import { CLASS_NAME_MODULE } from "util/consts";
 import GLib from "gi://GLib?version=2.0";
 
 const FORMAT_CLOCK = "%_I:%M %p %a %h %d";
@@ -22,7 +22,7 @@ export const update_dnd = (output?: string) => {
   dndMode.setValue(output?.match(MODE_NAME) != null);
 };
 
-const Clock = () => {
+export const Clock = () => {
   return Widget.Button({
     classNames: [CLASS_NAME_MODULE, "clock"],
     onPrimaryClick: () => Utils.execAsync("makoctl restore"),
@@ -45,4 +45,3 @@ const Clock = () => {
 };
 
 Object.assign(globalThis, { update_dnd });
-export default Clock;

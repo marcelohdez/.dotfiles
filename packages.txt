@@ -38,6 +38,7 @@ stow
 sway
 swayidle
 swaylock
+trash-cli
 tuned
 tuned-ppd
 unzip

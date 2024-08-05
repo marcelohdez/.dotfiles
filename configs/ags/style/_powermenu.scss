@@ -6,15 +6,17 @@
 
     button {
       @include txt-lg;
-      background: $bg150-color;
+      background: $bg200-color;
       padding: 12px;
+      box-shadow: 0px 0px 2px transparentize($shadow-color, 0.4);
 
       &:hover {
-        background: $bg200-color;
+        background: transparentize($bg400-color, 0.2);
       }
 
       &.poweroff {
         background: #ba2200;
+        color: #ffffff;
 
         &:hover {
           background: #da0000;

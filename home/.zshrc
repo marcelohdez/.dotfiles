@@ -39,7 +39,7 @@ fi
 ## Aliases
 alias ls='ls -lh --color=auto'
 alias cat=bat
-alias dup="$TERMINAL &"
+alias rm=trash
 
 ## Funcs
 fullup() {

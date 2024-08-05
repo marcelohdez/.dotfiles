@@ -8,7 +8,7 @@ const ActionButton = (name: string, icon_name: string, exec: string) =>
     onClicked: () => Utils.execAsync(exec),
   });
 
-const PowerMenu = () =>
+export const PowerMenu = () =>
   Widget.Window({
     name: POWERMENU_NAME,
     className: POWERMENU_NAME,
@@ -18,12 +18,8 @@ const PowerMenu = () =>
       vertical: true,
       spacing: 10,
       children: [
-        ActionButton(
-          "poweroff",
-          "system-shutdown-symbolic",
-          "systemctl shutdown now",
-        ),
-        ActionButton("restart", "system-reboot-symbolic", "systemctl reboot"),
+        ActionButton("poweroff", "system-shutdown-symbolic", "shutdown -h now"),
+        ActionButton("restart", "system-reboot-symbolic", "shutdown -r now"),
         ActionButton(
           "sleep",
           "weather-clear-night-symbolic",
@@ -33,5 +29,3 @@ const PowerMenu = () =>
       ],
     }),
   });
-
-export default PowerMenu;

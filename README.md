@@ -68,7 +68,7 @@ unifont-fonts`
   sudo ln -s /bin/foot /bin/xdg-terminal-exec
   ```
 
-- Wallpapers are put in `~/Wallpapers/<light|dark>/`
+- Wallpapers are put in `~/Wallpapers/<light|dark>/img.png`
 
 ## Credits
 
