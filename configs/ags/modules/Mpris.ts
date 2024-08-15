@@ -45,7 +45,10 @@ export const Mpris = () => {
         label.set_text(available ? topPlayer.track_title : "");
         stack.shown = available ? "playing" : "paused";
         self.tooltip_markup = available
-          ? `<b>${topPlayer.track_title}</b>\nby ${topPlayer.track_artists}\n<i>${topPlayer.name}</i>`
+          ? `<b>${topPlayer.track_title}</b>\nby ${topPlayer.track_artists}\n<i>${topPlayer.name}</i>`.replace(
+              "&",
+              "&amp;",
+            )
           : "Media players";
       }),
   });
