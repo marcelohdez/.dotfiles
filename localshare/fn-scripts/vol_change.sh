@@ -9,7 +9,7 @@ fi
 DEV=$(wpctl inspect @DEFAULT_AUDIO_SINK@ | grep node.desc | cut -d\" -f2)
 WPCTL_OUT=$(wpctl get-volume @DEFAULT_SINK@)
 if [ "$(echo "$WPCTL_OUT" | grep -c MUTED)" != '0' ]; then
-  ~/.local/share/fn-scripts/bar_notif.sh "audio-volume-muted-symbolic" "Muted" "$DEV" 0
+  ~/.local/share/fn-scripts/bar_notif.sh " Muted" "$DEV" 0
   exit
 fi
 
@@ -22,5 +22,5 @@ else
   pactl set-sink-volume @DEFAULT_SINK@ "$PERCENT"'%'
 fi
 
-ICON='high' && [ "$PERCENT" -lt 66 ] && ICON='medium' && [ "$PERCENT" -lt 33 ] && ICON='low'
-~/.local/share/fn-scripts/bar_notif.sh "audio-volume-$ICON-symbolic" "Volume" "$DEV" "$PERCENT"
+ICON='' && [ "$PERCENT" -lt 66 ] && ICON='' && [ "$PERCENT" -lt 33 ] && ICON=''
+~/.local/share/fn-scripts/bar_notif.sh "$ICON Volume" "$DEV" "$PERCENT"
