@@ -1,6 +1,7 @@
 import { DirectionType } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { EllipsizeMode } from "types/@girs/pango-1.0/pango-1.0.cjs";
 import { MprisPlayer } from "types/service/mpris";
+import { SPACING_NORMAL } from "util/consts";
 import { MyUtils } from "util/utils";
 
 const mpris = await Service.import("mpris");
@@ -13,7 +14,7 @@ const lenToStr = (len: number) => {
   return `${min}:${sec0}${sec}`;
 };
 
-const PlayerCard = (player: MprisPlayer) => {
+const MediaCard = (player: MprisPlayer) => {
   const img = Widget.Box({
     className: "img",
     vpack: "start",
@@ -142,14 +143,16 @@ export const MediaList = () => {
   return Widget.Window({
     name: MEDIALIST_NAME,
     className: MEDIALIST_NAME,
-    anchor: ["bottom", "right"],
+    anchor: ["bottom"],
     keymode: "exclusive",
     layer: "overlay",
     child: Widget.Box({
       className: "list",
-      spacing: 10,
+      spacing: SPACING_NORMAL,
       vertical: true,
-      children: MyUtils.sortedPlayers().as((list) => list.map(PlayerCard)),
+      children: mpris
+        .bind("players")
+        .as((list) => MyUtils.sortPlayers(list).map(MediaCard)),
     }),
     setup: (self) => {
       self.keybind("j", () => self.child_focus(DirectionType.DOWN));

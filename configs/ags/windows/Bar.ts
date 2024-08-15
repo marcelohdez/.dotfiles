@@ -17,13 +17,18 @@ const StartModules = (monitor = 0) =>
     children: [PowerButton(), Workspaces(monitor)],
   });
 
+const CenterModules = () =>
+  Widget.Box({
+    className: CLASS_NAME_SECTION,
+    child: Mpris(),
+  });
+
 const EndModules = () =>
   Widget.Box({
     className: CLASS_NAME_SECTION,
     hpack: "end",
     children: [
       SystemTray(),
-      Mpris(),
       Battery(),
       Volume(),
       Bluetooth(),
@@ -41,6 +46,7 @@ export const Bar = (monitor = 0) =>
     anchor: ["bottom", "left", "right"],
     child: Widget.CenterBox({
       start_widget: StartModules(monitor),
+      center_widget: CenterModules(),
       end_widget: EndModules(),
     }),
   });

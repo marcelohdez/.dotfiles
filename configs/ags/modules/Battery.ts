@@ -1,4 +1,4 @@
-import { CLASS_NAME_MODULE } from "util/consts";
+import { CLASS_NAME_MODULE, SPACING_NORMAL } from "util/consts";
 
 const battery = await Service.import("battery");
 const ppd = await Service.import("powerprofiles");
@@ -30,6 +30,7 @@ export const Battery = () =>
         state ? "battery-charging" : "",
       ]),
     child: Widget.Box({
+      spacing: SPACING_NORMAL,
       children: [
         Widget.Icon({
           icon: battery.bind("icon_name"),

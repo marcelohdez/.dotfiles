@@ -1,3 +1,5 @@
+import { SPACING_NORMAL } from "util/consts";
+
 export const POWERMENU_NAME = "powermenu";
 
 const ActionButton = (name: string, icon_name: string, exec: string) =>
@@ -16,7 +18,7 @@ export const PowerMenu = () =>
     child: Widget.Box({
       className: "list",
       vertical: true,
-      spacing: 10,
+      spacing: SPACING_NORMAL,
       children: [
         ActionButton("poweroff", "system-shutdown-symbolic", "shutdown -h now"),
         ActionButton("restart", "system-reboot-symbolic", "shutdown -r now"),

@@ -13,6 +13,7 @@ export const NewWorkspace = () =>
       const active = list.find(
         (ws, _i) => ws["id"] === sway.active.workspace["id"],
       )!;
+      if (active["num"] >= MAX_WS) return false;
 
       const nodes: object[] = active["nodes"];
       const floating: object[] = active["floating_nodes"];
