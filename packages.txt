@@ -5,7 +5,6 @@ blueman
 breeze-cursor-themes
 brightnessctl
 darkman
-fontawesome-fonts-all
 foot
 fuzzel
 gammastep

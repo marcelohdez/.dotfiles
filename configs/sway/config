@@ -36,8 +36,7 @@ set $startDarkman systemctl --user restart darkman
 exec 'pgrep darkman && $startDarkman || $setupTheme'
 
 # Handle lidswitch
-bindswitch --locked lid:on exec ~/.config/sway/scripts/lid_toggle.sh on
-bindswitch --locked lid:off exec ~/.config/sway/scripts/lid_toggle.sh off
+bindswitch --locked lid:toggle exec ~/.config/sway/scripts/lid_toggle.sh LID0
 
 # Output
 # breaks amdgpus on kernels >=6.8 atm
@@ -53,6 +52,8 @@ input type:touchpad {
   drag disabled
   tap enabled
 }
+
+input type:keyboard xkb_options altwin:swap_lalt_lwin
 
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
   pointer_accel 0.2

@@ -45,9 +45,9 @@ bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 
 bindsym $mod+P exec 'ags -r "toggleMediaList()"'
-bindsym $mod+Y exec ~/.local/share/fn-scripts/reload_bar.sh
 bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
 bindsym $mod+N exec 'makoctl dismiss -a'
+bindsym $specialMod+Y exec ags -q, exec ags
 bindsym $specialMod+N exec "makoctl mode -t dnd && ags -r 'update_dnd()'"
 
 # Screenshot/sharing keybinds

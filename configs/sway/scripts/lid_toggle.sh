@@ -1,25 +1,20 @@
 #!/bin/sh
-STATE_FILE=/tmp/lid_state
-num=$(swaymsg -t get_outputs | jq -r length)
-
-state="$1"
-if [ "$state" = '' ]; then
-  state=$(cat /tmp/lid_state)
+if [ "$#" != 1 ]; then
+  echo "Usage: $0 LID"
+  echo To find lid identifier, see /proc/acpi/button/lid/
+  exit
 fi
 
-case "$state" in
-'on') # closed
-  if [ "$num" -gt 1 ]; then
+outputs=$(swaymsg -t get_outputs | jq -r length)
+case $(awk '{print $2}' </proc/acpi/button/lid/"$1"/state) in
+'closed')
+  if [ "$outputs" -gt 1 ]; then
     swaymsg output eDP-1 disable
   else
     systemctl suspend
   fi
-
-  echo "$state" >"$STATE_FILE"
   ;;
-'off') # open
+'open')
   swaymsg output eDP-1 enable
-
-  echo "$state" >"$STATE_FILE"
   ;;
 esac

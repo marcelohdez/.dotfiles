@@ -68,7 +68,10 @@ unifont-fonts`
   sudo ln -s /bin/foot /bin/xdg-terminal-exec
   ```
 
-- Wallpapers are put in `~/Wallpapers/<light|dark>/img.png`
+- Wallpapers are put in `~/Wallpapers/<light|dark>/img-[color].png`, the
+  optional [color] suffix can be used for a specific accent color to be used
+  with the given wallpaper. See
+  [the script](./localshare/both-modes.d/accent_color.sh).
 
 ## Credits
 

@@ -30,7 +30,7 @@
                 },
                 "band2": {
                     "frequency": 350.0,
-                    "gain": -22.0,
+                    "gain": -19.03,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 5.909999999999967,
@@ -119,7 +119,7 @@
             },
             "mode": "IIR",
             "num-bands": 10,
-            "output-gain": 0.0,
+            "output-gain": -9.5,
             "pitch-left": 0.0,
             "pitch-right": 0.0,
             "right": {
@@ -147,7 +147,7 @@
                 },
                 "band2": {
                     "frequency": 350.0,
-                    "gain": -18.63,
+                    "gain": -19.03,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 5.909999999999967,
@@ -234,7 +234,7 @@
                     "width": 4.0
                 }
             },
-            "split-channels": true
+            "split-channels": false
         },
         "plugins_order": [
             "equalizer#0"

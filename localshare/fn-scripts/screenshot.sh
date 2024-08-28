@@ -4,13 +4,9 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-pictures_dir=$(xdg-user-dir PICTURES)
-if [ "$pictures_dir" = "$HOME" ]; then
-  pictures_dir="$HOME/Pictures/"
-fi
-
-mkdir -p "$pictures_dir"
-OUT_DIR="$pictures_dir/screenshot-$(date +%Y-%m-%d_H.%M.%S).png"
+out_dir="$HOME/Pictures/"
+mkdir -p "$out_dir"
+OUT_DIR="$out_dir/screenshot-$(date +%Y-%m-%d_H.%M.%S).png"
 
 case "$1" in
 'screen')
@@ -29,21 +25,17 @@ case "$1" in
 esac
 wl-copy <"$OUT_DIR"
 
-TITLE='󱉧 Screenshot saved and copied'
-DESC=$(printf 'Right-click to edit\nMiddle-click to delete\n')
-ACTION_EDIT='default'
-ACTION_DELETE='delete'
-
 RES=$(
-  notify-send "$TITLE" "$DESC" \
+  notify-send \
+    "󱉧 Screenshot saved and copied" \
+    "Right-click to edit\nMiddle-click to delete\n" \
     -i "$OUT_DIR" \
-    -A "$ACTION_EDIT=Edit" \
-    -A "$ACTION_DELETE=Delete"
+    -A "default=Edit" \
+    -A "delete=Delete"
 )
-
 case "$RES" in
-"$ACTION_EDIT")
-  mkdir -p "$HOME/Pictures/Satty/"
+"default")
+  mkdir -p "$out_dir/Satty/"
 
   satty -f "$OUT_DIR" \
     --output-filename="$HOME/Pictures/Satty/%Y-%m-%d_%H.%M.%S.png" \
@@ -52,7 +44,7 @@ case "$RES" in
 
   rm "$OUT_DIR"
   ;;
-"$ACTION_DELETE")
+"delete")
   rm "$OUT_DIR" && notify-send ' Screenshot deleted' -i "$OUT_DIR" -t 2000
   ;;
 esac

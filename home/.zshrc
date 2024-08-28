@@ -38,7 +38,7 @@ fi
 
 ## Aliases
 alias ls='ls -lh --color=auto'
-alias cat=bat
+alias cat='bat --decorations=never'
 alias rm=trash
 
 ## Funcs

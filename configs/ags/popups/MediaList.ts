@@ -8,9 +8,20 @@ const mpris = await Service.import("mpris");
 export const MEDIALIST_NAME = "medialist";
 
 const lenToStr = (len: number) => {
+  len = Math.max(len, 0);
+  const HR_SEC = 60 * 60;
+
   const min = Math.floor(len / 60);
   const sec = Math.floor(len % 60);
   const sec0 = sec < 10 ? "0" : "";
+
+  if (len > HR_SEC) {
+    const hr = Math.floor(len / HR_SEC);
+    const minr = min % 60;
+    const min0 = minr < 10 ? "0" : "";
+    return `${hr}:${min0}${minr}:${sec0}${sec}`;
+  }
+
   return `${min}:${sec0}${sec}`;
 };
 

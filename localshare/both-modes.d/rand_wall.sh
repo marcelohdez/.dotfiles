@@ -18,6 +18,10 @@ fi
 # show new wallpaper
 swaymsg output '*' bg "$IMAGE" fill &
 
+# set correct accent color
+COLOR=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
+~/.local/share/both-modes.d/accent_color.sh "$MODE" "$COLOR"
+
 ## make wallpaper blurred for swaylock ##
 # cache if not seen before
 CACHE_FOLDER="$HOME/.cache/wallpaperblur"
