@@ -19,6 +19,7 @@ on-button-right=invoke-default-action
 on-button-middle=exec makoctl menu -n "$id" fuzzel -d -p "Actions >"
 max-history=10
 max-visible=2
+default-timeout=10000
 
 [mode=light]
 text-color=#000000
@@ -37,5 +38,6 @@ invisible=1
 
 [app-name=notify-send]
 invisible=0
+default-timeout=0
 # for screenshot notifs
 on-button-middle=invoke-action delete

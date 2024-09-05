@@ -43,7 +43,7 @@ export const Battery = () =>
               battery.bind("energy_rate"),
             ],
             (show, percent, rate) =>
-              show ? `${rate.toFixed(2)}W` : `${percent}%`,
+              show ? `${percent}% ${rate.toFixed(2)}W` : `${percent}%`,
           ),
         }),
       ],

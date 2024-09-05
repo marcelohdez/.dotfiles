@@ -62,7 +62,6 @@ echo ===========
 read -rp "Enable systemd services? (y/N): " choice
 
 if [ "$choice" = 'y' ]; then
-  systemctl enable --now tuned tuned-ppd
   systemctl enable --now --user darkman
 fi
 

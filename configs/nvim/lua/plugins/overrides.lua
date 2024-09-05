@@ -1,6 +1,7 @@
 return {
 	-- Add to lazyvim defaults
-	{ "LazyVim/LazyVim", opts = { colorscheme = "lunaperche" } },
+	{ "ellisonleao/gruvbox.nvim", opts = { transparent_mode = true } },
+	{ "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
 	{
 		"rcarriga/nvim-notify",
 		opts = {

@@ -10,7 +10,7 @@
 
   @include txt-lg;
   @include txt-monospace;
-  background: $bg50-color;
+  background: transparentize($bg50-color, 0.1);
   color: $text-color;
 
   .module,

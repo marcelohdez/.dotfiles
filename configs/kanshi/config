@@ -18,5 +18,5 @@ profile laptopLab {
   output eDP-1 position 0,1080
 
   exec ~/.config/sway/scripts/lab_monitors.sh
-  exec ~/.config/sway/scripts/lid_toggle.sh
+  exec ~/.config/sway/scripts/lid_toggle.sh LID0
 }

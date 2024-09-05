@@ -10,63 +10,42 @@ fi
 MODE="$1"
 color="$2"
 
-# dark mode defaults
-tabbrdr=333333
-border=2f2f2f
-text=bfbfbf
-# light
-if [ "$MODE" = 'light' ]; then
-  tabbrdr=9f9f9f
-  border=d7d7d7
-  text=4f4f4f
-fi
-
 # names from https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/src/st/st-theme-context.c
-colText=ffffff
 case "$color" in
-'blue')
-  colTabbrdr=3f64aa
-  colBorder=2f448a
-  ;;
-'teal')
-  colTabbrdr=5b939d
-  colBorder=3b737d
-  ;;
-'green')
-  colTabbrdr=498e49
-  colBorder=326732
-  ;;
-'yellow')
-  colTabbrdr=bc9a45
-  colBorder=9c881f
-  ;;
-'orange')
-  colTabbrdr=b47a4b
-  colBorder=a26438
-  ;;
-'red')
-  colTabbrdr=944c4c
-  colBorder=822c2c
-  ;;
-'pink')
-  colTabbrdr=e770a0
-  colBorder=b56089
-  ;;
-'purple')
-  colTabbrdr=a251bc
-  colBorder=814296
-  ;;
-*) # sway default
-  colTabbrdr=4C7899
-  colBorder=285577
-  color='blue' # default accent
+'teal') colBorder=017084 ;;
+'green') colBorder=1a742a ;;
+'yellow') colBorder=a88800 ;;
+'orange') colBorder=cd6b00 ;;
+'red') colBorder=c60d22 ;;
+'pink') colBorder=b54179 ;;
+'purple') colBorder=71218c ;;
+*) # default to blue
+  colBorder=1f549a
+  color='blue'
   ;;
 esac
 
-# support gnome accent colors
-gsettings set org.gnome.desktop.interface accent-color "$2"
+# default for dark:
+colText=ffffff
+colBg=1b1b1b
+# set unfocused border colors
+uBorder=333333
+uBg=2f2f2f
+uText=bfbfbf
 
-# border > background > text > split
-swaymsg "client.focused           #$colTabbrdr #$colBorder #$colText #$colBorder"
-swaymsg "client.focused_inactive  #$tabbrdr    #$border    #$text    #$border"
-swaymsg "client.unfocused         #$tabbrdr    #$border    #$text    #$border"
+if [ "$MODE" = 'light' ]; then
+  colText=000000
+  colBg=fffefa
+
+  uBorder=9f9f9f
+  uBg=d7d7d7
+  uText=4f4f4f
+fi
+
+# support gnome accent colors
+gsettings set org.gnome.desktop.interface accent-color "$color"
+
+# tab border > background > text > split > border
+swaymsg "client.focused           #$colBorder  #$colBg  #$colText  #$colBorder #$colBorder"
+swaymsg "client.focused_inactive  #$uBorder    #$uBg    #$uText    #$uBg"
+swaymsg "client.unfocused         #$uBorder    #$uBg    #$uText    #$uBg"

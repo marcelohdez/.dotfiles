@@ -29,6 +29,7 @@ nodejs-npm
 pavucontrol
 playerctl
 polkit-gnome
+power-profiles-daemon
 pulseaudio-utils
 ranger
 ripgrep
@@ -38,8 +39,6 @@ sway
 swayidle
 swaylock
 trash-cli
-tuned
-tuned-ppd
 unzip
 wtype
 zathura
