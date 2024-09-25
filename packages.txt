@@ -9,7 +9,6 @@ foot
 fuzzel
 gammastep
 gnome-bluetooth-libs
-gnome-calculator
 gnome-themes-extra
 gnome-keyring
 go
@@ -31,8 +30,9 @@ playerctl
 polkit-gnome
 power-profiles-daemon
 pulseaudio-utils
-ranger
+qalculate-gtk
 ripgrep
+screen
 slurp
 stow
 sway

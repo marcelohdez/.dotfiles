@@ -3,15 +3,23 @@ let mapleader = " "
 set clipboard+=unnamedplus
 set hlsearch
 set incsearch
+set relativenumber number
 
 nmap H <Action>(PreviousTab)
 nmap K <Action>(ShowHoverInfo)
 nmap L <Action>(NextTab)
 
+nmap <leader><leader> <Action>(SearchEverywhere)
+nmap <leader>/  <Action>(FindInPath)
 nmap <leader>bd <Action>(CloseEditor)
 nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader>cr <Action>(RenameElement)
 nmap <leader>cg <Action>(Generate)
 nmap <leader>fe <Action>(ActivateProjectToolWindow)
+nmap <leader>gr <Action>(GotoDeclaration)
+nmap <leader>gI <Action>(GotoImplementation)
+
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
 
 nnoremap <Esc> :nohlsearch<CR>

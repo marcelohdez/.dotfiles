@@ -20,15 +20,6 @@ return {
 			{ "<leader>pR", "<cmd>Leet yank<cr>", desc = "Reset problem" },
 		},
 	},
-	{
-		"IogaMaster/neocord",
-		event = "VeryLazy",
-		opts = {
-			workspace_text = "Probably creating bugs",
-			show_time = false,
-		},
-	},
-
 	-- set up keybinds
 	{
 		"folke/which-key.nvim",

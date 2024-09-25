@@ -37,7 +37,7 @@ const EndModules = () =>
     ],
   });
 
-export const Bar = (monitor = 0) =>
+export const Bar = (monitor: number) =>
   Widget.Window({
     className: "bar",
     monitor,

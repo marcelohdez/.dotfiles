@@ -1,6 +1,5 @@
 #!/bin/sh
 if [ $# != 2 ]; then
-  echo Sets the color of unfocused borders.
   echo Usage: "$0" MODE COLOR_NAME
   echo Available modes: dark light
   echo Available names: blue teal green yellow orange red pink purple

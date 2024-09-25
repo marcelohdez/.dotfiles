@@ -10,16 +10,17 @@ set $down J
 set $right L
 
 # Program vars (shared with all config files)
-set $calculator gnome-calculator
+set $calculator qalculate-gtk
 set $search fuzzel
 set $term foot
-set $files $term ranger
-set $web firefox
-set $webPriv firefox --private-window
+set $files nemo
+set $web brave-browser
+set $webPriv brave-browser --incognito
 
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
+exec ~/.config/sway/scripts/fullscreen-popup-notif.sh
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 
@@ -38,13 +39,14 @@ exec 'pgrep darkman && $startDarkman || $setupTheme'
 seat seat0 xcursor_theme breeze_cursors
 seat seat0 hide_cursor 5000
 
-titlebar_padding 4 2
 default_border pixel 3
+default_floating_border normal 3
 gaps inner 4
 
 # Handle lidswitch
 bindswitch --locked lid:toggle exec ~/.config/sway/scripts/lid_toggle.sh LID0
 
+output * adaptive_sync on
 primary_selection disabled
 
 include keybinds

@@ -7,7 +7,7 @@ for_window {
   [app_id="foot" title="wifi"] floating enable, move position cursor, move up $barHeight
 
   # floating thingies
-  [app_id="[Cc]alculator"] floating enable
+  [app_id="[Qq]alculate"] floating enable
   [app_id="foot" title="float"] floating enable
   [app_id="FileRoller"] floating enable
   [app_id="firefox"] {

@@ -14,9 +14,8 @@ profile desktop {
 }
 
 profile laptopLab {
-  output "$labMon" position 1050,0
-  output eDP-1 position 0,1080
+  output "$labMon" position 0,0
+  output eDP-1 position 200,1080
 
-  exec ~/.config/sway/scripts/lab_monitors.sh
   exec ~/.config/sway/scripts/lid_toggle.sh LID0
 }

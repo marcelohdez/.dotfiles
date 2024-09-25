@@ -24,13 +24,13 @@ You should now be able to switch to `zsh`:
 chsh -s $(which zsh)
 ```
 
-Firefox is used throughout this repo. You _can_ just install it regularly but
-for the sandboxing and quicker updates I prefer the official Flatpak; then
-creating a `firefox` script in e.g. `.local/bin/` containing:
+Brave is used by default. I prefer the Flatpak then creating a `brave-browser`
+script in e.g. `.local/bin/` containing:
 
 ```bash
 #!/bin/sh
-flatpak run org.mozilla.firefox -- "$@"
+flatpak run com.brave.Browser \
+  --enable-features=TouchpadOverscrollHistoryNavigation "$@"
 ```
 
 Then, [dim], [NerdFont] (symbols only), [ags], [satty], and [hyprpicker] must
