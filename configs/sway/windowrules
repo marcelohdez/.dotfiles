@@ -1,4 +1,4 @@
-set $barHeight 29
+set $barHeight 35
 
 for_window {
   # stuff connected to bar

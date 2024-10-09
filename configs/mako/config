@@ -9,10 +9,12 @@ border-color=#4f4f4f
 progress-color=over #7f7f7f5f
 
 # other styling
+padding=5,10
 margin=10
 outer-margin=10,0
 anchor=bottom-right
 width=380
+border-radius=8
 
 on-button-left=dismiss
 on-button-right=invoke-default-action

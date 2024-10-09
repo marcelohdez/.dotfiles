@@ -31,6 +31,7 @@ export const Mpris = () => {
   });
 
   return Widget.Button({
+    cursor: "pointer",
     visible: mpris.bind("players").as((list) => list.length > 0),
     classNames: [CLASS_NAME_MODULE, "mpris"],
     onPrimaryClick: () => toggleMediaList(),

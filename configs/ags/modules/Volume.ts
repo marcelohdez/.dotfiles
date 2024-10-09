@@ -34,6 +34,7 @@ export const Volume = () => {
   });
 
   return Widget.Button({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, "volume"],
     onClicked: () =>
       Utils.execAsync(`pkill ${BIN}`).catch(() =>

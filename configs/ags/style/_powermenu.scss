@@ -5,6 +5,7 @@
     margin: 10px;
 
     button {
+      @include rounded-md;
       @include txt-lg;
       background: $bg200-color;
       padding: 12px;

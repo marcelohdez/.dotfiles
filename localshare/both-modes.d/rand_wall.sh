@@ -16,23 +16,6 @@ if ! IMAGE=$(find ~/Wallpapers/"$MODE"/* | shuf -n1); then
 fi
 
 # show new wallpaper
-swaymsg output '*' bg "$IMAGE" fill &
+swaymsg output '*' bg "$IMAGE" fill
 
-# set correct accent color
-COLOR=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
-~/.local/share/both-modes.d/accent_color.sh "$MODE" "$COLOR"
-
-## make wallpaper blurred for swaylock ##
-# cache if not seen before
-CACHE_FOLDER="$HOME/.cache/wallpaperblur"
-mkdir -p "$CACHE_FOLDER"
-
-CACHE_DIR="$CACHE_FOLDER/$MODE-${IMAGE##*/}"
-if ! [ -f "$CACHE_DIR" ]; then
-  echo Blurring new image for lockscreen, please wait...
-  magick "$IMAGE" -blur 0x60 "$CACHE_DIR"
-fi
-
-# move blurred wallpaper for swaylock to use
-rm "/tmp/lockscreen.png"
-cp "$CACHE_DIR" "/tmp/lockscreen.png"
+~/.local/share/both-modes.d/accent_color.sh "$MODE"

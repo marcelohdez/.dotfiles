@@ -10,6 +10,7 @@ const showWattage = Variable(false);
  */
 export const Battery = () =>
   Widget.Button({
+    cursor: "pointer",
     onPrimaryClickRelease: () => showWattage.setValue(!showWattage.getValue()),
     onSecondaryClickRelease: () => {
       let new_profile = "balanced";

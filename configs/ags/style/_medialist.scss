@@ -6,6 +6,7 @@
   }
 
   .card {
+    @include rounded-md;
     background: $bg200-color;
     padding: 8px;
     box-shadow: 0px 0px 2px transparentize($shadow-color, 0.4);

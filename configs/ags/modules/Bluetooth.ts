@@ -6,6 +6,7 @@ const CMD = "blueman-manager";
 
 export const Bluetooth = () =>
   Widget.Button({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, "bluetooth"],
     tooltipText: Utils.merge(
       [bluetooth.bind("state"), bluetooth.bind("connected_devices")],

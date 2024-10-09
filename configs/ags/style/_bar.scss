@@ -2,7 +2,7 @@
   /** hard-coded bar colors */
   $text-color: #ffffff;
 
-  $bg50-color: #131313;
+  $bg50-color: #0b0b0b;
   $bg400-color: #4b4b4b;
   $bg500-color: #4f4f4f;
 
@@ -10,7 +10,7 @@
 
   @include txt-lg;
   @include txt-monospace;
-  background: transparentize($bg50-color, 0.1);
+  background: $bg50-color;
   color: $text-color;
 
   .module,
@@ -19,7 +19,9 @@
       background: transparentize($bg500-color, 0.5);
     }
 
+    @include rounded-lg;
     padding: 4px 10px;
+    margin: 3px 0px;
   }
 
   .clock .dnd-active {
@@ -29,7 +31,6 @@
     margin-right: 8px;
   }
 
-  /** Buttons in containers */
   .workspaces button {
     &.active {
       background: $bg400-color;
@@ -47,8 +48,8 @@
     margin-bottom: 0;
   }
 
-  /** Modules with background */
   .workspaces {
+    @include rounded-lg;
     background: transparentize($module-color, 0.6);
   }
 

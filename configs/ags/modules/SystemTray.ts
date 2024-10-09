@@ -6,6 +6,7 @@ export const SystemTray = () => {
   const items = systemtray.bind("items").as((items) =>
     items.map((item) =>
       Widget.Button({
+        cursor: "pointer",
         child: Widget.Icon({ icon: item.bind("icon") }),
         on_primary_click: (_, e) => item.activate(e),
         on_secondary_click: (_, e) => item.openMenu(e),

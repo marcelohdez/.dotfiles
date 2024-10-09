@@ -33,6 +33,7 @@ export const Workspaces = (monitor: number) => {
   );
 
   return Widget.Box({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "workspaces"],
     tooltipText: "Workspaces",
     children: [...btnList, NewWorkspace()],

@@ -14,6 +14,7 @@ const WiredIndicator = () =>
 
 export const Network = () =>
   Widget.Button({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, "network"],
     onClicked: () =>
       Utils.execAsync("foot --title=wifi sh -c 'sleep 0.1; nmtui'"),

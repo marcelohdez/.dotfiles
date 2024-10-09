@@ -36,6 +36,7 @@ while true; do
     if [ "$CHARGE" -le "$LEVEL_CRITICAL" ] && ! [ -f "$LOCK_CRITICAL" ]; then
       res=$(
         notify-send -u critical "Battery at $CHARGE%" "This device will turn off soon.$tip" \
+          -t 10000 \
           -A "$ACTION"
       )
 
@@ -43,6 +44,7 @@ while true; do
     elif ! [ -f "$LOCK_LOW" ]; then
       res=$(
         notify-send "Battery at $CHARGE%" "Charge this device soon.$tip" \
+          -t 10000 \
           -A "$ACTION"
       )
 

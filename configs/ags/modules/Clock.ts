@@ -24,6 +24,7 @@ export const update_dnd = (output?: string) => {
 
 export const Clock = () => {
   return Widget.Button({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, "clock"],
     onPrimaryClick: () => Utils.execAsync("makoctl restore"),
     onSecondaryClick: () =>

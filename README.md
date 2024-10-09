@@ -24,13 +24,13 @@ You should now be able to switch to `zsh`:
 chsh -s $(which zsh)
 ```
 
-Brave is used by default. I prefer the Flatpak then creating a `brave-browser`
-script in e.g. `.local/bin/` containing:
+Firefox is used throughout this repo. You _can_ just install it regularly but
+for the sandboxing and quicker updates I prefer the official Flatpak; then
+creating a `firefox` script in e.g. `.local/bin/` containing:
 
 ```bash
 #!/bin/sh
-flatpak run com.brave.Browser \
-  --enable-features=TouchpadOverscrollHistoryNavigation "$@"
+flatpak run org.mozilla.firefox -- "$@"
 ```
 
 Then, [dim], [NerdFont] (symbols only), [ags], [satty], and [hyprpicker] must
@@ -68,9 +68,7 @@ unifont-fonts`
   sudo ln -s /bin/foot /bin/xdg-terminal-exec
   ```
 
-- Wallpapers are put in `~/Wallpapers/<light|dark>/img-[color].png`, the
-  optional [color] suffix can be used for a specific accent color to be used
-  with the given wallpaper. See
+- Wallpapers are put in `~/Wallpapers/<light|dark>/name.png`. See
   [the script](./localshare/both-modes.d/accent_color.sh).
 
 ## Credits

@@ -39,8 +39,7 @@ case "$RES" in
 
   satty -f "$OUT_DIR" \
     --output-filename="$HOME/Pictures/Satty/%Y-%m-%d_%H.%M.%S.png" \
-    --copy-command wl-copy \
-    --fullscreen
+    --copy-command wl-copy
 
   rm "$OUT_DIR"
   ;;

@@ -11,6 +11,7 @@ const togglePowerMenu = () => {
 
 export const PowerButton = () => {
   return Widget.Button({
+    cursor: "pointer",
     classNames: [CLASS_NAME_MODULE, "powerbutton"],
     child: Widget.Icon({ icon: "system-log-out-symbolic" }),
     tooltipText: "Power menu",

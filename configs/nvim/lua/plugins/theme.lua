@@ -1,17 +1,5 @@
 return {
-	{
-		"ellisonleao/gruvbox.nvim",
-		opts = {
-			palette_overrides = {
-				-- match backgrounds with terminal
-				dark0 = "#1b1b1b",
-				light0 = "#fffefa",
-				-- lighten a bit
-				light1 = "#f0ead2",
-			},
-		},
-	},
-	{ "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
+	{ "LazyVim/LazyVim", opts = { colorscheme = "lunaperche" } },
 
 	{
 		"rcarriga/nvim-notify",
