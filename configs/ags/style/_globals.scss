@@ -18,11 +18,19 @@
 }
 
 @mixin txt-lg {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
 }
 
 @mixin txt-monospace {
   font-family: JetBrainsMono;
+}
+
+@mixin txt-bold {
+  font-weight: bold;
+}
+
+@mixin txt-italic {
+  font-style: italic;
 }
 
 /** other */
@@ -33,6 +41,10 @@
 }
 
 /** styling applied everywhere */
+* {
+  font-family: Inter;
+}
+
 menu {
   @include popup;
 

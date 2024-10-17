@@ -1,4 +1,4 @@
-font=SymbolsNerdFontMono, JetBrainsMono 10
+font=SymbolsNerdFontMono, Inter 10
 # show over fullscreen windows on sway:
 layer=overlay
 
@@ -13,7 +13,8 @@ padding=5,10
 margin=10
 outer-margin=10,0
 anchor=bottom-right
-width=380
+width=360
+max-icon-size=48
 border-radius=8
 
 on-button-left=dismiss
@@ -43,3 +44,8 @@ invisible=0
 default-timeout=0
 # for screenshot notifs
 on-button-middle=invoke-action delete
+
+[category=toast]
+width=300
+history=0
+anchor=bottom-center

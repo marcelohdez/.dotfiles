@@ -12,6 +12,7 @@ REUSE_NOTIF_DIR="/tmp/persistent_notif_id"
 REUSE_ID=$(cat "$REUSE_NOTIF_DIR")
 
 notify-send "$TITLE" "$SUMMARY" \
+  -c toast \
   -t 2000 \
   -h "int:value:$PERCENT" \
   -p \

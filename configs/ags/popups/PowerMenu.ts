@@ -15,6 +15,10 @@ export const PowerMenu = () =>
     name: POWERMENU_NAME,
     className: POWERMENU_NAME,
     anchor: ["bottom", "left"],
+    keymode: "exclusive",
+    setup: (self) => {
+      self.keybind("Escape", () => App.closeWindow(self.name!));
+    },
     child: Widget.Box({
       className: "list",
       vertical: true,

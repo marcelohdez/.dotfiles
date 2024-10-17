@@ -48,7 +48,7 @@ echo for nemo...
 gsettings set org.cinnamon.desktop.default-applications.terminal exec foot
 
 echo icon and cursor themes...
-gsettings set org.gnome.desktop.interface cursor-theme breeze_cursors
+gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 gsettings set org.gnome.desktop.interface icon-theme Adwaita
 
 echo

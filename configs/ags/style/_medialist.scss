@@ -31,14 +31,14 @@
 
   .title {
     @include txt-lg;
-    font-weight: bold;
+    @include txt-bold;
     margin: 2px 0;
   }
 
   .playing-on {
     @include rounded-lg;
+    @include txt-italic;
     background: transparentize($bg150-color, 0.3);
-    font-style: italic;
     padding: 2px 8px;
   }
 

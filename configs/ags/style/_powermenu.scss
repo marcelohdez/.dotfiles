@@ -6,7 +6,6 @@
 
     button {
       @include rounded-md;
-      @include txt-lg;
       background: $bg200-color;
       padding: 12px;
       box-shadow: 0px 0px 2px transparentize($shadow-color, 0.4);

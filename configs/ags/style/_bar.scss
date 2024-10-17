@@ -2,45 +2,51 @@
   /** hard-coded bar colors */
   $text-color: #ffffff;
 
-  $bg50-color: #0b0b0b;
+  $bg50-color: #131313;
+  $bg300-color: #3b3b3b;
   $bg400-color: #4b4b4b;
   $bg500-color: #4f4f4f;
 
-  $module-color: #464646;
-
   @include txt-lg;
-  @include txt-monospace;
   background: $bg50-color;
   color: $text-color;
 
   .module,
   .module button {
     &:hover {
-      background: transparentize($bg500-color, 0.5);
+      background: transparentize($bg300-color, 0.5);
     }
 
     @include rounded-lg;
-    padding: 4px 10px;
-    margin: 3px 0px;
+    padding: 6px 10px;
   }
 
-  .clock .dnd-active {
-    @include rounded-sm;
-    background: #9f59e8;
-    padding: 2px 4px;
-    margin-right: 8px;
+  /** give more padding to edges of screen */
+  .powerbutton {
+    padding-left: 12px;
   }
 
-  .workspaces button {
-    &.active {
-      background: $bg400-color;
-    }
-    &.urgent {
-      background: #ca2620;
-    }
+  .clock {
+    padding-right: 12px;
+  }
 
-    padding: 0px 12px;
-    margin: 0;
+  /** modules in order */
+  .workspaces {
+    @include rounded-lg;
+    background: transparentize($bg300-color, 0.6);
+    margin: 2px 0px;
+
+    button {
+      &.active {
+        background: $bg500-color;
+      }
+      &.urgent {
+        background: #ca2620;
+      }
+
+      padding: 0px 14px;
+      margin: 0;
+    }
   }
 
   .tray button {
@@ -48,9 +54,11 @@
     margin-bottom: 0;
   }
 
-  .workspaces {
-    @include rounded-lg;
-    background: transparentize($module-color, 0.6);
+  .clock .dnd-active {
+    @include rounded-sm;
+    background: #9f59e8;
+    padding: 2px 4px;
+    margin-right: 8px;
   }
 
   /** Fixing margins/sizing */

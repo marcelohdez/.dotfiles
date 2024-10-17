@@ -17,5 +17,6 @@ fi
 
 # show new wallpaper
 swaymsg output '*' bg "$IMAGE" fill
+gsettings set org.gnome.desktop.background picture-uri "file://$IMAGE"
 
 ~/.local/share/both-modes.d/accent_color.sh "$MODE"

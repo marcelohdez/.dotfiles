@@ -32,6 +32,7 @@ power-profiles-daemon
 pulseaudio-utils
 qalculate-gtk
 ripgrep
+rsms-inter-fonts
 screen
 slurp
 stow
