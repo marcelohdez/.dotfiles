@@ -1,10 +1,10 @@
-set $barHeight 35
+set $barHeight 30
 
 for_window {
   # stuff connected to bar
-  [app_id="blueman"] floating enable, move position cursor, move up $barHeight
-  [app_id="pavucontrol"] floating enable, move position cursor, move up $barHeight
-  [app_id="foot" title="wifi"] floating enable, move position cursor, move up $barHeight
+  [app_id="blueman"] floating enable, move position cursor, move down $barHeight
+  [app_id="pavucontrol"] floating enable, move position cursor, move down $barHeight
+  [app_id="foot" title="wifi"] floating enable, move position cursor, move down $barHeight
 
   # floating thingies
   [app_id="[Qq]alculate"] floating enable

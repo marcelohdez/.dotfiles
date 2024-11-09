@@ -9,17 +9,18 @@ indicator-radius=100
 indicator-thickness=6
 
 color=#191919
+image=/tmp/lockscreen.png
 
 ## COLORS
 text-color=#ffffff
-key-hl-color=#2f449f
+key-hl-color=#285577
 ring-color=#2f2f2f
 inside-color=#1f1f1f99
 
 # verifying
-text-ver-color=#cfdfff
-ring-ver-color=#2f449f
-inside-ver-color=#1f244a
+text-ver-color=#cfefff
+ring-ver-color=#285577
+inside-ver-color=#184557
 
 # clearing
 text-clear-color=#ffcfaf

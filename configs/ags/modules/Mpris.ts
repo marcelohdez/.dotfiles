@@ -14,7 +14,7 @@ const toggleMediaList = () => {
 
 export const Mpris = () => {
   const PLAYING_ICON = "folder-music-symbolic";
-  const PAUSED_ICON = "go-up-symbolic";
+  const PAUSED_ICON = "go-down-symbolic";
 
   const playing_icon = Widget.Icon({ icon: PLAYING_ICON });
   const paused_icon = Widget.Icon({ icon: PAUSED_ICON });

@@ -32,30 +32,35 @@ export const Workspaces = (monitor: number) => {
     }),
   );
 
-  return Widget.Box({
-    cursor: "pointer",
-    classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "workspaces"],
-    tooltipText: "Workspaces",
-    children: [...btnList, NewWorkspace()],
-    setup: (self) =>
-      self.hook(sway, () => {
-        if (sway.monitors.length <= monitor + 1) return;
+  return Widget.EventBox({
+    on_scroll_down: () =>
+      Utils.execAsync("sh -c ~/.config/sway/scripts/next_workspace.sh"),
+    on_scroll_up: () => sway.msg("workspace prev_on_output"),
+    child: Widget.Box({
+      cursor: "pointer",
+      classNames: [CLASS_NAME_MODULE, CLASS_NAME_CONTAINER, "workspaces"],
+      tooltipText: "Workspaces",
+      children: [...btnList, NewWorkspace()],
+      setup: (self) =>
+        self.hook(sway, () => {
+          if (sway.monitors.length <= monitor + 1) return;
 
-        const currentOutput: string = sway.monitors[monitor + 1]["name"];
+          const currentOutput: string = sway.monitors[monitor + 1]["name"];
 
-        btnList.forEach((btn) => {
-          const ws = sway.workspaces.find(
-            (ws, _i) => ws["num"] === btn.attribute,
-          );
+          btnList.forEach((btn) => {
+            const ws = sway.workspaces.find(
+              (ws, _i) => ws["num"] === btn.attribute,
+            );
 
-          btn.visible = ws != undefined && ws["output"] === currentOutput;
-          btn.toggleClassName("urgent", ws != undefined && ws["urgent"]);
+            btn.visible = ws != undefined && ws["output"] === currentOutput;
+            btn.toggleClassName("urgent", ws != undefined && ws["urgent"]);
 
-          btn.toggleClassName(
-            "active",
-            ws != undefined && sway.active.workspace["id"] === ws["id"],
-          );
-        });
-      }),
+            btn.toggleClassName(
+              "active",
+              ws != undefined && sway.active.workspace["id"] === ws["id"],
+            );
+          });
+        }),
+    }),
   });
 };

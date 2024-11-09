@@ -28,7 +28,8 @@ bindkey "^[[1;5D" backward-word
 bindkey "^H" backward-kill-word
 
 ## Welcome message
-if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'" ]; then
+theme="$(gsettings get org.gnome.desktop.interface color-scheme)"
+if [ "$theme" = "'prefer-light'" ] || [ "$theme" = "'default'" ]; then
   cat ~/.welcome
 else
   lolcat ~/.welcome
@@ -120,4 +121,4 @@ add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 eval "$(zoxide init zsh)"
 # Set PS1
 autoload -U colors && colors
-PS1="%{$fg[blue]%}%1~%{$reset_color%} => "
+PS1="%{$fg[blue]%}%n@%m%{$reset_color%} %1~ => "

@@ -29,10 +29,10 @@ const EndModules = () =>
     hpack: "end",
     children: [
       SystemTray(),
-      Battery(),
       Volume(),
       Bluetooth(),
       Network(),
+      Battery(),
       Clock(),
     ],
   });
@@ -43,7 +43,7 @@ export const Bar = (monitor: number) =>
     monitor,
     name: getBarName(monitor),
     exclusivity: "exclusive",
-    anchor: ["bottom", "left", "right"],
+    anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
       start_widget: StartModules(monitor),
       center_widget: CenterModules(),

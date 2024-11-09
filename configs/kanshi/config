@@ -1,21 +1,19 @@
 output 'Dell Inc. AW2724DM 7TLZHV3' alias $mainMon
-output 'LG Electronics MP59G 0x00039DF3' alias $sideMon
+output 'LG Electronics MP59G 0x01010101' alias $sideMon
 
 output 'Dell Inc. DELL P2418HT 488CG71UCMQL' alias $labMon
-
-profile laptop {
-  output eDP-1 enable position 0,0
-  exec ~/.config/sway/scripts/lid_toggle.sh LID0
-}
 
 profile desktop {
   output "$mainMon" position 0,0
   output "$sideMon" position 2560,250
 }
 
+profile laptop {
+  output eDP-1 enable position 0,0
+  exec ~/.config/sway/scripts/lid_toggle.sh LID0
+}
+
 profile laptopLab {
   output "$labMon" position 0,0
   output eDP-1 position 200,1080
-
-  exec ~/.config/sway/scripts/lid_toggle.sh LID0
 }

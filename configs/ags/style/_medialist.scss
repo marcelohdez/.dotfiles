@@ -30,9 +30,8 @@
   }
 
   .title {
-    @include txt-lg;
     @include txt-bold;
-    margin: 2px 0;
+    margin: 4px 0;
   }
 
   .playing-on {
@@ -55,6 +54,7 @@
     }
   }
 
+  .artist,
   .position,
   .length,
   .playing-on {

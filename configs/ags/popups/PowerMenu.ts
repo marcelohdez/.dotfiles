@@ -7,17 +7,20 @@ const ActionButton = (name: string, icon_name: string, exec: string) =>
     className: name,
     tooltipText: name.at(0)?.toUpperCase() + name.substring(1),
     child: Widget.Icon(icon_name),
-    onClicked: () => Utils.execAsync(exec),
+    onClicked: () => {
+      Utils.execAsync(exec);
+      App.closeWindow(POWERMENU_NAME); // for non-terminating commands like locking
+    },
   });
 
 export const PowerMenu = () =>
   Widget.Window({
     name: POWERMENU_NAME,
     className: POWERMENU_NAME,
-    anchor: ["bottom", "left"],
+    anchor: ["top", "left"],
     keymode: "exclusive",
     setup: (self) => {
-      self.keybind("Escape", () => App.closeWindow(self.name!));
+      self.keybind("Escape", () => App.closeWindow(POWERMENU_NAME));
     },
     child: Widget.Box({
       className: "list",

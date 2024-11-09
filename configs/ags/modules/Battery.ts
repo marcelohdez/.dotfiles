@@ -33,9 +33,6 @@ export const Battery = () =>
     child: Widget.Box({
       spacing: SPACING_NORMAL,
       children: [
-        Widget.Icon({
-          icon: battery.bind("icon_name"),
-        }),
         Widget.Label({
           label: Utils.merge(
             [
@@ -44,8 +41,11 @@ export const Battery = () =>
               battery.bind("energy_rate"),
             ],
             (show, percent, rate) =>
-              show ? `${percent}%  ${rate.toFixed(2)}W` : `${percent}%`,
+              show ? `${percent}%  ${rate.toFixed(1)}W` : `${percent}%`,
           ),
+        }),
+        Widget.Icon({
+          icon: battery.bind("icon_name"),
         }),
       ],
     }),

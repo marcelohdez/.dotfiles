@@ -12,17 +12,10 @@ fi
 
 LOCK_LOW='/tmp/lowbatlock'
 LOCK_CRITICAL='/tmp/criticalbatlock'
-ACTION='default=Enable power-saver mode'
 
 while true; do
   if ! CHARGE=$(cat /sys/class/power_supply/"$1"/capacity); then
     exit 1
-  fi
-
-  if [ "$(powerprofilesctl get)" != 'power-saver' ]; then
-    tip='\nRight-click to enable power-saver mode'
-  else
-    tip=''
   fi
 
   # remove lockfiles if connected to the wall
@@ -34,24 +27,15 @@ while true; do
 
   if [ "$CHARGE" -le "$LEVEL_LOW" ]; then
     if [ "$CHARGE" -le "$LEVEL_CRITICAL" ] && ! [ -f "$LOCK_CRITICAL" ]; then
-      res=$(
-        notify-send -u critical "Battery at $CHARGE%" "This device will turn off soon.$tip" \
-          -t 10000 \
-          -A "$ACTION"
-      )
+      notify-send -u critical "Battery at $CHARGE%" "This device will turn off soon." -t 10000
 
       touch "$LOCK_CRITICAL"
     elif ! [ -f "$LOCK_LOW" ]; then
-      res=$(
-        notify-send "Battery at $CHARGE%" "Charge this device soon.$tip" \
-          -t 10000 \
-          -A "$ACTION"
-      )
+      notify-send "Battery at $CHARGE%" "Charge this device soon." -t 10000
 
       touch "$LOCK_LOW"
     fi
 
-    if [ "$res" = 'default' ]; then powerprofilesctl set power-saver; fi
   else
     rm "$LOCK_CRITICAL" "$LOCK_LOW"
   fi

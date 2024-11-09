@@ -1,21 +1,20 @@
 #!/bin/sh
-if [ $# != 1 ]; then
-  echo Usage: "$0" MODE
+if [ $# != 2 ]; then
+  echo Usage: "$0" MODE COLOR_NAME
   echo Available modes: dark light
   exit 1
+fi
+
+if ! (gsettings set org.gnome.desktop.interface accent-color "$2"); then
+  gsettings set org.gnome.desktop.interface accent-color "blue"
 fi
 
 MODE="$1"
 
 # default sway focused colors
-#colBorder=4C7899
-#colText=ffffff
-#colBg=285577
-
-# default focused color
-colBorder=4f4f4f
+colBorder=4C7899
 colText=ffffff
-colBg=0b0b0b
+colBg=285577
 
 # set unfocused border colors
 uBorder=2b2b2b
@@ -29,6 +28,6 @@ if [ "$MODE" = 'light' ]; then
 fi
 
 # tab border > background > text > split > border
-swaymsg "client.focused           #$colBorder  #$colBg  #$colText  #$colBorder #$colBorder"
-swaymsg "client.focused_inactive  #$uBorder    #$uBg    #$uText    #$uBorder   #$uBorder"
-swaymsg "client.unfocused         #$uBorder    #$uBg    #$uText    #$uBorder   #$uBorder"
+swaymsg "client.focused           #$colBorder  #$colBg  #$colText  #$colBorder"
+swaymsg "client.focused_inactive  #$uBorder    #$uBg    #$uText    #$uBorder"
+swaymsg "client.unfocused         #$uBorder    #$uBg    #$uText    #$uBorder"

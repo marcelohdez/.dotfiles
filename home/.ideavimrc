@@ -22,4 +22,7 @@ nmap <leader>gI <Action>(GotoImplementation)
 nmap ]e <Action>(GotoNextError)
 nmap [e <Action>(GotoPreviousError)
 
+nmap <M-k> ddkP
+nmap <M-j> ddp
+
 nnoremap <Esc> :nohlsearch<CR>

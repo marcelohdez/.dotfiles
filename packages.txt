@@ -13,6 +13,7 @@ gnome-themes-extra
 gnome-keyring
 go
 grim
+iio-sensor-proxy
 ImageMagick
 jetbrains-mono-fonts-all
 kanshi
@@ -28,7 +29,6 @@ nodejs-npm
 pavucontrol
 playerctl
 polkit-gnome
-power-profiles-daemon
 pulseaudio-utils
 qalculate-gtk
 ripgrep
@@ -40,6 +40,7 @@ sway
 swayidle
 swaylock
 trash-cli
+tuned-ppd
 unzip
 wtype
 zathura

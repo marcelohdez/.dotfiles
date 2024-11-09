@@ -13,10 +13,6 @@
 }
 
 /** Text sizes and styles */
-@mixin txt-base {
-  font-size: 1rem;
-}
-
 @mixin txt-lg {
   font-size: 1.1rem;
 }
@@ -43,6 +39,7 @@
 /** styling applied everywhere */
 * {
   font-family: Inter;
+  transition: all 120ms ease-out;
 }
 
 menu {

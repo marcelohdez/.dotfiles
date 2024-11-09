@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <screen | window | area>"
+  echo "Usage: $0 <screen | area>"
   exit 1
 fi
 
@@ -12,11 +12,6 @@ case "$1" in
 'screen')
   MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused).name')
   grim -o "$MONITOR" "$OUT_DIR"
-  ;;
-'window')
-  JQ_CMD='.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"'
-  WINDOW=$(swaymsg -t get_tree | jq -j "$JQ_CMD")
-  grim -g "$WINDOW" "$OUT_DIR"
   ;;
 'area')
   if ! GEOM=$(slurp); then exit 1; fi

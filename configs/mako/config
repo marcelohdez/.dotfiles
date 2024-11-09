@@ -4,31 +4,29 @@ layer=overlay
 
 # colors
 text-color=#ffffff
-background-color=#1b1b1b
-border-color=#4f4f4f
-progress-color=over #7f7f7f5f
+background-color=#0b0b0b
+border-color=#6f6f6faa
+progress-color=source #3f3f3f
 
 # other styling
-padding=5,10
 margin=10
-outer-margin=10,0
-anchor=bottom-right
 width=360
 max-icon-size=48
 border-radius=8
+outer-margin=0,0,30
 
-on-button-left=dismiss
-on-button-right=invoke-default-action
+on-button-left=invoke-default-action
 on-button-middle=exec makoctl menu -n "$id" fuzzel -d -p "Actions >"
-max-history=10
-max-visible=2
+on-button-right=dismiss
+max-history=15
+max-visible=3
 default-timeout=10000
 
 [mode=light]
 text-color=#000000
 background-color=#ffffff
-border-color=#6f6f6f
-progress-color=over #006ddb33
+border-color=#00000077
+progress-color=source #dfdfdf
 
 [urgency=critical]
 text-color=#ffffff
@@ -49,3 +47,4 @@ on-button-middle=invoke-action delete
 width=300
 history=0
 anchor=bottom-center
+border-radius=12

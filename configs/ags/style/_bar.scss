@@ -7,14 +7,14 @@
   $bg400-color: #4b4b4b;
   $bg500-color: #4f4f4f;
 
-  @include txt-lg;
-  background: $bg50-color;
-  color: $text-color;
+  font-weight: 500;
+  background: transparentize($bg50-color, 0.05);
+  color: transparentize($text-color, 0.1);
 
   .module,
   .module button {
     &:hover {
-      background: transparentize($bg300-color, 0.5);
+      background: transparentize($bg400-color, 0.5);
     }
 
     @include rounded-lg;
@@ -33,7 +33,7 @@
   /** modules in order */
   .workspaces {
     @include rounded-lg;
-    background: transparentize($bg300-color, 0.6);
+    background: transparentize($bg300-color, 0.5);
     margin: 2px 0px;
 
     button {

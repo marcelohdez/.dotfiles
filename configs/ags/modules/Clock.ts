@@ -1,7 +1,7 @@
 import { CLASS_NAME_MODULE } from "util/consts";
 import GLib from "gi://GLib?version=2.0";
 
-const FORMAT_CLOCK = "%_I:%M  %a  %h  %d";
+const FORMAT_CLOCK = "%_I:%M %a %h %d";
 const date = Variable("", {
   poll: [
     1000,

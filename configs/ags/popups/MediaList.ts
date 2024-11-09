@@ -1,7 +1,7 @@
 import { DirectionType } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { EllipsizeMode } from "types/@girs/pango-1.0/pango-1.0.cjs";
 import { MprisPlayer } from "types/service/mpris";
-import { SPACING_NORMAL } from "util/consts";
+import { SPACING_LARGE, SPACING_NORMAL } from "util/consts";
 import { MyUtils } from "util/utils";
 
 const mpris = await Service.import("mpris");
@@ -154,12 +154,12 @@ export const MediaList = () => {
   return Widget.Window({
     name: MEDIALIST_NAME,
     className: MEDIALIST_NAME,
-    anchor: ["bottom"],
+    anchor: ["top"],
     keymode: "exclusive",
     layer: "overlay",
     child: Widget.Box({
       className: "list",
-      spacing: SPACING_NORMAL,
+      spacing: SPACING_LARGE,
       vertical: true,
       children: mpris
         .bind("players")

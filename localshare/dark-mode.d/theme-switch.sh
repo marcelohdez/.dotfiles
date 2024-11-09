@@ -5,5 +5,5 @@
 
 ~/.local/share/both-modes.d/rand_wall.sh dark
 
-~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita-dark dark
+~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita-dark prefer-dark
 makoctl mode -r light 1>/dev/null && makoctl reload

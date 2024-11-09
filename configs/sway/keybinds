@@ -6,8 +6,8 @@ bindsym $specialMod+Escape exec swaymsg exit
 ## Window management ##
 bindsym $mod+X kill
 floating_modifier $mod normal
-bindsym $mod+V floating toggle
-bindsym $mod+W fullscreen
+bindsym $mod+W floating toggle
+bindsym $specialMod+W fullscreen
 bindsym $mod+I splith
 bindsym $mod+U splitv
 bindsym $mod+Q layout toggle split tabbed
@@ -54,7 +54,6 @@ bindsym $specialMod+N exec "makoctl mode -t dnd && ags -r 'update_dnd()'"
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
 bindsym $specialMod+R exec ~/.local/share/fn-scripts/color_picker.sh
 bindsym $specialMod+A exec $screenshotScript area
-bindsym $specialMod+W exec $screenshotScript window
 bindsym $specialMod+S exec $screenshotScript screen
 
 ## Functional keys ##
@@ -67,13 +66,12 @@ bindsym --locked XF86AudioLowerVolume exec $volChange -5
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volChange 0
 
 # Brightness
-set $brightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Display
+set $brightnessNotif ~/.local/share/fn-scripts/brightness_change.sh
 bindsym --locked XF86MonBrightnessDown exec $brightnessNotif -
 bindsym --locked XF86MonBrightnessUp exec $brightnessNotif +
 
-set $kbdBrightnessNotif ~/.local/share/fn-scripts/brightness_change.sh Keyboard
-bindsym --locked XF86MonBrightnessDown+Shift exec $kbdBrightnessNotif - 'kbd_backlight'
-bindsym --locked XF86MonBrightnessUp+Shift exec $kbdBrightnessNotif + 'kbd_backlight'
+bindsym --locked XF86MonBrightnessDown+Shift exec $brightnessNotif - 'chromeos::kbd_backlight'
+bindsym --locked XF86MonBrightnessUp+Shift exec $brightnessNotif + 'chromeos::kbd_backlight'
 
 # Media control
 bindsym XF86AudioPlay exec playerctl play-pause
