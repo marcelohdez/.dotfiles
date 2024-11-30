@@ -1,7 +1,7 @@
 import { DirectionType } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { EllipsizeMode } from "types/@girs/pango-1.0/pango-1.0.cjs";
 import { MprisPlayer } from "types/service/mpris";
-import { SPACING_LARGE, SPACING_NORMAL } from "util/consts";
+import { SPACING_LARGE } from "util/consts";
 import { MyUtils } from "util/utils";
 
 const mpris = await Service.import("mpris");
@@ -138,6 +138,7 @@ const MediaCard = (player: MprisPlayer) => {
     Widget.Box(
       { className: "contents", vertical: true, hexpand: true },
       Widget.Box([artist, playingOn]),
+      Widget.Box({ vexpand: true }),
       title,
       Widget.Box({ vexpand: true }),
       positionSlider,

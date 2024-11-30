@@ -33,28 +33,29 @@ export const Volume = () => {
     icon: getIcon(),
   });
 
-  return Widget.Button({
-    cursor: "pointer",
-    classNames: [CLASS_NAME_MODULE, "volume"],
-    onClicked: () =>
+  return Widget.EventBox({
+    onPrimaryClickRelease: () =>
       Utils.execAsync(`pkill ${BIN}`).catch(() =>
         Utils.execAsync(`${BIN} -t 3`),
       ),
-    onSecondaryClick: () => toggleMute(),
+    onSecondaryClickRelease: () => toggleMute(),
     onScrollUp: () => changeVolume(5),
     onScrollDown: () => changeVolume(-5),
-    setup: (self) =>
-      self.hook(audio.speaker, () => {
-        const speaker = audio.speaker;
+    child: Widget.Button({
+      classNames: [CLASS_NAME_MODULE, "volume"],
+      setup: (self) =>
+        self.hook(audio.speaker, () => {
+          const speaker = audio.speaker;
 
-        icon.icon = getIcon();
-        self.toggleClassName("muted", speaker.is_muted || false);
+          icon.icon = getIcon();
+          self.toggleClassName("muted", speaker.is_muted || false);
 
-        const value = speaker.volume * 100;
-        self.tooltip_text = `${speaker.description}\n${value.toFixed(0)}%`;
+          const value = speaker.volume * 100;
+          self.tooltip_text = `${speaker.description}\n${value.toFixed(0)}%`;
+        }),
+      child: Widget.Box({
+        child: icon,
       }),
-    child: Widget.Box({
-      child: icon,
     }),
   });
 };

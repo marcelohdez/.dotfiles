@@ -19,7 +19,6 @@ set $webPriv firefox --private-window
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-exec ~/.local/share/fn-scripts/auto_brightness.sh
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
 

@@ -30,28 +30,32 @@ export const Mpris = () => {
     },
   });
 
-  return Widget.Button({
-    cursor: "pointer",
-    visible: mpris.bind("players").as((list) => list.length > 0),
-    classNames: [CLASS_NAME_MODULE, "mpris"],
-    onPrimaryClick: () => toggleMediaList(),
-    onSecondaryClick: () => MyUtils.sortPlayers(mpris.players).shift()?.next(),
-    onMiddleClick: () => MyUtils.sortPlayers(mpris.players).shift()?.previous(),
-    child: stack,
-    setup: (self) =>
-      self.hook(mpris, () => {
-        const topPlayer = MyUtils.sortPlayers(mpris.players).shift();
-        const available = topPlayer && topPlayer.play_back_status == "Playing";
+  return Widget.EventBox({
+    onPrimaryClickRelease: () => toggleMediaList(),
+    onSecondaryClickRelease: () =>
+      MyUtils.sortPlayers(mpris.players).shift()?.next(),
+    onMiddleClickRelease: () =>
+      MyUtils.sortPlayers(mpris.players).shift()?.previous(),
+    child: Widget.Button({
+      visible: mpris.bind("players").as((list) => list.length > 0),
+      classNames: [CLASS_NAME_MODULE, "mpris"],
+      child: stack,
+      setup: (self) =>
+        self.hook(mpris, () => {
+          const topPlayer = MyUtils.sortPlayers(mpris.players).shift();
+          const available =
+            topPlayer && topPlayer.play_back_status == "Playing";
 
-        label.set_text(available ? topPlayer.track_title : "");
-        stack.shown = available ? "playing" : "paused";
-        self.tooltip_markup = available
-          ? `<b>${topPlayer.track_title}</b>\nby ${topPlayer.track_artists}\n<i>${topPlayer.name}</i>`.replace(
-              "&",
-              "&amp;",
-            )
-          : "Media players";
-      }),
+          label.set_text(available ? topPlayer.track_title : "");
+          stack.shown = available ? "playing" : "paused";
+          self.tooltip_markup = available
+            ? `<b>${topPlayer.track_title}</b>\nby ${topPlayer.track_artists}\n<i>${topPlayer.name}</i>`.replace(
+                "&",
+                "&amp;",
+              )
+            : "Media players";
+        }),
+    }),
   });
 };
 

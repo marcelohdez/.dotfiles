@@ -16,5 +16,8 @@ case $(awk '{print $2}' </proc/acpi/button/lid/"$1"/state) in
   ;;
 'open')
   swaymsg output eDP-1 enable
+
+  # set close-enough brightness
+  ~/.local/share/fn-scripts/auto_brightness.sh
   ;;
 esac

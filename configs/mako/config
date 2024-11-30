@@ -15,18 +15,18 @@ max-icon-size=48
 border-radius=8
 outer-margin=0,0,30
 
-on-button-left=invoke-default-action
+on-button-left=dismiss
 on-button-middle=exec makoctl menu -n "$id" fuzzel -d -p "Actions >"
-on-button-right=dismiss
+on-button-right=invoke-default-action
 max-history=15
 max-visible=3
-default-timeout=10000
+default-timeout=5000
 
 [mode=light]
 text-color=#000000
 background-color=#ffffff
 border-color=#00000077
-progress-color=source #dfdfdf
+progress-color=source #cfcfcf
 
 [urgency=critical]
 text-color=#ffffff
@@ -44,7 +44,7 @@ default-timeout=0
 on-button-middle=invoke-action delete
 
 [category=toast]
-width=300
+width=280
 history=0
 anchor=bottom-center
 border-radius=12

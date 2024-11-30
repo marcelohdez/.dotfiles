@@ -8,6 +8,8 @@ bindsym $mod+X kill
 floating_modifier $mod normal
 bindsym $mod+W floating toggle
 bindsym $specialMod+W fullscreen
+bindsym $mod+C exec ~/.config/sway/scripts/spad_toggle.sh
+
 bindsym $mod+I splith
 bindsym $mod+U splitv
 bindsym $mod+Q layout toggle split tabbed
@@ -97,8 +99,8 @@ bindgesture swipe:3:right workspace prev_on_output
 bindgesture swipe:4:left workspace next
 
 bindsym --whole-window {
-  $mod+button4 exec $nextWorkspace
-  $mod+button5 workspace prev_on_output
+  $mod+button4 workspace prev_on_output
+  $mod+button5 exec $nextWorkspace
 
   $mod+button8 focus output right
   $mod+button9 focus output left

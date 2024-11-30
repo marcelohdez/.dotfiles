@@ -5,12 +5,13 @@ const systemtray = await Service.import("systemtray");
 export const SystemTray = () => {
   const items = systemtray.bind("items").as((items) =>
     items.map((item) =>
-      Widget.Button({
-        cursor: "pointer",
-        child: Widget.Icon({ icon: item.bind("icon") }),
+      Widget.EventBox({
         on_primary_click: (_, e) => item.activate(e),
         on_secondary_click: (_, e) => item.openMenu(e),
-        tooltip_markup: item.bind("tooltip_markup"),
+        child: Widget.Button({
+          child: Widget.Icon({ icon: item.bind("icon") }),
+          tooltip_markup: item.bind("tooltip_markup"),
+        }),
       }),
     ),
   );

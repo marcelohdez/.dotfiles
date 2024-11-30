@@ -22,27 +22,27 @@ export const update_dnd = (output?: string) => {
   dndMode.setValue(output?.match(MODE_NAME) != null);
 };
 
-export const Clock = () => {
-  return Widget.Button({
-    cursor: "pointer",
-    classNames: [CLASS_NAME_MODULE, "clock"],
+export const Clock = () =>
+  Widget.EventBox({
     onPrimaryClick: () => Utils.execAsync("makoctl restore"),
     onSecondaryClick: () =>
       Utils.execAsync(`makoctl mode -t ${MODE_NAME}`).then(update_dnd),
-    child: Widget.Box({
-      children: [
-        Widget.Icon({
-          className: dndMode
-            .bind()
-            .as((active) => (active ? "dnd-active" : "dnd")),
-          visible: dndMode.bind(),
-          icon: "weather-clear-night-symbolic",
-          setup: () => update_dnd(),
-        }),
-        Widget.Label({ label: date.bind() }),
-      ],
+    child: Widget.Button({
+      classNames: [CLASS_NAME_MODULE, "clock"],
+      child: Widget.Box({
+        children: [
+          Widget.Icon({
+            className: dndMode
+              .bind()
+              .as((active) => (active ? "dnd-active" : "dnd")),
+            visible: dndMode.bind(),
+            icon: "weather-clear-night-symbolic",
+            setup: () => update_dnd(),
+          }),
+          Widget.Label({ label: date.bind() }),
+        ],
+      }),
     }),
   });
-};
 
 Object.assign(globalThis, { update_dnd });

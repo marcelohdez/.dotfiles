@@ -9,12 +9,12 @@ const togglePowerMenu = () => {
   }
 };
 
-export const PowerButton = () => {
-  return Widget.Button({
-    cursor: "pointer",
-    classNames: [CLASS_NAME_MODULE, "powerbutton"],
-    child: Widget.Icon({ icon: "system-log-out-symbolic" }),
-    tooltipText: "Power menu",
-    onPrimaryClick: () => togglePowerMenu(),
+export const PowerButton = () =>
+  Widget.EventBox({
+    onPrimaryClickRelease: () => togglePowerMenu(),
+    child: Widget.Button({
+      classNames: [CLASS_NAME_MODULE, "powerbutton"],
+      child: Widget.Icon({ icon: "system-log-out-symbolic" }),
+      tooltipText: "Power menu",
+    }),
   });
-};
