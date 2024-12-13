@@ -25,7 +25,8 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 # use ctrl + backspace to delete a word
-bindkey "^H" backward-kill-word
+bindkey "^H"    backward-kill-word
+bindkey "7;5u"  backward-kill-word # in neovim too
 
 ## Welcome message
 theme="$(gsettings get org.gnome.desktop.interface color-scheme)"

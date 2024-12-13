@@ -5,7 +5,7 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		opts = {
-			level = 3,
+			level = vim.log.levels.WARN, -- try to ignore info notis
 			render = "wrapped-compact",
 		},
 	},
