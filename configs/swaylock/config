@@ -9,18 +9,18 @@ indicator-radius=100
 indicator-thickness=6
 
 color=#191919
-image=/tmp/lockscreen.png
+image=/tmp/wallpaperblur.png
 
 ## COLORS
 text-color=#ffffff
-key-hl-color=#285577
+key-hl-color=#ffcf00
 ring-color=#2f2f2f
 inside-color=#1f1f1f99
 
 # verifying
-text-ver-color=#cfefff
-ring-ver-color=#285577
-inside-ver-color=#184557
+text-ver-color=#effefe
+ring-ver-color=#2f2f2f77
+inside-ver-color=#1f1f1f99
 
 # clearing
 text-clear-color=#ffcfaf

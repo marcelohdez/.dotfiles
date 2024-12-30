@@ -44,9 +44,6 @@ echo
 echo ===========
 echo setting gsettings defaults:
 
-echo for nemo...
-gsettings set org.cinnamon.desktop.default-applications.terminal exec foot
-
 echo icon and cursor themes...
 gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 gsettings set org.gnome.desktop.interface icon-theme Adwaita
@@ -56,17 +53,12 @@ for i in $(seq 0 9); do
   num=$i
   if [ "$i" = "0" ]; then num=10; fi
 
+  gsettings set org.gnome.shell.keybindings "switch-to-application-$num" '[]'
   gsettings set org.gnome.desktop.wm.keybindings "switch-to-workspace-$num" "['<Super>$i']"
   gsettings set org.gnome.desktop.wm.keybindings "move-to-workspace-$num" "['<Super><Shift>$i']"
 done
 
 echo
-echo ===========
-echo setting up ags config:
-
-ags --init && cd "$CONFIG_DIR"/ags/ && npm i
-cd "$parent_path" || exit 1
-
 echo ===========
 read -rp "Enable darkman? (y/N): " choice
 

@@ -6,7 +6,6 @@ PATH="$HOME/go/bin:$PATH"
 export PATH
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export CLIPBOARD_DIR="/tmp/clipboardhistory"
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export XDG_CONFIG_HOME="$HOME/.config"

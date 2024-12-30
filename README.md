@@ -1,6 +1,6 @@
 # marcelo's dotfiles
 
-Sway shill
+Sway + GNOME shill
 
 ## Setup
 
@@ -33,8 +33,8 @@ creating a `firefox` script in e.g. `.local/bin/` containing:
 flatpak run org.mozilla.firefox -- "$@"
 ```
 
-Then, [dim], [NerdFont] (symbols only), [ags], [satty], and [hyprpicker] must
-be installed manually.
+Then, [dim], [NerdFont] (symbols only), and [hyprpicker] must be installed
+manually.
 
 Run `./init.sh`. Assuming a clean install this should place config files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -73,41 +73,40 @@ unifont-fonts`
 
 ## Credits
 
-| Usage                     | Project name                           |
-| ------------------------- | -------------------------------------- |
-| Window manager            | [sway]                                 |
-| Shell                     | [ags]                                  |
-| Screenshot Markup         | [satty]                                |
-| Terminal                  | [foot]                                 |
-| Auto dark mode (optional) | [darkman]                              |
-| Night light               | [gammastep]                            |
-| Auto-suspending           | [swayidle]                             |
-| Screen dimmer             | [dim]                                  |
-| Screen locker             | [swaylock]                             |
-| Notifications             | [mako]                                 |
-| App launching             | [fuzzel]                               |
-| Emoji                     | [wofi-emoji] (use `fuzzel -d` instead) |
-| Text editing/coding       | [neovim]                               |
-| Screen/Keyboard backlight | [brightnessctl]                        |
-| File manager              | [ranger] or [nemo]                     |
+| Usage                     | Project name                             |
+| ------------------------- | ---------------------------------------- |
+| Window manager            | [sway]                                   |
+| Status bar                | [waybar]                                 |
+| Terminal                  | [foot]                                   |
+| Screenshot Markup         | [swappy]                                 |
+| Auto dark mode (optional) | [darkman]                                |
+| Night light               | [gammastep]                              |
+| Auto-suspending           | [swayidle]                               |
+| Lockscreen                | [swaylock]                               |
+| Screen dimmer             | [dim]                                    |
+| Notifications             | [dunst]                                  |
+| App menu                  | [fuzzel]                                 |
+| Emoji                     | [wofi-emoji] (use `fuzzel -d` in script) |
+| Text editing/coding       | [neovim]                                 |
+| Screen/Keyboard backlight | [brightnessctl]                          |
+| File manager              | [nautilus]                               |
 
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
 [NerdFont]: https://www.nerdfonts.com/font-downloads
 [greetd]: https://wiki.archlinux.org/title/Greetd
 [tuigreet]: https://github.com/apognu/tuigreet
 [sway]: https://swaywm.org/
-[ags]: https://github.com/Aylur/ags
-[satty]: https://github.com/gabm/satty
+[waybar]: https://github.com/Alexays/Waybar
+[swappy]: https://github.com/jtheoof/swappy
 [foot]: https://codeberg.org/dnkl/foot
 [darkman]: https://gitlab.com/whynothugo/darkman
 [gammastep]: https://gitlab.com/chinstrap/gammastep
 [swayidle]: https://github.com/swaywm/swayidle
 [dim]: https://github.com/marcelohdez/dim
 [swaylock]: https://github.com/swaywm/swaylock
-[mako]: https://github.com/emersion/mako
+[dunst]: https://dunst-project.org/
 [fuzzel]: https://codeberg.org/dnkl/fuzzel
 [wofi-emoji]: https://github.com/Zeioth/wofi-emoji
-[neovim]: https://ranger.fm/
+[neovim]: https://neovim.io/
 [brightnessctl]: https://github.com/Hummer12007/brightnessctl
-[ranger]: https://github.com/linuxmint/nemo
-[nemo]: https://github.com/linuxmint/nemo
+[nautilus]: https://gitlab.gnome.org/GNOME/nautilus

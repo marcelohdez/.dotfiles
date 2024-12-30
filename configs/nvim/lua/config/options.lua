@@ -16,3 +16,6 @@ opt.mouse = "nv"
 
 -- add back tildes for buffer end
 opt.fillchars = { eob = "~" }
+
+-- disable snacks.nvim animations
+vim.g.snacks_animate = false

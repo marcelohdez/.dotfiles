@@ -12,7 +12,7 @@ set $right L
 set $calculator qalculate-gtk
 set $search fuzzel
 set $term foot
-set $files nemo
+set $files nautilus
 set $web firefox
 set $webPriv firefox --private-window
 
@@ -20,12 +20,11 @@ set $webPriv firefox --private-window
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
-exec wl-paste -w ~/.local/share/fn-scripts/clipboard_write.sh
+exec ~/.local/share/fn-scripts/reload_bar.sh
 
 exec kanshi
 exec kdeconnect-indicator
 exec swayidle -w
-exec ags
 exec gammastep
 exec trash-empty 7
 

@@ -4,7 +4,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-out_dir="$HOME/Pictures/"
+out_dir="$HOME/Pictures/Screenshots/"
 mkdir -p "$out_dir"
 OUT_DIR="$out_dir/screenshot-$(date +%Y-%m-%d_H.%M.%S).png"
 
@@ -23,18 +23,17 @@ wl-copy <"$OUT_DIR"
 RES=$(
   notify-send \
     "󱉧 Screenshot saved and copied" \
-    "Right-click to edit\nMiddle-click to delete\n" \
+    "Right-click to edit\nMiddle-click for options\n" \
     -i "$OUT_DIR" \
     -A "default=Edit" \
     -A "delete=Delete"
 )
 case "$RES" in
 "default")
-  mkdir -p "$out_dir/Satty/"
+  time=$(date +%Y-%m-%d_%H.%M.%S)
 
-  satty -f "$OUT_DIR" \
-    --output-filename="$HOME/Pictures/Satty/%Y-%m-%d_%H.%M.%S.png" \
-    --copy-command wl-copy
+  mkdir -p "$out_dir/Satty/"
+  swappy -f "$OUT_DIR" -o "$HOME/Pictures/Swappy/$time.png"
 
   rm "$OUT_DIR"
   ;;

@@ -4,7 +4,7 @@ bindsym $specialMod+C reload, exec ~/.local/share/fn-scripts/theme_setup.sh, exe
 bindsym $specialMod+Escape exec swaymsg exit
 
 ## Window management ##
-bindsym $mod+X kill
+bindsym $mod+Q kill
 floating_modifier $mod normal
 bindsym $mod+W floating toggle
 bindsym $specialMod+W fullscreen
@@ -12,8 +12,8 @@ bindsym $mod+C exec ~/.config/sway/scripts/spad_toggle.sh
 
 bindsym $mod+I splith
 bindsym $mod+U splitv
-bindsym $mod+Q layout toggle split tabbed
-bindsym $specialMod+Q focus parent
+bindsym $mod+X layout toggle split tabbed
+bindsym $specialMod+X focus parent
 
 bindsym $specialMod+$left move left
 bindsym $specialMod+$up move up
@@ -46,11 +46,9 @@ bindsym $mod+F exec $web
 bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 
-bindsym $mod+P exec 'ags -r "toggleMediaList()"'
-bindsym $mod+R exec ~/.local/share/fn-scripts/clipboard_history.sh fuzzel -d
-bindsym $mod+N exec 'makoctl dismiss -a'
+bindsym $mod+N exec dunstctl close-all
+bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle
 bindsym $specialMod+Y exec ~/.local/share/fn-scripts/reload_bar.sh
-bindsym $specialMod+N exec "makoctl mode -t dnd && ags -r 'update_dnd()'"
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
@@ -92,15 +90,14 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-set $nextWorkspace ~/.config/sway/scripts/next_workspace.sh
-bindgesture swipe:3:left exec $nextWorkspace
+bindgesture swipe:3:left workspace next_on_output
 bindgesture swipe:3:right workspace prev_on_output
 # regular next with 4 fingers
 bindgesture swipe:4:left workspace next
 
 bindsym --whole-window {
   $mod+button4 workspace prev_on_output
-  $mod+button5 exec $nextWorkspace
+  $mod+button5 workspace next_on_output
 
   $mod+button8 focus output right
   $mod+button9 focus output left

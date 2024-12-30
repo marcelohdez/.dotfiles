@@ -5,6 +5,7 @@ blueman
 breeze-cursor-themes
 brightnessctl
 darkman
+dunst
 foot
 fuzzel
 gammastep
@@ -20,8 +21,7 @@ kanshi
 kdeconnectd
 lolcat
 luarocks
-mako
-nemo
+nautilus
 neovim
 NetworkManager-tui
 nodejs

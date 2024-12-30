@@ -13,7 +13,8 @@ profile laptop {
   exec ~/.config/sway/scripts/lid_toggle.sh LID0
 }
 
-profile laptopLab {
-  output "$labMon" position 0,0
-  output eDP-1 position 200,1080
+profile laptopMon {
+  output eDP-1 disable
+  output DP-3 position 0,0
+  exec ~/.config/sway/scripts/hidpi.sh DP-3
 }

@@ -14,7 +14,7 @@ if ! IMAGE=$(find ~/Wallpapers/"$MODE"/* | shuf -n1); then
   notify-send 'No Wallpapers Found' "Could not find any wallpapers for $MODE"
   exit 1
 fi
-echo attempting to use "$IMAGE"
+echo "$IMAGE"
 
 # set accent color
 COLOR=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
@@ -38,10 +38,15 @@ if swaymsg output \* bg "$IMAGE" fill; then
   CACHE_DIR="$CACHE_FOLDER/$MODE-${IMAGE##*/}"
   if ! [ -f "$CACHE_DIR" ]; then
     echo Blurring new image for lockscreen, please wait...
-    magick "$IMAGE" -blur 0x60 "$CACHE_DIR"
+    tmp_img=/tmp/wallpaperblur0.png
+
+    # blur then apply uniform (monochrome) noise multiple times
+    magick "$IMAGE" -blur 0x50 "$tmp_img"
+    for _ in $(seq 5); do magick "$tmp_img" +noise uniform "$tmp_img"; done
+    mv "$tmp_img" "$CACHE_DIR"
   fi
 
   # move blurred wallpaper for swaylock to use
-  rm "/tmp/lockscreen.png"
-  cp "$CACHE_DIR" "/tmp/lockscreen.png"
+  rm "/tmp/wallpaperblur.png"
+  cp "$CACHE_DIR" "/tmp/wallpaperblur.png"
 fi

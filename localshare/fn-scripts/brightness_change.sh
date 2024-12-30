@@ -26,4 +26,4 @@ touch /tmp/brightnesslock
 
 # show current value
 percent=$(($(($(get_current) * 100)) / MAX))
-~/.local/share/fn-scripts/bar_notif.sh "$ICON" "$percent"
+~/.local/share/fn-scripts/bar_notif.sh "$ICON Brightness" "$percent"

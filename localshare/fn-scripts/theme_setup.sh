@@ -1,15 +1,13 @@
 #!/bin/sh
-KEY='org.gnome.desktop.interface'
-VAL='color-scheme'
+DIR='org.gnome.desktop.interface'
+KEY='color-scheme'
 
-if ! mode=$(gsettings get "$KEY" "$VAL"); then
-  MSG='Could not get color-scheme preference from gsettings!'
-  echo "$MSG"
-  notify-send 'THEME ERROR' "$MSG"
+if ! mode=$(gsettings get "$DIR" "$KEY"); then
+  notify-send 'THEME ERROR' 'Could not get color-scheme from gsettings!'
   exit 1
 fi
 
-if [ "$mode" = "\'prefer-dark\'" ]; then
+if [ "$mode" = "'prefer-dark'" ]; then
   mode=dark
 else
   mode=light

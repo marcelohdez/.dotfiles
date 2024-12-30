@@ -94,8 +94,8 @@ theme() {
 		return
 	fi
 
-  if pgrep darkman &>/dev/null; then
-    darkman set "$1"
+  if pgrep darkman &>/dev/null && [ "$(darkman get)" != "$1" ]; then
+    darkman set "$1";
     return
   fi
 

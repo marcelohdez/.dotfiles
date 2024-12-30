@@ -16,10 +16,10 @@ VOL_IN_DECIMAL=$(echo "$WPCTL_OUT" | cut -d' ' -f2)
 PERCENT=$(echo "($VOL_IN_DECIMAL * 100) + $1" | bc | cut -d. -f1)
 
 if [ "$PERCENT" -gt 100 ]; then
-  pactl set-sink-volume @DEFAULT_SINK@ 1.0
+  wpctl set-volume @DEFAULT_SINK@ 1.0
 else
-  pactl set-sink-volume @DEFAULT_SINK@ "$PERCENT"'%'
+  wpctl set-volume @DEFAULT_SINK@ "$PERCENT"'%'
 fi
 
 ICON='' && [ "$PERCENT" -lt 66 ] && ICON='' && [ "$PERCENT" -lt 33 ] && ICON=''
-~/.local/share/fn-scripts/bar_notif.sh "$ICON" "$PERCENT"
+~/.local/share/fn-scripts/bar_notif.sh "$ICON Volume" "$PERCENT"

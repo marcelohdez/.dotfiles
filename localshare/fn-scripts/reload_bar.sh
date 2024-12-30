@@ -1,3 +1,3 @@
 #!/bin/sh
-ags -q
-ags
+killall waybar
+waybar

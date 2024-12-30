@@ -8,6 +8,9 @@
 # state files
 configs/lazygit/state.yml
 
-configs/ags/README.md
-configs/easyeffects/*
+# output of nwg-displays
+configs/sway/outputs
+configs/sway/workspaces
+
+configs/easyeffects/
 !configs/easyeffects/output/marcysfwpreset.json

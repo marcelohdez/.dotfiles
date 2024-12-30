@@ -4,7 +4,7 @@ ICON=" "
 COLOR=$(hyprpicker -a)
 
 if [ "$COLOR" = '' ]; then
-	exit 1
+  exit 1
 fi
 
 convert -size 32x32 "canvas:$COLOR" "$TMP_DIR"
