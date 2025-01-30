@@ -2,7 +2,6 @@ adw-gtk3-theme
 bat
 bc
 blueman
-breeze-cursor-themes
 brightnessctl
 darkman
 dunst
@@ -12,6 +11,10 @@ gammastep
 gnome-bluetooth-libs
 gnome-themes-extra
 gnome-keyring
+gnome-shell-extension-appindicator
+gnome-shell-extension-blur-my-shell
+gnome-shell-extension-caffeine
+gnome-shell-extension-gsconnect
 go
 grim
 iio-sensor-proxy

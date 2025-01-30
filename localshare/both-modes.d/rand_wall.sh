@@ -16,10 +16,6 @@ if ! IMAGE=$(find ~/Wallpapers/"$MODE"/* | shuf -n1); then
 fi
 echo "$IMAGE"
 
-# set accent color
-COLOR=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
-~/.local/share/both-modes.d/accent_color.sh "$MODE" "$COLOR"
-
 ### show new wallpaper
 # on gnome:
 key='picture-uri'
@@ -50,3 +46,7 @@ if swaymsg output \* bg "$IMAGE" fill; then
   rm "/tmp/wallpaperblur.png"
   cp "$CACHE_DIR" "/tmp/wallpaperblur.png"
 fi
+
+# set accent color
+color=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
+~/.local/share/both-modes.d/accent_color.sh "$MODE" "$color"

@@ -15,7 +15,7 @@ break) and `cd` into it; then you can install the packages needed (at least,
 those available in the Fedora repos):
 
 ```bash
-sudo dnf install $(cat packages.txt)
+sudo dnf install --skip-unavailable $(cat packages.txt)
 ```
 
 You should now be able to switch to `zsh`:

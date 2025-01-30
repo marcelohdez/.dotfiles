@@ -17,6 +17,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt correct
 
 # allow uncapitalized letters to match capitals when no case-sensitive match found
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'

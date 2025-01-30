@@ -58,6 +58,11 @@ for i in $(seq 0 9); do
   gsettings set org.gnome.desktop.wm.keybindings "move-to-workspace-$num" "['<Super><Shift>$i']"
 done
 
+echo some shortcuts...
+gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
+gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin']"
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+
 echo
 echo ===========
 read -rp "Enable darkman? (y/N): " choice

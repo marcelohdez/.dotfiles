@@ -4,4 +4,4 @@
 
 ~/.local/share/both-modes.d/rand_wall.sh light
 
-~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita default
+~/.local/share/both-modes.d/set_gtk_theme.sh Adwaita prefer-light
