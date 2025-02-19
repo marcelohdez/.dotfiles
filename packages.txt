@@ -1,5 +1,3 @@
-adw-gtk3-theme
-bat
 bc
 blueman
 brightnessctl
@@ -11,8 +9,6 @@ gammastep
 gnome-bluetooth-libs
 gnome-themes-extra
 gnome-keyring
-gnome-shell-extension-appindicator
-gnome-shell-extension-blur-my-shell
 gnome-shell-extension-caffeine
 gnome-shell-extension-gsconnect
 go
@@ -22,7 +18,6 @@ ImageMagick
 jetbrains-mono-fonts-all
 kanshi
 kdeconnectd
-lolcat
 luarocks
 nautilus
 neovim

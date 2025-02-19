@@ -25,7 +25,7 @@ fi
 gsettings set org.gnome.desktop.background "$key" "file://$IMAGE"
 
 # on sway with blur for lockscreen:
-if swaymsg output \* bg "$IMAGE" fill; then
+if swaymsg output \* bg "$IMAGE" fill 2>/dev/null; then
   ## make wallpaper blurred for swaylock ##
   # cache if not seen before
   CACHE_FOLDER="$HOME/.cache/wallpaperblur"
@@ -48,5 +48,5 @@ if swaymsg output \* bg "$IMAGE" fill; then
 fi
 
 # set accent color
-color=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
-~/.local/share/both-modes.d/accent_color.sh "$MODE" "$color"
+#color=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
+#~/.local/share/both-modes.d/accent_color.sh "$MODE" "$color"

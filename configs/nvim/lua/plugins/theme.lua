@@ -1,12 +1,19 @@
 return {
-	"Mofiqul/adwaita.nvim",
-	{ "LazyVim/LazyVim", opts = { colorscheme = "adwaita" } },
+	"nyoom-engineering/oxocarbon.nvim",
+	{ "LazyVim/LazyVim", opts = { colorscheme = "oxocarbon" } },
 
 	{
-		"rcarriga/nvim-notify",
+		"f-person/auto-dark-mode.nvim",
 		opts = {
-			level = vim.log.levels.WARN, -- try to ignore info notis
-			render = "wrapped-compact",
+			set_dark_mode = function()
+				vim.api.nvim_set_option_value("background", "dark", {})
+				vim.cmd("colorscheme oxocarbon")
+			end,
+			set_light_mode = function()
+				vim.api.nvim_set_option_value("background", "light", {})
+				vim.cmd("colorscheme lunaperche")
+			end,
+			fallback = "light",
 		},
 	},
 

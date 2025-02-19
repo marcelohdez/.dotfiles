@@ -30,16 +30,10 @@ bindkey "^H"    backward-kill-word
 bindkey "7;5u"  backward-kill-word # in neovim too
 
 ## Welcome message
-theme="$(gsettings get org.gnome.desktop.interface color-scheme)"
-if [ "$theme" = "'prefer-light'" ] || [ "$theme" = "'default'" ]; then
-  cat ~/.welcome
-else
-  lolcat ~/.welcome
-fi
+cat $HOME/.welcome
 
 ## Aliases
 alias ls='ls -lh --color=auto'
-alias cat='bat --decorations=never'
 alias rm=trash
 
 ## Funcs
@@ -73,20 +67,17 @@ whatwin() {
 
 reloadwall() {
   if [ $# = 0 ]; then
-    if ! MODE=$(pgrep darkman &>/dev/null && darkman get); then
-			echo "Usage: $0 <light|dark>"
-      return 1
+    res=$(gsettings get org.gnome.desktop.interface color-scheme)
+    if [[ "$res" = "'prefer-dark'" ]]; then
+      mode='dark'
+    else
+      mode='light'
     fi
   else
-    if [ "$1" != 'light' ] && [ "$1" != 'dark' ]; then
-			echo "Usage: $0 <light|dark>"
-      return 1
-    fi
-
-		MODE=$1
+	  mode=$1
   fi
 
-  "$XDG_DATA_HOME/both-modes.d/rand_wall.sh" "$MODE"
+  "$XDG_DATA_HOME/both-modes.d/rand_wall.sh" "$mode"
 }
 
 theme() {
@@ -123,4 +114,4 @@ add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 eval "$(zoxide init zsh)"
 # Set PS1
 autoload -U colors && colors
-PS1="%{$fg[blue]%}%n@%m%{$reset_color%} %1~ => "
+PS1="%{$fg[green]%}%n@%m%{$reset_color%} %1~ => "
