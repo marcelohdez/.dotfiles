@@ -1,12 +1,13 @@
 #!/bin/sh
-if [ $# != 2 ]; then
-  echo Usage: "$0" MODE COLOR_NAME
-  echo Available modes: dark light
+if [ $# != 1 ]; then
+  echo Usage: "$0" MODE
+  echo Available modes: light or '<any>'
   exit 1
 fi
 
-if ! (gsettings set org.gnome.desktop.interface accent-color "$2"); then
-  gsettings set org.gnome.desktop.interface accent-color "blue"
+if ! swaymsg -t get_version; then
+  echo Not in GNOME, not setting accent color.
+  exit 1
 fi
 
 MODE="$1"

@@ -45,8 +45,6 @@ configs.
 ## Tips
 
 - Install 'Night Theme Switcher', 'Color Picker' and 'Focus Changer' extensions
-- I noticed missing font problems in Firefox after a Fedora install,
-  installing these additional fonts help: `google-noto-sans-cuneiform-fonts`
 - To make printing life easier (out of GNOME), you may install `cups` and
   `system-config-printer` to graphically manage them. Additional drivers are
   available such as `gutenprint-cups` for e.g. Canon printers, see

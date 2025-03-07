@@ -1,7 +1,7 @@
 * {
   all: unset;
   background-image: none;
-  transition: all 100ms ease-out;
+  font-family: JetBrainsMono;
 }
 
 window {
@@ -10,7 +10,7 @@ window {
 
 button {
   color: #ffffff;
-  background-color: #1e1e1e;
+  background-color: #0b0b0b;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
@@ -18,16 +18,15 @@ button {
 
 button {
   margin: 4px;
-  border-radius: 6px;
 }
 
 button:active,
 button:hover {
-  background-color: #3b3b3b;
+  background-color: #2b2b2b;
 }
 
 #shutdown:hover {
-  background-color: @error_color;
+  background-color: #af3f2f;
 }
 
 #lock {

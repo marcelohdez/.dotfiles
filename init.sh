@@ -61,7 +61,11 @@ done
 echo some shortcuts...
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin']"
-gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
+
+echo faster key repeats...
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
+gsettings set org.gnome.desktop.peripherals.keyboard delay 300
 
 echo
 echo ===========

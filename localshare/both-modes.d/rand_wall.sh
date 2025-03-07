@@ -17,13 +17,6 @@ fi
 echo "$IMAGE"
 
 ### show new wallpaper
-# on gnome:
-key='picture-uri'
-if [ "$1" = 'dark' ]; then
-  key="$key-dark"
-fi
-gsettings set org.gnome.desktop.background "$key" "file://$IMAGE"
-
 # on sway with blur for lockscreen:
 if swaymsg output \* bg "$IMAGE" fill 2>/dev/null; then
   ## make wallpaper blurred for swaylock ##

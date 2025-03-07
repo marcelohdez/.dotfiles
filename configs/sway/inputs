@@ -1,4 +1,8 @@
-input type:keyboard xkb_options altwin:swap_lalt_lwin
+input type:keyboard {
+  xkb_options altwin:swap_lalt_lwin
+  repeat_rate 50
+  repeat_delay 250
+}
 
 input type:touchpad {
   tap_button_map lrm
@@ -10,7 +14,7 @@ input type:touchpad {
 
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
   pointer_accel 0.25
-  scroll_factor 0.3
+  #scroll_factor 0.3 # for GNOME compat, use https://gitlab.com/warningnonpotablewater/libinput-config
 }
 
 # vim:ft=swayconfig

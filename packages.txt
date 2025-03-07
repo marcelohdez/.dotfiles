@@ -1,5 +1,4 @@
 bc
-blueman
 brightnessctl
 darkman
 dunst
@@ -9,15 +8,16 @@ gammastep
 gnome-bluetooth-libs
 gnome-themes-extra
 gnome-keyring
+gnome-shell-extension-appindicator
 gnome-shell-extension-caffeine
 gnome-shell-extension-gsconnect
 go
+google-noto-sans*
 grim
 iio-sensor-proxy
 ImageMagick
 jetbrains-mono-fonts-all
 kanshi
-kdeconnectd
 luarocks
 nautilus
 neovim
@@ -26,7 +26,6 @@ nodejs
 nodejs-npm
 pavucontrol
 playerctl
-polkit-gnome
 pulseaudio-utils
 qalculate-gtk
 ripgrep

@@ -29,9 +29,6 @@ bindkey "^[[1;5D" backward-word
 bindkey "^H"    backward-kill-word
 bindkey "7;5u"  backward-kill-word # in neovim too
 
-## Welcome message
-cat $HOME/.welcome
-
 ## Aliases
 alias ls='ls -lh --color=auto'
 alias rm=trash
@@ -112,6 +109,22 @@ add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 ## End copy
 
 eval "$(zoxide init zsh)"
+
 # Set PS1
+set_prompt() {
+  reset="%{$reset_color%}"
+
+  container=""
+  if ! [ -z "$CONTAINER_ID" ]; then
+    container="%{$fg[magenta]%} ($CONTAINER_ID)$reset"
+  fi
+
+  PS1="%{$fg[green]%}%n@%m$container$reset %1~ > "
+}
+
 autoload -U colors && colors
-PS1="%{$fg[green]%}%n@%m%{$reset_color%} %1~ => "
+typeset -a precmd_functions
+precmd_functions+=(set_prompt)
+
+## Welcome message
+cat $HOME/.welcome

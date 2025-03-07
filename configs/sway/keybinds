@@ -47,12 +47,12 @@ bindsym $specialMod+F exec $webPriv
 bindsym $mod+E exec $calculator
 
 bindsym $mod+N exec dunstctl close-all
+bindsym $mod+R exec ~/.local/share/fn-scripts/color_picker.sh
 bindsym $specialMod+N exec ~/.local/share/fn-scripts/dnd-mode.sh toggle
 bindsym $specialMod+Y exec ~/.local/share/fn-scripts/reload_bar.sh
 
 # Screenshot/sharing keybinds
 set $screenshotScript ~/.local/share/fn-scripts/screenshot.sh
-bindsym $specialMod+R exec ~/.local/share/fn-scripts/color_picker.sh
 bindsym $specialMod+A exec $screenshotScript area
 bindsym $specialMod+S exec $screenshotScript screen
 

@@ -13,8 +13,8 @@ set $calculator qalculate-gtk
 set $search fuzzel
 set $term foot
 set $files nautilus
-set $web firefox
-set $webPriv firefox --private-window
+set $web chrome
+set $webPriv chrome --incognito
 
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
@@ -23,7 +23,6 @@ exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec ~/.local/share/fn-scripts/reload_bar.sh
 
 exec kanshi
-exec kdeconnect-indicator
 exec swayidle -w
 exec gammastep
 exec trash-empty 7

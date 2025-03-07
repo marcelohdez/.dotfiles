@@ -2,9 +2,9 @@ set $barHeight 30
 
 for_window {
   # stuff connected to bar
-  [app_id="blueman"] floating enable, move position cursor, move down $barHeight
-  [app_id="pavucontrol"] floating enable, move position cursor, move down $barHeight
-  [app_id="nm-connection-editor"] floating enable, move position cursor, move down $barHeight
+  [app_id="blueman"] floating enable, move position cursor, move up $barHeight
+  [app_id="pavucontrol"] floating enable, move position cursor, move up $barHeight
+  [app_id="nm-connection-editor"] floating enable, move position cursor, move up $barHeight
 
   # floating thingies
   [app_id="[Qq]alculate"] floating enable
