@@ -1,0 +1,169 @@
+@define-color base0 #0b0b0b;
+@define-color base1 #262626;
+@define-color base2 #393939;
+@define-color text  #ffffff;
+
+* {
+  all: unset;
+  font-family: JetBrainsMono, SymbolsNerdFontMono, FontAwesome6Free;
+  font-size: 15px;
+  transition: all 100ms ease-out;
+}
+
+window#waybar {
+  background-color: @base0;
+  color: @text;
+  transition-property: background-color;
+}
+
+menu,
+tooltip {
+  background: @base0;
+  color: @text;
+  border: 1px solid @base2;
+  padding: 4px;
+}
+
+menuitem,
+tooltip label {
+  border-radius: 6px;
+  padding: 3px 6px;
+  margin: 2px;
+}
+
+menuitem:hover {
+  background: @base2;
+}
+
+#custom-power-menu,
+#clock,
+#custom-dnd,
+#workspaces,
+#workspaces button,
+#mpris,
+#power-profiles-daemon,
+#tray,
+#scratchpad,
+#privacy,
+#privacy-item,
+#idle_inhibitor,
+#upower,
+#wireplumber,
+#bluetooth,
+#network {
+  color: @text;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+/**
+ * apply lighter background for *selected* things
+**/
+#workspaces button.focused {
+  background: @base2;
+  color: @text;
+}
+
+/**
+ * apply lighter text
+**/
+#workspaces button,
+#wireplumber.muted,
+#bluetooth.disabled,
+#bluetooth.off,
+#network.disabled,
+#network.disconnected {
+  color: alpha(@text, 0.8);
+}
+
+/**
+ * Accent color background
+ */
+#idle_inhibitor.activated {
+  background: @accent_color;
+  color: white;
+}
+
+/**
+ * Green background
+**/
+#power-profiles-daemon.power-saver {
+  color: #239044;
+}
+
+/**
+ * Things that require attention, error color:
+ */
+#workspaces button.urgent,
+#power-profiles-daemon.performance,
+#privacy-item,
+#upower.empty {
+  color: #da0000;
+}
+
+/**
+ * Things with background
+ */
+#workspaces {
+  background: alpha(@base2, 0.4);
+}
+
+/**
+ * modules-left
+**/
+#custom-power-menu {
+  margin-left: 4px;
+}
+
+#workspaces button {
+  margin: 0;
+  padding: 0px 12px;
+}
+
+#workspaces,
+#privacy {
+  padding: 0;
+}
+
+#custom-dnd.on {
+  color: #be53ee;
+  padding-bottom: 2px;
+}
+
+#privacy {
+  padding-top: 1px;
+}
+
+#privacy-item {
+  margin: 0;
+  padding: 0px 10px;
+}
+
+/**
+ * modules-right
+**/
+#bluetooth.connected,
+#bluetooth.on {
+  color: #63c4b7;
+}
+
+#network.wifi,
+#network.ethernet {
+  color: #a7e463;
+  /**
+   * fix upower dumb padding
+  **/
+  padding-right: 5px;
+}
+
+#upower {
+  padding-left: 0;
+}
+
+#custom-dnd {
+  margin-right: 4px;
+}
+
+#clock {
+  margin-right: 4px;
+}
