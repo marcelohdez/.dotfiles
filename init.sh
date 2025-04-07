@@ -4,18 +4,9 @@ if ! [ "$(command -v stow)" ]; then
   exit 1
 fi
 
-get_or_default() {
-  VAR_RES=$(printenv "$1")
-  if [ "$VAR_RES" != '' ]; then
-    echo "$VAR_RES"
-  else
-    echo "$2"
-  fi
-}
-
-CONFIG_DIR=$(get_or_default XDG_CONFIG_HOME ~/.config/)
-DATA_DIR=$(get_or_default XDG_DATA_HOME ~/.local/share/)
-WALLS_DIR=~/Wallpapers/
+CONFIG_DIR=~/.config
+DATA_DIR=~/.local/share
+WALLS_DIR=~/Wallpapers
 
 # get path of script to not NEED to be in the same dir
 parent_path=$(
@@ -59,6 +50,11 @@ for i in $(seq 0 9); do
 done
 
 echo some shortcuts...
+gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]" # disable lock screen with super shift L
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super><Shift>H']"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super><Shift>L']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>W']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Shift>W']"
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin']"
 gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false

@@ -90,10 +90,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindgesture swipe:3:left workspace next_on_output
+bindgesture swipe:3:left exec ~/.config/sway/scripts/next_workspace.sh
 bindgesture swipe:3:right workspace prev_on_output
 # regular next with 4 fingers
-bindgesture swipe:4:left workspace next
+bindgesture swipe:4:left workspace next_on_output
 
 bindsym --whole-window {
   $mod+button4 workspace prev_on_output

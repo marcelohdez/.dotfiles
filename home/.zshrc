@@ -74,7 +74,7 @@ reloadwall() {
 	  mode=$1
   fi
 
-  "$XDG_DATA_HOME/both-modes.d/rand_wall.sh" "$mode"
+  "$HOME/.local/share/both-modes.d/rand_wall.sh" "$mode"
 }
 
 theme() {
@@ -116,10 +116,15 @@ set_prompt() {
 
   container=""
   if ! [ -z "$CONTAINER_ID" ]; then
-    container="%{$fg[magenta]%} ($CONTAINER_ID)$reset"
+    container="%{$fg[magenta]%} $CONTAINER_ID$reset "
   fi
 
-  PS1="%{$fg[green]%}%n@%m$container$reset %1~ > "
+  venv=""
+  if ! [ -z "$VIRTUAL_ENV" ]; then
+    venv="%{$fg[yellow]%} ${${VIRTUAL_ENV%/}##*/}$reset "
+  fi
+
+  PS1="%{$fg[green]%}%n@%m$reset $container$venv%1~ > "
 }
 
 autoload -U colors && colors

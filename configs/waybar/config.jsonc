@@ -1,6 +1,7 @@
 {
   "spacing": 0,
-  "position": "bottom",
+  "layer": "top",
+  "position": "top",
   "modules-left": [
     "custom/power-menu",
     "sway/workspaces",
@@ -70,9 +71,9 @@
   },
   "bluetooth": {
     "format-connected": "BT ({num_connections})",
-    "format-on": "Bluetooth on",
-    "format-off": "Bluetooth off",
-    "format-disabled": "No Bluetooth",
+    "format-on": "BT on",
+    "format-off": "BT off",
+    "format-disabled": "BT disabled",
     "tooltip-format": "{controller_alias}: {status}\n{device_enumerate}",
     "on-click": "~/.config/waybar/scripts/toggle.sh blueman-manager"
   },
@@ -98,7 +99,7 @@
         "today": "<b><u>{}</u></b>"
       }
     },
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "on-click": "dunstctl history-pop"
   }
 }

@@ -13,6 +13,6 @@ else
   mode=light
 fi
 
-for f in "$XDG_DATA_HOME"/"$mode"-mode.d/*; do
+for f in "$HOME/.local/share/$mode-mode.d/"*; do
   "$f" &
 done

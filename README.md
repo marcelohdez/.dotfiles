@@ -24,23 +24,25 @@ You should now be able to switch to `zsh`:
 chsh -s $(which zsh)
 ```
 
-Firefox is used throughout this repo. You _can_ just install it regularly but
-for the sandboxing and quicker updates I prefer the official Flatpak; then
-creating a `firefox` script in e.g. `.local/bin/` containing:
+I use the Chrome flatpak, to make this seamless I make a `chrome` script in
+`/usr/local/bin/` with the following:
 
 ```bash
 #!/bin/sh
-flatpak run org.mozilla.firefox -- "$@"
+flatpak run com.google.Chrome \
+    --password-store=gnome-libsecret \
+    --enable-features=TouchpadOverscrollHistoryNavigation "$@"
 ```
 
-Then, [dim], [NerdFont] (symbols only), and [hyprpicker] must be installed
-manually.
+The `password-store` argument makes passwords stay even while in Sway, and the
+other is for back/forward gestures on touch pads. Then, [dim], [NerdFont]
+(symbols only), and [hyprpicker] must be installed manually.
 
-Run `./init.sh`. Assuming a clean install this should place config files and
+Run `./init.sh`. Assuming a clean install this should place any files and
 scripts where they go. You should log out and log back in to be in `zsh`.
 
 You now have Sway on your display manager along with GNOME and all my app
-configs.
+configurations.
 
 ## Tips
 

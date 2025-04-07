@@ -5,8 +5,8 @@
             "blend": 0.0,
             "bypass": false,
             "floor": 20.0,
-            "floor-active": false,
-            "harmonics": 8.5,
+            "floor-active": true,
+            "harmonics": 10.0,
             "input-gain": 0.0,
             "output-gain": 0.0,
             "scope": 110.0
@@ -41,7 +41,7 @@
                 },
                 "band10": {
                     "frequency": 18000.0,
-                    "gain": 3.77,
+                    "gain": 2.3,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.0,
@@ -118,7 +118,7 @@
                 },
                 "band8": {
                     "frequency": 8000.0,
-                    "gain": -0.84,
+                    "gain": 0.0,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 3.0,
@@ -128,8 +128,8 @@
                     "width": 4.0
                 },
                 "band9": {
-                    "frequency": 13500.0,
-                    "gain": 6.49,
+                    "frequency": 11500.0,
+                    "gain": 6.07,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.0,
@@ -169,7 +169,7 @@
                 },
                 "band10": {
                     "frequency": 18000.0,
-                    "gain": 3.77,
+                    "gain": 2.3,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.0,
@@ -246,7 +246,7 @@
                 },
                 "band8": {
                     "frequency": 8000.0,
-                    "gain": -0.84,
+                    "gain": 0.0,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 3.0,
@@ -256,8 +256,8 @@
                     "width": 4.0
                 },
                 "band9": {
-                    "frequency": 13500.0,
-                    "gain": 6.49,
+                    "frequency": 11500.0,
+                    "gain": 6.07,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.0,
@@ -287,11 +287,11 @@
             "release": 5.0,
             "sidechain-preamp": 0.0,
             "stereo-link": 100.0,
-            "threshold": -5.0
+            "threshold": -5.5
         },
         "multiband_compressor#0": {
             "band0": {
-                "attack-threshold": -24.0,
+                "attack-threshold": -18.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,
@@ -301,7 +301,7 @@
                 "knee": -9.0,
                 "makeup": 0.0,
                 "mute": false,
-                "ratio": 3.0,
+                "ratio": 12.0,
                 "release-threshold": -100.0,
                 "release-time": 100.0,
                 "sidechain-custom-highcut-filter": false,
@@ -317,7 +317,7 @@
                 "stereo-split-source": "Left/Right"
             },
             "band1": {
-                "attack-threshold": -18.0,
+                "attack-threshold": -16.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,
@@ -328,7 +328,7 @@
                 "knee": -9.0,
                 "makeup": 0.0,
                 "mute": false,
-                "ratio": 3.0,
+                "ratio": 6.0,
                 "release-threshold": -100.0,
                 "release-time": 100.0,
                 "sidechain-custom-highcut-filter": false,
@@ -341,11 +341,11 @@
                 "sidechain-reactivity": 10.0,
                 "sidechain-source": "Middle",
                 "solo": false,
-                "split-frequency": 105.0,
+                "split-frequency": 200.0,
                 "stereo-split-source": "Left/Right"
             },
             "band2": {
-                "attack-threshold": -12.0,
+                "attack-threshold": -24.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,
@@ -356,7 +356,7 @@
                 "knee": -6.0,
                 "makeup": 0.0,
                 "mute": false,
-                "ratio": 4.0,
+                "ratio": 12.0,
                 "release-threshold": -100.0,
                 "release-time": 100.0,
                 "sidechain-custom-highcut-filter": false,
@@ -369,11 +369,11 @@
                 "sidechain-reactivity": 10.0,
                 "sidechain-source": "Middle",
                 "solo": false,
-                "split-frequency": 250.0,
+                "split-frequency": 800.0,
                 "stereo-split-source": "Left/Right"
             },
             "band3": {
-                "attack-threshold": -16.0,
+                "attack-threshold": -12.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,
@@ -384,7 +384,7 @@
                 "knee": -9.0,
                 "makeup": 0.0,
                 "mute": false,
-                "ratio": 2.0,
+                "ratio": 9.0,
                 "release-threshold": -100.0,
                 "release-time": 100.0,
                 "sidechain-custom-highcut-filter": false,
@@ -397,11 +397,11 @@
                 "sidechain-reactivity": 10.0,
                 "sidechain-source": "Middle",
                 "solo": false,
-                "split-frequency": 800.0,
+                "split-frequency": 2000.0,
                 "stereo-split-source": "Left/Right"
             },
             "band4": {
-                "attack-threshold": -12.0,
+                "attack-threshold": -18.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,
@@ -412,7 +412,7 @@
                 "knee": -9.0,
                 "makeup": 0.0,
                 "mute": false,
-                "ratio": 4.0,
+                "ratio": 12.0,
                 "release-threshold": -100.0,
                 "release-time": 100.0,
                 "sidechain-custom-highcut-filter": false,
@@ -425,7 +425,7 @@
                 "sidechain-reactivity": 10.0,
                 "sidechain-source": "Middle",
                 "solo": false,
-                "split-frequency": 2000.0,
+                "split-frequency": 12000.0,
                 "stereo-split-source": "Left/Right"
             },
             "band5": {
@@ -435,7 +435,7 @@
                 "boost-threshold": -72.0,
                 "compression-mode": "Downward",
                 "compressor-enable": true,
-                "enable-band": true,
+                "enable-band": false,
                 "external-sidechain": false,
                 "knee": -9.0,
                 "makeup": 0.0,

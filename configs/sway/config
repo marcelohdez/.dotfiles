@@ -13,11 +13,12 @@ set $calculator qalculate-gtk
 set $search fuzzel
 set $term foot
 set $files nautilus
-set $web chrome
-set $webPriv chrome --incognito
+set $web google-chrome
+set $webPriv $web --incognito
 
 ## Long-running processes ##
 exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 exec ~/.local/share/fn-scripts/battery_watch.sh BAT1
 exec ~/.local/share/fn-scripts/reload_bar.sh

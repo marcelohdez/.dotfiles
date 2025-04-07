@@ -52,8 +52,8 @@ menuitem:hover {
 #bluetooth,
 #network {
   color: @text;
-  padding: 4px 8px;
-  margin: 0;
+  padding: 1px 8px;
+  margin: 3px 0px;
 }
 
 /**
@@ -94,11 +94,14 @@ menuitem:hover {
 /**
  * Things that require attention, error color:
  */
-#workspaces button.urgent,
 #power-profiles-daemon.performance,
 #privacy-item,
 #upower.empty {
   color: #da0000;
+}
+
+#workspaces button.urgent {
+  background-color: #da0000;
 }
 
 /**
@@ -116,12 +119,14 @@ menuitem:hover {
 }
 
 #workspaces button {
+  border-radius: 6px;
   margin: 0;
   padding: 0px 12px;
 }
 
 #workspaces,
 #privacy {
+  border-radius: 6px;
   padding: 0;
 }
 

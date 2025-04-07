@@ -10,7 +10,6 @@ gnome-themes-extra
 gnome-keyring
 gnome-shell-extension-appindicator
 gnome-shell-extension-caffeine
-gnome-shell-extension-gsconnect
 go
 google-noto-sans*
 grim
