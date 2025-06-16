@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   "modules-left": [
-    "custom/power-menu",
+    "group/group-power",
     "niri/workspaces",
     "idle_inhibitor",
     "custom/dnd",
@@ -19,9 +19,38 @@
     "upower",
     "clock"
   ],
-  "custom/power-menu": {
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 100,
+      "children-class": "not-power"
+    },
+    "modules": [
+      "custom/power", // First element is the "group leader" and won't ever be hidden
+      "custom/reboot",
+      "custom/logout",
+      "custom/lock"
+    ]
+  },
+  "custom/power": {
     "format": "󰐥",
-    "on-click": "wlogout"
+    "tooltip-format": "Power off",
+    "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Power off' 'Shutting down' 'shutdown now'"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip-format": "Reboot",
+    "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Reboot' 'Rebooting' 'reboot'"
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip-format": "Lock",
+    "on-click": "swaylock"
+  },
+  "custom/logout": {
+    "format": "󰩈",
+    "tooltip-format": "Log out",
+    "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Log out' 'Logging out' \"loginctl terminate-user $USER\""
   },
   "idle_inhibitor": {
     "format": "{icon}",

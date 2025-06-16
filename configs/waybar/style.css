@@ -49,7 +49,10 @@ menuitem:hover {
   background: @base3;
 }
 
-#custom-power-menu,
+#custom-power,
+#custom-lock,
+#custom-reboot,
+#custom-logout,
 #clock,
 #custom-dnd,
 #workspaces,
@@ -72,7 +75,11 @@ menuitem:hover {
 }
 
 /** Hover fx */
-#custom-power-menu:hover,
+#custom-power:hover,
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-logout:hover,
+#not:hover,
 #clock:hover,
 #custom-dnd:hover,
 #workspaces button:hover,
@@ -109,9 +116,6 @@ menuitem:hover {
 }
 
 /**
- * Colored background
- */
-/**
  * Things that require attention, error color:
  */
 #privacy-item,
@@ -133,8 +137,13 @@ menuitem:hover {
 /**
  * modules-left
 **/
-#custom-power-menu {
+#group-power {
   margin-left: 4px;
+  margin-right: 4px;
+}
+
+#custom-logout {
+  padding-right: 12px;
 }
 
 #workspaces button {
