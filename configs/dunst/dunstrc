@@ -5,7 +5,7 @@
     height = 150
     origin = top-right
 
-    offset = 10x10
+    offset = 8x8
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
     notification_limit = 5
@@ -34,7 +34,7 @@
     # Horizontal padding.
     horizontal_padding = 8
     text_icon_padding = 8
-    frame_width = 2
+    frame_width = 1
     gap_size = 10
 
     # Define a color for the separator.
@@ -43,7 +43,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
 
     # Sort type.
     # possible values are:
@@ -61,7 +61,7 @@
     # idle_threshold = 120
 
     ### Text ###
-    font = SymbolsNerdFontMono, Inter 10
+    font = AdwaitaSans, JetBrainsMonoNerdFont 10
     line_height = 2
     markup = full
     alignment = left
@@ -90,7 +90,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
     icon_theme = Adwaita
@@ -133,9 +133,9 @@
     force_xinerama = false
 
     ### mouse
-    mouse_left_click = close_current
+    mouse_left_click = do_action
     mouse_middle_click = context
-    mouse_right_click = do_action
+    mouse_right_click = close_current
 
 [experimental]
     per_monitor_dpi = false
@@ -150,7 +150,7 @@
     timeout = 7
 
 [urgency_normal]
-    background = "#2b2b2b"
+    background = "#1d1d20"
     foreground = "#ffffff"
     frame_color = "#4f4f4f"
     highlight = "#ffffff"

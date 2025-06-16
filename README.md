@@ -1,6 +1,6 @@
 # marcelo's dotfiles
 
-GNOME + Sway
+GNOME + Sway (and Niri?)
 
 ## Setup
 
@@ -35,8 +35,8 @@ flatpak run com.google.Chrome \
 ```
 
 The `password-store` argument makes passwords stay even while in Sway, and the
-other is for back/forward gestures on touch pads. Then, [dim], [NerdFont]
-(symbols only), and [hyprpicker] must be installed manually.
+other is for back/forward gestures on touch pads. Then, [dim],
+[JetBrainsMono Nerd Font], and [hyprpicker] must be installed manually.
 
 Run `./init.sh`. Assuming a clean install this should place any files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -53,3 +53,7 @@ configurations.
   [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
 - Wallpapers are put in `~/Wallpapers/<light|dark>/name.png`. See
   [the script](./localshare/both-modes.d/accent_color.sh).
+
+[dim]: https://github.com/marcelohdez/dim
+[JetBrainsMono Nerd Font]: https://github.com/marcelohdez/dim
+[hyprpicker]: https://github.com/hyprwm/hyprpicker

@@ -5,8 +5,8 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-if ! swaymsg -t get_version; then
-  echo Not in GNOME, not setting accent color.
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
+  echo In GNOME, not doing anything.
   exit 1
 fi
 

@@ -35,14 +35,13 @@ exec 'pgrep darkman && $startDarkman || $setupTheme'
 
 seat seat0 xcursor_theme Adwaita
 default_border pixel 2
-smart_borders on
 
 # Handle lidswitch
 bindswitch --locked lid:toggle exec ~/.config/sway/scripts/lid_toggle.sh LID0
 
-output * adaptive_sync on
 focus_on_window_activation focus
 primary_selection disabled
+gaps inner 6
 
 include keybinds
 include windowrules

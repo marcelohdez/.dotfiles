@@ -32,6 +32,7 @@ bindkey "7;5u"  backward-kill-word # in neovim too
 ## Aliases
 alias ls='ls -lh --color=auto'
 alias rm=trash
+alias vim='nvim --clean'
 
 ## Funcs
 fullup() {

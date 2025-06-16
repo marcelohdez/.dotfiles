@@ -23,7 +23,7 @@ wl-copy <"$OUT_DIR"
 RES=$(
   notify-send \
     "󱉧 Screenshot saved and copied" \
-    "Right-click to edit\nMiddle-click for options\n" \
+    "Click to edit\nMiddle-click for options\n" \
     -i "$OUT_DIR" \
     -A "default=Edit" \
     -A "delete=Delete"
@@ -32,7 +32,6 @@ case "$RES" in
 "default")
   time=$(date +%Y-%m-%d_%H.%M.%S)
 
-  mkdir -p "$out_dir/Satty/"
   swappy -f "$OUT_DIR" -o "$HOME/Pictures/Swappy/$time.png"
 
   rm "$OUT_DIR"

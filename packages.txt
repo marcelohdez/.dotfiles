@@ -1,3 +1,4 @@
+adwaita-sans-fonts
 bc
 brightnessctl
 darkman
@@ -21,6 +22,7 @@ luarocks
 nautilus
 neovim
 NetworkManager-tui
+niri
 nodejs
 nodejs-npm
 pavucontrol
@@ -28,7 +30,6 @@ playerctl
 pulseaudio-utils
 qalculate-gtk
 ripgrep
-rsms-inter-fonts
 screen
 slurp
 stow

@@ -6,20 +6,20 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-WPCTL_OUT=$(wpctl get-volume @DEFAULT_SINK@)
-if [ "$(echo "$WPCTL_OUT" | grep -c MUTED)" != '0' ]; then
-  ~/.local/share/fn-scripts/bar_notif.sh " Muted" 0
+wpctl_out=$(wpctl get-volume @DEFAULT_SINK@)
+if [ "$(echo "$wpctl_out" | grep -c MUTED)" != '0' ]; then
+  ~/.local/share/fn-scripts/bar_notif.sh "󰝟 Muted" 0
   exit
 fi
 
-VOL_IN_DECIMAL=$(echo "$WPCTL_OUT" | cut -d' ' -f2)
-PERCENT=$(echo "($VOL_IN_DECIMAL * 100) + $1" | bc | cut -d. -f1)
+vol_decimal=$(echo "$wpctl_out" | cut -d' ' -f2)
+percent=$(echo "($vol_decimal * 100) + $1" | bc | cut -d. -f1)
 
-if [ "$PERCENT" -gt 100 ]; then
+if [ "$percent" -gt 100 ]; then
   wpctl set-volume @DEFAULT_SINK@ 1.0
 else
-  wpctl set-volume @DEFAULT_SINK@ "$PERCENT"'%'
+  wpctl set-volume @DEFAULT_SINK@ "$percent"'%'
 fi
 
-ICON='' && [ "$PERCENT" -lt 66 ] && ICON='' && [ "$PERCENT" -lt 33 ] && ICON=''
-~/.local/share/fn-scripts/bar_notif.sh "$ICON Volume" "$PERCENT"
+icon='󰕾' && [ "$percent" -lt 66 ] && icon='󰖀' && [ "$percent" -lt 33 ] && icon='󰕿'
+~/.local/share/fn-scripts/bar_notif.sh "$icon  Volume" "$percent"

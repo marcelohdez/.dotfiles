@@ -1,16 +1,19 @@
 @define-color base0 #0b0b0b;
-@define-color base1 #262626;
-@define-color base2 #393939;
+@define-color base1 #292929;
+@define-color base2 #3e3e3e;
+@define-color base3 #5f5f5f;
+@define-color base7 #dfdfdf;
 @define-color text  #ffffff;
 
 * {
   all: unset;
-  font-family: JetBrainsMono, SymbolsNerdFontMono, FontAwesome6Free;
-  font-size: 15px;
-  transition: all 100ms ease-out;
+  font-family: AdwaitaSans, JetBrainsMonoNerdFont;
+  font-weight: bold;
+  transition: all 80ms ease-out;
 }
 
 window#waybar {
+  font-size: 1.01rem;
   background-color: @base0;
   color: @text;
   transition-property: background-color;
@@ -18,7 +21,7 @@ window#waybar {
 
 menu,
 tooltip {
-  background: @base0;
+  background-color: @base0;
   color: @text;
   border: 1px solid @base2;
   padding: 4px;
@@ -27,12 +30,23 @@ tooltip {
 menuitem,
 tooltip label {
   border-radius: 6px;
-  padding: 3px 6px;
-  margin: 2px;
+  padding: 5px 10px;
+}
+
+menuitem label,
+tooltip label {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+menu {
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #2e2e32;
 }
 
 menuitem:hover {
-  background: @base2;
+  background: @base3;
 }
 
 #custom-power-menu,
@@ -52,20 +66,38 @@ menuitem:hover {
 #bluetooth,
 #network {
   color: @text;
-  padding: 1px 8px;
-  margin: 3px 0px;
+  padding: 1px 10px;
+  margin: 4px 0px;
+  border-radius: 8px;
+}
+
+/** Hover fx */
+#custom-power-menu:hover,
+#clock:hover,
+#custom-dnd:hover,
+#workspaces button:hover,
+#mpris:hover,
+#power-profiles-daemon:hover,
+#tray:hover,
+#scratchpad:hover,
+#idle_inhibitor:hover,
+#upower:hover,
+#wireplumber:hover,
+#bluetooth:hover,
+#network:hover {
+  background-color: alpha(@base3, 0.5);
 }
 
 /**
- * apply lighter background for *selected* things
+ * focus
 **/
 #workspaces button.focused {
-  background: @base2;
+  background: alpha(@base3, 0.5);
   color: @text;
 }
 
 /**
- * apply lighter text
+ * dim text
 **/
 #workspaces button,
 #wireplumber.muted,
@@ -77,27 +109,14 @@ menuitem:hover {
 }
 
 /**
- * Accent color background
+ * Colored background
  */
-#idle_inhibitor.activated {
-  background: @accent_color;
-  color: white;
-}
-
-/**
- * Green background
-**/
-#power-profiles-daemon.power-saver {
-  color: #239044;
-}
-
 /**
  * Things that require attention, error color:
  */
-#power-profiles-daemon.performance,
 #privacy-item,
 #upower.empty {
-  color: #da0000;
+  background-color: #da0000;
 }
 
 #workspaces button.urgent {
@@ -119,24 +138,39 @@ menuitem:hover {
 }
 
 #workspaces button {
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 0;
   padding: 0px 12px;
+  padding-right: 14px;
 }
 
 #workspaces,
 #privacy {
-  border-radius: 6px;
   padding: 0;
 }
 
-#custom-dnd.on {
-  color: #be53ee;
-  padding-bottom: 2px;
+#idle_inhibitor.activated {
+  background: #15539e;
+  color: white;
 }
 
+#idle_inhibitor {
+  padding-right: 15px;
+}
+
+#idle_inhibitor,
+#custom-dnd,
 #privacy {
-  padding-top: 1px;
+  margin-left: 3px;
+}
+
+#custom-dnd {
+  background-color: #9e33ee;
+  padding-right: 14px;
+}
+
+#privacy-item {
+  padding: 0px 4px;
 }
 
 #privacy-item {
@@ -145,30 +179,38 @@ menuitem:hover {
 }
 
 /**
- * modules-right
+  * modules-right
 **/
-#bluetooth.connected,
-#bluetooth.on {
-  color: #63c4b7;
+#power-profiles-daemon {
+  padding-left: 12px;
+  padding-right: 15px;
 }
 
-#network.wifi,
-#network.ethernet {
-  color: #a7e463;
-  /**
-   * fix upower dumb padding
-  **/
-  padding-right: 5px;
+#tray {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#wireplumber {
+  padding: 1px 12px;
+  padding-right: 14px;
+}
+
+#bluetooth {
+  padding: 1px 12px;
+  padding-right: 14px;
+}
+
+#network {
+  padding-right: 16px;
 }
 
 #upower {
-  padding-left: 0;
-}
-
-#custom-dnd {
-  margin-right: 4px;
+  padding-left: 8px;
+  padding-right: 6px;
 }
 
 #clock {
+  padding-left: 8px;
   margin-right: 4px;
 }

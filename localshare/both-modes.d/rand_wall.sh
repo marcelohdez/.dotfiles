@@ -17,8 +17,16 @@ fi
 echo "$IMAGE"
 
 ### show new wallpaper
-# on sway with blur for lockscreen:
-if swaymsg output \* bg "$IMAGE" fill 2>/dev/null; then
+# on any non GNOME desktop for blur in lockscreen:
+if [ "$XDG_CURRENT_DESKTOP" != "GNOME" ]; then
+  old_pid=$(pgrep swaybg)
+  swaybg -o\* -m fill -i "$IMAGE" &
+
+  if [ -n "$old_pid" ]; then
+    sleep 0.5
+    kill "$old_pid"
+  fi
+
   ## make wallpaper blurred for swaylock ##
   # cache if not seen before
   CACHE_FOLDER="$HOME/.cache/wallpaperblur"
@@ -27,7 +35,7 @@ if swaymsg output \* bg "$IMAGE" fill 2>/dev/null; then
   CACHE_DIR="$CACHE_FOLDER/$MODE-${IMAGE##*/}"
   if ! [ -f "$CACHE_DIR" ]; then
     echo Blurring new image for lockscreen, please wait...
-    tmp_img=/tmp/wallpaperblur0.png
+    tmp_img=/tmp/wallpaperblur0
 
     # blur then apply uniform (monochrome) noise multiple times
     magick "$IMAGE" -blur 0x50 "$tmp_img"
@@ -36,8 +44,8 @@ if swaymsg output \* bg "$IMAGE" fill 2>/dev/null; then
   fi
 
   # move blurred wallpaper for swaylock to use
-  rm "/tmp/wallpaperblur.png"
-  cp "$CACHE_DIR" "/tmp/wallpaperblur.png"
+  rm "/tmp/wallpaperblur"
+  cp "$CACHE_DIR" "/tmp/wallpaperblur"
 fi
 
 # set accent color

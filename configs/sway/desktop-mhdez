@@ -1,6 +1,5 @@
 set $sideMon 'LG Electronics MP59G 0x00039DF3'
 set $mainMon 'Dell Inc. AW2724DM 7TLZHV3'
-output $mainMon mode 2560x1440@180Hz
 
 workspace 1   output $mainMon
 workspace 2   output $mainMon

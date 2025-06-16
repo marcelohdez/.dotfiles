@@ -57,6 +57,8 @@ gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>W']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Shift>W']"
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin']"
+
+echo some touchpad stuffs...
 gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
 
 echo faster key repeats...

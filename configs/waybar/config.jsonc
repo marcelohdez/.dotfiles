@@ -4,11 +4,10 @@
   "position": "top",
   "modules-left": [
     "custom/power-menu",
-    "sway/workspaces",
-    "sway/scratchpad",
+    "niri/workspaces",
+    "idle_inhibitor",
     "custom/dnd",
-    "privacy",
-    "sway/window"
+    "privacy"
   ],
   "modules-center": ["mpris"],
   "modules-right": [
@@ -20,17 +19,22 @@
     "upower",
     "clock"
   ],
-
   "custom/power-menu": {
-    "format": "Power",
+    "format": "󰐥",
     "on-click": "wlogout"
   },
-  "sway/scratchpad": {
-    "format": "󰀘"
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰒳",
+      "deactivated": "󰒲"
+    },
+    "tooltip-format-activated": "System will not sleep automatically",
+    "tooltip-format-deactivated": "System may sleep automatically"
   },
   "custom/dnd": {
     "format": "{icon}",
-    "format-icons": ["", "Dnd"],
+    "format-icons": ["", "󰂛"],
     "exec": "~/.local/share/fn-scripts/dnd-mode.sh get",
     "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
     "return-type": "json",
@@ -44,13 +48,10 @@
       { "type": "audio-in", "tooltip": true }
     ]
   },
-  "sway/window": {
-    "format": ""
-  },
   "mpris": {
-    "format": "{status_icon} {title}",
-    "tooltip-format": "󰝚 {title}\n󰀄 {artist}\n(Playing on {player})",
-    "status-icons": { "playing": "", "paused": "" },
+    "format": "{status_icon}  {title}",
+    "tooltip-format": "󰝚  {title}\n󰀄  {artist}\n(Playing on {player})",
+    "status-icons": { "playing": "󰏤", "paused": "󰐊" },
     "max-length": 40
   },
   "power-profiles-daemon": {
@@ -61,39 +62,40 @@
   },
   "tray": {
     "icon-size": 15,
-    "spacing": 16
+    "spacing": 22
   },
   "wireplumber": {
-    "format": "Vol {volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format": "{icon}",
     "tooltip-format": "{node_name}, {volume}%",
-    "format-muted": "Muted",
+    "format-muted": "󰝟",
     "on-click": "~/.config/waybar/scripts/toggle.sh pavucontrol -t 3"
   },
   "bluetooth": {
-    "format-connected": "BT ({num_connections})",
-    "format-on": "BT on",
-    "format-off": "BT off",
-    "format-disabled": "BT disabled",
-    "tooltip-format": "{controller_alias}: {status}\n{device_enumerate}",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
+    "format-disabled": "󰂲",
+    "tooltip-format": "{status}",
+    "tooltip-format-connected-battery": "{device_alias}  󰁾  {device_battery_percentage}%",
     "on-click": "~/.config/waybar/scripts/toggle.sh blueman-manager"
   },
   "network": {
-    "format-icons": ["Bad", "Ok", "Good"],
-    "format-wifi": "WiFi ({icon}) ",
-    "format-ethernet": "Ethernet",
-    "format-disconnected": "Disconnected",
-    "format-disabled": "Disabled",
-    "tooltip-format": "{essid} ({signaldBm} dB)",
-    "on-click": "nm-connection-editor"
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "format-disconnected": "󰤮",
+    "format-disabled": "󰤫",
+    "tooltip-format": "{essid}",
+    "on-click": "XDG_CURRENT_DESKTOP=gnome gnome-control-center wifi"
   },
   "upower": {
-    "format": "Bat {percentage}",
-    "format-alt": "Bat {percentage} {time}",
-    "show-icon": false,
-    "icon-size": 0
+    "format": "  {percentage}",
+    "format-alt": "  {time} | {percentage}",
+    "icon-size": 14
   },
   "clock": {
-    "format": "{:%I:%M %p}",
+    "format": "{:%b  %d  %I:%M %p}",
     "calendar": {
       "format": {
         "today": "<b><u>{}</u></b>"
