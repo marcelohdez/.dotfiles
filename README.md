@@ -1,6 +1,6 @@
 # marcelo's dotfiles
 
-GNOME + Sway (and Niri?)
+GNOME + Niri
 
 ## Setup
 
@@ -24,7 +24,7 @@ You should now be able to switch to `zsh`:
 chsh -s $(which zsh)
 ```
 
-I use the Chrome flatpak, to make this seamless I make a `chrome` script in
+I use the Chrome flatpak, to make this seamless I make a `google-chrome` script in
 `/usr/local/bin/` with the following:
 
 ```bash
@@ -34,26 +34,38 @@ flatpak run com.google.Chrome \
     --enable-features=TouchpadOverscrollHistoryNavigation "$@"
 ```
 
-The `password-store` argument makes passwords stay even while in Sway, and the
-other is for back/forward gestures on touch pads. Then, [dim],
-[JetBrainsMono Nerd Font], and [hyprpicker] must be installed manually.
+> [!TIP]
+> You probably want to add these arguments to a copied .desktop file in
+> .local/share/applications as well for launchers
+>
+> The `password-store` argument makes passwords stay even while not in GNOME, and
+> the other is for back/forward gestures on touch pads.
+
+Then, some extras like [hyprlock], [hypridle], [dim], [bemoji], and
+[JetBrainsMono Nerd Font] must be installed manually. Additionally, [hyprpicker]
+is supported by my color picker script, so if installed it will use that
+instead of Niri's built-in.
 
 Run `./init.sh`. Assuming a clean install this should place any files and
 scripts where they go. You should log out and log back in to be in `zsh`.
 
-You now have Sway on your display manager along with GNOME and all my app
+You now have Niri on your login screen along with GNOME and all my
 configurations.
 
 ## Tips
 
 - Install 'Night Theme Switcher', 'Color Picker' and 'Focus Changer' extensions
+  for GNOME
 - To make printing life easier (out of GNOME), you may install `cups` and
   `system-config-printer` to graphically manage them. Additional drivers are
   available such as `gutenprint-cups` for e.g. Canon printers, see
   [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
-- Wallpapers are put in `~/Wallpapers/<light|dark>/name.png`. See
+- Wallpapers are put in `~/Wallpapers/<light|dark>/name.*`. See
   [the script](./localshare/both-modes.d/accent_color.sh).
 
+[hyprlock]: https://github.com/hyprwm/hyprlock
+[hypridle]: https://github.com/hyprwm/hypridle
 [dim]: https://github.com/marcelohdez/dim
+[bemoji]: https://github.com/marty-oehme/bemoji
 [JetBrainsMono Nerd Font]: https://github.com/marcelohdez/dim
 [hyprpicker]: https://github.com/hyprwm/hyprpicker

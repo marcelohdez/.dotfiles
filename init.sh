@@ -33,6 +33,20 @@ mkdir -p $WALLS_DIR/{light,dark}
 
 echo
 echo ===========
+echo adding zsh dotfiles if not already there
+
+ZSH_CMD="source ~/.zdots"
+if ! grep "$ZSH_CMD" ~/.zshrc; then
+  {
+    echo "# [added by init.sh] import actual ZSH configuration."
+    echo "# This is done to leave this file for install scripts to add their env"
+    echo "# variables and the like to."
+    echo "$ZSH_CMD"
+  } >>~/.zshrc
+fi
+
+echo
+echo ===========
 echo setting gsettings defaults:
 
 echo icon and cursor themes...

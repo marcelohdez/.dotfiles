@@ -1,7 +1,7 @@
 {
   "spacing": 0,
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "modules-left": [
     "group/group-power",
     "niri/workspaces",
@@ -26,29 +26,41 @@
       "children-class": "not-power"
     },
     "modules": [
-      "custom/power", // First element is the "group leader" and won't ever be hidden
+      "custom/search",
+      "custom/suspend",
       "custom/reboot",
-      "custom/logout",
-      "custom/lock"
+      "custom/power",
+      "custom/lock",
+      "custom/logout"
     ]
   },
-  "custom/power": {
-    "format": "󰐥",
-    "tooltip-format": "Power off",
-    "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Power off' 'Shutting down' 'shutdown now'"
+  "custom/search": {
+    "format": "󰍉",
+    "tooltip-format": "App menu",
+    "on-click": "~/.config/waybar/scripts/toggle.sh fuzzel -a bottom-left -r 0"
+  },
+  "custom/suspend": {
+    "format": "󰏦",
+    "tooltip-format": "Suspend",
+    "on-click": "loginctl lock-session && systemctl suspend"
   },
   "custom/reboot": {
     "format": "󰜉",
     "tooltip-format": "Reboot",
     "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Reboot' 'Rebooting' 'reboot'"
   },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip-format": "Power off",
+    "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Power off' 'Shutting down' 'shutdown now'"
+  },
   "custom/lock": {
     "format": "󰍁",
     "tooltip-format": "Lock",
-    "on-click": "swaylock"
+    "on-click": "loginctl lock-session"
   },
   "custom/logout": {
-    "format": "󰩈",
+    "format": "󰍃",
     "tooltip-format": "Log out",
     "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Log out' 'Logging out' \"loginctl terminate-user $USER\""
   },
@@ -91,7 +103,7 @@
   },
   "tray": {
     "icon-size": 15,
-    "spacing": 22
+    "spacing": 24
   },
   "wireplumber": {
     "format-icons": ["󰕿", "󰖀", "󰕾"],
@@ -121,16 +133,16 @@
   "upower": {
     "format": "  {percentage}",
     "format-alt": "  {time} | {percentage}",
-    "icon-size": 14
+    "icon-size": 13
   },
   "clock": {
-    "format": "{:%b  %d  %I:%M %p}",
+    "format": "{:%a %d %b %I:%M %p}",
     "calendar": {
       "format": {
         "today": "<b><u>{}</u></b>"
       }
     },
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt>{calendar}</tt>",
     "on-click": "dunstctl history-pop"
   }
 }

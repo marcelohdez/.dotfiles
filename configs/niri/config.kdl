@@ -36,13 +36,16 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus mode="center-xy"
+    //warp-mouse-to-focus mode="center-xy"
 
     focus-follows-mouse max-scroll-amount="10%"
 }
 
+clipboard {
+  disable-primary
+}
+
 // Outputs are configured by Kanshi
-//
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -82,7 +85,7 @@ layout {
 }
 
 animations {
-  slowdown 0.5
+  slowdown 0.7
 
   window-open {
     duration-ms 0
@@ -90,10 +93,11 @@ animations {
 }
 
 // permanent startup items, for temp ones use xdg autostart
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "~/.local/share/fn-scripts/reload_bar.sh"
 spawn-at-startup "~/.local/share/fn-scripts/battery_watch.sh" "BAT1"
 spawn-at-startup "kanshi"           // monitor configs
-spawn-at-startup "swayidle" "-w"    // lock when idle
+spawn-at-startup "hypridle"         // lock when idle
 spawn-at-startup "gammastep"        // nightl light
 spawn-at-startup "trash-empty" "7"  // empty trash after 7 days
 
@@ -118,24 +122,41 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Open these windows floating
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"qalculate"#
+    match app-id="qalculate"
+    match app-id="org.gnome.Loupe"
+    match app-id="org.gnome.Ptyxis" title="float"
     open-floating true
 }
 
-// open these windows at top right (status bar)
+// open these windows near status bar
 window-rule {
   match app-id="blueman-manager"
   match app-id="pavucontrol"
-  match app-id="nm-connection-editor"
   open-floating true
-  default-floating-position x=0 y=2 relative-to="top-right"
+  default-floating-position x=0 y=0 relative-to="bottom-right"
 }
 
-// enable rounded corners for all windows.
-// window-rule {
-//     geometry-corner-radius 6
-//     clip-to-geometry true
-// }
+// round the corners these windows
+window-rule {
+  match app-id="foot"
+  geometry-corner-radius 12
+  clip-to-geometry true
+
+  shadow {
+    on
+  }
+}
+
+layer-rule {
+  match namespace="launcher"
+
+  shadow {
+    on
+    color "#0b0b0b47"
+    spread 1
+    draw-behind-window true
+  }
+}
 
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
@@ -144,11 +165,12 @@ binds {
 
     // programs
     Mod+T hotkey-overlay-title="Terminal" { spawn "ptyxis" "--new-window"; }
+    Mod+Shift+T { spawn "ptyxis" "--new-window" "-T" "float"; }
     Mod+Space hotkey-overlay-title="App Launcher" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Calculator" { spawn "qalculate-gtk"; }
     Mod+F hotkey-overlay-title="New Browser Window" { spawn "google-chrome"; }
     Mod+Shift+F hotkey-overlay-title="New Incognito Browser Window" { spawn "google-chrome" "--incognito"; }
-    Mod+Return hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "-t"; }
+    Mod+Period hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "-t"; }
     Mod+B hotkey-overlay-title="Files" { spawn "nautilus"; }
 
     Mod+Y hotkey-overlay-title="Reload Bar" { spawn "~/.local/share/fn-scripts/reload_bar.sh"; }
@@ -161,11 +183,9 @@ binds {
     XF86AudioPrev { spawn "playerctl" "previous"; }
 
     // volume
-    XF86AudioRaiseVolume allow-when-locked=true cooldown-ms=100 { spawn "~/.local/share/fn-scripts/vol_change.sh" "5"; }
-    XF86AudioLowerVolume allow-when-locked=true cooldown-ms=100 { spawn "~/.local/share/fn-scripts/vol_change.sh" "-5"; }
-    XF86AudioMute        allow-when-locked=true cooldown-ms=100 {
-      spawn "bash" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.local/share/fn-scripts/vol_change.sh 0";
-    }
+    XF86AudioRaiseVolume allow-when-locked=true cooldown-ms=120 { spawn "~/.local/share/fn-scripts/vol_change.sh" "6%+"; }
+    XF86AudioLowerVolume allow-when-locked=true cooldown-ms=120 { spawn "~/.local/share/fn-scripts/vol_change.sh" "6%-"; }
+    XF86AudioMute        allow-when-locked=true cooldown-ms=120 { spawn "~/.local/share/fn-scripts/vol_mute.sh" "toggle"; }
     // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // brightness
@@ -178,7 +198,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+Grave repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
 
@@ -300,18 +320,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
 
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
@@ -353,8 +370,8 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+V { toggle-window-floating; }
+    Mod+M { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
@@ -396,6 +413,11 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+hotkey-overlay {
+  skip-at-startup
+}
+
 debug {
   honor-xdg-activation-with-invalid-serial
+  //deactivate-unfocused-windows
 }

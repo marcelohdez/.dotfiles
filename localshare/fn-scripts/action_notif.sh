@@ -1,5 +1,5 @@
 #!/bin/sh
-tip="Click to stop. Dismiss to skip wait."
+tip="Right-click to stop. Click to skip wait."
 
 if [ $# != 3 ]; then
   echo "Usage: $0 <TITLE> <MSG> <ACTION_IF_NO>"

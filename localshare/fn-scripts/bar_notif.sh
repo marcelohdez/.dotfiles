@@ -12,7 +12,8 @@ REUSE_ID=$(cat "$REUSE_NOTIF_DIR")
 
 notify-send "$TITLE" \
   -c toast \
-  -t 2000 \
+  -u low \
+  -t 1000 \
   -h "int:value:$PERCENT" \
   -p \
   ${REUSE_ID:+-r "$REUSE_ID"} \

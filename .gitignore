@@ -8,9 +8,9 @@
 # state files
 configs/lazygit/state.yml
 
-# output of nwg-displays
-configs/sway/outputs
-configs/sway/workspaces
+# any configuration should be in .zdots instead
+home/.zshrc
 
+# only keep my preset
 configs/easyeffects/
 !configs/easyeffects/output/marcysfwpreset.json

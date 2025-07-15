@@ -19,6 +19,7 @@ ImageMagick
 jetbrains-mono-fonts-all
 kanshi
 luarocks
+mate-polkit
 nautilus
 neovim
 NetworkManager-tui
@@ -33,9 +34,6 @@ ripgrep
 screen
 slurp
 stow
-sway
-swayidle
-swaylock
 tmux
 trash-cli
 tuned-ppd

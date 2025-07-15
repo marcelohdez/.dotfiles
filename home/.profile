@@ -1,4 +1,3 @@
-# things sway should know as a session from greetd
 PATH="$HOME/.gradle/bin:$PATH:"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
