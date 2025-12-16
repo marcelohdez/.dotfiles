@@ -1,9 +1,9 @@
 [global]
     follow = mouse
 
-    width = 350
+    width = 360
     height = 150
-    origin = bottom-right
+    origin = top-right
 
     offset = 8x8
     # Scale factor. It is auto-detected if value is 0.
@@ -14,12 +14,12 @@
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
-    progress_bar_corner_radius = 6
+    progress_bar_corner_radius = 0
     progress_bar_corners = all
-    progress_bar_max_width = 300
+    progress_bar_max_width = 320
 
     ## Icon ##
-    icon_corner_radius = 8
+    icon_corner_radius = 0
     icon_corners = all
 
     # Show how many messages are currently hidden (because of
@@ -122,7 +122,7 @@
     title = Dunst
     class = Dunst
 
-    corner_radius = 12
+    corner_radius = 0
     corners = all
     ignore_dbusclose = false
 
@@ -160,18 +160,18 @@
 [urgency_critical]
     background = "#2e2e32"
     foreground = "#ffffff"
-    frame_color = "#ef0000"
+    frame_color = "#414141"
     highlight = "#ffffff"
-    timeout = 0
+    timeout = 10
     override_pause_level = 60
 
 [other_scripted]
     appname = "notify-send"
-    timeout = 0
+    timeout = 10
 
 [vol_and_brightness]
     default_icon = none
     category = "toast"
     alignment = center
     override_pause_level = 100
-    timeout = 2
+    timeout = 3

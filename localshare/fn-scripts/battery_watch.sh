@@ -3,18 +3,24 @@ LEVEL_LOW=20
 LEVEL_CRITICAL=10
 DELAY=120
 
-if [ $# = 0 ]; then
+if [ $# != 0 ]; then
+  echo This script will automatically choose first power supply containing \'bat\'
+  echo in /sys/class/power_supply.
+  echo
   echo Current values: low=$LEVEL_LOW% critical=$LEVEL_CRITICAL% delay=$DELAY
-  echo Usage: "$0" '<DEVICE>'
-  echo e.g. for /sys/class/power_supply/BAT1, device is BAT1.
+  echo
+  echo Usage: "$0"
   exit 1
 fi
 
 LOCK_LOW='/tmp/lowbatlock'
 LOCK_CRITICAL='/tmp/criticalbatlock'
 
+battery=$(find /sys/class/power_supply -maxdepth 1 | grep -i 'bat' | head -1)
+echo watching battery: "$battery"
+
 while true; do
-  if ! CHARGE=$(cat /sys/class/power_supply/"$1"/capacity); then
+  if ! CHARGE=$(cat "$battery"/capacity); then
     exit 1
   fi
 

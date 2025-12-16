@@ -3,4 +3,6 @@ set selection-notification false
 set scroll-step 50
 set scroll-hstep 50
 
+set recolor-keephue true
+
 include colors.rc

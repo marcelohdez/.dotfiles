@@ -24,8 +24,8 @@ You should now be able to switch to `zsh`:
 chsh -s $(which zsh)
 ```
 
-I use the Chrome flatpak, to make this seamless I make a `google-chrome` script in
-`/usr/local/bin/` with the following:
+I use the Chrome flatpak, to make this seamless I make a `google-chrome` script
+in `/usr/local/bin/` with the following:
 
 ```bash
 #!/bin/sh
@@ -44,7 +44,7 @@ flatpak run com.google.Chrome \
 Then, some extras like [hyprlock], [hypridle], [dim], [bemoji], and
 [JetBrainsMono Nerd Font] must be installed manually. Additionally, [hyprpicker]
 is supported by my color picker script, so if installed it will use that
-instead of Niri's built-in.
+instead of Niri's built-in one.
 
 Run `./init.sh`. Assuming a clean install this should place any files and
 scripts where they go. You should log out and log back in to be in `zsh`.
@@ -60,8 +60,9 @@ configurations.
   `system-config-printer` to graphically manage them. Additional drivers are
   available such as `gutenprint-cups` for e.g. Canon printers, see
   [Printer drivers](https://wiki.archlinux.org/title/CUPS#Printer_drivers)
-- Wallpapers are put in `~/Wallpapers/<light|dark>/name.*`. See
-  [the script](./localshare/both-modes.d/accent_color.sh).
+- Wallpapers are put in `~/Wallpapers/<light|dark>/name-accent.*`. The final
+  dash separated part of the name will be considered an accent color to use!
+  See [the script](./localshare/both-modes.d/accent_color.sh).
 
 [hyprlock]: https://github.com/hyprwm/hyprlock
 [hypridle]: https://github.com/hyprwm/hypridle

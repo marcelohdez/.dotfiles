@@ -82,9 +82,13 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 300
 echo
 echo ===========
 read -rp "Enable darkman? (y/N): " choice
-
 if [ "$choice" = 'y' ]; then
   systemctl enable --now --user darkman
+fi
+
+read -rp "Enable hypridle? (y/N): " choice
+if [ "$choice" = 'y' ]; then
+  systemctl enable --now --user hypridle
 fi
 
 echo

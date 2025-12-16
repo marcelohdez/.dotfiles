@@ -7,8 +7,7 @@
 
 * {
   all: unset;
-  font-family: AdwaitaSans, JetBrainsMonoNerdFontPropo;
-  font-weight: bold;
+  font-family: JetBrainsMonoNerdFontPropo;
   transition: all 80ms ease-out;
 }
 
@@ -20,14 +19,17 @@ window#waybar {
 
 menu,
 tooltip {
-  background-color: @base0;
+  background-color: alpha(@base0, 0.99);
   color: @text;
   border: 1px solid @base2;
   padding: 4px;
 }
 
-menuitem,
 tooltip label {
+  padding: 3px 6px;
+}
+
+menuitem {
   padding: 6px 12px;
 }
 
@@ -52,54 +54,55 @@ menuitem:hover {
   background: alpha(@base3, 0.5);
 }
 
-#custom-search,
+#custom-lock,
 #custom-suspend,
 #custom-reboot,
 #custom-power,
-#custom-lock,
 #custom-logout,
 #clock,
 #custom-dnd,
 #workspaces,
 #workspaces button,
 #mpris,
-#power-profiles-daemon,
 #tray,
+#power-profiles-daemon,
+#custom-dark-mode,
+#custom-gammastep,
+#custom-toggles-arrow,
 #scratchpad,
 #privacy,
 #privacy-item,
 #idle_inhibitor,
 #upower,
-#wireplumber,
+#pulseaudio,
 #bluetooth,
 #network {
   color: @text;
-  padding: 2px 10px;
-  margin: 4px 0px;
-  border-radius: 8px;
+  padding: 2px 8px;
 }
 
 /** Hover fx */
-#custom-search:hover,
+#custom-lock:hover,
 #custom-suspend:hover,
 #custom-reboot:hover,
 #custom-power:hover,
-#custom-lock:hover,
 #custom-logout:hover,
 #not:hover,
 #clock:hover,
 #custom-dnd:hover,
 #workspaces button:hover,
 #mpris:hover,
-#power-profiles-daemon:hover,
 #tray:hover,
+#power-profiles-daemon:hover,
+#custom-dark-mode:hover,
+#custom-gammastep:hover,
 #scratchpad:hover,
 #idle_inhibitor:hover,
 #upower:hover,
-#wireplumber:hover,
+#pulseaudio:hover,
 #bluetooth:hover,
 #network:hover {
-  background-color: alpha(@base3, 0.5);
+  background-color: alpha(@base3, 0.3);
 }
 
 /**
@@ -107,6 +110,7 @@ menuitem:hover {
 **/
 #workspaces button.focused {
   background: alpha(@base3, 0.5);
+  box-shadow: inset 0 -2px #efefef;
   color: @text;
 }
 
@@ -114,7 +118,7 @@ menuitem:hover {
  * dim text
 **/
 #workspaces button,
-#wireplumber.muted,
+#pulseaudio.muted,
 #bluetooth.disabled,
 #bluetooth.off,
 #network.disabled,
@@ -135,28 +139,31 @@ menuitem:hover {
 }
 
 /**
- * Things with background
- */
-#workspaces {
-  background: alpha(@base2, 0.4);
-}
-
-/**
  * modules-left
 **/
 #group-power {
   margin-left: 8px;
-  margin-right: 4px;
 }
 
 #custom-logout {
   padding-right: 8px;
 }
 
+#workspaces {
+  background: alpha(@base2, 0.4);
+}
+
 #workspaces button {
-  border-radius: 8px;
   margin: 0;
   padding: 0px 12px;
+}
+
+#workspaces button:hover {
+  padding: 0px 16px;
+}
+
+#privacy {
+  margin-left: 4px;
 }
 
 #workspaces,
@@ -165,28 +172,14 @@ menuitem:hover {
 }
 
 #idle_inhibitor.activated {
-  background: #15539e;
+  background: #b57433;
   color: white;
-}
-
-#idle_inhibitor,
-#custom-dnd,
-#privacy {
-  margin-left: 3px;
 }
 
 #custom-dnd {
   background-color: #9e33ee;
-  padding-right: 14px;
-}
-
-#privacy-item {
-  padding: 0px 4px;
-}
-
-#privacy-item {
-  margin: 0;
-  padding: 0px 10px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /**

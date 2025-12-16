@@ -1,6 +1,9 @@
 #!/bin/sh
 if [ $# != 3 ]; then
-  echo Usage: "$0" APP THEME EXTENSION
+  echo Usage:
+  echo "  $0" APP THEME EXTENSION
+  echo Example:
+  echo "  $0" foot light ini
   exit
 fi
 

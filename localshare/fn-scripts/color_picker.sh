@@ -3,7 +3,7 @@ TMP_DIR="/tmp/pickedcolor.jpg"
 ICON=" "
 
 using_niri=0
-if ! color=$(hyprpicker -a); then
+if ! color=$(hyprpicker -al); then
   if ! color=$(niri msg pick-color); then
     exit 1
   fi

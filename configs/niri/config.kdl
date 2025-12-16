@@ -11,7 +11,8 @@ input {
         // For more information, see xkeyboard-config(7).
         xkb {
             layout "us"
-            options "altwin:swap_alt_win"
+            variant "altgr-intl"
+            options "altwin:swap_lalt_lwin"
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -27,12 +28,10 @@ input {
         // off
         tap
         drag false
+        click-method "clickfinger"
         natural-scroll
-        accel-speed 0.25
-    }
-
-    mouse {
-        // accel-speed 0.2
+        accel-speed 0.15
+        scroll-factor 0.15
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -54,6 +53,7 @@ layout {
     // Set gaps around windows in logical pixels.
     gaps 8
 
+    background-color "transparent"
     center-focused-column "never"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
@@ -66,21 +66,20 @@ layout {
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
 
-    // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
 
-    // You can change how the focus ring looks.
     focus-ring {
-        off
+      width 2
+    }
 
-        // i3-like
-        width 2
-        active-color "#285577"
+    tab-indicator {
+      place-within-column
+      inactive-color "#2f2f2f"
     }
 
     // You can enable drop shadows for windows.
     shadow {
-        //on
+        on
     }
 }
 
@@ -88,27 +87,26 @@ animations {
   slowdown 0.7
 
   window-open {
-    duration-ms 0
+    off
+  }
+  window-close {
+    off
   }
 }
 
+prefer-no-csd
+
 // permanent startup items, for temp ones use xdg autostart
+// hypridle handled by systemd
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "~/.local/share/fn-scripts/reload_bar.sh"
-spawn-at-startup "~/.local/share/fn-scripts/battery_watch.sh" "BAT1"
+spawn-at-startup "~/.local/share/fn-scripts/battery_watch.sh"
 spawn-at-startup "kanshi"           // monitor configs
-spawn-at-startup "hypridle"         // lock when idle
 spawn-at-startup "gammastep"        // nightl light
 spawn-at-startup "trash-empty" "7"  // empty trash after 7 days
 
 // set up theme
 spawn-at-startup "bash" "-c" "pgrep darkman && systemctl --user restart darkman || ~/.local/share/fn-scripts/theme_setup.sh"
-
-// xwayland support
-spawn-at-startup "xwayland-satellite"
-environment {
-  DISPLAY ":0"
-}
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -124,7 +122,7 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id="qalculate"
     match app-id="org.gnome.Loupe"
-    match app-id="org.gnome.Ptyxis" title="float"
+    match app-id="foot" title="float"
     open-floating true
 }
 
@@ -133,18 +131,15 @@ window-rule {
   match app-id="blueman-manager"
   match app-id="pavucontrol"
   open-floating true
-  default-floating-position x=0 y=0 relative-to="bottom-right"
+  default-floating-position x=0 y=0 relative-to="top-right"
+
+  max-width 600
+  max-height 700
 }
 
-// round the corners these windows
 window-rule {
-  match app-id="foot"
-  geometry-corner-radius 12
+  //geometry-corner-radius 14
   clip-to-geometry true
-
-  shadow {
-    on
-  }
 }
 
 layer-rule {
@@ -152,8 +147,6 @@ layer-rule {
 
   shadow {
     on
-    color "#0b0b0b47"
-    spread 1
     draw-behind-window true
   }
 }
@@ -164,8 +157,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // programs
-    Mod+T hotkey-overlay-title="Terminal" { spawn "ptyxis" "--new-window"; }
-    Mod+Shift+T { spawn "ptyxis" "--new-window" "-T" "float"; }
+    Mod+T hotkey-overlay-title="Terminal" { spawn "foot"; }
+    Mod+Shift+T { spawn "foot" "-T" "float"; }
     Mod+Space hotkey-overlay-title="App Launcher" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Calculator" { spawn "qalculate-gtk"; }
     Mod+F hotkey-overlay-title="New Browser Window" { spawn "google-chrome"; }
@@ -193,7 +186,10 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true cooldown-ms=100 { spawn "~/.local/share/fn-scripts/brightness_change.sh" "+"; }
 
     // Toggle do not disturb
-    Mod+Shift+D hotkey-overlay-title="Toggle do not disturb" { spawn "~/.local/share/fn-scripts/dnd-mode.sh" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Toggle do not disturb" { spawn "~/.local/share/fn-scripts/dnd-mode.sh" "toggle"; }
+
+    // clear notifications
+    Mod+N hotkey-overlay-title="Clear dunst notifications" { spawn "dunstctl" "close-all"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -203,10 +199,6 @@ binds {
     Mod+Q { close-window; }
 
     // focus movement
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
@@ -342,8 +334,9 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+W { maximize-column; }
+    Mod+W { maximize-window-to-edges; }
     Mod+Shift+W { fullscreen-window; }
+    Mod+Ctrl+W { toggle-windowed-fullscreen; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -413,11 +406,23 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+overview {
+  zoom 0.7
+}
+
 hotkey-overlay {
   skip-at-startup
 }
 
-debug {
-  honor-xdg-activation-with-invalid-serial
-  //deactivate-unfocused-windows
+cursor {
+  xcursor-theme "Adwaita"
+  xcursor-size 24
 }
+
+debug {
+  enable-overlay-planes
+  honor-xdg-activation-with-invalid-serial
+  deactivate-unfocused-windows
+}
+
+include "colors.kdl"

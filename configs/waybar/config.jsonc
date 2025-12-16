@@ -1,22 +1,22 @@
 {
   "spacing": 0,
   "layer": "top",
-  "position": "bottom",
+  "position": "top",
   "modules-left": [
     "group/group-power",
     "niri/workspaces",
     "idle_inhibitor",
-    "custom/dnd",
     "privacy"
   ],
   "modules-center": ["mpris"],
   "modules-right": [
-    "power-profiles-daemon",
     "tray",
-    "wireplumber",
+    "group/group-toggles",
+    "pulseaudio",
     "bluetooth",
     "network",
     "upower",
+    "custom/dnd",
     "clock"
   ],
   "group/group-power": {
@@ -26,21 +26,20 @@
       "children-class": "not-power"
     },
     "modules": [
-      "custom/search",
+      "custom/lock",
       "custom/suspend",
       "custom/reboot",
       "custom/power",
-      "custom/lock",
       "custom/logout"
     ]
   },
-  "custom/search": {
-    "format": "󰍉",
-    "tooltip-format": "App menu",
-    "on-click": "~/.config/waybar/scripts/toggle.sh fuzzel -a bottom-left -r 0"
+  "custom/lock": {
+    "format": "",
+    "tooltip-format": "Lock",
+    "on-click": "loginctl lock-session"
   },
   "custom/suspend": {
-    "format": "󰏦",
+    "format": "",
     "tooltip-format": "Suspend",
     "on-click": "loginctl lock-session && systemctl suspend"
   },
@@ -54,11 +53,6 @@
     "tooltip-format": "Power off",
     "on-click": "~/.local/share/fn-scripts/action_notif.sh 'Power off' 'Shutting down' 'shutdown now'"
   },
-  "custom/lock": {
-    "format": "󰍁",
-    "tooltip-format": "Lock",
-    "on-click": "loginctl lock-session"
-  },
   "custom/logout": {
     "format": "󰍃",
     "tooltip-format": "Log out",
@@ -67,20 +61,11 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "󰒳",
-      "deactivated": "󰒲"
+      "activated": "󰅶",
+      "deactivated": "󰾪"
     },
-    "tooltip-format-activated": "System will not sleep automatically",
-    "tooltip-format-deactivated": "System may sleep automatically"
-  },
-  "custom/dnd": {
-    "format": "{icon}",
-    "format-icons": ["", "󰂛"],
-    "exec": "~/.local/share/fn-scripts/dnd-mode.sh get",
-    "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
-    "return-type": "json",
-    "interval": "once",
-    "signal": 1
+    "tooltip-format-activated": "Auto-suspend: off",
+    "tooltip-format-deactivated": "Auto-suspend: on"
   },
   "privacy": {
     "icon-size": 15,
@@ -90,27 +75,64 @@
     ]
   },
   "mpris": {
-    "format": "{status_icon}  {title}",
-    "tooltip-format": "󰝚  {title}\n󰀄  {artist}\n(Playing on {player})",
+    "format": "{status_icon} {title}",
+    "tooltip-format": "󰝚 {title}\n󰀄 {artist}\n(Playing on {player})",
     "status-icons": { "playing": "󰏤", "paused": "󰐊" },
     "max-length": 40
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 22
+  },
+  "group/group-toggles": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 100,
+      "transition-left-to-right": false,
+      "children-class": "not-toggles"
+    },
+    "modules": [
+      "custom/toggles-arrow",
+      "power-profiles-daemon",
+      "custom/dark-mode",
+      "custom/gammastep"
+    ]
+  },
+  "custom/toggles-arrow": {
+    "format": "",
+    "tooltip-format": "Toggles"
   },
   "power-profiles-daemon": {
     "format-icons": {
       "power-saver": "󰌪",
+      "balanced": "󰗑",
       "performance": "󰓅"
     }
   },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 24
+  "custom/dark-mode": {
+    "format": "{icon}",
+    "format-icons": ["", ""],
+    "exec": "~/.local/share/fn-scripts/dark-mode.sh track",
+    "on-click": "~/.local/share/fn-scripts/dark-mode.sh toggle",
+    "return-type": "json"
   },
-  "wireplumber": {
+  "custom/gammastep": {
+    "format": "{icon}",
+    "format-icons": ["󱩍", "󱩌"],
+    "exec-if": "which gammastep",
+    "exec": "~/.config/waybar/scripts/gammastep.sh",
+    "signal": 2,
+    "on-click": "pkill -SIGUSR1 gammastep",
+    "return-type": "json"
+  },
+  "pulseaudio": {
     "format-icons": ["󰕿", "󰖀", "󰕾"],
     "format": "{icon}",
-    "tooltip-format": "{node_name}, {volume}%",
+    "tooltip-format": "{desc} {volume}%",
     "format-muted": "󰝟",
-    "on-click": "~/.config/waybar/scripts/toggle.sh pavucontrol -t 3"
+    "on-click": "~/.config/waybar/scripts/toggle.sh pavucontrol -t 3",
+    "on-click-right": "~/.local/share/fn-scripts/vol_mute.sh toggle",
+    "scroll-step": 5
   },
   "bluetooth": {
     "format-on": "󰂯",
@@ -118,31 +140,41 @@
     "format-connected": "󰂱",
     "format-disabled": "󰂲",
     "tooltip-format": "{status}",
-    "tooltip-format-connected-battery": "{device_alias}  󰁾  {device_battery_percentage}%",
+    "tooltip-format-connected-battery": "{device_alias} 󰁾 {device_battery_percentage}%",
     "on-click": "~/.config/waybar/scripts/toggle.sh blueman-manager"
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-ethernet": "",
+    "format-linked": "󰤤",
     "format-disconnected": "󰤮",
     "format-disabled": "󰤫",
-    "tooltip-format": "{essid}",
-    "on-click": "XDG_CURRENT_DESKTOP=gnome gnome-control-center wifi"
+    "tooltip-format-linked": "{ifname}",
+    "tooltip-format": "{essid}"
   },
   "upower": {
-    "format": "  {percentage}",
-    "format-alt": "  {time} | {percentage}",
+    "format": " {percentage}",
+    "format-alt": " {percentage} ({time})",
     "icon-size": 13
   },
+  "custom/dnd": {
+    "format": "{icon}",
+    "format-icons": ["", "󰂛"],
+    "exec-if": "which dunstctl",
+    "exec": "~/.local/share/fn-scripts/dnd-mode.sh get",
+    "on-click": "~/.local/share/fn-scripts/dnd-mode.sh toggle",
+    "signal": 1,
+    "return-type": "json"
+  },
   "clock": {
-    "format": "{:%a %d %b %I:%M %p}",
+    "format": "{:%d %b %I:%M %p}",
     "calendar": {
       "format": {
         "today": "<b><u>{}</u></b>"
       }
     },
     "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click": "dunstctl history-pop"
+    "on-click": "swaync-client -t"
   }
 }

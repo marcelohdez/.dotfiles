@@ -22,16 +22,18 @@ if [ "$XDG_CURRENT_DESKTOP" != "GNOME" ]; then
   old_pid=$(pgrep swaybg)
   swaybg -o\* -m fill -i "$IMAGE" &
 
-  if [ -n "$old_pid" ]; then
-    sleep 0.5
-    kill "$old_pid"
-  fi
+  for pid in $old_pid; do
+    if [ -n "$pid" ]; then
+      sleep 0.5
+      kill "$pid"
+    fi
+  done
 
   # move wallpaper for lockscreen use
   rm "/tmp/wallpaper"
   cp "$IMAGE" "/tmp/wallpaper"
 fi
 
-# set accent color
-#color=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
-#~/.local/share/both-modes.d/accent_color.sh "$MODE" "$color"
+# attempt to set accent color
+color=$(basename "$IMAGE" | awk -F- '{print $NF}' | cut -d. -f1)
+~/.local/share/both-modes.d/accent_color.sh "$MODE" "$color"

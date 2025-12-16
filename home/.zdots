@@ -27,11 +27,6 @@ bindkey "^[[1;5D" backward-word
 bindkey "^H"    backward-kill-word
 bindkey "7;5u"  backward-kill-word # in neovim too
 
-## Aliases
-alias ls='ls -lh --color=auto'
-alias rm=trash
-alias vim='nvim --clean'
-
 ## Funcs
 fullup() {
 	echo "<===== Flatpak =====>"
@@ -64,19 +59,7 @@ reloadwall() {
 }
 
 theme() {
-	if [ $# != 1 ]; then
-		echo "Usage: $0 <light|dark>"
-		return
-	fi
-
-  if pgrep darkman &>/dev/null && [ "$(darkman get)" != "$1" ]; then
-    darkman set "$1";
-    return
-  fi
-
-  for f in $(find ~/.local/share/"$1"-mode.d/ -name \*.sh); do
-		"$f"
-	done
+  ~/.local/share/fn-scripts/dark-mode.sh "$1"
 }
 
 sv() {

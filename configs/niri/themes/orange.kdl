@@ -1,0 +1,9 @@
+layout {
+  focus-ring {
+    active-color "#774444"
+  }
+
+  tab-indicator {
+    active-color "#995544"
+  }
+}

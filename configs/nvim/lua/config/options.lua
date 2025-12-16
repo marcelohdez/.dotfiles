@@ -4,7 +4,9 @@ local opt = vim.opt
 
 opt.ruler = true
 
--- lower scrolloff margin
+vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
+
+-- lower scrolloff margins
 opt.scrolloff = 2
 opt.sidescrolloff = 4
 
