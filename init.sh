@@ -81,14 +81,15 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 300
 
 echo
 echo ===========
-read -rp "Enable darkman? (y/N): " choice
+read -rp "Enable auto light/dark mode? (y/N): " choice
 if [ "$choice" = 'y' ]; then
   systemctl enable --now --user darkman
 fi
 
-read -rp "Enable hypridle? (y/N): " choice
+read -rp "Enable systemd services waybar and hypridle? (y/N): " choice
 if [ "$choice" = 'y' ]; then
   systemctl enable --now --user hypridle
+  systemctl enable --now --user waybar
 fi
 
 echo

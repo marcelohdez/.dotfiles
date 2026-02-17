@@ -30,7 +30,7 @@
                 },
                 "band1": {
                     "frequency": 350.0,
-                    "gain": -14.0,
+                    "gain": -11.49,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 6.0,
@@ -63,7 +63,7 @@
                 },
                 "band4": {
                     "frequency": 12000.0,
-                    "gain": 1.75,
+                    "gain": 1.84,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.17,
@@ -92,7 +92,7 @@
                 },
                 "band1": {
                     "frequency": 350.0,
-                    "gain": -14.0,
+                    "gain": -11.49,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 6.0,
@@ -125,7 +125,7 @@
                 },
                 "band4": {
                     "frequency": 12000.0,
-                    "gain": 1.75,
+                    "gain": 1.84,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.17,
@@ -283,7 +283,7 @@
                 "stereo-split-source": "Left/Right"
             },
             "band4": {
-                "attack-threshold": -24.0,
+                "attack-threshold": -28.0,
                 "attack-time": 20.0,
                 "boost-amount": 6.0,
                 "boost-threshold": -72.0,

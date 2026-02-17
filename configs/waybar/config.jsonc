@@ -26,12 +26,17 @@
       "children-class": "not-power"
     },
     "modules": [
+      "custom/power-logo",
       "custom/lock",
       "custom/suspend",
       "custom/reboot",
       "custom/power",
       "custom/logout"
     ]
+  },
+  "custom/power-logo": {
+    "format": "󰣛",
+    "tooltip-format": "Power menu"
   },
   "custom/lock": {
     "format": "",
@@ -168,13 +173,14 @@
     "return-type": "json"
   },
   "clock": {
-    "format": "{:%d %b %I:%M %p}",
+    "format": "{:%a %d %b %I:%M %p}",
     "calendar": {
       "format": {
         "today": "<b><u>{}</u></b>"
       }
     },
     "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click": "swaync-client -t"
+    "on-click": "dunstctl history-pop",
+    "on-click-right": "gnome-calendar"
   }
 }

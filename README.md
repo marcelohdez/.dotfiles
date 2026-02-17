@@ -41,8 +41,9 @@ flatpak run com.google.Chrome \
 > The `password-store` argument makes passwords stay even while not in GNOME, and
 > the other is for back/forward gestures on touch pads.
 
-Then, some extras like [hyprlock], [hypridle], [dim], [bemoji], and
-[JetBrainsMono Nerd Font] must be installed manually. Additionally, [hyprpicker]
+Then, some extras like [hyprlock], [hypridle], [dim], [bemoji], and the
+Adwaita Mono and JetBrains Mono [nerd fonts] must be installed manually.
+Additionally, [hyprpicker]
 is supported by my color picker script, so if installed it will use that
 instead of Niri's built-in one.
 
@@ -68,5 +69,5 @@ configurations.
 [hypridle]: https://github.com/hyprwm/hypridle
 [dim]: https://github.com/marcelohdez/dim
 [bemoji]: https://github.com/marty-oehme/bemoji
-[JetBrainsMono Nerd Font]: https://github.com/marcelohdez/dim
+[nerd fonts]: https://www.nerdfonts.com/font-downloads
 [hyprpicker]: https://github.com/hyprwm/hyprpicker

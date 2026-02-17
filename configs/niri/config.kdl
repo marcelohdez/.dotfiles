@@ -31,7 +31,6 @@ input {
         click-method "clickfinger"
         natural-scroll
         accel-speed 0.15
-        scroll-factor 0.15
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -94,12 +93,11 @@ animations {
   }
 }
 
-prefer-no-csd
+//prefer-no-csd
 
 // permanent startup items, for temp ones use xdg autostart
-// hypridle handled by systemd
+// waybar and hypridle handled by systemd
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
-spawn-at-startup "~/.local/share/fn-scripts/reload_bar.sh"
 spawn-at-startup "~/.local/share/fn-scripts/battery_watch.sh"
 spawn-at-startup "kanshi"           // monitor configs
 spawn-at-startup "gammastep"        // nightl light
@@ -138,7 +136,7 @@ window-rule {
 }
 
 window-rule {
-  //geometry-corner-radius 14
+  geometry-corner-radius 14
   clip-to-geometry true
 }
 
@@ -166,7 +164,7 @@ binds {
     Mod+Period hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "-t"; }
     Mod+B hotkey-overlay-title="Files" { spawn "nautilus"; }
 
-    Mod+Y hotkey-overlay-title="Reload Bar" { spawn "~/.local/share/fn-scripts/reload_bar.sh"; }
+    Mod+Y hotkey-overlay-title="Reload Bar" { spawn "systemctl" "restart" "--user" "waybar"; }
     Mod+C hotkey-overlay-title="Pick color" { spawn "~/.local/share/fn-scripts/color_picker.sh"; }
 
     /// Quick function keys ///

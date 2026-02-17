@@ -1,6 +1,7 @@
 return {
 	{
 		"stevearc/oil.nvim",
+		lazy = false,
 		opts = {
 			lsp_file_methods = {
 				autosave_changes = "unmodified",
