@@ -75,10 +75,6 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lw
 echo some touchpad stuffs...
 gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
 
-echo faster key repeats...
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
-gsettings set org.gnome.desktop.peripherals.keyboard delay 300
-
 echo
 echo ===========
 read -rp "Enable auto light/dark mode? (y/N): " choice

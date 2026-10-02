@@ -12,5 +12,5 @@ configs/lazygit/state.yml
 home/.zshrc
 
 # only keep my preset
-configs/easyeffects/
-!configs/easyeffects/output/marcysfwpreset.json
+localshare/easyeffects/*/*
+!localshare/easyeffects/output/marcysfwpreset.json

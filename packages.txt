@@ -31,7 +31,6 @@ playerctl
 pulseaudio-utils
 qalculate-gtk
 ripgrep
-screen
 slurp
 stow
 tmux

@@ -1,5 +1,19 @@
 return {
-	{ "LazyVim/LazyVim", opts = { colorscheme = "lunaperche" } },
+	"ellisonleao/gruvbox.nvim",
+	{ "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
+
+	{
+		"ibhagwan/fzf-lua",
+		opts = {
+			winopts = {
+				fullscreen = true,
+				border = "single",
+				preview = {
+					border = "single",
+				},
+			},
+		},
+	},
 
 	{
 		"folke/snacks.nvim",
